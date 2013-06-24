@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2B4AEDD-0B54-47EA-A919-7D1958A8D79A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Keyboard, Version=11.2.0.3, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=11.2.0.3, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=11.2.0.3, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.Instrumentation, Version=11.2.0.3, Culture=neutral, PublicKeyToken=f90dc37c26666a67" />
+    <Reference Include="DevComponents.TreeGX, Version=11.2.0.3, Culture=neutral, PublicKeyToken=055db68f670cfeab, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms.Ribbon35">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\System.Windows.Forms.Ribbon35.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaoCao\frm_ListBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao\frm_ListBill.Designer.cs">
+      <DependentUpon>frm_ListBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\frm_ConfirmBillFollowStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao\frm_ConfirmBillFollowStaff.Designer.cs">
+      <DependentUpon>frm_ConfirmBillFollowStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\frm_RevenueReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao\frm_RevenueReport.Designer.cs">
+      <DependentUpon>frm_RevenueReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\frm_CreatedBillFollowStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao\frm_CreatedBillFollowStaff.Designer.cs">
+      <DependentUpon>frm_CreatedBillFollowStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\frm_ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\frm_ChangePassword.Designer.cs">
+      <DependentUpon>frm_ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\frm_Config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\frm_Config.Designer.cs">
+      <DependentUpon>frm_Config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MainForm.Designer.cs">
+      <DependentUpon>frm_MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_Authorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_Authorization.Designer.cs">
+      <DependentUpon>frm_Authorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanTriHeThong\frm_Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_Service.Designer.cs">
+      <DependentUpon>frm_Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_TypeDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_TypeDepartment.Designer.cs">
+      <DependentUpon>frm_TypeDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_User.Designer.cs">
+      <DependentUpon>frm_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_TypeService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_TypeService.Designer.cs">
+      <DependentUpon>frm_TypeService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_GroupUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_GroupUser.Designer.cs">
+      <DependentUpon>frm_GroupUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_Department.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_Department.Designer.cs">
+      <DependentUpon>frm_Department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_District.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_District.Designer.cs">
+      <DependentUpon>frm_District.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_City.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_City.Designer.cs">
+      <DependentUpon>frm_City.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThuNgan\frm_Cashier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThuNgan\frm_Cashier.Designer.cs">
+      <DependentUpon>frm_Cashier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThuNgan\frm_InputData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThuNgan\frm_InputData.Designer.cs">
+      <DependentUpon>frm_InputData.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaoCao\frm_ConfirmBillFollowStaff.resx">
+      <DependentUpon>frm_ConfirmBillFollowStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\frm_ListBill.resx">
+      <DependentUpon>frm_ListBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\frm_RevenueReport.resx">
+      <DependentUpon>frm_RevenueReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\frm_CreatedBillFollowStaff.resx">
+      <DependentUpon>frm_CreatedBillFollowStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\frm_ChangePassword.resx">
+      <DependentUpon>frm_ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\frm_Config.resx">
+      <DependentUpon>frm_Config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MainForm.resx">
+      <DependentUpon>frm_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_Authorization.resx">
+      <DependentUpon>frm_Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QuanTriHeThong\frm_Service.resx">
+      <DependentUpon>frm_Service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_TypeDepartment.resx">
+      <DependentUpon>frm_TypeDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_User.resx">
+      <DependentUpon>frm_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_TypeService.resx">
+      <DependentUpon>frm_TypeService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_GroupUser.resx">
+      <DependentUpon>frm_GroupUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_Department.resx">
+      <DependentUpon>frm_Department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_District.resx">
+      <DependentUpon>frm_District.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_City.resx">
+      <DependentUpon>frm_City.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThuNgan\frm_Cashier.resx">
+      <DependentUpon>frm_Cashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThuNgan\frm_InputData.resx">
+      <DependentUpon>frm_InputData.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Executive-Green-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangePass1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baocaodanhsach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\City.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\district.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371102844_Company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371102906_torredepisa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371102972_people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371103135_companies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apartment-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371103794_hospital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-Red-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adduser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edituser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371105296_preferences-desktop-cryptography.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Network-Service-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Service-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371105709_nurse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1371107941_stethoscope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-list-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Groups-Meeting-Light-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-Information-Management-System-HIMS.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keys-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tooltip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medical-report-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SEO-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\House-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inputdata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cashier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bieudo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewdoanhthu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GroupUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TinhThanh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuanHuyen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nhomdichvu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dichvu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phongban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loaiphongban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baocaodoanhthu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_Data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{469FEB86-D37C-4AE5-BEB1-9A99E23DA58B}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DA\DA.csproj">
+      <Project>{A72C8980-58BA-453B-8081-D32C58752266}</Project>
+      <Name>DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DO\DO.csproj">
+      <Project>{B0B17ADB-E139-4AD0-B8AB-E6C29E27005B}</Project>
+      <Name>DO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backround2.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
