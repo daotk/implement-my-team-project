@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8d4447f6fb824afb849f11d004137766" Name="Diagram1">
+        <EntityTypeShape EntityType="EHealthSystemModel.Bill_Info" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.City_Info" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Department_Info" Width="1.5" PointX="10" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.DepartmentType_Info" Width="1.5" PointX="7.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.DetailBill_Info" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.District_Info" Width="1.5" PointX="8" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Patient_Info" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Service_Info" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.ServiceGroup_Info" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.sysdiagram" Width="1.5" PointX="5.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.User_Info" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.UserType_Info" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_Patient_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_User_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_DetailBill_Info_Bill_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_District_Info_City_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_Department_Info_DepartmentType_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_DetailBill_Info_Service_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_Service_Info_ServiceGroup_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="EHealthSystemModel.FK_User_Info_UserType_Info" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

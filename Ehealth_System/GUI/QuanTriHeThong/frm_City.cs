@@ -36,7 +36,9 @@ namespace GUI.QuanTriHeThong
             btn_Luu.Visible = enable;
             btn_Huy.Visible = enable;
         }
-        private void btnThem_Click(object sender, EventArgs e)
+      
+
+        private void btn_ThemMoi_Click(object sender, EventArgs e)
         {
             enablebtn(true);
             enableText(true);
@@ -49,16 +51,15 @@ namespace GUI.QuanTriHeThong
             grd_ThanhPho.DataSource = city.GetAllCity();
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btn_ChinhSua_Click(object sender, EventArgs e)
         {
             enablebtn(true);
             enableText(true);
             flag_sua = true;
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void btn_Luu_Click(object sender, EventArgs e)
         {
-
             if (flag_them == true)
             {
                 CityBL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
@@ -69,7 +70,7 @@ namespace GUI.QuanTriHeThong
             }
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btn_Huy_Click(object sender, EventArgs e)
         {
             enableText(false);
             enablebtn(false);
@@ -85,8 +86,6 @@ namespace GUI.QuanTriHeThong
             grd_ThanhPho.DataSource = city.GetAllCity();
 
         }
-
-
 
 
 
