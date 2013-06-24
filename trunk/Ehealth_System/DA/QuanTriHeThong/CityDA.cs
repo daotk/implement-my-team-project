@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.Entity;
 using System.Data.Objects;
 using DO.QuanTriHeThong;
+using DO;
 namespace DA.QuanTriHeThong
 {
     public class CityDA
@@ -33,12 +34,12 @@ namespace DA.QuanTriHeThong
 
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
             {
-                City_Info city = new City_Info();
+                Entity.City_Info city = new Entity.City_Info();
                 city.CITYID = ID;
                 city.CITYNAME = name;
                 city.DESCRIPTIONCITY = desscription;
                 city.STATUSCITY = status;
-                entity.City_Info.Add(city);
+                entity.City_Info.AddObject(city); //bi loi
                 entity.SaveChanges();
 
             }
