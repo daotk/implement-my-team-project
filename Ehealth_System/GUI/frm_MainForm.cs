@@ -40,7 +40,7 @@ namespace GUI
         private void Main_Load(object sender, EventArgs e)
         {
             frm_Login login = new frm_Login();
-            lbl_UserName.Text = "Ngưởi dùng: " + login.username + "(Quản trị)";
+            lbl_UserName.Text = "Ngưởi dùng: " + BL.StaticClass.UserName + " ("+BL.StaticClass.GroupUser+")";
             lbl_NgayThang.Text ="Ngày tháng: "+ DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
             lbl_NgayGio.Text ="Giờ: "+ DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
             timer1.Start();
