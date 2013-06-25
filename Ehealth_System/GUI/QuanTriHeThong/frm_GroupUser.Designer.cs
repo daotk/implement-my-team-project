@@ -228,6 +228,7 @@
             this.txt_MoTa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_MoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MoTa.Location = new System.Drawing.Point(98, 206);
+            this.txt_MoTa.MaxLength = 400;
             this.txt_MoTa.Multiline = true;
             this.txt_MoTa.Name = "txt_MoTa";
             this.txt_MoTa.Size = new System.Drawing.Size(197, 131);
@@ -256,6 +257,7 @@
             this.txt_TenNhom.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_TenNhom.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenNhom.Location = new System.Drawing.Point(98, 164);
+            this.txt_TenNhom.MaxLength = 32;
             this.txt_TenNhom.Name = "txt_TenNhom";
             this.txt_TenNhom.Size = new System.Drawing.Size(197, 26);
             this.txt_TenNhom.TabIndex = 38;
@@ -283,6 +285,7 @@
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(98, 122);
+            this.txt_TenVietTat.MaxLength = 2;
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(197, 26);
             this.txt_TenVietTat.TabIndex = 36;
