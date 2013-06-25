@@ -26,5 +26,17 @@ namespace BL.QuanTriHeThong
             }
             return check;
         }
+
+        /// <summary>
+        /// tra ve ds user dang co trong database
+        /// </summary>
+        /// <returns></returns>
+        public static List<User_DO> GetAllUSer()
+        {
+
+            return DA.QuanTriHeThong.User_DA.GetAllUsers();
+        }
+
+
     }
 }
