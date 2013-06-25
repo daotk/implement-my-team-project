@@ -72,9 +72,9 @@
             this.lbl_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Username.Location = new System.Drawing.Point(48, 38);
             this.lbl_Username.Name = "lbl_Username";
-            this.lbl_Username.Size = new System.Drawing.Size(105, 23);
+            this.lbl_Username.Size = new System.Drawing.Size(118, 23);
             this.lbl_Username.TabIndex = 3;
-            this.lbl_Username.Text = "Mã nhân viên";
+            this.lbl_Username.Text = "Tên đăng nhập";
             // 
             // lbl_Password
             // 
@@ -117,7 +117,7 @@
             this.btn_Submit.Text = "Đăng nhập";
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
-            // Login
+            // frm_Login
             // 
             this.AcceptButton = this.btn_Submit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,7 +131,7 @@
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Submit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Login";
+            this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.ResumeLayout(false);

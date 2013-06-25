@@ -21,33 +21,24 @@ namespace GUI
         {
             string strUsername="";
             string strPassword="";
-            if (txt_UserName.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập tên tài khoản");
-            }
-            else
+            if (txt_UserName.Text != ""|| txt_Password.Text != "")
             {
                 strUsername = txt_UserName.Text;
-            }
-            if (txt_Password.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập mật khẩu");
-            }
-            else
-            {
                 strPassword = txt_Password.Text;
-            }
-
-            bool check = BL.QuanTriHeThong.User_BL.CheckLogin(strUsername,strPassword);
-            if (check == true)
+                BL.StaticClass.UserName = strUsername;
+                bool check = BL.QuanTriHeThong.User_BL.CheckLogin(strUsername,strPassword);
+                if (check == true)
+                {
+                    this.Close();
+                    Program.thread.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn đã nhập sai tên tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK);
+                }
+            }else
             {
-                MessageBox.Show("Đăng nhập thành công. Bạn sẽ quay về trang chính", "Thông báo", MessageBoxButtons.OK);
-                this.Close();
-                Program.thread.Start();
-            }
-            else
-            {
-                MessageBox.Show("Bạn đã nhập sai username hoặc password", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Bạn chưa nhập tên tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK);
             }
         }
 
