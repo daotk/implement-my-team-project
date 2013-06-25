@@ -34,7 +34,12 @@ namespace BL.QuanTriHeThong
             DA.QuanTriHeThong.UserGroup_DA.EditUserGroup(Tenviettat, Tennhom, Mota, Trangthai);
         }
         //End Edit user group
-        
+        //Check info user group
+        public static List<UserGroup_DO> CheckInfo()
+        {
+            return DA.QuanTriHeThong.UserGroup_DA.CheckInfo();
+        }
+        //End Check 
     }
 
 }
