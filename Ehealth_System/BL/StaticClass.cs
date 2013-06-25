@@ -5,7 +5,9 @@ using System.Text;
 
 namespace BL
 {
-    public class Class1
+    public class StaticClass
     {
+        public static string UserName;
+        public static string GroupUser;
     }
 }
