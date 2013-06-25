@@ -7,12 +7,15 @@ namespace DA.QuanTriHeThong
 {
     public class UserGroup_DA
     {
-        public static List<UserGroup_DO> GetAllUserGroup() {
+        //View list user group
+        public static List<UserGroup_DO> GetAllUserGroup()
+        {
             List<UserGroup_DO> dsusergroup = new List<UserGroup_DO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
                 var query = from u in dk.UserType_Info select u;
-                foreach (var row in query) {
+                foreach (var row in query)
+                {
                     UserGroup_DO us = new UserGroup_DO();
                     us.tenviettat_ = row.USERTYPEID;
                     us.tennhom_ = row.USERTYPENAME;
@@ -24,5 +27,64 @@ namespace DA.QuanTriHeThong
             }
             return dsusergroup;
         }
+        //Create user group
+        public static void CreateUserGroup(string tenviettats, string tennhoms, string motas
+            , bool trangthais)
+        {
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                Entity.UserType_Info user = new Entity.UserType_Info();
+                user.USERTYPEID = tenviettats;
+                user.USERTYPENAME = tennhoms;
+                user.DESCRIPTION = motas;
+                user.USERTYPESTATUS = trangthais;
+                dk.UserType_Info.AddObject(user);
+
+                dk.SaveChanges();
+            }
+        }
+        // End create user group
+        //Edit Information of User Group
+        
+        public static void EditUserGroup(string tenviettats, string tennhoms, string motas
+            , bool trangthais)
+        {
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = (from u in dk.UserType_Info
+                             where u.USERTYPEID == tenviettats
+                             select u).First();
+                query.USERTYPEID = tenviettats;
+                query.USERTYPENAME = tennhoms ;
+                query.DESCRIPTION = motas;
+                query.USERTYPESTATUS = trangthais;
+                
+
+                dk.SaveChanges();
+            }
+        }
+        //End Edit user group
+        
+        //Get info user group
+        public static List<UserGroup_DO> GetUserGroup(string tenviettats)
+        {
+            List<UserGroup_DO> dsusergroup = new List<UserGroup_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.UserType_Info where u.USERTYPEID == tenviettats select u;
+                foreach (var row in query)
+                {
+                    UserGroup_DO us = new UserGroup_DO();
+                    us.tenviettat_ = row.USERTYPEID;
+                    us.tennhom_ = row.USERTYPENAME;
+                    us.trangthai = row.USERTYPESTATUS;
+                    us.mota_ = row.DESCRIPTION;
+
+                    dsusergroup.Add(us);
+                }
+            }
+            return dsusergroup;
+        }
+        //End Get info user group
     }
 }
