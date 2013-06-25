@@ -11,11 +11,20 @@ namespace GUI
 {
     public partial class frm_Login : Form
     {
-        public  string username = "admin";
         public frm_Login()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frm_Login_Load(object sender, EventArgs e)
+        {
+            BL.QuanTriHeThong.User_BL.GetAllUSer();
+        }
+
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
@@ -41,6 +50,8 @@ namespace GUI
                 MessageBox.Show("Bạn chưa nhập tên tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK);
             }
         }
+
+       
 
     }
 }

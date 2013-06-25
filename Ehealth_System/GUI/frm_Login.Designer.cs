@@ -134,6 +134,7 @@
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.Load += new System.EventHandler(this.frm_Login_Load);
             this.ResumeLayout(false);
 
         }
