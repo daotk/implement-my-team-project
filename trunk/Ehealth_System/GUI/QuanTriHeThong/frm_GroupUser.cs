@@ -30,12 +30,42 @@ namespace GUI.QuanTriHeThong
 
         private void frm_GroupUser_Load(object sender, EventArgs e)
         {
-            grd_NhomnguoiDung.DataSource = BL.QuanTriHeThong.UserGroup_BL.GetAllUsserGroup();
-            //STT
-            for (int i = 0; i < grd_NhomnguoiDung.Rows.Count; i++) {
-                grd_NhomnguoiDung.Rows[i].Cells[0].Value = i + 1;
-            }
+            LoadGroupUser();
+            
+            
         }
+
+        private void LoadGroupUser()
+        {
+            grd_NhomnguoiDung.DataSource = BL.QuanTriHeThong.UserGroup_BL.GetAllUsserGroup();
+        }
+
+        private void btn_ThemMoi_Click(object sender, EventArgs e)
+        {
+            //Them moi nhom nguoi dung
+            BL.QuanTriHeThong.UserGroup_BL.CreateUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked );
+            MessageBox.Show("Create Successful");
+            //Load lai danh sach nhom nguoi dung
+            LoadGroupUser();
+        }
+
+        private void grd_NhomnguoiDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string ID = grd_NhomnguoiDung.CurrentRow.Cells[0].Value.ToString();
+            List<UserGroup_DO> dsuser = BL.QuanTriHeThong.UserGroup_BL.GetUserGroup(ID);
+            txt_TenVietTat.Text = dsuser[0].tenviettat_;
+            txt_TenNhom.Text = dsuser[0].tennhom_;
+            txt_MoTa.Text = dsuser[0].mota_;
+            chk_TrangThai.Checked = dsuser[0].trangthai;
+        }
+
+        private void btn_ChinhSua_Click(object sender, EventArgs e)
+        {
+            BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+            MessageBox.Show("Update Thanh Cong");
+            LoadGroupUser();
+        }
+        
 
 
        
