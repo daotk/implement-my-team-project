@@ -21,6 +21,7 @@ namespace BL.QuanTriHeThong
             {
                 if (ds[i]._ACCOUNT == username && ds[i]._PASSWORD == password)
                 {
+                    BL.StaticClass.GroupUser = ds[i]._GROUPUSERNAME;
                     check = true;
                 }
             }
