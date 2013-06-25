@@ -47,8 +47,7 @@ namespace GUI.QuanTriHeThong
             txt_TenTinhThanh.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
-            CityBL city = new CityBL();
-            grd_ThanhPho.DataSource = city.GetAllCity();
+            
         }
 
         private void btn_ChinhSua_Click(object sender, EventArgs e)
@@ -62,33 +61,87 @@ namespace GUI.QuanTriHeThong
         {
             if (flag_them == true)
             {
-                CityBL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                if (txt_TenVietTat.Text == null || txt_TenVietTat.Text == "")
+                {
+                    MessageBox.Show("Chưa nhập tên viết tắt", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (txt_TenTinhThanh.Text == null || txt_TenTinhThanh.Text == "")
+                {
+                    MessageBox.Show("Chưa nhập tên tỉnh thành", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                int i=CityBL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                if (i == -1)
+                {
+                    MessageBox.Show("Error adding", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Success Adding", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+               
             }
             if (flag_sua == true)
             {
+                txt_TenVietTat.Enabled = false;
                 CityBL.edit(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
             }
+            loadDatagrid();
+            
+
+            Huy();
         }
 
-        private void btn_Huy_Click(object sender, EventArgs e)
+        public void Huy()
         {
             enableText(false);
             enablebtn(false);
             flag_them = false;
             flag_sua = false;
+        }
+        public void loadDatagrid()
+        {
+            CityBL city = new CityBL();
+            grd_ThanhPho.DataSource = city.GetAllCity();
+        }
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            Huy();
             //load lai du lieu
+        }
+
+
+        private void grd_ThanhPho_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < grd_ThanhPho.RowCount; i++)
+            {
+                grd_ThanhPho.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
+            }
+        }
+
+        private void grd_ThanhPho_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = grd_ThanhPho.SelectedCells[0].RowIndex;
+            txt_TenVietTat.Text = grd_ThanhPho.Rows[i].Cells[1].Value.ToString();
+            txt_TenTinhThanh.Text = grd_ThanhPho.Rows[i].Cells[2].Value.ToString();
+            txt_MoTa.Text = grd_ThanhPho.Rows[i].Cells[3].Value.ToString();
+            if (Convert.ToBoolean(grd_ThanhPho.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
+            else { chk_TrangThai.Checked = false; }
+
         }
 
         private void frm_City_Load(object sender, EventArgs e)
         {
-
-            CityBL city = new CityBL();
-            grd_ThanhPho.DataSource = city.GetAllCity();
-
+            loadDatagrid();
         }
 
-
-
+        private void grd_ThanhPho_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //grd_ThanhPho.Refresh();
+        }
 
 
     }
