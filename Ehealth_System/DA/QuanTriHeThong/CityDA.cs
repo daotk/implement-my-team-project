@@ -29,7 +29,7 @@ namespace DA.QuanTriHeThong
                 return ListCity;
             }
         }
-        public static void add(String ID, String name, String desscription, bool status)
+        public static int add(String ID, String name, String desscription, bool status)
         {
 
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -40,7 +40,15 @@ namespace DA.QuanTriHeThong
                 city.DESCRIPTIONCITY = desscription;
                 city.STATUSCITY = status;
                 entity.City_Info.Add(city);
-                entity.SaveChanges();
+                try
+                {
+                    int num=entity.SaveChanges();
+                    return num;
+                }
+                catch
+                {
+                    return -1;
+                }
 
             }
         }

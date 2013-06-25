@@ -12,10 +12,10 @@ namespace BL.QuanTriHeThong
         {
             return CityDA.GetAllCities();
         }
-        public static void add(String ID, String name, String desscription, bool status)
+        public static int add(String ID, String name, String desscription, bool status)
         {
 
-            CityDA.add(ID, name, desscription, status);
+            return CityDA.add(ID, name, desscription, status);
 
         }
         public static void edit(String ID, String name, String desscription, bool status)

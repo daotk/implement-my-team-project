@@ -41,10 +41,10 @@ namespace GUI
         {
             frm_Login login = new frm_Login();
             lbl_UserName.Text = "Ngưởi dùng: " + login.username + "(Quản trị)";
-            lbl_TenBenhVien.Text ="Bệnh viện ABC";
             lbl_NgayThang.Text ="Ngày tháng: "+ DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
             lbl_NgayGio.Text ="Giờ: "+ DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
-            timer1.Start();      
+            timer1.Start();
+            lbl_TenBenhVien.Text = data;
         }
 
         /// <summary>
@@ -308,6 +308,7 @@ namespace GUI
         {
             frm_Config config = new frm_Config();
             config.ShowDialog();
+            this.Hide();
         }
 
 
@@ -444,6 +445,14 @@ namespace GUI
                 }
         }
 
+        public string data;
+        //tao phuong thuc nhan data
+        //co the nhieu tham so cung luc
+        public string nhandata(string a)
+        {
+            data = a;
+            return data;
+        }
        
 
        
