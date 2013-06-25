@@ -96,6 +96,24 @@ namespace GUI.QuanTriHeThong
 
             Huy();
         }
+
+        private void grd_LoaiPhongBan_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < grd_LoaiPhongBan.RowCount; i++)
+            {
+                grd_LoaiPhongBan.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
+            }
+        }
+
+        private void grd_LoaiPhongBan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frm_TypeDepartment_Load(object sender, EventArgs e)
+        {
+            loadDatagrid();
+        }
       
         }
        

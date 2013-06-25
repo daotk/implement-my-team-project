@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.btn_huy = new DevComponents.DotNetBar.ButtonX();
+            this.btn_luu = new DevComponents.DotNetBar.ButtonX();
             this.txt_TenVietTat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.chk_TrangThai = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.lbl_TrangThai = new DevComponents.DotNetBar.LabelX();
@@ -59,8 +61,6 @@
             this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
             this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl_TimKiem = new DevComponents.DotNetBar.LabelX();
-            this.btn_luu = new DevComponents.DotNetBar.ButtonX();
-            this.btn_huy = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_LoaiPhongBan)).BeginInit();
@@ -99,6 +99,31 @@
             this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
+            // 
+            // btn_huy
+            // 
+            this.btn_huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_huy.Image = global::GUI.Properties.Resources.Edit_icon;
+            this.btn_huy.Location = new System.Drawing.Point(180, 458);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(120, 35);
+            this.btn_huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btn_huy.TabIndex = 67;
+            this.btn_huy.Text = "Hủy";
+            // 
+            // btn_luu
+            // 
+            this.btn_luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_luu.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
+            this.btn_luu.Location = new System.Drawing.Point(35, 458);
+            this.btn_luu.Name = "btn_luu";
+            this.btn_luu.Size = new System.Drawing.Size(120, 35);
+            this.btn_luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btn_luu.TabIndex = 66;
+            this.btn_luu.Text = "Lưu";
+            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
             // txt_TenVietTat
             // 
@@ -298,11 +323,10 @@
             this.panelEx2.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx2.Controls.Add(this.grd_LoaiPhongBan);
-            this.panelEx2.Controls.Add(this.panelEx3);
             this.panelEx2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEx2.Location = new System.Drawing.Point(0, 0);
+            this.panelEx2.Location = new System.Drawing.Point(0, 35);
             this.panelEx2.Name = "panelEx2";
-            this.panelEx2.Size = new System.Drawing.Size(965, 550);
+            this.panelEx2.Size = new System.Drawing.Size(965, 515);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -342,12 +366,14 @@
             this.grd_LoaiPhongBan.DefaultCellStyle = dataGridViewCellStyle5;
             this.grd_LoaiPhongBan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_LoaiPhongBan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grd_LoaiPhongBan.Location = new System.Drawing.Point(0, 35);
+            this.grd_LoaiPhongBan.Location = new System.Drawing.Point(0, 0);
             this.grd_LoaiPhongBan.MultiSelect = false;
             this.grd_LoaiPhongBan.Name = "grd_LoaiPhongBan";
             this.grd_LoaiPhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_LoaiPhongBan.Size = new System.Drawing.Size(965, 515);
             this.grd_LoaiPhongBan.TabIndex = 1;
+            this.grd_LoaiPhongBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_LoaiPhongBan_CellContentClick);
+            this.grd_LoaiPhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_LoaiPhongBan_RowsAdded);
             // 
             // STT
             // 
@@ -455,31 +481,6 @@
             this.lbl_TimKiem.TabIndex = 2;
             this.lbl_TimKiem.Text = "Tìm kiếm";
             // 
-            // btn_luu
-            // 
-            this.btn_luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_luu.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
-            this.btn_luu.Location = new System.Drawing.Point(35, 458);
-            this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(120, 35);
-            this.btn_luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_luu.TabIndex = 66;
-            this.btn_luu.Text = "Lưu";
-            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
-            // 
-            // btn_huy
-            // 
-            this.btn_huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_huy.Image = global::GUI.Properties.Resources.Edit_icon;
-            this.btn_huy.Location = new System.Drawing.Point(180, 458);
-            this.btn_huy.Name = "btn_huy";
-            this.btn_huy.Size = new System.Drawing.Size(120, 35);
-            this.btn_huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_huy.TabIndex = 67;
-            this.btn_huy.Text = "Hủy";
-            // 
             // frm_TypeDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -487,11 +488,13 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1300, 550);
             this.Controls.Add(this.panelEx2);
+            this.Controls.Add(this.panelEx3);
             this.Controls.Add(this.panelEx1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_TypeDepartment";
+            this.Load += new System.EventHandler(this.frm_TypeDepartment_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grd_LoaiPhongBan)).EndInit();
