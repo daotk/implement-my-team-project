@@ -19,7 +19,27 @@ namespace GUI
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            if (txt_UserName.Text == "admin" && txt_Password.Text == "123")
+            string strUsername="";
+            string strPassword="";
+            if (txt_UserName.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tên tài khoản");
+            }
+            else
+            {
+                strUsername = txt_UserName.Text;
+            }
+            if (txt_Password.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập mật khẩu");
+            }
+            else
+            {
+                strPassword = txt_Password.Text;
+            }
+
+            bool check = BL.QuanTriHeThong.User_BL.CheckLogin(strUsername,strPassword);
+            if (check == true)
             {
                 MessageBox.Show("Đăng nhập thành công. Bạn sẽ quay về trang chính", "Thông báo", MessageBoxButtons.OK);
                 this.Close();

@@ -51,62 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Bill_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\City_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\DepartmentType_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Department_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\DetailBill_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\District_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Ehealth.Context.cs">
+    <Compile Include="Entity\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Ehealth.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Ehealth.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Ehealth.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ehealth.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Patient_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ServiceGroup_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Service_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sysdiagram.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UserType_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\User_Info.cs">
-      <DependentUpon>Ehealth.tt</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanTriHeThong\City_DA.cs" />
@@ -120,24 +68,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="Entity\Ehealth.edmx">
+    <EntityDeploy Include="Entity\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Ehealth.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\Ehealth.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Ehealth.edmx</DependentUpon>
-      <LastGenOutput>Ehealth.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Entity\Ehealth.edmx.diagram">
-      <DependentUpon>Ehealth.edmx</DependentUpon>
-    </None>
-    <None Include="Entity\Ehealth.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Ehealth.edmx</DependentUpon>
-      <LastGenOutput>Ehealth.cs</LastGenOutput>
-    </None>
+    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

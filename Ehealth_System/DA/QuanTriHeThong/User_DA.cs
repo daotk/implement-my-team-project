@@ -17,8 +17,7 @@ namespace DA.QuanTriHeThong
             List<User_DO> dsUser = new List<User_DO>();
             using (DA.Entity.EHealthSystemEntities dk = new DA.Entity.EHealthSystemEntities())
             {
-                var query = from u in dk.User_Info
-                            select u;
+                var query = from u in dk.User_Info select u;
 
                 foreach (var row in query)
                 {
