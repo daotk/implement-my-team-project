@@ -39,7 +39,6 @@ namespace DA.QuanTriHeThong
                 user.DESCRIPTION = motas;
                 user.USERTYPESTATUS = trangthais;
                 dk.UserType_Info.AddObject(user);
-
                 dk.SaveChanges();
             }
         }
@@ -86,5 +85,24 @@ namespace DA.QuanTriHeThong
             return dsusergroup;
         }
         //End Get info user group
+
+        //Check Infor of user group
+        public static List<UserGroup_DO> CheckInfo()
+        {
+            List<UserGroup_DO> dsmanguoidung = new List<UserGroup_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.UserType_Info select u;
+                foreach (var row in query)
+                {
+                    UserGroup_DO us = new UserGroup_DO();
+                    us.tenviettat_ = row.USERTYPEID;
+                    us.tennhom_ = row.USERTYPENAME;
+                    dsmanguoidung.Add(us);
+                }
+            }
+            return dsmanguoidung;
+        }
+        //End Check 
     }
 }
