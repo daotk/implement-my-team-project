@@ -72,7 +72,7 @@ namespace GUI.QuanTriHeThong
                     return;
                 }
 
-                int i=CityBL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                int i=City_BL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
                     MessageBox.Show("Error adding", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -86,7 +86,7 @@ namespace GUI.QuanTriHeThong
             if (flag_sua == true)
             {
                 txt_TenVietTat.Enabled = false;
-                CityBL.edit(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                City_BL.edit(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
             }
             loadDatagrid();
             
@@ -103,7 +103,7 @@ namespace GUI.QuanTriHeThong
         }
         public void loadDatagrid()
         {
-            CityBL city = new CityBL();
+            City_BL city = new City_BL();
             grd_ThanhPho.DataSource = city.GetAllCity();
         }
         private void btn_Huy_Click(object sender, EventArgs e)

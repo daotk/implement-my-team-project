@@ -357,12 +357,12 @@
             // 
             // STT
             // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STT.DataPropertyName = "tenviettat_";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.STT.DefaultCellStyle = dataGridViewCellStyle2;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
-            this.STT.Width = 61;
             // 
             // TenVietTac
             // 

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BL.QuanTriHeThong;
 
 namespace GUI.QuanTriHeThong
 {
@@ -20,6 +21,16 @@ namespace GUI.QuanTriHeThong
         {
             PhanQuyen phanquyen = new PhanQuyen();
             phanquyen.ShowDialog();
+        }
+        /// <summary>
+        /// Load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frm_User_Load(object sender, EventArgs e)
+        {
+            
+        
         }
 
        

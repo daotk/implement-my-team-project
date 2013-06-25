@@ -566,6 +566,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frm_User";
             this.Text = "NguoiDung";
+            this.Load += new System.EventHandler(this.frm_User_Load);
             this.panelEx2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grd_User)).EndInit();
             this.panelEx1.ResumeLayout(false);

@@ -30,7 +30,8 @@ namespace GUI.QuanTriHeThong
 
         private void frm_GroupUser_Load(object sender, EventArgs e)
         {
-            grd_NhomnguoiDung.DataSource = BL.QuanTriHeThong.UserGroupBL.GetAllUsserGroup();
+            grd_NhomnguoiDung.DataSource = BL.QuanTriHeThong.UserGroup_BL.GetAllUsserGroup();
+            //STT
             for (int i = 0; i < grd_NhomnguoiDung.Rows.Count; i++) {
                 grd_NhomnguoiDung.Rows[i].Cells[0].Value = i + 1;
             }

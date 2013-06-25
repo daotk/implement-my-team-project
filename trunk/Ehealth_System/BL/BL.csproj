@@ -46,8 +46,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanTriHeThong\CityBL.cs" />
-    <Compile Include="QuanTriHeThong\UserGroupBL.cs" />
+    <Compile Include="QuanTriHeThong\City_BL.cs" />
+    <Compile Include="QuanTriHeThong\UserGroup_BL.cs" />
+    <Compile Include="QuanTriHeThong\User_BL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DA\DA.csproj">
