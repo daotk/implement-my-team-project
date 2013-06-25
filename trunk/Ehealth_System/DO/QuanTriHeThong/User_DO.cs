@@ -9,6 +9,7 @@ namespace DO.QuanTriHeThong
     {
         public string _USERID { set; get; }
         public string _USERTYPEID{set;get;}
+        public string _GROUPUSERNAME { set; get; }
         public string _USERNAME {set; get;}
         public string _EMAIL {set; get;}
         public string _ACCOUNT {set; get;}    
