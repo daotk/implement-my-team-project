@@ -42,7 +42,7 @@ namespace DA.QuanTriHeThong
                 entity.City_Info.AddObject(city);
                 try
                 {
-                    int num=entity.SaveChanges();
+                    int num = entity.SaveChanges();
                     return num;
                 }
                 catch

@@ -30,11 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,19 +37,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.chk_TrangThai = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.grd_QuanHuyen = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.STTTinhThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenVietTacTinhThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenQuanHuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenTinhThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MoTa1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai1 = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             this.lbl_TrangThai = new DevComponents.DotNetBar.LabelX();
             this.lbl_NoteInformation = new DevComponents.DotNetBar.LabelX();
             this.btn_ChinhSua = new DevComponents.DotNetBar.ButtonX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
+            this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
             this.cbo_LocTheoTinhThanh = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.lbl_LocTheoTinhThanh = new DevComponents.DotNetBar.LabelX();
             this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -66,9 +61,11 @@
             this.txt_MoTa = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
-            this.txt_QuanHuyen = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_TenQuanHuyen = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl_QuanHuyen = new DevComponents.DotNetBar.LabelX();
             this.lbl_MoTa = new DevComponents.DotNetBar.PanelEx();
+            this.btn_Huy = new DevComponents.DotNetBar.ButtonX();
+            this.btn_Luu = new DevComponents.DotNetBar.ButtonX();
             this.cbo_TinhThanhPho = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.lbl_TinhThanhPho = new DevComponents.DotNetBar.LabelX();
             this.txt_TenVietTat = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -80,7 +77,12 @@
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenVietTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNhom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
+            this.STTTinhThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISTRICTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISTRICTNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CITYID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTIONDISTRICT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUSDISTRICT = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grd_QuanHuyen)).BeginInit();
             this.panelEx2.SuspendLayout();
             this.panelEx5.SuspendLayout();
@@ -119,11 +121,11 @@
             this.grd_QuanHuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grd_QuanHuyen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STTTinhThanh,
-            this.TenVietTacTinhThanh,
-            this.TenQuanHuyen,
-            this.TenTinhThanh,
-            this.MoTa1,
-            this.TrangThai1});
+            this.DISTRICTID,
+            this.DISTRICTNAME,
+            this.CITYID,
+            this.DESCRIPTIONDISTRICT,
+            this.STATUSDISTRICT});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,58 +142,8 @@
             this.grd_QuanHuyen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_QuanHuyen.Size = new System.Drawing.Size(965, 515);
             this.grd_QuanHuyen.TabIndex = 1;
-            // 
-            // STTTinhThanh
-            // 
-            this.STTTinhThanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "1";
-            this.STTTinhThanh.DefaultCellStyle = dataGridViewCellStyle2;
-            this.STTTinhThanh.HeaderText = "STT";
-            this.STTTinhThanh.Name = "STTTinhThanh";
-            this.STTTinhThanh.Width = 61;
-            // 
-            // TenVietTacTinhThanh
-            // 
-            this.TenVietTacTinhThanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "Q1";
-            this.TenVietTacTinhThanh.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TenVietTacTinhThanh.HeaderText = "Tên viết tắt";
-            this.TenVietTacTinhThanh.Name = "TenVietTacTinhThanh";
-            this.TenVietTacTinhThanh.Width = 150;
-            // 
-            // TenQuanHuyen
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "Quận 1";
-            this.TenQuanHuyen.DefaultCellStyle = dataGridViewCellStyle4;
-            this.TenQuanHuyen.HeaderText = "Quận-Huyện";
-            this.TenQuanHuyen.Name = "TenQuanHuyen";
-            // 
-            // TenTinhThanh
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = "HCM";
-            this.TenTinhThanh.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TenTinhThanh.HeaderText = "Tỉnh-Thành phố";
-            this.TenTinhThanh.Name = "TenTinhThanh";
-            // 
-            // MoTa1
-            // 
-            this.MoTa1.HeaderText = "Mô tả";
-            this.MoTa1.Name = "MoTa1";
-            // 
-            // TrangThai1
-            // 
-            this.TrangThai1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TrangThai1.Checked = true;
-            this.TrangThai1.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.TrangThai1.CheckValue = null;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.TrangThai1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.TrangThai1.HeaderText = "Trạng thái";
-            this.TrangThai1.Name = "TrangThai1";
+            this.grd_QuanHuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_QuanHuyen_CellClick);
+            this.grd_QuanHuyen.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_QuanHuyen_RowsAdded);
             // 
             // lbl_TrangThai
             // 
@@ -233,6 +185,7 @@
             this.btn_ChinhSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_ChinhSua.TabIndex = 45;
             this.btn_ChinhSua.Text = "Chỉnh sửa";
+            this.btn_ChinhSua.Click += new System.EventHandler(this.btn_ChinhSua_Click);
             // 
             // panelEx2
             // 
@@ -275,6 +228,18 @@
             this.panelEx5.Style.GradientAngle = 90;
             this.panelEx5.TabIndex = 0;
             // 
+            // lbl_KetQua
+            // 
+            // 
+            // 
+            // 
+            this.lbl_KetQua.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbl_KetQua.Location = new System.Drawing.Point(701, 6);
+            this.lbl_KetQua.Name = "lbl_KetQua";
+            this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
+            this.lbl_KetQua.TabIndex = 5;
+            this.lbl_KetQua.Text = "Kết quả: tìm được 3 trong tổng số 100";
+            // 
             // cbo_LocTheoTinhThanh
             // 
             this.cbo_LocTheoTinhThanh.DisplayMember = "Text";
@@ -286,6 +251,7 @@
             this.cbo_LocTheoTinhThanh.Size = new System.Drawing.Size(150, 26);
             this.cbo_LocTheoTinhThanh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbo_LocTheoTinhThanh.TabIndex = 3;
+            this.cbo_LocTheoTinhThanh.SelectedIndexChanged += new System.EventHandler(this.cbo_LocTheoTinhThanh_SelectedIndexChanged);
             // 
             // lbl_LocTheoTinhThanh
             // 
@@ -337,6 +303,7 @@
             this.btn_ThemMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_ThemMoi.TabIndex = 44;
             this.btn_ThemMoi.Text = "Thêm mới";
+            this.btn_ThemMoi.Click += new System.EventHandler(this.btn_ThemMoi_Click);
             // 
             // lbl_Title
             // 
@@ -423,18 +390,18 @@
             this.TrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // txt_QuanHuyen
+            // txt_TenQuanHuyen
             // 
             // 
             // 
             // 
-            this.txt_QuanHuyen.Border.Class = "TextBoxBorder";
-            this.txt_QuanHuyen.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txt_QuanHuyen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_QuanHuyen.Location = new System.Drawing.Point(122, 163);
-            this.txt_QuanHuyen.Name = "txt_QuanHuyen";
-            this.txt_QuanHuyen.Size = new System.Drawing.Size(173, 26);
-            this.txt_QuanHuyen.TabIndex = 38;
+            this.txt_TenQuanHuyen.Border.Class = "TextBoxBorder";
+            this.txt_TenQuanHuyen.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_TenQuanHuyen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TenQuanHuyen.Location = new System.Drawing.Point(122, 163);
+            this.txt_TenQuanHuyen.Name = "txt_TenQuanHuyen";
+            this.txt_TenQuanHuyen.Size = new System.Drawing.Size(173, 26);
+            this.txt_TenQuanHuyen.TabIndex = 38;
             // 
             // lbl_QuanHuyen
             // 
@@ -454,6 +421,8 @@
             // 
             this.lbl_MoTa.CanvasColor = System.Drawing.SystemColors.Control;
             this.lbl_MoTa.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.lbl_MoTa.Controls.Add(this.btn_Huy);
+            this.lbl_MoTa.Controls.Add(this.btn_Luu);
             this.lbl_MoTa.Controls.Add(this.cbo_TinhThanhPho);
             this.lbl_MoTa.Controls.Add(this.lbl_TinhThanhPho);
             this.lbl_MoTa.Controls.Add(this.txt_TenVietTat);
@@ -467,7 +436,7 @@
             this.lbl_MoTa.Controls.Add(this.lbl_Note);
             this.lbl_MoTa.Controls.Add(this.txt_MoTa);
             this.lbl_MoTa.Controls.Add(this.labelX4);
-            this.lbl_MoTa.Controls.Add(this.txt_QuanHuyen);
+            this.lbl_MoTa.Controls.Add(this.txt_TenQuanHuyen);
             this.lbl_MoTa.Controls.Add(this.lbl_QuanHuyen);
             this.lbl_MoTa.Controls.Add(this.lbl_TenVietTat);
             this.lbl_MoTa.Dock = System.Windows.Forms.DockStyle.Right;
@@ -483,6 +452,30 @@
             this.lbl_MoTa.Style.GradientAngle = 90;
             this.lbl_MoTa.TabIndex = 5;
             // 
+            // btn_Huy
+            // 
+            this.btn_Huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Huy.Location = new System.Drawing.Point(180, 459);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(120, 40);
+            this.btn_Huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Huy.TabIndex = 53;
+            this.btn_Huy.Text = "Huy";
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Luu.Location = new System.Drawing.Point(35, 459);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(120, 40);
+            this.btn_Luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Luu.TabIndex = 52;
+            this.btn_Luu.Text = "Luu";
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
             // cbo_TinhThanhPho
             // 
             this.cbo_TinhThanhPho.DisplayMember = "Text";
@@ -494,6 +487,7 @@
             this.cbo_TinhThanhPho.Size = new System.Drawing.Size(173, 26);
             this.cbo_TinhThanhPho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbo_TinhThanhPho.TabIndex = 51;
+            this.cbo_TinhThanhPho.SelectedIndexChanged += new System.EventHandler(this.cbo_TinhThanhPho_SelectedIndexChanged);
             // 
             // lbl_TinhThanhPho
             // 
@@ -648,17 +642,58 @@
             this.TenNhom.Name = "TenNhom";
             this.TenNhom.Width = 200;
             // 
-            // lbl_KetQua
+            // STTTinhThanh
             // 
+            this.STTTinhThanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STTTinhThanh.DefaultCellStyle = dataGridViewCellStyle2;
+            this.STTTinhThanh.HeaderText = "STT";
+            this.STTTinhThanh.Name = "STTTinhThanh";
+            this.STTTinhThanh.Width = 61;
             // 
+            // DISTRICTID
             // 
+            this.DISTRICTID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DISTRICTID.DataPropertyName = "_DISTRICTID";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DISTRICTID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DISTRICTID.HeaderText = "Tên viết tắt";
+            this.DISTRICTID.Name = "DISTRICTID";
+            this.DISTRICTID.Width = 150;
             // 
-            this.lbl_KetQua.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbl_KetQua.Location = new System.Drawing.Point(701, 6);
-            this.lbl_KetQua.Name = "lbl_KetQua";
-            this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
-            this.lbl_KetQua.TabIndex = 5;
-            this.lbl_KetQua.Text = "Kết quả: tìm được 3 trong tổng số 100";
+            // DISTRICTNAME
+            // 
+            this.DISTRICTNAME.DataPropertyName = "_DISTRICTNAME";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DISTRICTNAME.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DISTRICTNAME.HeaderText = "Quận-Huyện";
+            this.DISTRICTNAME.Name = "DISTRICTNAME";
+            // 
+            // CITYID
+            // 
+            this.CITYID.DataPropertyName = "_CITYID";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CITYID.DefaultCellStyle = dataGridViewCellStyle5;
+            this.CITYID.HeaderText = "Tỉnh-Thành phố";
+            this.CITYID.Name = "CITYID";
+            // 
+            // DESCRIPTIONDISTRICT
+            // 
+            this.DESCRIPTIONDISTRICT.DataPropertyName = "_DESCRIPTIONDISTRICT";
+            this.DESCRIPTIONDISTRICT.HeaderText = "Mô tả";
+            this.DESCRIPTIONDISTRICT.Name = "DESCRIPTIONDISTRICT";
+            // 
+            // STATUSDISTRICT
+            // 
+            this.STATUSDISTRICT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STATUSDISTRICT.Checked = true;
+            this.STATUSDISTRICT.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.STATUSDISTRICT.CheckValue = null;
+            this.STATUSDISTRICT.DataPropertyName = "_STATUSDISTRICT";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STATUSDISTRICT.DefaultCellStyle = dataGridViewCellStyle6;
+            this.STATUSDISTRICT.HeaderText = "Trạng thái";
+            this.STATUSDISTRICT.Name = "STATUSDISTRICT";
             // 
             // frm_District
             // 
@@ -672,6 +707,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_District";
+            this.Load += new System.EventHandler(this.frm_District_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grd_QuanHuyen)).EndInit();
             this.panelEx2.ResumeLayout(false);
             this.panelEx5.ResumeLayout(false);
@@ -702,7 +738,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txt_MoTa;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn TrangThai;
-        private DevComponents.DotNetBar.Controls.TextBoxX txt_QuanHuyen;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_TenQuanHuyen;
         private DevComponents.DotNetBar.LabelX lbl_QuanHuyen;
         private DevComponents.DotNetBar.PanelEx lbl_MoTa;
         private DevComponents.DotNetBar.LabelX lbl_TenVietTat;
@@ -718,12 +754,14 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txt_TenVietTat;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbo_TinhThanhPho;
         private DevComponents.DotNetBar.LabelX lbl_TinhThanhPho;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STTTinhThanh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenVietTacTinhThanh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenQuanHuyen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenTinhThanh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MoTa1;
-        private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn TrangThai1;
         private DevComponents.DotNetBar.LabelX lbl_KetQua;
+        private DevComponents.DotNetBar.ButtonX btn_Huy;
+        private DevComponents.DotNetBar.ButtonX btn_Luu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STTTinhThanh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DISTRICTID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DISTRICTNAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CITYID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTIONDISTRICT;
+        private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn STATUSDISTRICT;
     }
 }
