@@ -123,7 +123,6 @@
             this.btn_luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_luu.TabIndex = 66;
             this.btn_luu.Text = "Lưu";
-            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
             // txt_TenVietTat
             // 
@@ -203,7 +202,6 @@
             this.btn_ThemMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_ThemMoi.TabIndex = 60;
             this.btn_ThemMoi.Text = "Thêm mới";
-            this.btn_ThemMoi.Click += new System.EventHandler(this.btn_ThemMoi_Click);
             // 
             // lbl_Title
             // 
@@ -372,8 +370,6 @@
             this.grd_LoaiPhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_LoaiPhongBan.Size = new System.Drawing.Size(965, 515);
             this.grd_LoaiPhongBan.TabIndex = 1;
-            this.grd_LoaiPhongBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_LoaiPhongBan_CellContentClick);
-            this.grd_LoaiPhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_LoaiPhongBan_RowsAdded);
             // 
             // STT
             // 
@@ -494,7 +490,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_TypeDepartment";
-            this.Load += new System.EventHandler(this.frm_TypeDepartment_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grd_LoaiPhongBan)).EndInit();

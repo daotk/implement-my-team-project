@@ -29,8 +29,21 @@ namespace GUI.QuanTriHeThong
         /// <param name="e"></param>
         private void frm_User_Load(object sender, EventArgs e)
         {
+            grd_User.DataSource = BL.QuanTriHeThong.User_BL.GetUSerInfo().ToList();
+            LoadUserInfo();
+         
+        }
+
+        private void LoadUserInfo()
+        {
             
-        
+            for (int i = 0; i < grd_User.Rows.Count; i++)
+            {
+                grd_User.Rows[i].Cells[0].Value = (i + 1).ToString();
+            }
+
+
+           
         }
 
        
