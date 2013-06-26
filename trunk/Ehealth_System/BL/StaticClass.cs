@@ -11,6 +11,6 @@ namespace BL
         public static string GroupUser;
         public static string UserID;
         public static string Authorization;
-
+        public static bool StatusUser;
     }
 }
