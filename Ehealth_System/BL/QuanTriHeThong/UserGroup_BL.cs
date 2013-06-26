@@ -54,6 +54,11 @@ namespace BL.QuanTriHeThong
             DA.QuanTriHeThong.UserGroup_DA.EditAuthorization(tenviettata, author);
         }
         //End Edit authorization of user group
+
+        public static List<UserGroup_DO> LoadAuthorization(string manguoidung)
+        {
+            return DA.QuanTriHeThong.UserGroup_DA.LoadAuthorization(manguoidung);
+        }// End
     }
 
 }
