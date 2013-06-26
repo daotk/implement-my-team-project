@@ -28,21 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_TypeDepartment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.btn_huy = new DevComponents.DotNetBar.ButtonX();
-            this.btn_luu = new DevComponents.DotNetBar.ButtonX();
             this.txt_TenVietTat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.chk_TrangThai = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.lbl_TrangThai = new DevComponents.DotNetBar.LabelX();
             this.lbl_NoteInformation = new DevComponents.DotNetBar.LabelX();
-            this.btn_ChinhSua = new DevComponents.DotNetBar.ButtonX();
-            this.btn_ThemMoi = new DevComponents.DotNetBar.ButtonX();
             this.lbl_Title = new DevComponents.DotNetBar.LabelX();
             this.lbl_Note1 = new DevComponents.DotNetBar.LabelX();
             this.lbl_Note = new DevComponents.DotNetBar.LabelX();
@@ -62,6 +57,10 @@
             this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
             this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl_TimKiem = new DevComponents.DotNetBar.LabelX();
+            this.btn_huy = new DevComponents.DotNetBar.ButtonX();
+            this.btn_luu = new DevComponents.DotNetBar.ButtonX();
+            this.btn_ChinhSua = new DevComponents.DotNetBar.ButtonX();
+            this.btn_ThemMoi = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_LoaiPhongBan)).BeginInit();
@@ -100,32 +99,6 @@
             this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
-            // 
-            // btn_huy
-            // 
-            this.btn_huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_huy.Image = ((System.Drawing.Image)(resources.GetObject("btn_huy.Image")));
-            this.btn_huy.Location = new System.Drawing.Point(180, 394);
-            this.btn_huy.Name = "btn_huy";
-            this.btn_huy.Size = new System.Drawing.Size(120, 35);
-            this.btn_huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_huy.TabIndex = 67;
-            this.btn_huy.Text = "Hủy";
-            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
-            // 
-            // btn_luu
-            // 
-            this.btn_luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_luu.Image = ((System.Drawing.Image)(resources.GetObject("btn_luu.Image")));
-            this.btn_luu.Location = new System.Drawing.Point(35, 395);
-            this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(120, 35);
-            this.btn_luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_luu.TabIndex = 66;
-            this.btn_luu.Text = "Lưu";
-            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
             // txt_TenVietTat
             // 
@@ -181,32 +154,6 @@
             this.lbl_NoteInformation.Size = new System.Drawing.Size(190, 23);
             this.lbl_NoteInformation.TabIndex = 62;
             this.lbl_NoteInformation.Text = "(*) là những thông tin bắt buộc";
-            // 
-            // btn_ChinhSua
-            // 
-            this.btn_ChinhSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_ChinhSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
-            this.btn_ChinhSua.Location = new System.Drawing.Point(180, 394);
-            this.btn_ChinhSua.Name = "btn_ChinhSua";
-            this.btn_ChinhSua.Size = new System.Drawing.Size(120, 35);
-            this.btn_ChinhSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_ChinhSua.TabIndex = 61;
-            this.btn_ChinhSua.Text = "Chỉnh sửa";
-            this.btn_ChinhSua.Click += new System.EventHandler(this.btn_ChinhSua_Click);
-            // 
-            // btn_ThemMoi
-            // 
-            this.btn_ThemMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_ThemMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
-            this.btn_ThemMoi.Location = new System.Drawing.Point(35, 394);
-            this.btn_ThemMoi.Name = "btn_ThemMoi";
-            this.btn_ThemMoi.Size = new System.Drawing.Size(120, 35);
-            this.btn_ThemMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_ThemMoi.TabIndex = 60;
-            this.btn_ThemMoi.Text = "Thêm mới";
-            this.btn_ThemMoi.Click += new System.EventHandler(this.btn_ThemMoi_Click);
             // 
             // lbl_Title
             // 
@@ -376,6 +323,7 @@
             this.grd_LoaiPhongBan.Size = new System.Drawing.Size(965, 515);
             this.grd_LoaiPhongBan.TabIndex = 1;
             this.grd_LoaiPhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_LoaiPhongBan_CellClick);
+            this.grd_LoaiPhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_LoaiPhongBan_RowsAdded);
             // 
             // STT
             // 
@@ -482,6 +430,58 @@
             this.lbl_TimKiem.Size = new System.Drawing.Size(75, 23);
             this.lbl_TimKiem.TabIndex = 2;
             this.lbl_TimKiem.Text = "Tìm kiếm";
+            // 
+            // btn_huy
+            // 
+            this.btn_huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_huy.Image = global::GUI.Properties.Resources.delete_Data;
+            this.btn_huy.Location = new System.Drawing.Point(180, 394);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(120, 35);
+            this.btn_huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btn_huy.TabIndex = 67;
+            this.btn_huy.Text = "Hủy";
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
+            // 
+            // btn_luu
+            // 
+            this.btn_luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_luu.Image = global::GUI.Properties.Resources.Save_icon;
+            this.btn_luu.Location = new System.Drawing.Point(35, 395);
+            this.btn_luu.Name = "btn_luu";
+            this.btn_luu.Size = new System.Drawing.Size(120, 35);
+            this.btn_luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btn_luu.TabIndex = 66;
+            this.btn_luu.Text = "Lưu";
+            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
+            // 
+            // btn_ChinhSua
+            // 
+            this.btn_ChinhSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_ChinhSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
+            this.btn_ChinhSua.Location = new System.Drawing.Point(180, 394);
+            this.btn_ChinhSua.Name = "btn_ChinhSua";
+            this.btn_ChinhSua.Size = new System.Drawing.Size(120, 35);
+            this.btn_ChinhSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btn_ChinhSua.TabIndex = 61;
+            this.btn_ChinhSua.Text = "Chỉnh sửa";
+            this.btn_ChinhSua.Click += new System.EventHandler(this.btn_ChinhSua_Click);
+            // 
+            // btn_ThemMoi
+            // 
+            this.btn_ThemMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_ThemMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
+            this.btn_ThemMoi.Location = new System.Drawing.Point(35, 394);
+            this.btn_ThemMoi.Name = "btn_ThemMoi";
+            this.btn_ThemMoi.Size = new System.Drawing.Size(120, 35);
+            this.btn_ThemMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btn_ThemMoi.TabIndex = 60;
+            this.btn_ThemMoi.Text = "Thêm mới";
+            this.btn_ThemMoi.Click += new System.EventHandler(this.btn_ThemMoi_Click);
             // 
             // frm_TypeDepartment
             // 
