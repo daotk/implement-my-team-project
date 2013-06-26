@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_TypeDepartment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -104,25 +105,27 @@
             // 
             this.btn_huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_huy.Image = global::GUI.Properties.Resources.Edit_icon;
-            this.btn_huy.Location = new System.Drawing.Point(180, 458);
+            this.btn_huy.Image = ((System.Drawing.Image)(resources.GetObject("btn_huy.Image")));
+            this.btn_huy.Location = new System.Drawing.Point(180, 394);
             this.btn_huy.Name = "btn_huy";
             this.btn_huy.Size = new System.Drawing.Size(120, 35);
             this.btn_huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_huy.TabIndex = 67;
             this.btn_huy.Text = "Hủy";
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // btn_luu
             // 
             this.btn_luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_luu.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
-            this.btn_luu.Location = new System.Drawing.Point(35, 458);
+            this.btn_luu.Image = ((System.Drawing.Image)(resources.GetObject("btn_luu.Image")));
+            this.btn_luu.Location = new System.Drawing.Point(35, 395);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(120, 35);
             this.btn_luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_luu.TabIndex = 66;
             this.btn_luu.Text = "Lưu";
+            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
             // txt_TenVietTat
             // 
@@ -173,11 +176,11 @@
             this.lbl_NoteInformation.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbl_NoteInformation.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NoteInformation.ForeColor = System.Drawing.Color.Red;
-            this.lbl_NoteInformation.Location = new System.Drawing.Point(6, 512);
+            this.lbl_NoteInformation.Location = new System.Drawing.Point(6, 458);
             this.lbl_NoteInformation.Name = "lbl_NoteInformation";
             this.lbl_NoteInformation.Size = new System.Drawing.Size(190, 23);
             this.lbl_NoteInformation.TabIndex = 62;
-            this.lbl_NoteInformation.Text = "(*) là những thông tin bắc buộc";
+            this.lbl_NoteInformation.Text = "(*) là những thông tin bắt buộc";
             // 
             // btn_ChinhSua
             // 
@@ -190,6 +193,7 @@
             this.btn_ChinhSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_ChinhSua.TabIndex = 61;
             this.btn_ChinhSua.Text = "Chỉnh sửa";
+            this.btn_ChinhSua.Click += new System.EventHandler(this.btn_ChinhSua_Click);
             // 
             // btn_ThemMoi
             // 
@@ -202,6 +206,7 @@
             this.btn_ThemMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_ThemMoi.TabIndex = 60;
             this.btn_ThemMoi.Text = "Thêm mới";
+            this.btn_ThemMoi.Click += new System.EventHandler(this.btn_ThemMoi_Click);
             // 
             // lbl_Title
             // 
@@ -370,6 +375,7 @@
             this.grd_LoaiPhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_LoaiPhongBan.Size = new System.Drawing.Size(965, 515);
             this.grd_LoaiPhongBan.TabIndex = 1;
+            this.grd_LoaiPhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_LoaiPhongBan_CellClick);
             // 
             // STT
             // 
@@ -490,6 +496,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_TypeDepartment";
+            this.Load += new System.EventHandler(this.frm_TypeDepartment_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grd_LoaiPhongBan)).EndInit();
