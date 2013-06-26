@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MD5_BL.cs" />
     <Compile Include="QuanTriHeThong\DepartmentTypeBL.cs" />
     <Compile Include="StaticClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
