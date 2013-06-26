@@ -129,6 +129,7 @@ namespace DA.QuanTriHeThong
         {
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
+                
                 var query = (from u in dk.UserType_Info
                              where u.USERTYPEID == tenviettata
                              select u).First();
@@ -139,5 +140,21 @@ namespace DA.QuanTriHeThong
             }
         }
         //End Edit authorization of user group
+
+        public static List<UserGroup_DO> LoadAuthorization(string manguoidung)
+        {
+            List<UserGroup_DO> dsusergroup = new List<UserGroup_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.UserType_Info where u.USERTYPEID == manguoidung select u;
+                foreach (var row in query)
+                {
+                    UserGroup_DO us = new UserGroup_DO();
+                    us.author_ = row.AUTHORUZATION;
+                    dsusergroup.Add(us);
+                }
+            }
+            return dsusergroup;
+        }
     }
 }
