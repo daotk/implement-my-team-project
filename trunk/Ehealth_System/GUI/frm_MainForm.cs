@@ -43,6 +43,7 @@ namespace GUI
             lbl_UserName.Text = "Ngưởi dùng: " + BL.StaticClass.UserName + " ("+BL.StaticClass.GroupUser+")";
             lbl_NgayThang.Text ="Ngày tháng: "+ DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
             lbl_NgayGio.Text ="Giờ: "+ DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
+            SetAuthorization(BL.StaticClass.Authorization);
             timer1.Start();
             lbl_TenBenhVien.Text = data;
         }
@@ -453,8 +454,23 @@ namespace GUI
             data = a;
             return data;
         }
-       
 
+        private void SetAuthorization(string authorization) {
+            if (authorization[0].ToString() == "0") { btn_CauHinh.Enabled = false; }
+            if (authorization[1].ToString() == "0") { btn_NhomNguoiDung.Enabled = false; }
+            if (authorization[2].ToString() == "0") { btn_nguoidung.Enabled = false; }
+            if (authorization[3].ToString() == "0") { btn_TinhThanhPho.Enabled = false; }
+            if (authorization[4].ToString() == "0") { btn_Quan.Enabled = false; }
+            if (authorization[5].ToString() == "0") { btn_LoaiPhongBan.Enabled = false; }
+            if (authorization[6].ToString() == "0") { btn_PhongBan.Enabled = false; }
+            if (authorization[7].ToString() == "0") { btn_NhomDichVu.Enabled = false; }
+            if (authorization[8].ToString() == "0") { btn_DichVu.Enabled = false; }
+            if (authorization[9].ToString() == "0") { btn_BatDau.Enabled = false; }
+            if (authorization[10].ToString() == "0") { btn_BienLaiDuocLap.Enabled = false; }
+            if (authorization[11].ToString() == "0") { btn_BienLaiDuocThuTien.Enabled = false; }
+            if (authorization[12].ToString() == "0") { btn_DanhSachThuTienTheoNhomDichVu.Enabled = false; }
+            if (authorization[13].ToString() == "0") { btn_DoanhThu.Enabled = false; }
+        }
        
 
        
