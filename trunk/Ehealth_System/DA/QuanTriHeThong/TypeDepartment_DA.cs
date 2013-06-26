@@ -72,5 +72,25 @@ namespace DA.QuanTriHeThong
 
             }
         }
+        public static List<TypeDepartment_DO> SearchTypeDepart(string Search) 
+        {
+            List<TypeDepartment_DO> timkiem = new List<TypeDepartment_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.DepartmentType_Info where (u.DEPARTMENTTYPENAME.Contains(Search)) select u;
+
+                foreach (var row in query)
+                {
+                    TypeDepartment_DO depart = new TypeDepartment_DO();
+                    depart._DEPARTMENTTYPEID = row.DEPARTMENTTYPEID;
+                    depart._DEPARTMENTNAME = row.DEPARTMENTTYPENAME;
+                    depart._DEPARTMENTDESCRIPTION = row.DEPARTMENTTYPEDESCRIPTION;
+                    depart._DEPARTMENTSTATUS = row.DEPARTMENTSTATUS;
+                    timkiem.Add(depart);
+                }
+                return timkiem;
+            }
+        
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace BL.QuanTriHeThong
 {
    public class TypeDepartment_BL
     {
-        public List<TypeDepartment_DO> GetAllDepartment()
+        public static List<TypeDepartment_DO> GetAllDepartment()
         {
             return TypeDepartment_DA.GetAllDepartments();
         }
@@ -23,6 +23,12 @@ namespace BL.QuanTriHeThong
         {
 
             TypeDepartment_DA.edit(ID, name, desscription, status);
+
+        }
+        public static List<TypeDepartment_DO> SearchTypeDepart( String name)
+        {
+
+          return  TypeDepartment_DA.SearchTypeDepart(name);
 
         }
     }
