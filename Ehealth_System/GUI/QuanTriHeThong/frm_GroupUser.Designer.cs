@@ -57,6 +57,7 @@
             this.TenNhom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
+            this.Quyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_NhomnguoiDung)).BeginInit();
@@ -347,7 +348,8 @@
             this.TenVietTac,
             this.TenNhom,
             this.MoTa,
-            this.TrangThai});
+            this.TrangThai,
+            this.Quyen});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,6 +423,14 @@
             this.TrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // Quyen
+            // 
+            this.Quyen.DataPropertyName = "author_";
+            this.Quyen.HeaderText = "Quyền";
+            this.Quyen.Name = "Quyen";
+            this.Quyen.ReadOnly = true;
+            this.Quyen.Visible = false;
+            // 
             // frm_GroupUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -467,6 +477,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNhom;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn TrangThai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quyen;
 
 
     }
