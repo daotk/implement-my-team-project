@@ -48,24 +48,17 @@
             treeNode8,
             treeNode9,
             treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Nhập liệu");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Thu ngân");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Thu ngân", new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("DS biên lai được lập");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("DS biên lai được thu tiền");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("DS thu tiền");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Doanh thu");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Báo cáo", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Thu ngân");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("DS biên lai được lập");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("DS biên lai được thu tiền");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("DS thu tiền");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Doanh thu");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Báo cáo", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
             treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18});
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            treeNode16});
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.trv_PhanQuyen = new System.Windows.Forms.TreeView();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
@@ -119,7 +112,7 @@
             this.trv_PhanQuyen.Name = "trv_PhanQuyen";
             treeNode1.Name = "Cấu hình hệ thống";
             treeNode1.Text = "Cấu hình hệ thống";
-            treeNode2.Name = "Hệ thống";
+            treeNode2.Name = "Hệ Thống";
             treeNode2.Text = "Hệ thống";
             treeNode3.Name = "Nhóm người dùng";
             treeNode3.Text = "Nhóm người dùng";
@@ -139,27 +132,23 @@
             treeNode10.Text = "Danh mục dịch vụ";
             treeNode11.Name = "Quản trị hệ thống";
             treeNode11.Text = "Quản trị hệ thống";
-            treeNode12.Name = "Nhập liệu";
-            treeNode12.Text = "Nhập liệu";
-            treeNode13.Name = "Thu ngân";
-            treeNode13.Text = "Thu ngân";
-            treeNode14.Name = "Thu ngân";
-            treeNode14.Text = "Thu ngân";
-            treeNode15.Name = "DS biên lai được lập";
-            treeNode15.Text = "DS biên lai được lập";
-            treeNode16.Name = "DS biên lai được thu tiền";
-            treeNode16.Text = "DS biên lai được thu tiền";
-            treeNode17.Name = "DS thu tiền";
-            treeNode17.Text = "DS thu tiền";
-            treeNode18.Name = "Doanh thu";
-            treeNode18.Text = "Doanh thu";
-            treeNode19.Name = "Báo cáo";
-            treeNode19.Text = "Báo cáo";
+            treeNode12.Name = "Thu ngân";
+            treeNode12.Text = "Thu ngân";
+            treeNode13.Name = "DS biên lai được lập";
+            treeNode13.Text = "DS biên lai được lập";
+            treeNode14.Name = "DS biên lai được thu tiền";
+            treeNode14.Text = "DS biên lai được thu tiền";
+            treeNode15.Name = "DS thu tiền";
+            treeNode15.Text = "DS thu tiền";
+            treeNode16.Name = "Doanh thu";
+            treeNode16.Text = "Doanh thu";
+            treeNode17.Name = "Báo cáo";
+            treeNode17.Text = "Báo cáo";
             this.trv_PhanQuyen.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2,
             treeNode11,
-            treeNode14,
-            treeNode19});
+            treeNode12,
+            treeNode17});
             this.trv_PhanQuyen.Size = new System.Drawing.Size(300, 567);
             this.trv_PhanQuyen.TabIndex = 1;
             this.trv_PhanQuyen.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.HandleOnTreeViewAfterCheck);
@@ -211,14 +200,14 @@
             this.STT,
             this.TenVietTac,
             this.NhomNguoiDung});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grd_NhomNguoiDung.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_NhomNguoiDung.DefaultCellStyle = dataGridViewCellStyle1;
             this.grd_NhomNguoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_NhomNguoiDung.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_NhomNguoiDung.Location = new System.Drawing.Point(0, 212);
@@ -227,12 +216,11 @@
             this.grd_NhomNguoiDung.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_NhomNguoiDung.Size = new System.Drawing.Size(640, 355);
             this.grd_NhomNguoiDung.TabIndex = 1;
+            this.grd_NhomNguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_NhomNguoiDung_CellContentClick);
             // 
             // STT
             // 
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle1.NullValue = "1";
-            this.STT.DefaultCellStyle = dataGridViewCellStyle1;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
             this.STT.Width = 61;
@@ -240,16 +228,14 @@
             // TenVietTac
             // 
             this.TenVietTac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.NullValue = "Admin";
-            this.TenVietTac.DefaultCellStyle = dataGridViewCellStyle2;
+            this.TenVietTac.DataPropertyName = "tenviettat_";
             this.TenVietTac.HeaderText = "Tên viết tắt";
             this.TenVietTac.Name = "TenVietTac";
             this.TenVietTac.Width = 150;
             // 
             // NhomNguoiDung
             // 
-            dataGridViewCellStyle3.NullValue = "Administrator";
-            this.NhomNguoiDung.DefaultCellStyle = dataGridViewCellStyle3;
+            this.NhomNguoiDung.DataPropertyName = "tennhom_";
             this.NhomNguoiDung.HeaderText = "Nhóm người dùng";
             this.NhomNguoiDung.Name = "NhomNguoiDung";
             // 
@@ -291,6 +277,7 @@
             // 
             this.btn_Huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Huy.Enabled = false;
             this.btn_Huy.Image = global::GUI.Properties.Resources.cancel1;
             this.btn_Huy.Location = new System.Drawing.Point(342, 166);
             this.btn_Huy.Name = "btn_Huy";
@@ -298,6 +285,7 @@
             this.btn_Huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Huy.TabIndex = 16;
             this.btn_Huy.Text = "Hủy";
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // grb_ThongTinNhomNguoiDung
             // 
@@ -390,6 +378,7 @@
             // 
             this.btn_Luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Luu.Enabled = false;
             this.btn_Luu.Image = global::GUI.Properties.Resources.Save_icon;
             this.btn_Luu.Location = new System.Drawing.Point(172, 166);
             this.btn_Luu.Name = "btn_Luu";
@@ -397,6 +386,7 @@
             this.btn_Luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Luu.TabIndex = 15;
             this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // PhanQuyen
             // 
@@ -413,6 +403,7 @@
             this.Name = "PhanQuyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phân Quyền";
+            this.Load += new System.EventHandler(this.PhanQuyen_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             this.panelEx4.ResumeLayout(false);
@@ -430,9 +421,6 @@
         private DevComponents.DotNetBar.PanelEx panelEx2;
         private DevComponents.DotNetBar.PanelEx panelEx4;
         private DevComponents.DotNetBar.Controls.DataGridViewX grd_NhomNguoiDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenVietTac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NhomNguoiDung;
         private DevComponents.DotNetBar.PanelEx panelEx3;
         private DevComponents.DotNetBar.LabelX lbl_Title;
         private DevComponents.DotNetBar.ButtonX btn_Huy;
@@ -444,6 +432,9 @@
         private DevComponents.DotNetBar.LabelX lbl_TenVietTat;
         private DevComponents.DotNetBar.LabelX lbl_NhomNGuoiDung;
         private DevComponents.DotNetBar.ButtonX btn_Luu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenVietTac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NhomNguoiDung;
 
     }
 }
