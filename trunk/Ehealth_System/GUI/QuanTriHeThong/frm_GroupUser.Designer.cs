@@ -111,6 +111,7 @@
             // 
             this.btn_ChinhSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_ChinhSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_ChinhSua.Enabled = false;
             this.btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
             this.btn_ChinhSua.Location = new System.Drawing.Point(115, 416);
             this.btn_ChinhSua.Name = "btn_ChinhSua";
@@ -139,6 +140,7 @@
             // 
             // 
             this.chk_TrangThai.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chk_TrangThai.Enabled = false;
             this.chk_TrangThai.Location = new System.Drawing.Point(98, 353);
             this.chk_TrangThai.Name = "chk_TrangThai";
             this.chk_TrangThai.Size = new System.Drawing.Size(100, 23);
@@ -226,6 +228,7 @@
             // 
             this.txt_MoTa.Border.Class = "TextBoxBorder";
             this.txt_MoTa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_MoTa.Enabled = false;
             this.txt_MoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MoTa.Location = new System.Drawing.Point(98, 206);
             this.txt_MoTa.MaxLength = 400;
@@ -255,6 +258,7 @@
             // 
             this.txt_TenNhom.Border.Class = "TextBoxBorder";
             this.txt_TenNhom.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_TenNhom.Enabled = false;
             this.txt_TenNhom.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenNhom.Location = new System.Drawing.Point(98, 164);
             this.txt_TenNhom.MaxLength = 32;
@@ -283,6 +287,7 @@
             // 
             this.txt_TenVietTat.Border.Class = "TextBoxBorder";
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_TenVietTat.Enabled = false;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(98, 122);
             this.txt_TenVietTat.MaxLength = 2;
