@@ -65,6 +65,12 @@
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
             this.grd_NhomNguoiDung = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenVietTat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhomNguoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
             this.lbl_Title = new DevComponents.DotNetBar.LabelX();
             this.btn_Huy = new DevComponents.DotNetBar.ButtonX();
@@ -76,12 +82,6 @@
             this.lbl_TenVietTat = new DevComponents.DotNetBar.LabelX();
             this.lbl_NhomNGuoiDung = new DevComponents.DotNetBar.LabelX();
             this.btn_Luu = new DevComponents.DotNetBar.ButtonX();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenVietTat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NhomNguoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             this.panelEx4.SuspendLayout();
@@ -226,6 +226,59 @@
             this.grd_NhomNguoiDung.TabIndex = 1;
             this.grd_NhomNguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_NhomNguoiDung_CellContentClick);
             // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle1;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 61;
+            // 
+            // TenVietTat
+            // 
+            this.TenVietTat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenVietTat.DataPropertyName = "tenviettat_";
+            this.TenVietTat.HeaderText = "Tên viết tắt";
+            this.TenVietTat.Name = "TenVietTat";
+            this.TenVietTat.ReadOnly = true;
+            // 
+            // NhomNguoiDung
+            // 
+            this.NhomNguoiDung.DataPropertyName = "tennhom_";
+            this.NhomNguoiDung.HeaderText = "Nhóm người dùng";
+            this.NhomNguoiDung.Name = "NhomNguoiDung";
+            this.NhomNguoiDung.ReadOnly = true;
+            // 
+            // Mota
+            // 
+            this.Mota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Mota.DataPropertyName = "mota_";
+            this.Mota.HeaderText = "Mô tả";
+            this.Mota.Name = "Mota";
+            this.Mota.ReadOnly = true;
+            this.Mota.Width = 250;
+            // 
+            // Quyen
+            // 
+            this.Quyen.DataPropertyName = "author_";
+            this.Quyen.HeaderText = "Quyền";
+            this.Quyen.Name = "Quyen";
+            this.Quyen.ReadOnly = true;
+            this.Quyen.Visible = false;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.Checked = true;
+            this.TrangThai.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.TrangThai.CheckValue = "N";
+            this.TrangThai.DataPropertyName = "trangthai";
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Visible = false;
+            // 
             // panelEx3
             // 
             this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
@@ -299,7 +352,6 @@
             this.txt_NhomNguoiDung.Name = "txt_NhomNguoiDung";
             this.txt_NhomNguoiDung.Size = new System.Drawing.Size(132, 23);
             this.txt_NhomNguoiDung.TabIndex = 10;
-            this.txt_NhomNguoiDung.Text = "Administrator";
             // 
             // txt_MoTa
             // 
@@ -311,7 +363,6 @@
             this.txt_MoTa.Name = "txt_MoTa";
             this.txt_MoTa.Size = new System.Drawing.Size(450, 23);
             this.txt_MoTa.TabIndex = 9;
-            this.txt_MoTa.Text = "Nhóm quản trị hệ thống";
             // 
             // lbl_MoTa
             // 
@@ -335,7 +386,6 @@
             this.txt_TenVietTac.Name = "txt_TenVietTac";
             this.txt_TenVietTac.Size = new System.Drawing.Size(132, 23);
             this.txt_TenVietTac.TabIndex = 5;
-            this.txt_TenVietTac.Text = "Admin";
             // 
             // lbl_TenVietTat
             // 
@@ -374,59 +424,6 @@
             this.btn_Luu.TabIndex = 15;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
-            // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle1;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 61;
-            // 
-            // TenVietTat
-            // 
-            this.TenVietTat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenVietTat.DataPropertyName = "tenviettat_";
-            this.TenVietTat.HeaderText = "Tên viết tắt";
-            this.TenVietTat.Name = "TenVietTat";
-            this.TenVietTat.ReadOnly = true;
-            // 
-            // NhomNguoiDung
-            // 
-            this.NhomNguoiDung.DataPropertyName = "tennhom_";
-            this.NhomNguoiDung.HeaderText = "Nhóm người dùng";
-            this.NhomNguoiDung.Name = "NhomNguoiDung";
-            this.NhomNguoiDung.ReadOnly = true;
-            // 
-            // Mota
-            // 
-            this.Mota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Mota.DataPropertyName = "mota_";
-            this.Mota.HeaderText = "Mô tả";
-            this.Mota.Name = "Mota";
-            this.Mota.ReadOnly = true;
-            this.Mota.Width = 250;
-            // 
-            // Quyen
-            // 
-            this.Quyen.DataPropertyName = "author_";
-            this.Quyen.HeaderText = "Quyền";
-            this.Quyen.Name = "Quyen";
-            this.Quyen.ReadOnly = true;
-            this.Quyen.Visible = false;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.Checked = true;
-            this.TrangThai.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.TrangThai.CheckValue = "N";
-            this.TrangThai.DataPropertyName = "trangthai";
-            this.TrangThai.HeaderText = "Trạng thái";
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Visible = false;
             // 
             // PhanQuyen
             // 
