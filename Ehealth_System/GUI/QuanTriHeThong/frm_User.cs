@@ -29,22 +29,33 @@ namespace GUI.QuanTriHeThong
         /// <param name="e"></param>
         private void frm_User_Load(object sender, EventArgs e)
         {
-            grd_User.DataSource = BL.QuanTriHeThong.User_BL.GetUSerInfo().ToList();
             LoadUserInfo();
-         
         }
-
+        /// <summary>
+        /// Load user info
+        /// </summary>
         private void LoadUserInfo()
         {
-            
-            for (int i = 0; i < grd_User.Rows.Count; i++)
-            {
-                grd_User.Rows[i].Cells[0].Value = (i + 1).ToString();
-            }
-
-
-           
+            grd_User.DataSource = BL.QuanTriHeThong.User_BL.GetAllUserInfo();
         }
+        /// <summary>
+        /// STT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grd_User_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < grd_User.RowCount; i++)
+            {
+                grd_User.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
+            }
+        }
+
+        private void ql(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
        
     }
