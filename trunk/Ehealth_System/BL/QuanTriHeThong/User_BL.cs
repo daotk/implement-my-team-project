@@ -16,7 +16,7 @@ namespace BL.QuanTriHeThong
         public static bool CheckLogin(string username, string password)
         {
             bool check = false;
-            List<User_DO> ds = DA.QuanTriHeThong.User_DA.GetAllUsers();
+            List<User_DO> ds = DA.QuanTriHeThong.User_DA.GetAllUserInfo();
             for (int i = 0; i < ds.Count; i++)
             {
                 if (ds[i]._ACCOUNT == username && ds[i]._PASSWORD == password)
@@ -35,20 +35,20 @@ namespace BL.QuanTriHeThong
         /// tra ve ds user dang co trong database
         /// </summary>
         /// <returns></returns>
-        public static List<User_DO> GetAllUSer()
+        public static List<User_DO> GetAllUserInfo()
         {
-            return DA.QuanTriHeThong.User_DA.GetAllUsers();
+            return DA.QuanTriHeThong.User_DA.GetAllUserInfo();
         }
+   
 
         /// <summary>
-        /// tra ve ds user info dang co trong database
+        /// tra ve ds user info dang co trong database theo ma user
         /// </summary>
         /// <returns></returns>
-        public static List<User1_DO> GetUSerInfo()
+        public static List<User_DO> GetUSerInfoFollowUserID(string userid)
         {
-            return DA.QuanTriHeThong.User_DA.GetUserInfo();
+            return DA.QuanTriHeThong.User_DA.GetUserInfoFollowUserID(userid);
         }
-
 
     }
 }
