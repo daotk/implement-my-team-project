@@ -14,7 +14,8 @@ namespace DO.QuanTriHeThong
         public string _EMAIL {set; get;}
         public string _ACCOUNT {set; get;}    
         public string _PASSWORD {set; get;}
-        public bool _STATUS { set; get; } 
+        public bool _STATUS { set; get; }
+        public string _AUTHO { set; get; }
     }
 
     public class User1_DO
