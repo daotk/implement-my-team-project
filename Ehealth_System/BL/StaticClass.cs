@@ -9,5 +9,8 @@ namespace BL
     {
         public static string UserName;
         public static string GroupUser;
+        public static string UserID;
+        public static string Authorization;
+
     }
 }
