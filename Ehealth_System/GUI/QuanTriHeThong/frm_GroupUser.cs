@@ -46,7 +46,9 @@ namespace GUI.QuanTriHeThong
             if (btn_ThemMoi.Text == "Thêm mới")
             {
                 btn_ThemMoi.Text = "Lưu";
+                btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
+                btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
                 btn_ChinhSua.Enabled = true;
                 txt_TenVietTat.Enabled = true;
                 txt_TenNhom.Enabled = true;
@@ -71,7 +73,9 @@ namespace GUI.QuanTriHeThong
                             //Load lai danh sach nhom nguoi dung
                             LoadGroupUser();
                             btn_ThemMoi.Text = "Thêm mới";
+                            btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                             btn_ChinhSua.Text = "Chỉnh sửa";
+                            btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
                             btn_ChinhSua.Enabled = false;
                             txt_TenVietTat.Enabled = false;
                             txt_TenNhom.Enabled = false;
@@ -97,7 +101,9 @@ namespace GUI.QuanTriHeThong
                 else {
                     if (btn_ThemMoi.Text == "Hủy bỏ") {
                         btn_ThemMoi.Text = "Thêm mới";
+                        btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                         btn_ChinhSua.Text = "Chỉnh sửa";
+                        btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
                         btn_ChinhSua.Enabled = false;
                         txt_TenVietTat.Enabled = false;
                         txt_TenNhom.Enabled = false;
@@ -119,7 +125,7 @@ namespace GUI.QuanTriHeThong
         private void grd_NhomnguoiDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_ChinhSua.Enabled = true;
-            string ID = grd_NhomnguoiDung.CurrentRow.Cells[0].Value.ToString();
+            string ID = grd_NhomnguoiDung.CurrentRow.Cells[1].Value.ToString();
             List<UserGroup_DO> dsuser = BL.QuanTriHeThong.UserGroup_BL.GetUserGroup(ID);
             txt_TenVietTat.Text = dsuser[0].tenviettat_;
             txt_TenNhom.Text = dsuser[0].tennhom_;
@@ -132,7 +138,9 @@ namespace GUI.QuanTriHeThong
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
                 btn_ChinhSua.Text = "Lưu";
+                btn_ChinhSua.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ThemMoi.Text = "Hủy bỏ";
+                btn_ThemMoi.Image = global::GUI.Properties.Resources.cancel1;
                 txt_TenNhom.Enabled = true;
                 txt_MoTa.Enabled = true;
                 chk_TrangThai.Enabled = true;
@@ -147,7 +155,9 @@ namespace GUI.QuanTriHeThong
                             MessageBox.Show("Chỉnh sửa thành công");
                             LoadGroupUser();
                             btn_ThemMoi.Text = "Thêm mới";
+                            btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                             btn_ChinhSua.Text = "Chỉnh sửa";
+                            btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
                             btn_ChinhSua.Enabled = false;
                             txt_TenVietTat.Enabled = false;
                             txt_TenNhom.Enabled = false;
@@ -167,7 +177,9 @@ namespace GUI.QuanTriHeThong
                 else {
                     if (btn_ChinhSua.Text == "Hủy bỏ") {
                         btn_ThemMoi.Text = "Thêm mới";
+                        btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                         btn_ChinhSua.Text = "Chỉnh sửa";
+                        btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
                         btn_ChinhSua.Enabled = false;
                         txt_TenVietTat.Enabled = false;
                         txt_TenNhom.Enabled = false;
@@ -211,8 +223,23 @@ namespace GUI.QuanTriHeThong
             }
                 
             return test;
-        }// end CHeck
+        }
+
+       // end CHeck
         //Check Chinh Sua
-        
+
+        /// <summary>
+        /// STT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grd_NhomnguoiDung_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < grd_NhomnguoiDung.RowCount; i++)
+            {
+                grd_NhomnguoiDung.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
+            }
+        }
+
     }
 }
