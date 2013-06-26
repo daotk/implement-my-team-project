@@ -65,11 +65,13 @@ namespace DA.QuanTriHeThong
                     User_DO us = new User_DO();
                     us._USERID = row.USERID;
                     us._USERNAME = row.USERNAME;
+                    us._USERTYPEID = row.USERTYPEID;
                     us._GROUPUSERNAME = row.UserType_Info.USERTYPENAME;
                     us._EMAIL = row.EMAIL;
                     us._ACCOUNT = row.ACCOUNT;
                     us._PASSWORD = row.PASSWORD;
                     us._AUTHO = row.UserType_Info.AUTHORUZATION;
+                    us._STATUS = row.STATUS;
                     dsUser.Add(us);
                 }
                 return dsUser;
