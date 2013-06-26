@@ -28,6 +28,7 @@ namespace DA.QuanTriHeThong
                     us._EMAIL = row.EMAIL;
                     us._ACCOUNT = row.ACCOUNT;
                     us._PASSWORD = row.PASSWORD;
+                    us._AUTHO = row.UserType_Info.AUTHORUZATION;
                     dsUser.Add(us);
                 }
                 return dsUser;
