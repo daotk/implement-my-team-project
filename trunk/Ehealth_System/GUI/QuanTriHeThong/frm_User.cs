@@ -30,6 +30,7 @@ namespace GUI.QuanTriHeThong
         private void frm_User_Load(object sender, EventArgs e)
         {
             LoadUserInfo();
+            LoadGroupUser();
         }
         /// <summary>
         /// Load user info
@@ -38,6 +39,18 @@ namespace GUI.QuanTriHeThong
         {
             grd_User.DataSource = BL.QuanTriHeThong.User_BL.GetAllUserInfo();
         }
+
+        /// <summary>
+        /// Load nhom nguoi dung
+        /// </summary>
+        private void LoadGroupUser()
+        {
+            cbo_NhomNguoiDung.DataSource = BL.QuanTriHeThong.UserGroup_BL.GetAllUsserGroup();
+            cbo_NhomNguoiDung.DisplayMember = "tennhom_";
+            cbo_NhomNguoiDung.ValueMember = "tenviettat_";
+            cbo_NhomNguoiDung.Text = "";
+        }
+
         /// <summary>
         /// STT
         /// </summary>
@@ -51,10 +64,25 @@ namespace GUI.QuanTriHeThong
             }
         }
 
-        private void ql(object sender, DataGridViewCellEventArgs e)
+        /// <summary>
+        /// Cell Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grd_User_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            string userid = grd_User.CurrentRow.Cells["MaNhanVien"].Value.ToString();
+            List<DO.QuanTriHeThong.User_DO> user = BL.QuanTriHeThong.User_BL.GetUSerInfoFollowUserID(userid);
+            txt_MaNhanVien.Text = user[0]._USERID;
+            txt_HoTen.Text = user[0]._USERNAME;
+            txt_Email.Text = user[0]._EMAIL;
+            txt_TaiKhoan.Text = user[0]._ACCOUNT;
+            txt_Password.Text = BL.MD5_BL.GetMD5(user[0]._PASSWORD);
+            chk_TrangThai.Checked = user[0]._STATUS;
+            cbo_NhomNguoiDung.SelectedValue = user[0]._USERTYPEID;
         }
+
+       
 
 
        
