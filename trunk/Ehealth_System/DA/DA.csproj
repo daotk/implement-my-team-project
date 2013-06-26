@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanTriHeThong\City_DA.cs" />
+    <Compile Include="QuanTriHeThong\DepartmentTypeDA.cs" />
     <Compile Include="QuanTriHeThong\UserGroup_DA.cs" />
     <Compile Include="QuanTriHeThong\User_DA.cs" />
   </ItemGroup>

@@ -18,7 +18,7 @@ namespace GUI
             thread = new Thread(new ThreadStart(openform));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Login());
+            Application.Run(new frm_MainForm());
         }
         static void openform()
         {
