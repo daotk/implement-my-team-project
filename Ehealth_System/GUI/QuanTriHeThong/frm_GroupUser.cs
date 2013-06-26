@@ -43,29 +43,82 @@ namespace GUI.QuanTriHeThong
 
         private void btn_ThemMoi_Click(object sender, EventArgs e)
         {
-            //Them moi nhom nguoi dung
-            if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
+            if (btn_ThemMoi.Text == "Thêm mới")
             {
-                if (CheckInfo(txt_TenVietTat.Text, txt_TenNhom.Text))
-                {
-                    BL.QuanTriHeThong.UserGroup_BL.CreateUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                    MessageBox.Show("Create Successful");
-                    //Load lai danh sach nhom nguoi dung
-                    LoadGroupUser();
-                }
-                else {
-                    MessageBox.Show("Ten viet tat hoac ten nhom da ton tai");
-                }
-                
+                btn_ThemMoi.Text = "Lưu";
+                btn_ChinhSua.Text = "Hủy bỏ";
+                btn_ChinhSua.Enabled = true;
+                txt_TenVietTat.Enabled = true;
+                txt_TenNhom.Enabled = true;
+                txt_MoTa.Enabled = true;
+                chk_TrangThai.Enabled = true;
+
+                txt_TenVietTat.Text = "";
+                txt_TenNhom.Text = "";
+                txt_MoTa.Text = "";
+                chk_TrangThai.Checked = false;
             }
             else {
-                MessageBox.Show("Ban phai nhap day du thong tin");
+                if (btn_ThemMoi.Text == "Lưu")
+                {
+                    //Them moi nhom nguoi dung
+                    if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
+                    {
+                        if (CheckInfo(txt_TenVietTat.Text, txt_TenNhom.Text))
+                        {
+                            BL.QuanTriHeThong.UserGroup_BL.CreateUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text,"00000000000000", chk_TrangThai.Checked);
+                            MessageBox.Show("Thêm mới thành công");
+                            //Load lai danh sach nhom nguoi dung
+                            LoadGroupUser();
+                            btn_ThemMoi.Text = "Thêm mới";
+                            btn_ChinhSua.Text = "Chỉnh sửa";
+                            btn_ChinhSua.Enabled = false;
+                            txt_TenVietTat.Enabled = false;
+                            txt_TenNhom.Enabled = false;
+                            txt_MoTa.Enabled = false;
+                            chk_TrangThai.Enabled = false;
+
+                            txt_TenVietTat.Text = "";
+                            txt_TenNhom.Text = "";
+                            txt_MoTa.Text = "";
+                            chk_TrangThai.Checked = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Tên viết tắt đã tồn tại");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn phải nhập đầy đủ thông tin");
+                    }
+                }
+                else {
+                    if (btn_ThemMoi.Text == "Hủy bỏ") {
+                        btn_ThemMoi.Text = "Thêm mới";
+                        btn_ChinhSua.Text = "Chỉnh sửa";
+                        btn_ChinhSua.Enabled = false;
+                        txt_TenVietTat.Enabled = false;
+                        txt_TenNhom.Enabled = false;
+                        txt_MoTa.Enabled = false;
+                        chk_TrangThai.Enabled = false;
+
+                        txt_TenVietTat.Text = "";
+                        txt_TenNhom.Text = "";
+                        txt_MoTa.Text = "";
+                        chk_TrangThai.Checked = false;
+                    }
+                }
+
             }
+            
             
         }
 
         private void grd_NhomnguoiDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            btn_ChinhSua.Enabled = true;
             string ID = grd_NhomnguoiDung.CurrentRow.Cells[0].Value.ToString();
             List<UserGroup_DO> dsuser = BL.QuanTriHeThong.UserGroup_BL.GetUserGroup(ID);
             txt_TenVietTat.Text = dsuser[0].tenviettat_;
@@ -76,23 +129,61 @@ namespace GUI.QuanTriHeThong
 
         private void btn_ChinhSua_Click(object sender, EventArgs e)
         {
-            if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
+            if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
-                if (CheckEditInfo(txt_TenVietTat.Text, txt_TenNhom.Text))
-                {
-                    BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                    MessageBox.Show("Update Thanh Cong");
-                    LoadGroupUser();
-                }
-                else {
-                    MessageBox.Show("Ten viet tat khong ton tai hoac ten nhom da ton tai");
-                }
-                
+                btn_ChinhSua.Text = "Lưu";
+                btn_ThemMoi.Text = "Hủy bỏ";
+                txt_TenNhom.Enabled = true;
+                txt_MoTa.Enabled = true;
+                chk_TrangThai.Enabled = true;
             }
             else 
             {
-                MessageBox.Show("Ban phai nhap day du thong tin");
+                if (btn_ChinhSua.Text == "Lưu")
+                {
+                    if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
+                    {
+                         BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                            MessageBox.Show("Chỉnh sửa thành công");
+                            LoadGroupUser();
+                            btn_ThemMoi.Text = "Thêm mới";
+                            btn_ChinhSua.Text = "Chỉnh sửa";
+                            btn_ChinhSua.Enabled = false;
+                            txt_TenVietTat.Enabled = false;
+                            txt_TenNhom.Enabled = false;
+                            txt_MoTa.Enabled = false;
+                            chk_TrangThai.Enabled = false;
+                            txt_TenVietTat.Text = "";
+                            txt_TenNhom.Text = "";
+                            txt_MoTa.Text = "";
+                            chk_TrangThai.Checked = false;
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn phải nhập đầy dủ thông tin");
+                    }
+                }
+                else {
+                    if (btn_ChinhSua.Text == "Hủy bỏ") {
+                        btn_ThemMoi.Text = "Thêm mới";
+                        btn_ChinhSua.Text = "Chỉnh sửa";
+                        btn_ChinhSua.Enabled = false;
+                        txt_TenVietTat.Enabled = false;
+                        txt_TenNhom.Enabled = false;
+                        txt_MoTa.Enabled = false;
+                        chk_TrangThai.Enabled = false;
+
+                        txt_TenVietTat.Text = "";
+                        txt_TenNhom.Text = "";
+                        txt_MoTa.Text = "";
+                        chk_TrangThai.Checked = false;
+                    }
+                }
             }
+
+
+            
             
         }
         //Kiem tra thong tin tren giao dien
@@ -113,7 +204,7 @@ namespace GUI.QuanTriHeThong
             List<UserGroup_DO> dsmanguoidung = BL.QuanTriHeThong.UserGroup_BL.CheckInfo();
             for (int i = 0; i < dsmanguoidung.Count; i++) 
             {
-                if (txt_TenVietTat.Text.ToUpper() == dsmanguoidung[i].tenviettat_.ToUpper() || txt_TenNhom.Text == dsmanguoidung[i].tennhom_)
+                if (txt_TenVietTat.Text.ToUpper() == dsmanguoidung[i].tenviettat_.ToUpper() )
                 {
                     test = false;
                 }
@@ -122,20 +213,6 @@ namespace GUI.QuanTriHeThong
             return test;
         }// end CHeck
         //Check Chinh Sua
-        private bool CheckEditInfo(string ID, string Name)
-        {
-            bool test = false;
-            List<UserGroup_DO> dsmanguoidung = BL.QuanTriHeThong.UserGroup_BL.CheckInfo();
-            for (int i = 0; i < dsmanguoidung.Count; i++)
-            {
-                if (txt_TenVietTat.Text.ToUpper() == dsmanguoidung[i].tenviettat_.ToUpper())
-                {
-                    test = true;
-                }
-                
-            }
-
-            return test;
-        }
+        
     }
 }
