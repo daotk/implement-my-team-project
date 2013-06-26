@@ -19,14 +19,14 @@ namespace BL.QuanTriHeThong
             List<User_DO> ds = DA.QuanTriHeThong.User_DA.GetAllUserInfo();
             for (int i = 0; i < ds.Count; i++)
             {
-                if (ds[i]._ACCOUNT == username && ds[i]._PASSWORD == password)
-                {
-                    BL.StaticClass.GroupUser = ds[i]._GROUPUSERNAME;
-                    BL.StaticClass.UserName = ds[i]._USERNAME;
-                    BL.StaticClass.Authorization = ds[i]._AUTHO;
-
-                    check = true;
-                }
+                    if (ds[i]._ACCOUNT == username && ds[i]._PASSWORD == password)
+                    {
+                        BL.StaticClass.GroupUser = ds[i]._GROUPUSERNAME;
+                        BL.StaticClass.UserName = ds[i]._USERNAME;
+                        BL.StaticClass.Authorization = ds[i]._AUTHO;
+                        BL.StaticClass.StatusUser = ds[i]._STATUS;
+                        check = true;
+                    }
             }
             return check;
         }
