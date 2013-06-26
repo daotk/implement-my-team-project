@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BL.QuanTriHeThong;
+using DA.QuanTriHeThong;
+using DO;
 
 namespace GUI
 {
@@ -40,7 +43,7 @@ namespace GUI
         {
             LoadDSUserGroup();
         }
-
+        //Load List User Group
         private void LoadDSUserGroup()
         {
             grd_NhomNguoiDung.DataSource = BL.QuanTriHeThong.UserGroup_BL.GetAllUsserGroup();
@@ -49,13 +52,146 @@ namespace GUI
                 grd_NhomNguoiDung.Rows[i].Cells[0].Value = i + 1;
             }
         }
-
+        //Select item of datagridview
         private void grd_NhomNguoiDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            IDindex = "";
             btn_Luu.Enabled = true;
             btn_Huy.Enabled = true;
             IDindex = IDindex + grd_NhomNguoiDung.CurrentRow.Cells[1].Value.ToString();
+            List<DO.QuanTriHeThong.UserGroup_DO> array = BL.QuanTriHeThong.UserGroup_BL.LoadAuthorization(IDindex);
+            LoadQuyen(array[0].author_);
         }
+       //Load Authorization from db
+        private void LoadQuyen(string chuoiquyen) {
+            if (chuoiquyen[0].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[0].Nodes[0].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[0].Nodes[0].Checked = false;
+            }
+
+            if (chuoiquyen[1].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[0].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[0].Checked = false;
+            }
+
+            if (chuoiquyen[2].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[1].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[1].Checked = false;
+            }
+
+            if (chuoiquyen[3].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[2].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[2].Checked = false;
+            }
+
+            if (chuoiquyen[4].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[3].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[3].Checked = false;
+            }
+
+            if (chuoiquyen[5].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[4].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[4].Checked = false;
+            }
+
+            if (chuoiquyen[6].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[5].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[5].Checked = false;
+            }
+
+            if (chuoiquyen[7].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[6].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[6].Checked = false;
+            }
+
+            if (chuoiquyen[8].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[7].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[1].Nodes[7].Checked = false;
+            }
+
+            if (chuoiquyen[9].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[2].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[2].Checked = false;
+            }
+
+            if (chuoiquyen[10].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[0].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[0].Checked = false;
+            }
+
+            if (chuoiquyen[11].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[1].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[1].Checked = false;
+            }
+
+            if (chuoiquyen[12].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[2].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[2].Checked = false;
+            }
+
+            if (chuoiquyen[13].ToString() == "1")
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[3].Checked = true;
+            }
+            else
+            {
+                trv_PhanQuyen.Nodes[3].Nodes[3].Checked = false;
+            }
+            
+        }
+        //Set atuhorization
         private string  PhanQuyen1( string chuoi) {
             chuoi = "";
             if (trv_PhanQuyen.Nodes[0].Nodes[0].Checked == true)
@@ -161,6 +297,20 @@ namespace GUI
             result = "";
             btn_Luu.Enabled = false;
             btn_Huy.Enabled = false;
+            trv_PhanQuyen.Nodes[0].Nodes[0].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[0].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[1].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[2].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[3].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[4].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[5].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[6].Checked = false;
+            trv_PhanQuyen.Nodes[1].Nodes[7].Checked = false;
+            trv_PhanQuyen.Nodes[2].Checked = false;
+            trv_PhanQuyen.Nodes[3].Nodes[0].Checked = false;
+            trv_PhanQuyen.Nodes[3].Nodes[1].Checked = false;
+            trv_PhanQuyen.Nodes[3].Nodes[2].Checked = false;
+            trv_PhanQuyen.Nodes[3].Nodes[3].Checked = false;
         }
 
 
