@@ -11,18 +11,18 @@ namespace BL.QuanTriHeThong
     {
         public static List<TypeDepartment_DO> GetAllDepartment()
         {
-            return TypeDepartment_DA.GetAllDepartments();
+            return DA.QuanTriHeThong.TypeDepartment_DA.GetAllDepartments();
         }
         public static int add(String ID, String name, String desscription, bool status)
         {
 
-            return TypeDepartment_DA.add(ID, name, desscription, status);
+            return DA.QuanTriHeThong.TypeDepartment_DA.add(ID, name, desscription, status);
 
         }
         public static void edit(String ID, String name, String desscription, bool status)
         {
 
-            TypeDepartment_DA.edit(ID, name, desscription, status);
+            DA.QuanTriHeThong.TypeDepartment_DA.edit(ID, name, desscription, status);
 
         }
         public static List<TypeDepartment_DO> SearchTypeDepart( String name)
