@@ -49,6 +49,7 @@
             this.btn_Cancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_Cancel.TabIndex = 3;
             this.btn_Cancel.Text = "Hủy bỏ";
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // txt_UserName
             // 
