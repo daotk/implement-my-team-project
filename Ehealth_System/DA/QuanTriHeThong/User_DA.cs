@@ -60,6 +60,16 @@ namespace DA.QuanTriHeThong
             }
         }//end 
 
+        public static void InsertUser(string IDUser, string HovaTen, string email,
+          string nhomnguoidung, string taikhoan, string password)
+        {
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                
+                
+
+            }
+        }
 
     }
 }
