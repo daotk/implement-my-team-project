@@ -22,7 +22,7 @@ namespace GUI
         /// <param name="e"></param>
         private void frm_Login_Load(object sender, EventArgs e)
         {
-            BL.QuanTriHeThong.User_BL.GetAllUSer();
+            BL.QuanTriHeThong.User_BL.GetAllUserInfo();
         }
 
 
