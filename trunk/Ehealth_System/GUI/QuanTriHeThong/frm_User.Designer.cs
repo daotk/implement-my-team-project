@@ -63,10 +63,14 @@
             this.lbl_Note4 = new DevComponents.DotNetBar.LabelX();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NhomNguoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
+            this.UserTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Autho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_User)).BeginInit();
             this.panelEx1.SuspendLayout();
@@ -106,10 +110,14 @@
             this.grd_User.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
             this.MaNhanVien,
-            this.HoTen,
             this.NhomNguoiDung,
+            this.HoTen,
             this.TaiKhoan,
-            this.TrangThai});
+            this.TrangThai,
+            this.UserTypeID,
+            this.Email,
+            this.Password,
+            this.Autho});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,6 +135,8 @@
             this.grd_User.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_User.Size = new System.Drawing.Size(965, 550);
             this.grd_User.TabIndex = 0;
+            this.grd_User.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ql);
+            this.grd_User.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_User_RowsAdded);
             // 
             // lbl_Title
             // 
@@ -497,13 +507,14 @@
             // 
             // STT
             // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.STT.DataPropertyName = "STT";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.STT.DefaultCellStyle = dataGridViewCellStyle2;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
             this.STT.ReadOnly = true;
+            this.STT.Width = 61;
             // 
             // MaNhanVien
             // 
@@ -516,13 +527,6 @@
             this.MaNhanVien.ReadOnly = true;
             this.MaNhanVien.Width = 150;
             // 
-            // HoTen
-            // 
-            this.HoTen.DataPropertyName = "_USERNAME";
-            this.HoTen.HeaderText = "Họ tên";
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            // 
             // NhomNguoiDung
             // 
             this.NhomNguoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -532,7 +536,14 @@
             this.NhomNguoiDung.HeaderText = "Nhóm người dùng";
             this.NhomNguoiDung.Name = "NhomNguoiDung";
             this.NhomNguoiDung.ReadOnly = true;
-            this.NhomNguoiDung.Width = 150;
+            this.NhomNguoiDung.Width = 180;
+            // 
+            // HoTen
+            // 
+            this.HoTen.DataPropertyName = "_USERNAME";
+            this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
             // 
             // TaiKhoan
             // 
@@ -555,6 +566,38 @@
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
+            // 
+            // UserTypeID
+            // 
+            this.UserTypeID.DataPropertyName = "_UserTypeID";
+            this.UserTypeID.HeaderText = "UserTypeID";
+            this.UserTypeID.Name = "UserTypeID";
+            this.UserTypeID.ReadOnly = true;
+            this.UserTypeID.Visible = false;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "_Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Visible = false;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "_Password";
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            this.Password.Visible = false;
+            // 
+            // Autho
+            // 
+            this.Autho.DataPropertyName = "_Autho";
+            this.Autho.HeaderText = "Autho";
+            this.Autho.Name = "Autho";
+            this.Autho.ReadOnly = true;
+            this.Autho.Visible = false;
             // 
             // frm_User
             // 
@@ -608,10 +651,14 @@
         private DevComponents.DotNetBar.LabelX lbl_Note4;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NhomNguoiDung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaiKhoan;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn TrangThai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Autho;
 
 
 
