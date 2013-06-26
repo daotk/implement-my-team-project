@@ -34,7 +34,6 @@ namespace GUI
             {
                 strUsername = txt_UserName.Text;
                 strPassword = txt_Password.Text;
-                BL.StaticClass.UserName = strUsername;
                 bool check = BL.QuanTriHeThong.User_BL.CheckLogin(strUsername,strPassword);
                 if (check == true)
                 {
