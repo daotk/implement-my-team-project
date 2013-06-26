@@ -9,7 +9,7 @@ namespace BL
     public class MD5_BL
     {
 
-        public string GetMD5(string chuoi)
+        public static string GetMD5(string chuoi)
         {
             string str_md5 = "";
             byte[] mang = System.Text.Encoding.UTF8.GetBytes(chuoi);
