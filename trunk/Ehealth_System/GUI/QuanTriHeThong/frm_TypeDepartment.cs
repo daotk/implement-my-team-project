@@ -52,8 +52,7 @@ namespace GUI.QuanTriHeThong
         }
         public void loadDatagrid()
         {
-             TypeDepartment_BL depart = new TypeDepartment_BL();
-            grd_LoaiPhongBan.DataSource = depart.GetAllDepartment();
+            grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -144,6 +143,11 @@ namespace GUI.QuanTriHeThong
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
+        }
+
+        private void txt_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         
