@@ -28,7 +28,7 @@ namespace DA.QuanTriHeThong
             return dsusergroup;
         }
         //Create user group
-        public static void CreateUserGroup(string tenviettats, string tennhoms, string motas
+        public static void CreateUserGroup(string tenviettats, string tennhoms, string motas, string authorization
             , bool trangthais)
         {
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
@@ -37,6 +37,7 @@ namespace DA.QuanTriHeThong
                 user.USERTYPEID = tenviettats;
                 user.USERTYPENAME = tennhoms;
                 user.DESCRIPTION = motas;
+                user.AUTHORUZATION = authorization;
                 user.USERTYPESTATUS = trangthais;
                 dk.UserType_Info.AddObject(user);
                 dk.SaveChanges();
@@ -103,6 +104,40 @@ namespace DA.QuanTriHeThong
             }
             return dsmanguoidung;
         }
-        //End Check 
+        //End Check
+        //Check Edit Info
+        public static List<UserGroup_DO> CheckEditInfo(string tenhientai)
+        {
+            List<UserGroup_DO> dsmanguoidung = new List<UserGroup_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.UserType_Info where u.USERTYPENAME != tenhientai select u;
+                foreach (var row in query)
+                {
+                    UserGroup_DO us = new UserGroup_DO();
+                    us.tennhom_ = row.USERTYPENAME;
+                    dsmanguoidung.Add(us);
+                }
+            }
+            return dsmanguoidung;
+        }
+        //End Check
+
+        //Edit authorization of User Group
+
+        public static void EditAuthorization(string tenviettata,string author)
+        {
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = (from u in dk.UserType_Info
+                             where u.USERTYPEID == tenviettata
+                             select u).First();
+                query.USERTYPEID = tenviettata;
+                query.AUTHORUZATION = author;
+                
+                dk.SaveChanges();
+            }
+        }
+        //End Edit authorization of user group
     }
 }
