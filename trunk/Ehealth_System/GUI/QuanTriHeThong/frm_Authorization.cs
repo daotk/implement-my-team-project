@@ -61,6 +61,11 @@ namespace GUI
             IDindex = IDindex + grd_NhomNguoiDung.CurrentRow.Cells[1].Value.ToString();
             List<DO.QuanTriHeThong.UserGroup_DO> array = BL.QuanTriHeThong.UserGroup_BL.LoadAuthorization(IDindex);
             LoadQuyen(array[0].author_);
+            txt_TenVietTac.Text = grd_NhomNguoiDung.CurrentRow.Cells["TenVietTat"].Value.ToString() ;
+            txt_NhomNguoiDung.Text = grd_NhomNguoiDung.CurrentRow.Cells["NhomNguoiDung"].Value.ToString();
+            txt_MoTa.Text = grd_NhomNguoiDung.CurrentRow.Cells["Mota"].Value.ToString();
+
+
         }
        //Load Authorization from db
         private void LoadQuyen(string chuoiquyen) {
