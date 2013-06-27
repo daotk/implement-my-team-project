@@ -88,6 +88,7 @@ namespace GUI.QuanTriHeThong
         {
             enablebtn(true);
             enableText(true);
+            txt_TenVietTat.Enabled = false; ;
             flag_sua = true;
         }
 
