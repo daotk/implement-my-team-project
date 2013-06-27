@@ -34,6 +34,8 @@
             this.btn_Luu = new DevComponents.DotNetBar.ButtonX();
             this.btn_HuyBo = new DevComponents.DotNetBar.ButtonX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.lbl_GiaoDienLon = new DevComponents.DotNetBar.LabelX();
+            this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.SuspendLayout();
             // 
             // labelX1
@@ -66,9 +68,9 @@
             // 
             this.btn_Luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Luu.Location = new System.Drawing.Point(107, 220);
+            this.btn_Luu.Location = new System.Drawing.Point(98, 292);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(108, 27);
+            this.btn_Luu.Size = new System.Drawing.Size(120, 35);
             this.btn_Luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_Luu.TabIndex = 2;
             this.btn_Luu.Text = "Lưu";
@@ -78,9 +80,9 @@
             // 
             this.btn_HuyBo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_HuyBo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_HuyBo.Location = new System.Drawing.Point(276, 220);
+            this.btn_HuyBo.Location = new System.Drawing.Point(267, 292);
             this.btn_HuyBo.Name = "btn_HuyBo";
-            this.btn_HuyBo.Size = new System.Drawing.Size(108, 27);
+            this.btn_HuyBo.Size = new System.Drawing.Size(120, 35);
             this.btn_HuyBo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_HuyBo.TabIndex = 3;
             this.btn_HuyBo.Text = "Hủy bỏ";
@@ -94,16 +96,43 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Location = new System.Drawing.Point(53, 71);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(97, 23);
+            this.labelX2.Size = new System.Drawing.Size(119, 23);
             this.labelX2.TabIndex = 4;
             this.labelX2.Text = "Tên bệnh viện";
             // 
-            // Config
+            // lbl_GiaoDienLon
+            // 
+            // 
+            // 
+            // 
+            this.lbl_GiaoDienLon.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbl_GiaoDienLon.Location = new System.Drawing.Point(53, 124);
+            this.lbl_GiaoDienLon.Name = "lbl_GiaoDienLon";
+            this.lbl_GiaoDienLon.Size = new System.Drawing.Size(119, 23);
+            this.lbl_GiaoDienLon.TabIndex = 5;
+            this.lbl_GiaoDienLon.Text = "Mở giao diện lớn";
+            // 
+            // checkBoxX1
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX1.Location = new System.Drawing.Point(187, 123);
+            this.checkBoxX1.Name = "checkBoxX1";
+            this.checkBoxX1.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX1.TabIndex = 6;
+            this.checkBoxX1.Text = "Có";
+            // 
+            // frm_Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.checkBoxX1);
+            this.Controls.Add(this.lbl_GiaoDienLon);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.btn_HuyBo);
             this.Controls.Add(this.btn_Luu);
@@ -113,7 +142,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Name = "Config";
+            this.Name = "frm_Config";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cấu hình";
             this.ResumeLayout(false);
@@ -127,6 +156,8 @@
         private DevComponents.DotNetBar.ButtonX btn_Luu;
         private DevComponents.DotNetBar.ButtonX btn_HuyBo;
         private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.LabelX lbl_GiaoDienLon;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX1;
 
 
     }
