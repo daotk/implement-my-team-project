@@ -150,6 +150,8 @@ namespace GUI.QuanTriHeThong
             grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.SearchTypeDepart(txt_TimKiem.Text);
         }
 
+       
+
         
 
        
