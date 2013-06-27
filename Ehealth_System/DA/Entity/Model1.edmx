@@ -22,10 +22,6 @@
             <End Role="Patient_Info" EntitySet="Patient_Info" />
             <End Role="Bill_Info" EntitySet="Bill_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Bill_Info_ServiceGroup_Info" Association="EHealthSystemModel.Store.FK_Bill_Info_ServiceGroup_Info">
-            <End Role="ServiceGroup_Info" EntitySet="ServiceGroup_Info" />
-            <End Role="Bill_Info" EntitySet="Bill_Info" />
-          </AssociationSet>
           <AssociationSet Name="FK_Bill_Info_User_Info" Association="EHealthSystemModel.Store.FK_Bill_Info_User_Info">
             <End Role="User_Info" EntitySet="User_Info" />
             <End Role="Bill_Info" EntitySet="Bill_Info" />
@@ -66,7 +62,6 @@
           <Property Name="BILLCOST" Type="float" Nullable="false" />
           <Property Name="DEPARTMENTID" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="BILLSTATUS" Type="bit" Nullable="false" />
-          <Property Name="SERVICEGROUPID" Type="varchar" Nullable="false" MaxLength="15" />
         </EntityType>
         <EntityType Name="City_Info">
           <Key>
@@ -134,7 +129,7 @@
           <Property Name="SERVICEGROUPID" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="SERVICENAME" Type="nvarchar" MaxLength="50" />
           <Property Name="SERVICEDESCRIPTION" Type="nvarchar" MaxLength="400" />
-          <Property Name="SERVICECOST" Type="float" Nullable="false" />
+          <Property Name="SERVICECOST" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="SERVICESTATUS" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ServiceGroup_Info">
@@ -187,18 +182,6 @@
             </Principal>
             <Dependent Role="Bill_Info">
               <PropertyRef Name="PATIENTID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bill_Info_ServiceGroup_Info">
-          <End Role="ServiceGroup_Info" Type="EHealthSystemModel.Store.ServiceGroup_Info" Multiplicity="1" />
-          <End Role="Bill_Info" Type="EHealthSystemModel.Store.Bill_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ServiceGroup_Info">
-              <PropertyRef Name="SERVICEGROUPID" />
-            </Principal>
-            <Dependent Role="Bill_Info">
-              <PropertyRef Name="SERVICEGROUPID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -316,6 +299,14 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="sp_TaoHoaDon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaDichVu" Type="varchar" Mode="In" />
+          <Parameter Name="MaBenhNhan" Type="varchar" Mode="In" />
+          <Parameter Name="NguoiTao" Type="varchar" Mode="In" />
+          <Parameter Name="BanTao" Type="varchar" Mode="In" />
+          <Parameter Name="TongGia" Type="float" Mode="In" />
+          <Parameter Name="TrangThai" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema>
     </edmx:StorageModels>
@@ -337,10 +328,6 @@
           <EntitySet Name="UserType_Info" EntityType="EHealthSystemModel.UserType_Info" />
           <AssociationSet Name="FK_Bill_Info_Patient_Info" Association="EHealthSystemModel.FK_Bill_Info_Patient_Info">
             <End Role="Patient_Info" EntitySet="Patient_Info" />
-            <End Role="Bill_Info" EntitySet="Bill_Info" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bill_Info_ServiceGroup_Info" Association="EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info">
-            <End Role="ServiceGroup_Info" EntitySet="ServiceGroup_Info" />
             <End Role="Bill_Info" EntitySet="Bill_Info" />
           </AssociationSet>
           <AssociationSet Name="FK_Bill_Info_User_Info" Association="EHealthSystemModel.FK_Bill_Info_User_Info">
@@ -383,9 +370,7 @@
           <Property Name="BILLCOST" Type="Double" Nullable="false" />
           <Property Name="DEPARTMENTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <Property Name="BILLSTATUS" Type="Boolean" Nullable="false" />
-          <Property Name="SERVICEGROUPID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Patient_Info" Relationship="EHealthSystemModel.FK_Bill_Info_Patient_Info" FromRole="Bill_Info" ToRole="Patient_Info" />
-          <NavigationProperty Name="ServiceGroup_Info" Relationship="EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info" FromRole="Bill_Info" ToRole="ServiceGroup_Info" />
           <NavigationProperty Name="User_Info" Relationship="EHealthSystemModel.FK_Bill_Info_User_Info" FromRole="Bill_Info" ToRole="User_Info" />
           <NavigationProperty Name="DetailBill_Info" Relationship="EHealthSystemModel.FK_DetailBill_Info_Bill_Info" FromRole="Bill_Info" ToRole="DetailBill_Info" />
         </EntityType>
@@ -462,7 +447,7 @@
           <Property Name="SERVICEGROUPID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <Property Name="SERVICENAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="SERVICEDESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
-          <Property Name="SERVICECOST" Type="Double" Nullable="false" />
+          <Property Name="SERVICECOST" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="SERVICESTATUS" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DetailBill_Info" Relationship="EHealthSystemModel.FK_DetailBill_Info_Service_Info" FromRole="Service_Info" ToRole="DetailBill_Info" />
           <NavigationProperty Name="ServiceGroup_Info" Relationship="EHealthSystemModel.FK_Service_Info_ServiceGroup_Info" FromRole="Service_Info" ToRole="ServiceGroup_Info" />
@@ -475,7 +460,6 @@
           <Property Name="SERVICEGROUPNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="SERVICEBROUPDESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
           <Property Name="SERVICEGROUPSTATUS" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Bill_Info" Relationship="EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info" FromRole="ServiceGroup_Info" ToRole="Bill_Info" />
           <NavigationProperty Name="Service_Info" Relationship="EHealthSystemModel.FK_Service_Info_ServiceGroup_Info" FromRole="ServiceGroup_Info" ToRole="Service_Info" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -522,18 +506,6 @@
             </Principal>
             <Dependent Role="Bill_Info">
               <PropertyRef Name="PATIENTID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bill_Info_ServiceGroup_Info">
-          <End Role="ServiceGroup_Info" Type="EHealthSystemModel.ServiceGroup_Info" Multiplicity="1" />
-          <End Role="Bill_Info" Type="EHealthSystemModel.Bill_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ServiceGroup_Info">
-              <PropertyRef Name="SERVICEGROUPID" />
-            </Principal>
-            <Dependent Role="Bill_Info">
-              <PropertyRef Name="SERVICEGROUPID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -637,7 +609,6 @@
                 <ScalarProperty Name="BILLCOST" ColumnName="BILLCOST" />
                 <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
                 <ScalarProperty Name="BILLSTATUS" ColumnName="BILLSTATUS" />
-                <ScalarProperty Name="SERVICEGROUPID" ColumnName="SERVICEGROUPID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -783,61 +754,53 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="EHealthSystemModel.Bill_Info" Width="1.5" PointX="3" PointY="4" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.City_Info" Width="1.5" PointX="5.75" PointY="2.25" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.Department_Info" Width="1.5" PointX="10" PointY="6.125" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.DepartmentType_Info" Width="1.5" PointX="7.75" PointY="6.25" Height="1.9802864583333326" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.DetailBill_Info" Width="1.5" PointX="5.25" PointY="6.5" Height="2.1725878906249987" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.District_Info" Width="1.5" PointX="8" PointY="2.125" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.Patient_Info" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.Service_Info" Width="1.5" PointX="3" PointY="8.5" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.ServiceGroup_Info" Width="1.5" PointX="0.75" PointY="4.625" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.sysdiagram" Width="1.5" PointX="5.75" PointY="10" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.User_Info" Width="1.5" PointX="0.75" PointY="7.875" Height="2.7494921875000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.UserType_Info" Width="1.5" PointX="1.5" PointY="12.125" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Bill_Info" Width="1.5" PointX="5.25" PointY="1" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.City_Info" Width="1.5" PointX="5.75" PointY="5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Department_Info" Width="1.5" PointX="10" PointY="8.875" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.DepartmentType_Info" Width="1.5" PointX="7.75" PointY="9" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.DetailBill_Info" Width="1.5" PointX="7.5" PointY="1.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.District_Info" Width="1.5" PointX="8" PointY="4.875" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Patient_Info" Width="1.5" PointX="3" PointY="5.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Service_Info" Width="1.5" PointX="5.25" PointY="9.125" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.ServiceGroup_Info" Width="1.5" PointX="3" PointY="9.5" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.User_Info" Width="1.5" PointX="3" PointY="1.125" Height="2.7494921875000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.UserType_Info" Width="1.5" PointX="0.75" PointY="1.375" Height="2.1725878906250031" IsExpanded="true" />
         <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_Patient_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="1.9324446614583337" />
-          <ConnectorPoint PointX="3.75" PointY="1.9324446614583337" />
-          <ConnectorPoint PointX="3.75" PointY="4" />
-        </AssociationConnector>
-        <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.7112939453125" />
-          <ConnectorPoint PointX="3" PointY="5.7112939453125" />
+          <ConnectorPoint PointX="4.5" PointY="7.3288378906250005" />
+          <ConnectorPoint PointX="5.46875" PointY="7.3288378906250005" />
+          <ConnectorPoint PointX="5.46875" PointY="3.9417936197916665" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_User_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.875" />
-          <ConnectorPoint PointX="2.625" PointY="7.5" />
-          <ConnectorPoint PointX="2.625" PointY="7.701396484375" />
-          <ConnectorPoint PointX="2.7535744349011204" PointY="7.5728220494738778" />
-          <ConnectorPoint PointX="2.8714255650988791" PointY="7.45497091927612" />
-          <ConnectorPoint PointX="3" PointY="7.326396484375" />
+          <ConnectorPoint PointX="4.5" PointY="2.4997460937500016" />
+          <ConnectorPoint PointX="5.25" PointY="2.4997460937500016" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_DetailBill_Info_Bill_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="6.9131982421875" />
-          <ConnectorPoint PointX="5.25" PointY="6.9131982421875" />
+          <ConnectorPoint PointX="6.75" PointY="2.4612939453125" />
+          <ConnectorPoint PointX="7.5" PointY="2.4612939453125" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_District_Info_City_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.25" PointY="3.2401432291666667" />
-          <ConnectorPoint PointX="8" PointY="3.2401432291666667" />
+          <ConnectorPoint PointX="7.25" PointY="5.9901432291666667" />
+          <ConnectorPoint PointX="7.510416666666667" PointY="5.9901432291666659" />
+          <ConnectorPoint PointX="7.677083333333333" PointY="5.9901432291666667" />
+          <ConnectorPoint PointX="8" PointY="5.9901432291666667" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_Department_Info_DepartmentType_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.25" PointY="7.2401432291666659" />
-          <ConnectorPoint PointX="10" PointY="7.2401432291666659" />
+          <ConnectorPoint PointX="9.25" PointY="9.9901432291666659" />
+          <ConnectorPoint PointX="10" PointY="9.9901432291666659" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_DetailBill_Info_Service_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="9.3050444453125" />
-          <ConnectorPoint PointX="5.46875" PointY="9.3050444453125" />
-          <ConnectorPoint PointX="5.46875" PointY="8.672587890625" />
+          <ConnectorPoint PointX="6.75" PointY="11.362488606770832" />
+          <ConnectorPoint PointX="7.59375" PointY="11.362488606770832" />
+          <ConnectorPoint PointX="7.59375" PointY="3.5475878906249996" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_Service_Info_ServiceGroup_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.7352791983173068" />
-          <ConnectorPoint PointX="2.8125" PointY="7.2977791983173068" />
-          <ConnectorPoint PointX="2.8125" PointY="9.7785953776041659" />
-          <ConnectorPoint PointX="3" PointY="9.7785953776041659" />
+          <ConnectorPoint PointX="4.5" PointY="10.490143229166666" />
+          <ConnectorPoint PointX="5.25" PointY="10.490143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_User_Info_UserType_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.875" PointY="12.125" />
-          <ConnectorPoint PointX="1.875" PointY="10.624492187500003" />
+          <ConnectorPoint PointX="2.25" PointY="2.4612939453125016" />
+          <ConnectorPoint PointX="3" PointY="2.4612939453125016" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

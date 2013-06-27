@@ -20,7 +20,6 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("EHealthSystemModel", "FK_Bill_Info_Patient_Info", "Patient_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.Entity.Patient_Info), "Bill_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.Entity.Bill_Info), true)]
-[assembly: EdmRelationshipAttribute("EHealthSystemModel", "FK_Bill_Info_ServiceGroup_Info", "ServiceGroup_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.Entity.ServiceGroup_Info), "Bill_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.Entity.Bill_Info), true)]
 [assembly: EdmRelationshipAttribute("EHealthSystemModel", "FK_Bill_Info_User_Info", "User_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.Entity.User_Info), "Bill_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.Entity.Bill_Info), true)]
 [assembly: EdmRelationshipAttribute("EHealthSystemModel", "FK_DetailBill_Info_Bill_Info", "Bill_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.Entity.Bill_Info), "DetailBill_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.Entity.DetailBill_Info), true)]
 [assembly: EdmRelationshipAttribute("EHealthSystemModel", "FK_District_Info_City_Info", "City_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.Entity.City_Info), "District_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.Entity.District_Info), true)]
@@ -399,8 +398,7 @@ namespace DA.Entity
         /// <param name="bILLCOST">Initial value of the BILLCOST property.</param>
         /// <param name="dEPARTMENTID">Initial value of the DEPARTMENTID property.</param>
         /// <param name="bILLSTATUS">Initial value of the BILLSTATUS property.</param>
-        /// <param name="sERVICEGROUPID">Initial value of the SERVICEGROUPID property.</param>
-        public static Bill_Info CreateBill_Info(global::System.String bILLID, global::System.String pATIENTID, global::System.String uSERID, global::System.DateTime bILLDATE, global::System.Double bILLCOST, global::System.String dEPARTMENTID, global::System.Boolean bILLSTATUS, global::System.String sERVICEGROUPID)
+        public static Bill_Info CreateBill_Info(global::System.String bILLID, global::System.String pATIENTID, global::System.String uSERID, global::System.DateTime bILLDATE, global::System.Double bILLCOST, global::System.String dEPARTMENTID, global::System.Boolean bILLSTATUS)
         {
             Bill_Info bill_Info = new Bill_Info();
             bill_Info.BILLID = bILLID;
@@ -410,7 +408,6 @@ namespace DA.Entity
             bill_Info.BILLCOST = bILLCOST;
             bill_Info.DEPARTMENTID = dEPARTMENTID;
             bill_Info.BILLSTATUS = bILLSTATUS;
-            bill_Info.SERVICEGROUPID = sERVICEGROUPID;
             return bill_Info;
         }
 
@@ -588,30 +585,6 @@ namespace DA.Entity
         private global::System.Boolean _BILLSTATUS;
         partial void OnBILLSTATUSChanging(global::System.Boolean value);
         partial void OnBILLSTATUSChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String SERVICEGROUPID
-        {
-            get
-            {
-                return _SERVICEGROUPID;
-            }
-            set
-            {
-                OnSERVICEGROUPIDChanging(value);
-                ReportPropertyChanging("SERVICEGROUPID");
-                _SERVICEGROUPID = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SERVICEGROUPID");
-                OnSERVICEGROUPIDChanged();
-            }
-        }
-        private global::System.String _SERVICEGROUPID;
-        partial void OnSERVICEGROUPIDChanging(global::System.String value);
-        partial void OnSERVICEGROUPIDChanged();
 
         #endregion
 
@@ -652,44 +625,6 @@ namespace DA.Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Patient_Info>("EHealthSystemModel.FK_Bill_Info_Patient_Info", "Patient_Info", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EHealthSystemModel", "FK_Bill_Info_ServiceGroup_Info", "ServiceGroup_Info")]
-        public ServiceGroup_Info ServiceGroup_Info
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServiceGroup_Info>("EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info", "ServiceGroup_Info").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServiceGroup_Info>("EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info", "ServiceGroup_Info").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<ServiceGroup_Info> ServiceGroup_InfoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServiceGroup_Info>("EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info", "ServiceGroup_Info");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ServiceGroup_Info>("EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info", "ServiceGroup_Info", value);
                 }
             }
         }
@@ -1919,7 +1854,7 @@ namespace DA.Entity
         /// <param name="sERVICEGROUPID">Initial value of the SERVICEGROUPID property.</param>
         /// <param name="sERVICECOST">Initial value of the SERVICECOST property.</param>
         /// <param name="sERVICESTATUS">Initial value of the SERVICESTATUS property.</param>
-        public static Service_Info CreateService_Info(global::System.String sERVICEID, global::System.String sERVICEGROUPID, global::System.Double sERVICECOST, global::System.Boolean sERVICESTATUS)
+        public static Service_Info CreateService_Info(global::System.String sERVICEID, global::System.String sERVICEGROUPID, global::System.String sERVICECOST, global::System.Boolean sERVICESTATUS)
         {
             Service_Info service_Info = new Service_Info();
             service_Info.SERVICEID = sERVICEID;
@@ -2037,7 +1972,7 @@ namespace DA.Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Double SERVICECOST
+        public global::System.String SERVICECOST
         {
             get
             {
@@ -2047,13 +1982,13 @@ namespace DA.Entity
             {
                 OnSERVICECOSTChanging(value);
                 ReportPropertyChanging("SERVICECOST");
-                _SERVICECOST = StructuralObject.SetValidValue(value);
+                _SERVICECOST = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("SERVICECOST");
                 OnSERVICECOSTChanged();
             }
         }
-        private global::System.Double _SERVICECOST;
-        partial void OnSERVICECOSTChanging(global::System.Double value);
+        private global::System.String _SERVICECOST;
+        partial void OnSERVICECOSTChanging(global::System.String value);
         partial void OnSERVICECOSTChanged();
     
         /// <summary>
@@ -2281,28 +2216,6 @@ namespace DA.Entity
 
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EHealthSystemModel", "FK_Bill_Info_ServiceGroup_Info", "Bill_Info")]
-        public EntityCollection<Bill_Info> Bill_Info
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Bill_Info>("EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info", "Bill_Info");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Bill_Info>("EHealthSystemModel.FK_Bill_Info_ServiceGroup_Info", "Bill_Info", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
