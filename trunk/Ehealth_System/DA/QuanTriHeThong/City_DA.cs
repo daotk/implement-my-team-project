@@ -16,7 +16,6 @@ namespace DA.QuanTriHeThong
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
                 var query = from u in dk.City_Info select u;
-
                 foreach (var row in query)
                 {
                     City_DO city = new City_DO();
@@ -31,7 +30,6 @@ namespace DA.QuanTriHeThong
         }
         public static int add(String ID, String name, String desscription, bool status)
         {
-
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
             {
                 Entity.City_Info city = new Entity.City_Info();
@@ -54,19 +52,36 @@ namespace DA.QuanTriHeThong
         }
         public static void edit(String ID, String name, String desscription, bool status)
         {
-
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
             {
                 var city = entity.City_Info.Single(p => p.CITYID == ID);
-
                 city.CITYID = ID;
                 city.CITYNAME = name;
                 city.DESCRIPTIONCITY = desscription;
                 city.STATUSCITY = status;
-
                 entity.SaveChanges();
-
             }
         }
+
+        public static List<City_DO> SearchCity(string Search)
+        {
+            List<City_DO> timkiem = new List<City_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.City_Info where (u.CITYNAME.Contains(Search)) select u;
+                foreach (var row in query)
+                {
+                    City_DO search = new City_DO();
+                    search._CITYID = row.CITYID;
+                    search._CITYNAME = row.CITYNAME;
+                    search._DESCRIPTIONCITY = row.DESCRIPTIONCITY;
+                    search._STATUSCITY = row.STATUSCITY;
+                    timkiem.Add(search);
+                }
+                return timkiem;
+            }
+
+        }
+
     }
 }

@@ -104,24 +104,26 @@
             // 
             this.btn_Huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Huy.Location = new System.Drawing.Point(180, 409);
+            this.btn_Huy.Image = global::GUI.Properties.Resources.delete_icon;
+            this.btn_Huy.Location = new System.Drawing.Point(180, 367);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(120, 35);
             this.btn_Huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Huy.TabIndex = 69;
-            this.btn_Huy.Text = "Huy";
+            this.btn_Huy.Text = "Hủy";
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // btn_Luu
             // 
             this.btn_Luu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Luu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Luu.Location = new System.Drawing.Point(35, 409);
+            this.btn_Luu.Image = global::GUI.Properties.Resources.Save_icon;
+            this.btn_Luu.Location = new System.Drawing.Point(35, 367);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(120, 35);
             this.btn_Luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Luu.TabIndex = 68;
-            this.btn_Luu.Text = "Luu";
+            this.btn_Luu.Text = "Lưu";
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // lbl_Note1
@@ -369,10 +371,10 @@
             this.grd_ThanhPho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_ThanhPho.Location = new System.Drawing.Point(0, 35);
             this.grd_ThanhPho.Name = "grd_ThanhPho";
+            this.grd_ThanhPho.ReadOnly = true;
             this.grd_ThanhPho.Size = new System.Drawing.Size(965, 515);
             this.grd_ThanhPho.TabIndex = 1;
             this.grd_ThanhPho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_ThanhPho_CellClick);
-            this.grd_ThanhPho.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.grd_ThanhPho_DataBindingComplete);
             this.grd_ThanhPho.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_ThanhPho_RowsAdded);
             // 
             // STT
@@ -382,6 +384,7 @@
             this.STT.DefaultCellStyle = dataGridViewCellStyle2;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             this.STT.Width = 61;
             // 
             // TenVietTat
@@ -392,6 +395,7 @@
             this.TenVietTat.DefaultCellStyle = dataGridViewCellStyle3;
             this.TenVietTat.HeaderText = "Tên viết tắt";
             this.TenVietTat.Name = "TenVietTat";
+            this.TenVietTat.ReadOnly = true;
             this.TenVietTat.Width = 150;
             // 
             // TenTinhThanhPho
@@ -400,6 +404,7 @@
             this.TenTinhThanhPho.DataPropertyName = "_CITYNAME";
             this.TenTinhThanhPho.HeaderText = "Tỉnh-Thành phố";
             this.TenTinhThanhPho.Name = "TenTinhThanhPho";
+            this.TenTinhThanhPho.ReadOnly = true;
             this.TenTinhThanhPho.Width = 200;
             // 
             // MoTa
@@ -407,6 +412,7 @@
             this.MoTa.DataPropertyName = "_DESCRIPTIONCITY";
             this.MoTa.HeaderText = "Mô tả";
             this.MoTa.Name = "MoTa";
+            this.MoTa.ReadOnly = true;
             // 
             // TrangThai
             // 
@@ -417,6 +423,7 @@
             this.TrangThai.DataPropertyName = "_STATUSCITY";
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
             this.TrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -464,6 +471,7 @@
             this.txt_TimKiem.Name = "txt_TimKiem";
             this.txt_TimKiem.Size = new System.Drawing.Size(150, 26);
             this.txt_TimKiem.TabIndex = 3;
+            this.txt_TimKiem.TextChanged += new System.EventHandler(this.txt_TimKiem_TextChanged);
             // 
             // lbl_TimKiem
             // 
