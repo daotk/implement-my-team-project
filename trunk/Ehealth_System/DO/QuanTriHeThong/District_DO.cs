@@ -15,5 +15,4 @@ namespace DO.QuanTriHeThong
         public string _DESCRIPTIONDISTRICT { set; get; }
         public bool _STATUSDISTRICT { set; get; }
     }
-
 }

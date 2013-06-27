@@ -27,7 +27,5 @@ namespace BL.QuanTriHeThong
         {
             return City_DA.SearchCity(name);
         }
-
-
     }
 }
