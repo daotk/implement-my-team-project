@@ -246,6 +246,7 @@
             this.btn_HuyBoDoiMatKhau.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_HuyBoDoiMatKhau.TabIndex = 58;
             this.btn_HuyBoDoiMatKhau.Text = "Hủy bỏ";
+            this.btn_HuyBoDoiMatKhau.Click += new System.EventHandler(this.btn_HuyBoDoiMatKhau_Click);
             // 
             // btn_LuuMatKhau
             // 
@@ -259,6 +260,7 @@
             this.btn_LuuMatKhau.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_LuuMatKhau.TabIndex = 57;
             this.btn_LuuMatKhau.Text = "Lưu";
+            this.btn_LuuMatKhau.Click += new System.EventHandler(this.btn_LuuMatKhau_Click);
             // 
             // ChangePassword
             // 

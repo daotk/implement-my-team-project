@@ -470,15 +470,6 @@ namespace GUI
                 }
         }
 
-        public string data;
-        //tao phuong thuc nhan data
-        //co the nhieu tham so cung luc
-        public string nhandata(string a)
-        {
-            data = a;
-            return data;
-        }
-
         private void SetAuthorization(string authorization) {
             if (authorization[0].ToString() == "0") { btn_CauHinh.Enabled = false; }
             if (authorization[1].ToString() == "0") { btn_NhomNguoiDung.Enabled = false; }
