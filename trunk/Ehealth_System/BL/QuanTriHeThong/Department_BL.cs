@@ -21,27 +21,27 @@ namespace BL.QuanTriHeThong
        }
 
 
-       public static void edit(String ID, String name, String CityID, String desscription, bool status)
+       public static void edit(String ID, String name, String DepartmentID, String desscription, bool status)
        {
-           District_DA.edit(ID, name, CityID, desscription, status);
+           Department_DA.edit(ID, name, DepartmentID, desscription, status);
        }
 
 
-       public static List<District_DO> SearchDistrict(String name)
+       public static List<Department_DO> SearchDepart(String name)
        {
-           return District_DA.SearchDistrict(name);
+           return Department_DA.SearchDepartment(name);
        }
 
 
-       public static List<District_DO> SearchDistrictByBoth(String name, String city)
+       public static List<Department_DO> SearchDepartByBoth(String name, String city)
        {
-           return District_DA.SearchDistrictByBoth(name, city);
+           return Department_DA.SearchDepartByBoth(name, city);
        }
 
 
-       public static List<District_DO> SearchDistrictByCity(String city)
+       public static List<Department_DO> SearchDistrByDeparttype(String city)
        {
-           return District_DA.SearchDistrictByCity(city);
+           return Department_DA.SearchDistrByDeparttype(city);
        }
 
 
