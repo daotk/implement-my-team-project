@@ -112,7 +112,23 @@ namespace DA.QuanTriHeThong
                 return dsUser;
             }
         }//end 
-
+        
+        /// <summary>
+        /// Change password
+        /// </summary>
+        /// <param name="IDUser"></param>
+        /// <param name="password"></param>
+        public static void ChangePassword(string IDUser,  string password)
+        {
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = (from u in dk.User_Info
+                             where u.USERID == IDUser
+                             select u).First();
+                query.PASSWORD = password;
+                dk.SaveChanges();
+            }
+        }
 
 
     }
