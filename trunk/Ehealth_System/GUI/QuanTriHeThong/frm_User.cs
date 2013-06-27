@@ -77,7 +77,6 @@ namespace GUI.QuanTriHeThong
             txt_HoTen.Text = user[0]._USERNAME;
             txt_Email.Text = user[0]._EMAIL;
             txt_TaiKhoan.Text = user[0]._ACCOUNT;
-            txt_Password.Text = BL.MD5_BL.GetMD5(user[0]._PASSWORD);
             chk_TrangThai.Checked = user[0]._STATUS;
             cbo_NhomNguoiDung.SelectedValue = user[0]._USERTYPEID;
         }
