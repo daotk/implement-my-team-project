@@ -39,7 +39,7 @@ namespace GUI
         /// <param name="e"></param>
         private void Main_Load(object sender, EventArgs e)
         {
-            frm_Login login = new frm_Login();
+            LoadHospitalName();
             lbl_UserName.Text = "Ngưởi dùng: " + BL.StaticClass.UserName + " ("+BL.StaticClass.GroupUser+")";
             lbl_NgayThang.Text ="Ngày tháng: "+ DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
             lbl_NgayGio.Text ="Giờ: "+ DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
@@ -47,7 +47,10 @@ namespace GUI
             timer1.Start();
             lbl_TenBenhVien.Text = data;
         }
-
+        private void LoadHospitalName()
+        {
+            lbl_TenBenhVien.Text = BL.StaticClass.tenbenhvien;
+        }
         /// <summary>
         /// about me
         /// </summary>
@@ -308,8 +311,10 @@ namespace GUI
         private void btn_CauHinh_Click(object sender, EventArgs e)
         {
             frm_Config config = new frm_Config();
-            config.ShowDialog();
-            this.Hide();
+            if (config.ShowDialog() == DialogResult.Cancel || config.ShowDialog() == DialogResult.OK)
+            {
+                LoadHospitalName();
+            }
         }
 
 

@@ -420,27 +420,28 @@
             // 
             this.lbl_TenBenhVien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TenBenhVien.Name = "lbl_TenBenhVien";
+            this.lbl_TenBenhVien.PaddingRight = 100;
             this.lbl_TenBenhVien.Text = "Ten benh vien";
             // 
             // lbl_UserName
             // 
             this.lbl_UserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_UserName.Name = "lbl_UserName";
-            this.lbl_UserName.PaddingLeft = 400;
+            this.lbl_UserName.PaddingRight = 100;
             this.lbl_UserName.Text = "Username";
             // 
             // lbl_NgayThang
             // 
             this.lbl_NgayThang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NgayThang.Name = "lbl_NgayThang";
-            this.lbl_NgayThang.PaddingLeft = 300;
+            this.lbl_NgayThang.PaddingLeft = 200;
             this.lbl_NgayThang.Text = "Ngay thang";
             // 
             // lbl_NgayGio
             // 
             this.lbl_NgayGio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NgayGio.Name = "lbl_NgayGio";
-            this.lbl_NgayGio.PaddingLeft = 80;
+            this.lbl_NgayGio.PaddingLeft = 100;
             this.lbl_NgayGio.Text = "Ngay  gio";
             // 
             // panel2
