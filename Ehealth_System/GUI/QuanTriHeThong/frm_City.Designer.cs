@@ -191,6 +191,7 @@
             // 
             this.txt_TenVietTat.Border.Class = "TextBoxBorder";
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_TenVietTat.Enabled = false;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(133, 87);
             this.txt_TenVietTat.Name = "txt_TenVietTat";
@@ -457,7 +458,7 @@
             this.lbl_KetQua.Name = "lbl_KetQua";
             this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
             this.lbl_KetQua.TabIndex = 4;
-            this.lbl_KetQua.Text = "Kết quả: tìm được  trong tổng số ";
+            this.lbl_KetQua.Text = "";
             // 
             // txt_TimKiem
             // 

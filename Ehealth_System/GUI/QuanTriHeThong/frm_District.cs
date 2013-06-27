@@ -110,6 +110,7 @@ namespace GUI.QuanTriHeThong
             enablebtn(true);
             enableText(true);
             enablecbo(true);
+            txt_TenVietTat.Enabled = false;
             flag_sua = true;
         }
 
@@ -188,18 +189,24 @@ namespace GUI.QuanTriHeThong
                 if (cbo_LocTheoTinhThanh.SelectedIndex >= 0)
                 {
                     grd_QuanHuyen.DataSource = District_BL.SearchDistrictByCity(cbo_LocTheoTinhThanh.SelectedValue.ToString());
-                    lbl_KetQua.Text = "Kết quả: tìm được " + grd_QuanHuyen.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+                    if (grd_QuanHuyen.DisplayedRowCount(true) > 0)
+                    {
+                        lbl_KetQua.Text = "Kết quả: tìm được " + grd_QuanHuyen.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+                    }
+
                 }
             }
             else
             {
                 if (cbo_LocTheoTinhThanh.SelectedIndex >= 0)
                 {
-                    grd_QuanHuyen.DataSource = BL.QuanTriHeThong.District_BL.SearchDistrictByBoth(txt_TimKiem.Text, cbo_LocTheoTinhThanh.SelectedValue.ToString());
-                    lbl_KetQua.Text = "Kết quả: tìm được " + grd_QuanHuyen.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+                    if (grd_QuanHuyen.DisplayedRowCount(true) > 0)
+                    {
+                        grd_QuanHuyen.DataSource = BL.QuanTriHeThong.District_BL.SearchDistrictByBoth(txt_TimKiem.Text, cbo_LocTheoTinhThanh.SelectedValue.ToString());
+                        lbl_KetQua.Text = "Kết quả: tìm được " + grd_QuanHuyen.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+                    }
                 }
             }
-
 
         }
 
