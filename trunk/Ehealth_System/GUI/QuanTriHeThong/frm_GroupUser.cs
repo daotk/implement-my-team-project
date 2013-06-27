@@ -32,8 +32,6 @@ namespace GUI.QuanTriHeThong
         private void frm_GroupUser_Load(object sender, EventArgs e)
         {
             LoadGroupUser();
-            
-            
         }
 
         private void LoadGroupUser()
@@ -99,7 +97,33 @@ namespace GUI.QuanTriHeThong
                     }
                 }
                 else {
-                    if (btn_ThemMoi.Text == "Hủy bỏ") {
+                    if (btn_ThemMoi.Text == "Cập nhật") {
+
+                        if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
+                        {
+                            BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                            MessageBox.Show("Chỉnh sửa thành công");
+                            LoadGroupUser();
+                            btn_ThemMoi.Text = "Thêm mới";
+                            btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
+                            btn_ChinhSua.Text = "Chỉnh sửa";
+                            btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
+                            btn_ChinhSua.Enabled = false;
+                            txt_TenVietTat.Enabled = false;
+                            txt_TenNhom.Enabled = false;
+                            txt_MoTa.Enabled = false;
+                            chk_TrangThai.Enabled = false;
+                            txt_TenVietTat.Text = "";
+                            txt_TenNhom.Text = "";
+                            txt_MoTa.Text = "";
+                            chk_TrangThai.Checked = false;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn phải nhập đầy dủ thông tin");
+                        }
+                        /*
                         btn_ThemMoi.Text = "Thêm mới";
                         btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                         btn_ChinhSua.Text = "Chỉnh sửa";
@@ -114,6 +138,7 @@ namespace GUI.QuanTriHeThong
                         txt_TenNhom.Text = "";
                         txt_MoTa.Text = "";
                         chk_TrangThai.Checked = false;
+                         */
                     }
                 }
 
@@ -137,10 +162,10 @@ namespace GUI.QuanTriHeThong
         {
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
-                btn_ChinhSua.Text = "Lưu";
-                btn_ChinhSua.Image = global::GUI.Properties.Resources.Save_icon;
-                btn_ThemMoi.Text = "Hủy bỏ";
-                btn_ThemMoi.Image = global::GUI.Properties.Resources.cancel1;
+                btn_ChinhSua.Text = "Hủy bỏ";
+                btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
+                btn_ThemMoi.Text = "Cập nhật";
+                btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 txt_TenNhom.Enabled = true;
                 txt_MoTa.Enabled = true;
                 chk_TrangThai.Enabled = true;
@@ -149,6 +174,7 @@ namespace GUI.QuanTriHeThong
             {
                 if (btn_ChinhSua.Text == "Lưu")
                 {
+                    /*
                     if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
                     {
                          BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
@@ -173,6 +199,7 @@ namespace GUI.QuanTriHeThong
                     {
                         MessageBox.Show("Bạn phải nhập đầy dủ thông tin");
                     }
+                     */
                 }
                 else {
                     if (btn_ChinhSua.Text == "Hủy bỏ") {
