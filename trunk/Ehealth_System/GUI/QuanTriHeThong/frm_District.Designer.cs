@@ -30,6 +30,11 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,13 +42,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.chk_TrangThai = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.grd_QuanHuyen = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.STTTinhThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISTRICTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISTRICTNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CITYNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTIONDISTRICT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUSDISTRICT = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
+            this.CityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_TrangThai = new DevComponents.DotNetBar.LabelX();
             this.lbl_NoteInformation = new DevComponents.DotNetBar.LabelX();
             this.btn_ChinhSua = new DevComponents.DotNetBar.ButtonX();
@@ -77,13 +84,6 @@
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenVietTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNhom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STTTinhThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DISTRICTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DISTRICTNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CITYNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPTIONDISTRICT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUSDISTRICT = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
-            this.CityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grd_QuanHuyen)).BeginInit();
             this.panelEx2.SuspendLayout();
             this.panelEx5.SuspendLayout();
@@ -103,7 +103,7 @@
             this.chk_TrangThai.Name = "chk_TrangThai";
             this.chk_TrangThai.Size = new System.Drawing.Size(136, 23);
             this.chk_TrangThai.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chk_TrangThai.TabIndex = 48;
+            this.chk_TrangThai.TabIndex = 7;
             this.chk_TrangThai.Text = "Có sử dụng";
             // 
             // grd_QuanHuyen
@@ -148,6 +148,73 @@
             this.grd_QuanHuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_QuanHuyen_CellClick);
             this.grd_QuanHuyen.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_QuanHuyen_RowsAdded);
             // 
+            // STTTinhThanh
+            // 
+            this.STTTinhThanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STTTinhThanh.DefaultCellStyle = dataGridViewCellStyle2;
+            this.STTTinhThanh.HeaderText = "STT";
+            this.STTTinhThanh.Name = "STTTinhThanh";
+            this.STTTinhThanh.ReadOnly = true;
+            this.STTTinhThanh.Width = 61;
+            // 
+            // DISTRICTID
+            // 
+            this.DISTRICTID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DISTRICTID.DataPropertyName = "_DISTRICTID";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DISTRICTID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DISTRICTID.HeaderText = "Tên viết tắt";
+            this.DISTRICTID.Name = "DISTRICTID";
+            this.DISTRICTID.ReadOnly = true;
+            this.DISTRICTID.Width = 150;
+            // 
+            // DISTRICTNAME
+            // 
+            this.DISTRICTNAME.DataPropertyName = "_DISTRICTNAME";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DISTRICTNAME.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DISTRICTNAME.HeaderText = "Quận-Huyện";
+            this.DISTRICTNAME.Name = "DISTRICTNAME";
+            this.DISTRICTNAME.ReadOnly = true;
+            // 
+            // CITYNAME
+            // 
+            this.CITYNAME.DataPropertyName = "_CITYNAME";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CITYNAME.DefaultCellStyle = dataGridViewCellStyle5;
+            this.CITYNAME.HeaderText = "Tỉnh-Thành phố";
+            this.CITYNAME.Name = "CITYNAME";
+            this.CITYNAME.ReadOnly = true;
+            // 
+            // DESCRIPTIONDISTRICT
+            // 
+            this.DESCRIPTIONDISTRICT.DataPropertyName = "_DESCRIPTIONDISTRICT";
+            this.DESCRIPTIONDISTRICT.HeaderText = "Mô tả";
+            this.DESCRIPTIONDISTRICT.Name = "DESCRIPTIONDISTRICT";
+            this.DESCRIPTIONDISTRICT.ReadOnly = true;
+            // 
+            // STATUSDISTRICT
+            // 
+            this.STATUSDISTRICT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STATUSDISTRICT.Checked = true;
+            this.STATUSDISTRICT.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.STATUSDISTRICT.CheckValue = null;
+            this.STATUSDISTRICT.DataPropertyName = "_STATUSDISTRICT";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STATUSDISTRICT.DefaultCellStyle = dataGridViewCellStyle6;
+            this.STATUSDISTRICT.HeaderText = "Trạng thái";
+            this.STATUSDISTRICT.Name = "STATUSDISTRICT";
+            this.STATUSDISTRICT.ReadOnly = true;
+            // 
+            // CityID
+            // 
+            this.CityID.DataPropertyName = "_CITYID";
+            this.CityID.HeaderText = "CityID";
+            this.CityID.Name = "CityID";
+            this.CityID.ReadOnly = true;
+            this.CityID.Visible = false;
+            // 
             // lbl_TrangThai
             // 
             this.lbl_TrangThai.BackColor = System.Drawing.Color.Transparent;
@@ -186,7 +253,7 @@
             this.btn_ChinhSua.Name = "btn_ChinhSua";
             this.btn_ChinhSua.Size = new System.Drawing.Size(120, 35);
             this.btn_ChinhSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_ChinhSua.TabIndex = 45;
+            this.btn_ChinhSua.TabIndex = 9;
             this.btn_ChinhSua.Text = "Chỉnh sửa";
             this.btn_ChinhSua.Click += new System.EventHandler(this.btn_ChinhSua_Click);
             // 
@@ -241,7 +308,7 @@
             this.lbl_KetQua.Name = "lbl_KetQua";
             this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
             this.lbl_KetQua.TabIndex = 5;
-            this.lbl_KetQua.Text = "Kết quả: tìm được 3 trong tổng số 100";
+            this.lbl_KetQua.Text = "Kết quả: tìm được  trong tổng số ";
             // 
             // cbo_LocTheoTinhThanh
             // 
@@ -253,7 +320,7 @@
             this.cbo_LocTheoTinhThanh.Name = "cbo_LocTheoTinhThanh";
             this.cbo_LocTheoTinhThanh.Size = new System.Drawing.Size(150, 26);
             this.cbo_LocTheoTinhThanh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbo_LocTheoTinhThanh.TabIndex = 3;
+            this.cbo_LocTheoTinhThanh.TabIndex = 2;
             this.cbo_LocTheoTinhThanh.SelectedIndexChanged += new System.EventHandler(this.cbo_LocTheoTinhThanh_SelectedIndexChanged);
             // 
             // lbl_LocTheoTinhThanh
@@ -293,7 +360,7 @@
             this.lbl_TimKiem.Location = new System.Drawing.Point(20, 4);
             this.lbl_TimKiem.Name = "lbl_TimKiem";
             this.lbl_TimKiem.Size = new System.Drawing.Size(75, 23);
-            this.lbl_TimKiem.TabIndex = 0;
+            this.lbl_TimKiem.TabIndex = 1;
             this.lbl_TimKiem.Text = "Tìm kiếm";
             // 
             // btn_ThemMoi
@@ -305,7 +372,7 @@
             this.btn_ThemMoi.Name = "btn_ThemMoi";
             this.btn_ThemMoi.Size = new System.Drawing.Size(120, 35);
             this.btn_ThemMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_ThemMoi.TabIndex = 44;
+            this.btn_ThemMoi.TabIndex = 8;
             this.btn_ThemMoi.Text = "Thêm mới";
             this.btn_ThemMoi.Click += new System.EventHandler(this.btn_ThemMoi_Click);
             // 
@@ -365,7 +432,7 @@
             this.txt_MoTa.Multiline = true;
             this.txt_MoTa.Name = "txt_MoTa";
             this.txt_MoTa.Size = new System.Drawing.Size(173, 92);
-            this.txt_MoTa.TabIndex = 40;
+            this.txt_MoTa.TabIndex = 6;
             // 
             // labelX4
             // 
@@ -405,7 +472,7 @@
             this.txt_TenQuanHuyen.Location = new System.Drawing.Point(122, 163);
             this.txt_TenQuanHuyen.Name = "txt_TenQuanHuyen";
             this.txt_TenQuanHuyen.Size = new System.Drawing.Size(173, 26);
-            this.txt_TenQuanHuyen.TabIndex = 38;
+            this.txt_TenQuanHuyen.TabIndex = 4;
             // 
             // lbl_QuanHuyen
             // 
@@ -465,7 +532,7 @@
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(120, 35);
             this.btn_Huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_Huy.TabIndex = 53;
+            this.btn_Huy.TabIndex = 11;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
@@ -478,7 +545,7 @@
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(120, 36);
             this.btn_Luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_Luu.TabIndex = 52;
+            this.btn_Luu.TabIndex = 10;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
@@ -492,7 +559,7 @@
             this.cbo_TinhThanhPho.Name = "cbo_TinhThanhPho";
             this.cbo_TinhThanhPho.Size = new System.Drawing.Size(173, 26);
             this.cbo_TinhThanhPho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbo_TinhThanhPho.TabIndex = 51;
+            this.cbo_TinhThanhPho.TabIndex = 5;
             this.cbo_TinhThanhPho.SelectedIndexChanged += new System.EventHandler(this.cbo_TinhThanhPho_SelectedIndexChanged);
             // 
             // lbl_TinhThanhPho
@@ -520,7 +587,7 @@
             this.txt_TenVietTat.Location = new System.Drawing.Point(122, 122);
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(173, 26);
-            this.txt_TenVietTat.TabIndex = 49;
+            this.txt_TenVietTat.TabIndex = 3;
             // 
             // lbl_TenVietTat
             // 
@@ -647,73 +714,6 @@
             this.TenNhom.HeaderText = "Tên nhóm";
             this.TenNhom.Name = "TenNhom";
             this.TenNhom.Width = 200;
-            // 
-            // STTTinhThanh
-            // 
-            this.STTTinhThanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STTTinhThanh.DefaultCellStyle = dataGridViewCellStyle2;
-            this.STTTinhThanh.HeaderText = "STT";
-            this.STTTinhThanh.Name = "STTTinhThanh";
-            this.STTTinhThanh.ReadOnly = true;
-            this.STTTinhThanh.Width = 61;
-            // 
-            // DISTRICTID
-            // 
-            this.DISTRICTID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DISTRICTID.DataPropertyName = "_DISTRICTID";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DISTRICTID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DISTRICTID.HeaderText = "Tên viết tắt";
-            this.DISTRICTID.Name = "DISTRICTID";
-            this.DISTRICTID.ReadOnly = true;
-            this.DISTRICTID.Width = 150;
-            // 
-            // DISTRICTNAME
-            // 
-            this.DISTRICTNAME.DataPropertyName = "_DISTRICTNAME";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DISTRICTNAME.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DISTRICTNAME.HeaderText = "Quận-Huyện";
-            this.DISTRICTNAME.Name = "DISTRICTNAME";
-            this.DISTRICTNAME.ReadOnly = true;
-            // 
-            // CITYNAME
-            // 
-            this.CITYNAME.DataPropertyName = "_CITYNAME";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CITYNAME.DefaultCellStyle = dataGridViewCellStyle5;
-            this.CITYNAME.HeaderText = "Tỉnh-Thành phố";
-            this.CITYNAME.Name = "CITYNAME";
-            this.CITYNAME.ReadOnly = true;
-            // 
-            // DESCRIPTIONDISTRICT
-            // 
-            this.DESCRIPTIONDISTRICT.DataPropertyName = "_DESCRIPTIONDISTRICT";
-            this.DESCRIPTIONDISTRICT.HeaderText = "Mô tả";
-            this.DESCRIPTIONDISTRICT.Name = "DESCRIPTIONDISTRICT";
-            this.DESCRIPTIONDISTRICT.ReadOnly = true;
-            // 
-            // STATUSDISTRICT
-            // 
-            this.STATUSDISTRICT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.STATUSDISTRICT.Checked = true;
-            this.STATUSDISTRICT.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.STATUSDISTRICT.CheckValue = null;
-            this.STATUSDISTRICT.DataPropertyName = "_STATUSDISTRICT";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STATUSDISTRICT.DefaultCellStyle = dataGridViewCellStyle6;
-            this.STATUSDISTRICT.HeaderText = "Trạng thái";
-            this.STATUSDISTRICT.Name = "STATUSDISTRICT";
-            this.STATUSDISTRICT.ReadOnly = true;
-            // 
-            // CityID
-            // 
-            this.CityID.DataPropertyName = "_CITYID";
-            this.CityID.HeaderText = "CityID";
-            this.CityID.Name = "CityID";
-            this.CityID.ReadOnly = true;
-            this.CityID.Visible = false;
             // 
             // frm_District
             // 
