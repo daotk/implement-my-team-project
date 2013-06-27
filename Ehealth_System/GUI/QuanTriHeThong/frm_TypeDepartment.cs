@@ -121,6 +121,7 @@ namespace GUI.QuanTriHeThong
             enablebtn(true);
             enableText(true);
             flag_sua = true;
+            txt_TenVietTat.Enabled = true;
         }
 
         private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
