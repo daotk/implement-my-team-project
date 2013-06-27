@@ -12,6 +12,6 @@ namespace BL
         public static string UserID;
         public static string Authorization;
         public static bool StatusUser;
-        public static string tenbenhvien;
+        public static string tenbenhvien = "Bệnh viện ABC";
     }
 }
