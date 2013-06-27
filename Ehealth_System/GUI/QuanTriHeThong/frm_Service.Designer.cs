@@ -450,10 +450,10 @@
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx2.Controls.Add(this.grd_NhomDichVu);
             this.panelEx2.Controls.Add(this.panelEx3);
-            this.panelEx2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEx2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelEx2.Location = new System.Drawing.Point(0, 0);
             this.panelEx2.Name = "panelEx2";
-            this.panelEx2.Size = new System.Drawing.Size(965, 550);
+            this.panelEx2.Size = new System.Drawing.Size(965, 500);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -493,9 +493,9 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grd_NhomDichVu.DefaultCellStyle = dataGridViewCellStyle4;
-            this.grd_NhomDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grd_NhomDichVu.Dock = System.Windows.Forms.DockStyle.Top;
             this.grd_NhomDichVu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grd_NhomDichVu.Location = new System.Drawing.Point(0, 35);
+            this.grd_NhomDichVu.Location = new System.Drawing.Point(0, 44);
             this.grd_NhomDichVu.Name = "grd_NhomDichVu";
             this.grd_NhomDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_NhomDichVu.Size = new System.Drawing.Size(965, 515);
@@ -568,7 +568,7 @@
             this.panelEx3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelEx3.Location = new System.Drawing.Point(0, 0);
             this.panelEx3.Name = "panelEx3";
-            this.panelEx3.Size = new System.Drawing.Size(965, 35);
+            this.panelEx3.Size = new System.Drawing.Size(965, 44);
             this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
