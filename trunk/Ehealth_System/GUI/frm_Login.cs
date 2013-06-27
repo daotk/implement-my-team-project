@@ -40,7 +40,7 @@ namespace GUI
                     if (BL.StaticClass.StatusUser == true)
                     {
                         this.Close();
-                        Program.thread.Start();
+                        Program.mainthread.Start();
                     }
                     else
                     {
