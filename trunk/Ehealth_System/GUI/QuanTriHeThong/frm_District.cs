@@ -66,14 +66,17 @@ namespace GUI.QuanTriHeThong
 
         public void focus()
         {
-            int i;
-            i = grd_QuanHuyen.SelectedCells[0].RowIndex;
-            txt_TenVietTat.Text = grd_QuanHuyen.Rows[i].Cells[1].Value.ToString();
-            txt_TenQuanHuyen.Text = grd_QuanHuyen.Rows[i].Cells[2].Value.ToString();
-            cbo_TinhThanhPho.SelectedValue = grd_QuanHuyen.Rows[i].Cells[3].Value.ToString();
-            txt_MoTa.Text = grd_QuanHuyen.Rows[i].Cells[5].Value.ToString();
-            if (Convert.ToBoolean(grd_QuanHuyen.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
-            else { chk_TrangThai.Checked = false; }
+            if (grd_QuanHuyen.Rows.Count != 0)
+            {
+                int i;
+                i = grd_QuanHuyen.SelectedCells[0].RowIndex;
+                txt_TenVietTat.Text = grd_QuanHuyen.Rows[i].Cells[1].Value.ToString();
+                txt_TenQuanHuyen.Text = grd_QuanHuyen.Rows[i].Cells[2].Value.ToString();
+                cbo_TinhThanhPho.SelectedValue = grd_QuanHuyen.Rows[i].Cells[3].Value.ToString();
+                txt_MoTa.Text = grd_QuanHuyen.Rows[i].Cells[5].Value.ToString();
+                if (Convert.ToBoolean(grd_QuanHuyen.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
+                else { chk_TrangThai.Checked = false; }
+            }
         }
 
         private void frm_District_Load(object sender, EventArgs e)

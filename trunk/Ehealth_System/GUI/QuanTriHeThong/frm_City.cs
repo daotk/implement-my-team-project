@@ -58,13 +58,17 @@ namespace GUI.QuanTriHeThong
 
         public void focus()
         {
-            int i;
-            i = grd_ThanhPho.SelectedCells[0].RowIndex;
-            txt_TenVietTat.Text = grd_ThanhPho.Rows[i].Cells[1].Value.ToString();
-            txt_TenTinhThanh.Text = grd_ThanhPho.Rows[i].Cells[2].Value.ToString();
-            txt_MoTa.Text = grd_ThanhPho.Rows[i].Cells[3].Value.ToString();
-            if (Convert.ToBoolean(grd_ThanhPho.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
-            else { chk_TrangThai.Checked = false; }
+            if (grd_ThanhPho.Rows.Count != 0)
+            {
+                int i;
+                i = grd_ThanhPho.SelectedCells[0].RowIndex;
+                txt_TenVietTat.Text = grd_ThanhPho.Rows[i].Cells[1].Value.ToString();
+                txt_TenTinhThanh.Text = grd_ThanhPho.Rows[i].Cells[2].Value.ToString();
+                txt_MoTa.Text = grd_ThanhPho.Rows[i].Cells[3].Value.ToString();
+                if (Convert.ToBoolean(grd_ThanhPho.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
+                else { chk_TrangThai.Checked = false; }
+            }
+
         }
 
         private void frm_City_Load(object sender, EventArgs e)
@@ -147,7 +151,7 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_ThanhPho.DataSource = BL.QuanTriHeThong.City_BL.SearchCity(txt_TimKiem.Text);
-            lbl_KetQua.Text = "Kết quả: tìm được " + grd_ThanhPho.DisplayedRowCount(true) + " trong tổng số " + totalcount  ;
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_ThanhPho.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
 
 
