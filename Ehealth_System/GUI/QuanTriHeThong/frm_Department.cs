@@ -65,21 +65,22 @@ namespace GUI.QuanTriHeThong
             grd_PhongBan.DataSource = depart.GetAllDepart();
         }
 
-        //public void focus()
-        //{
-        //    int i;
-        //    i = grd_PhongBan.SelectedCells[0].RowIndex;
-        //    txt_TenVietTat.Text = grd_PhongBan.Rows[i].Cells[1].Value.ToString();
-        //    txt_phongBan.Text = grd_PhongBan.Rows[i].Cells[2].Value.ToString();
-        //    cbo_LoaiPhongban.SelectedValue = grd_PhongBan.Rows[i].Cells[3].Value.ToString();
-        //    txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[5].Value.ToString();
-        //    if (Convert.ToBoolean(grd_PhongBan.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
-        //    else { chk_TrangThai.Checked = false; }
-        //}
+        public void focus()
+        {
+            int i;
+            i = grd_PhongBan.SelectedCells[0].RowIndex;
+            txt_TenVietTat.Text = grd_PhongBan.Rows[i].Cells[1].Value.ToString();
+            txt_phongBan.Text = grd_PhongBan.Rows[i].Cells[2].Value.ToString();
+            cbo_LoaiPhongban.SelectedValue = grd_PhongBan.Rows[i].Cells[3].Value.ToString();
+            txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[5].Value.ToString();
+            if (Convert.ToBoolean(grd_PhongBan.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
+            else { chk_TrangThai.Checked = false; }
+        }
 
         private void frm_Department_Load(object sender, EventArgs e)
         {
             //TypeDepartment_BL bl = new TypeDepartment_BL();
+            
             cbo_LoaiPhongban.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
             cbo_LoaiPhongban.DisplayMember = "_DEPARTMENTNAME";
             cbo_LoaiPhongban.ValueMember = "_DEPARTMENTTYPEID";
@@ -157,6 +158,7 @@ namespace GUI.QuanTriHeThong
             enableText(true);
             enablecbo(true);
             flag_sua = true;
+            txt_TenVietTat.Enabled = false;
             
         }
 
@@ -167,7 +169,7 @@ namespace GUI.QuanTriHeThong
 
         private void grd_PhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            focus();
         }
 
         private void grd_PhongBan_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -177,6 +179,35 @@ namespace GUI.QuanTriHeThong
                 grd_PhongBan.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
             }
         }
+
+        private void txt_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            grd_PhongBan.DataSource = BL.QuanTriHeThong.Department_BL.SearchDepart(txt_TimKiem.Text);
+        }
+
+        private void cbo_LocTheoLoaiPhongBan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             if (txt_TimKiem.Text==null || txt_TimKiem.Text=="")
+            {
+                if (cbo_LocTheoLoaiPhongBan.SelectedIndex >= 0)
+                {
+                    grd_PhongBan.DataSource = Department_BL.SearchDistrByDeparttype(cbo_LocTheoLoaiPhongBan.SelectedValue.ToString());
+                }
+            } 
+            else
+            {
+                if (cbo_LocTheoLoaiPhongBan.SelectedIndex >= 0)
+                {
+
+                    grd_PhongBan.DataSource = BL.QuanTriHeThong.Department_BL.SearchDepartByBoth(txt_TimKiem.Text, cbo_LocTheoLoaiPhongBan.SelectedValue.ToString());
+                }
+            }
+            
+            
+        }
+
+        
+
 
 
 
