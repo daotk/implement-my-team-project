@@ -50,5 +50,17 @@ namespace BL.QuanTriHeThong
             return DA.QuanTriHeThong.User_DA.GetUserInfoFollowUserID(userid);
         }
 
+        public static void InsertUser(string IdUser, string hovaten, string email,
+          string nhomnguoidung, string taikhoan, string password,bool status)
+        {
+            DA.QuanTriHeThong.User_DA.InsertUser(IdUser, hovaten, email, nhomnguoidung, taikhoan, password,status);
+        }
+
+        public static void UpdateUser(string IdUser, string hovaten, string email,
+         string nhomnguoidung, string taikhoan, string password, bool status)
+        {
+            DA.QuanTriHeThong.User_DA.UpdateUser(IdUser, hovaten, email, nhomnguoidung, taikhoan, password, status);
+        }
+
     }
 }
