@@ -67,14 +67,18 @@ namespace GUI.QuanTriHeThong
 
         public void focus()
         {
-            int i;
-            i = grd_PhongBan.SelectedCells[0].RowIndex;
-            txt_TenVietTat.Text = grd_PhongBan.Rows[i].Cells[1].Value.ToString();
-            txt_phongBan.Text = grd_PhongBan.Rows[i].Cells[2].Value.ToString();
-            cbo_LoaiPhongban.SelectedValue = grd_PhongBan.Rows[i].Cells[3].Value.ToString();
-            txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[5].Value.ToString();
-            if (Convert.ToBoolean(grd_PhongBan.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
-            else { chk_TrangThai.Checked = false; }
+            if (grd_PhongBan.Rows.Count != 0) 
+            {
+                int i;
+                i = grd_PhongBan.SelectedCells[0].RowIndex;
+                txt_TenVietTat.Text = grd_PhongBan.Rows[i].Cells[1].Value.ToString();
+                txt_phongBan.Text = grd_PhongBan.Rows[i].Cells[2].Value.ToString();
+                cbo_LoaiPhongban.SelectedValue = grd_PhongBan.Rows[i].Cells[3].Value.ToString();
+                txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[5].Value.ToString();
+                if (Convert.ToBoolean(grd_PhongBan.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
+                else { chk_TrangThai.Checked = false; }
+            }
+            
         }
 
         private void frm_Department_Load(object sender, EventArgs e)
@@ -90,7 +94,7 @@ namespace GUI.QuanTriHeThong
             cbo_LocTheoLoaiPhongBan.ValueMember = "_DEPARTMENTTYPEID";
             cbo_LocTheoLoaiPhongBan.SelectedIndex = -1;
             loadDatagrid();
-            //focus();
+            focus();
         
         }
 
@@ -113,7 +117,7 @@ namespace GUI.QuanTriHeThong
             txt_phongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
-            cbo_LoaiPhongban.SelectedIndex = 0;
+            cbo_LoaiPhongban.Text="";
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -170,6 +174,7 @@ namespace GUI.QuanTriHeThong
         private void grd_PhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             focus();
+           
         }
 
         private void grd_PhongBan_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -208,7 +213,7 @@ namespace GUI.QuanTriHeThong
 
         
 
-
+       
 
 
 
