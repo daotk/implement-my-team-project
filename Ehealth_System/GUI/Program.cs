@@ -11,11 +11,13 @@ namespace GUI
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        public static Thread thread;
+        public static Thread mainthread;
+        public static Thread Loginthread;
         [STAThread]
         static void Main()
         {
-            thread = new Thread(new ThreadStart(openform));
+            mainthread = new Thread(new ThreadStart(openform));
+            Loginthread = new Thread(new ThreadStart(Loginform));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_Login());
@@ -25,6 +27,12 @@ namespace GUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_MainForm());
+        }
+        static void Loginform()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frm_Login());
         }
     }
 }
