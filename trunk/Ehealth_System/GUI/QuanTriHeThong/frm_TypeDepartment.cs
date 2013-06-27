@@ -53,6 +53,7 @@ namespace GUI.QuanTriHeThong
         public void loadDatagrid()
         {
             grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
+            
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -126,13 +127,17 @@ namespace GUI.QuanTriHeThong
 
         private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int i;
-            i = grd_LoaiPhongBan.SelectedCells[0].RowIndex;
-            txt_TenVietTat.Text = grd_LoaiPhongBan.Rows[i].Cells[1].Value.ToString();
-            txt_LoaiPhongBan.Text = grd_LoaiPhongBan.Rows[i].Cells[2].Value.ToString();
-            txt_MoTa.Text = grd_LoaiPhongBan.Rows[i].Cells[3].Value.ToString();
-            if (Convert.ToBoolean(grd_LoaiPhongBan.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
-            else { chk_TrangThai.Checked = false; }
+            if (grd_LoaiPhongBan.Rows.Count != 0) 
+            {
+                int i;
+                i = grd_LoaiPhongBan.SelectedCells[0].RowIndex;
+                txt_TenVietTat.Text = grd_LoaiPhongBan.Rows[i].Cells[1].Value.ToString();
+                txt_LoaiPhongBan.Text = grd_LoaiPhongBan.Rows[i].Cells[2].Value.ToString();
+                txt_MoTa.Text = grd_LoaiPhongBan.Rows[i].Cells[3].Value.ToString();
+                if (Convert.ToBoolean(grd_LoaiPhongBan.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
+                else { chk_TrangThai.Checked = false; }
+            }
+            
         }
 
         private void btn_huy_Click(object sender, EventArgs e)
