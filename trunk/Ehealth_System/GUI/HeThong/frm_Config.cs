@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BL;
 
 namespace GUI
 {
@@ -18,13 +19,10 @@ namespace GUI
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            frm_MainForm main = new frm_MainForm();
             MessageBox.Show("Cập nhật thành công");
-           
-            main.nhandata(txt_TenBenhVien.Text);
-            main.Show();
-            this.Hide();
-            }
+
+            BL.StaticClass.tenbenhvien = txt_TenBenhVien.Text;   
+        }
        
 
         private void btn_HuyBo_Click(object sender, EventArgs e)
