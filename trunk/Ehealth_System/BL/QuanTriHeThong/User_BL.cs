@@ -21,6 +21,7 @@ namespace BL.QuanTriHeThong
             {
                     if (ds[i]._ACCOUNT == username && ds[i]._PASSWORD == password)
                     {
+                        BL.StaticClass.UserID = ds[i]._USERID;
                         BL.StaticClass.GroupUser = ds[i]._GROUPUSERNAME;
                         BL.StaticClass.UserName = ds[i]._USERNAME;
                         BL.StaticClass.Authorization = ds[i]._AUTHO;
@@ -55,11 +56,25 @@ namespace BL.QuanTriHeThong
         {
             DA.QuanTriHeThong.User_DA.InsertUser(IdUser, hovaten, email, nhomnguoidung, taikhoan, password,status);
         }
-
+        /// <summary>
+        /// Update user
+        /// </summary>
+        /// <param name="IdUser"></param>
+        /// <param name="hovaten"></param>
+        /// <param name="email"></param>
+        /// <param name="nhomnguoidung"></param>
+        /// <param name="taikhoan"></param>
+        /// <param name="password"></param>
+        /// <param name="status"></param>
         public static void UpdateUser(string IdUser, string hovaten, string email,
          string nhomnguoidung, string taikhoan, string password, bool status)
         {
             DA.QuanTriHeThong.User_DA.UpdateUser(IdUser, hovaten, email, nhomnguoidung, taikhoan, password, status);
+        }
+        //
+        public static void ChangePassword(string IdUser, string password)
+        {
+            DA.QuanTriHeThong.User_DA.ChangePassword(IdUser, password);
         }
 
     }
