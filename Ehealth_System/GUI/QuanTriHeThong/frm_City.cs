@@ -16,6 +16,7 @@ namespace GUI.QuanTriHeThong
     {
         bool flag_them = false;
         bool flag_sua = false;
+        int totalcount;
         public frm_City()
         {
             InitializeComponent();
@@ -51,6 +52,8 @@ namespace GUI.QuanTriHeThong
         {
             City_BL city = new City_BL();
             grd_ThanhPho.DataSource = city.GetAllCity();
+            int count = grd_ThanhPho.DisplayedRowCount(true);
+            totalcount = count;
         }
 
         public void focus()
@@ -143,6 +146,7 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_ThanhPho.DataSource = BL.QuanTriHeThong.City_BL.SearchCity(txt_TimKiem.Text);
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_ThanhPho.DisplayedRowCount(true) + " trong tổng số " + totalcount  ;
         }
 
 
