@@ -81,6 +81,15 @@ namespace GUI.QuanTriHeThong
             cbo_NhomNguoiDung.SelectedValue = user[0]._USERTYPEID;
         }
 
+        private void btn_ThemMoi_Click(object sender, EventArgs e)
+        {
+
+            if (btn_ThemMoi.Text == "Thêm mới")
+            {
+
+            }
+        }
+
        
 
 
