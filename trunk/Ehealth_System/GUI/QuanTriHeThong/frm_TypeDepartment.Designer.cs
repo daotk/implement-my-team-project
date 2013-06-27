@@ -135,6 +135,7 @@
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(116, 138);
+            this.txt_TenVietTat.MaxLength = 15;
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(173, 26);
             this.txt_TenVietTat.TabIndex = 2;
@@ -260,6 +261,7 @@
             this.txt_MoTa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_MoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MoTa.Location = new System.Drawing.Point(114, 232);
+            this.txt_MoTa.MaxLength = 400;
             this.txt_MoTa.Multiline = true;
             this.txt_MoTa.Name = "txt_MoTa";
             this.txt_MoTa.Size = new System.Drawing.Size(173, 92);
@@ -288,6 +290,7 @@
             this.txt_LoaiPhongBan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_LoaiPhongBan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_LoaiPhongBan.Location = new System.Drawing.Point(114, 183);
+            this.txt_LoaiPhongBan.MaxLength = 50;
             this.txt_LoaiPhongBan.Name = "txt_LoaiPhongBan";
             this.txt_LoaiPhongBan.Size = new System.Drawing.Size(173, 26);
             this.txt_LoaiPhongBan.TabIndex = 3;
