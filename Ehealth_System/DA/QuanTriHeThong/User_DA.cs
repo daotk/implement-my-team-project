@@ -37,15 +37,50 @@ namespace DA.QuanTriHeThong
             }
         }//end 
 
- 
+        /// <summary>
+        /// Inser user
+        /// </summary>
+        /// <param name="IDUser"></param>
+        /// <param name="HovaTen"></param>
+        /// <param name="email"></param>
+        /// <param name="nhomnguoidung"></param>
+        /// <param name="taikhoan"></param>
+        /// <param name="password"></param>
+        /// <param name="status"></param>
         public static void InsertUser(string IDUser, string HovaTen, string email,
-          string nhomnguoidung, string taikhoan, string password)
+          string nhomnguoidung, string taikhoan, string password,bool status)
         {
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
-                
-                
+                Entity.User_Info user = new Entity.User_Info();
+                    user.USERID = IDUser;
+                    user.USERNAME = HovaTen;
+                    user.EMAIL = email;
+                    user.USERTYPEID = nhomnguoidung;
+                    user.ACCOUNT = taikhoan;
+                    user.PASSWORD = password;
+                    user.STATUS = status;
+                    dk.User_Info.AddObject(user);
+                    dk.SaveChanges();
+            }
+        }
 
+
+        public static void UpdateUser(string IDUser, string HovaTen, string email,
+         string nhomnguoidung, string taikhoan, string password, bool status)
+        {
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = (from u in dk.User_Info
+                             where u.USERID == IDUser
+                             select u).First();
+                query.USERNAME = HovaTen;
+                query.EMAIL = email;
+                query.USERTYPEID = nhomnguoidung;
+                query.ACCOUNT = taikhoan;
+                query.PASSWORD = password;
+                query.STATUS = status;
+                dk.SaveChanges();
             }
         }
 
@@ -77,6 +112,8 @@ namespace DA.QuanTriHeThong
                 return dsUser;
             }
         }//end 
+
+
 
     }
 }
