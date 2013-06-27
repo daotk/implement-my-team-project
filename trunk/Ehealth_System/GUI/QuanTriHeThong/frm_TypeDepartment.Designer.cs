@@ -105,11 +105,11 @@
             this.btn_huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btn_huy.Image = global::GUI.Properties.Resources.delete_Data;
-            this.btn_huy.Location = new System.Drawing.Point(180, 394);
+            this.btn_huy.Location = new System.Drawing.Point(180, 395);
             this.btn_huy.Name = "btn_huy";
             this.btn_huy.Size = new System.Drawing.Size(120, 35);
             this.btn_huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_huy.TabIndex = 67;
+            this.btn_huy.TabIndex = 9;
             this.btn_huy.Text = "Hủy";
             this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
@@ -122,7 +122,7 @@
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(120, 35);
             this.btn_luu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_luu.TabIndex = 66;
+            this.btn_luu.TabIndex = 8;
             this.btn_luu.Text = "Lưu";
             this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
@@ -137,7 +137,7 @@
             this.txt_TenVietTat.Location = new System.Drawing.Point(116, 138);
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(173, 26);
-            this.txt_TenVietTat.TabIndex = 65;
+            this.txt_TenVietTat.TabIndex = 2;
             // 
             // chk_TrangThai
             // 
@@ -149,7 +149,7 @@
             this.chk_TrangThai.Name = "chk_TrangThai";
             this.chk_TrangThai.Size = new System.Drawing.Size(136, 23);
             this.chk_TrangThai.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chk_TrangThai.TabIndex = 64;
+            this.chk_TrangThai.TabIndex = 5;
             this.chk_TrangThai.Text = "Có sử dụng";
             // 
             // lbl_TrangThai
@@ -190,7 +190,7 @@
             this.btn_ChinhSua.Name = "btn_ChinhSua";
             this.btn_ChinhSua.Size = new System.Drawing.Size(120, 35);
             this.btn_ChinhSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_ChinhSua.TabIndex = 61;
+            this.btn_ChinhSua.TabIndex = 7;
             this.btn_ChinhSua.Text = "Chỉnh sửa";
             this.btn_ChinhSua.Click += new System.EventHandler(this.btn_ChinhSua_Click);
             // 
@@ -203,7 +203,7 @@
             this.btn_ThemMoi.Name = "btn_ThemMoi";
             this.btn_ThemMoi.Size = new System.Drawing.Size(120, 35);
             this.btn_ThemMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.btn_ThemMoi.TabIndex = 60;
+            this.btn_ThemMoi.TabIndex = 6;
             this.btn_ThemMoi.Text = "Thêm mới";
             this.btn_ThemMoi.Click += new System.EventHandler(this.btn_ThemMoi_Click);
             // 
@@ -263,7 +263,7 @@
             this.txt_MoTa.Multiline = true;
             this.txt_MoTa.Name = "txt_MoTa";
             this.txt_MoTa.Size = new System.Drawing.Size(173, 92);
-            this.txt_MoTa.TabIndex = 56;
+            this.txt_MoTa.TabIndex = 4;
             // 
             // lbl_MoTa
             // 
@@ -290,7 +290,7 @@
             this.txt_LoaiPhongBan.Location = new System.Drawing.Point(114, 183);
             this.txt_LoaiPhongBan.Name = "txt_LoaiPhongBan";
             this.txt_LoaiPhongBan.Size = new System.Drawing.Size(173, 26);
-            this.txt_LoaiPhongBan.TabIndex = 54;
+            this.txt_LoaiPhongBan.TabIndex = 3;
             // 
             // lbl_LoaiPhongBan
             // 
@@ -377,7 +377,6 @@
             this.grd_LoaiPhongBan.Size = new System.Drawing.Size(965, 515);
             this.grd_LoaiPhongBan.TabIndex = 0;
             this.grd_LoaiPhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_LoaiPhongBan_CellClick);
-            
             this.grd_LoaiPhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_LoaiPhongBan_RowsAdded);
             // 
             // STT
@@ -476,7 +475,7 @@
             this.txt_TimKiem.Location = new System.Drawing.Point(100, 4);
             this.txt_TimKiem.Name = "txt_TimKiem";
             this.txt_TimKiem.Size = new System.Drawing.Size(150, 26);
-            this.txt_TimKiem.TabIndex = 3;
+            this.txt_TimKiem.TabIndex = 1;
             this.txt_TimKiem.TextChanged += new System.EventHandler(this.txt_TimKiem_TextChanged);
             // 
             // lbl_TimKiem
