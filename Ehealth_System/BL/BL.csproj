@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MD5_BL.cs" />
+    <Compile Include="QuanTriHeThong\Department_BL.cs" />
     <Compile Include="QuanTriHeThong\District_BL.cs" />
     <Compile Include="QuanTriHeThong\TypeDepartment_BL.cs" />
     <Compile Include="StaticClass.cs" />
