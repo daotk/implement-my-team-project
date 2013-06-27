@@ -60,7 +60,7 @@ namespace GUI.QuanTriHeThong
         {
             District_BL district = new District_BL();
             grd_QuanHuyen.DataSource = district.GetAllDistrict();
-            int count = grd_QuanHuyen.DisplayedRowCount(true);
+            int count = grd_QuanHuyen.Rows.Count;
             totalcount = count;
         }
 
@@ -86,7 +86,6 @@ namespace GUI.QuanTriHeThong
             cbo_TinhThanhPho.DataSource = bl.GetAllCity();
             cbo_TinhThanhPho.DisplayMember = "_CITYNAME";
             cbo_TinhThanhPho.ValueMember = "_CITYID";
-
             cbo_LocTheoTinhThanh.DataSource = bl.GetAllCity();
             cbo_LocTheoTinhThanh.DisplayMember = "_CITYNAME";
             cbo_LocTheoTinhThanh.ValueMember = "_CITYID";
@@ -182,7 +181,7 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_QuanHuyen.DataSource = BL.QuanTriHeThong.District_BL.SearchDistrict(txt_TimKiem.Text);
-            lbl_KetQua.Text = "Kết quả: tìm được " + grd_QuanHuyen.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_QuanHuyen.DisplayedRowCount(true) + " trong tổng số " + totalcount.ToString();
         }
 
         private void cbo_LocTheoTinhThanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -196,7 +195,6 @@ namespace GUI.QuanTriHeThong
                     {
                         lbl_KetQua.Text = "Kết quả: tìm được " + grd_QuanHuyen.DisplayedRowCount(true) + " trong tổng số " + totalcount;
                     }
-
                 }
             }
             else
@@ -210,9 +208,6 @@ namespace GUI.QuanTriHeThong
                     }
                 }
             }
-
         }
-
     }
-
 }

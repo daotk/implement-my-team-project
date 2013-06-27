@@ -23,7 +23,7 @@ namespace DA.QuanTriHeThong
                     District_DO district = new District_DO();
                     district._DISTRICTID = row.DISTRICTID;
                     district._CITYID = row.CITYID;
-                    var cityname = query1.Single(p=>p.CITYID==row.CITYID);
+                    var cityname = query1.Single(p => p.CITYID == row.CITYID);
                     district._CITYNAME = cityname.CITYNAME;
                     district._DISTRICTNAME = row.DISTRICTNAME;
                     district._DESCRIPTIONDISTRICT = row.DISTRICTDESCRIPTION;
@@ -32,17 +32,15 @@ namespace DA.QuanTriHeThong
                 }
                 return ListDistrict;
             }
-
         }
+
         public static int add(String ID, String name, String CITYID, String desscription, bool status)
         {
-            
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
             {
                 Entity.District_Info district = new Entity.District_Info();
                 district.DISTRICTID = ID;
                 district.CITYID = CITYID;
-                
                 district.DISTRICTNAME = name;
                 district.DISTRICTDESCRIPTION = desscription;
                 district.DISTRICTSTATUS = status;
@@ -56,9 +54,9 @@ namespace DA.QuanTriHeThong
                 {
                     return -1;
                 }
-
             }
         }
+
         public static void edit(String ID, String name, String CITYID, String desscription, bool status)
         {
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -96,7 +94,8 @@ namespace DA.QuanTriHeThong
                 return timkiem;
             }
         }
-        public static List<District_DO> SearchDistrictByBoth(String text,string Search)
+
+        public static List<District_DO> SearchDistrictByBoth(String text, string Search)
         {
             List<District_DO> timkiem = new List<District_DO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
@@ -118,8 +117,8 @@ namespace DA.QuanTriHeThong
                 }
                 return timkiem;
             }
-
         }
+
         public static List<District_DO> SearchDistrictByCity(string Search)
         {
             List<District_DO> timkiem = new List<District_DO>();
@@ -142,8 +141,6 @@ namespace DA.QuanTriHeThong
                 }
                 return timkiem;
             }
-
         }
-
     }
 }

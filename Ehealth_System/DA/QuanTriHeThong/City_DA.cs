@@ -28,6 +28,7 @@ namespace DA.QuanTriHeThong
                 return ListCity;
             }
         }
+
         public static int add(String ID, String name, String desscription, bool status)
         {
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -47,9 +48,9 @@ namespace DA.QuanTriHeThong
                 {
                     return -1;
                 }
-
             }
         }
+
         public static void edit(String ID, String name, String desscription, bool status)
         {
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -80,8 +81,6 @@ namespace DA.QuanTriHeThong
                 }
                 return timkiem;
             }
-
         }
-
     }
 }

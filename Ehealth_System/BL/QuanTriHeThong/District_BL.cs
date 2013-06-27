@@ -28,10 +28,11 @@ namespace BL.QuanTriHeThong
             return District_DA.SearchDistrict(name);
         }
 
-        public static List<District_DO> SearchDistrictByBoth(String name,String city)
+        public static List<District_DO> SearchDistrictByBoth(String name, String city)
         {
-            return District_DA.SearchDistrictByBoth(name,city);
+            return District_DA.SearchDistrictByBoth(name, city);
         }
+
         public static List<District_DO> SearchDistrictByCity(String city)
         {
             return District_DA.SearchDistrictByCity(city);

@@ -52,7 +52,7 @@ namespace GUI.QuanTriHeThong
         {
             City_BL city = new City_BL();
             grd_ThanhPho.DataSource = city.GetAllCity();
-            int count = grd_ThanhPho.DisplayedRowCount(true);
+            int count = grd_ThanhPho.Rows.Count;
             totalcount = count;
         }
 
@@ -68,7 +68,6 @@ namespace GUI.QuanTriHeThong
                 if (Convert.ToBoolean(grd_ThanhPho.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
-
         }
 
         private void frm_City_Load(object sender, EventArgs e)
@@ -153,7 +152,5 @@ namespace GUI.QuanTriHeThong
             grd_ThanhPho.DataSource = BL.QuanTriHeThong.City_BL.SearchCity(txt_TimKiem.Text);
             lbl_KetQua.Text = "Kết quả: tìm được " + grd_ThanhPho.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
-
-
     }
 }
