@@ -33,7 +33,7 @@ namespace GUI
             if (txt_UserName.Text != ""|| txt_Password.Text != "")
             {
                 strUsername = txt_UserName.Text;
-                strPassword = txt_Password.Text;
+                strPassword = BL.MD5_BL.GetMD5(txt_Password.Text);
                 bool check = BL.QuanTriHeThong.User_BL.CheckLogin(strUsername,strPassword);
                 if (check == true)
                 {
