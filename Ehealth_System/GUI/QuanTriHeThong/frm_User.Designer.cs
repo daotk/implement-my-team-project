@@ -456,6 +456,7 @@
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(155, 26);
             this.txt_Password.TabIndex = 66;
+            this.txt_Password.UseSystemPasswordChar = true;
             // 
             // btn_ThemMoi
             // 
@@ -577,7 +578,7 @@
             this.checkBoxX1.Size = new System.Drawing.Size(133, 23);
             this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.checkBoxX1.TabIndex = 76;
-            this.checkBoxX1.Text = "Hiện mật khẩu";
+            this.checkBoxX1.Text = "Reset mật khẩu";
             // 
             // txt_TaiKhoan
             // 
