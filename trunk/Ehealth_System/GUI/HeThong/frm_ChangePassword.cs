@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BL.QuanTriHeThong;
+using DA.QuanTriHeThong;
+using DO.QuanTriHeThong;
 
 namespace GUI
 {
@@ -16,7 +19,7 @@ namespace GUI
             InitializeComponent();
         }
         /// <summary>
-        /// nut huy bo
+        /// Hủy bỏ
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -25,31 +28,40 @@ namespace GUI
             Close();
         }
         /// <summary>
-        /// nut luu
+        /// Lưu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btn_LuuMatKhau_Click(object sender, EventArgs e)
         {
-            string matkhaucu = txt_matkhaucu.Text;
-            string matkhaumoi = txt_matkhaumoi.Text;
-            string nhaplaimatkhaumoi = txt_nhaplaimatkhaumoi.Text;
-            if (matkhaucu == "123")
+            string UserID = BL.StaticClass.UserID;
+            List<DO.QuanTriHeThong.User_DO> user = BL.QuanTriHeThong.User_BL.GetUSerInfoFollowUserID(UserID);
+            if (txt_matkhaucu.Text != "" && txt_matkhaumoi.Text != "" && txt_nhaplaimatkhaumoi.Text != "")
             {
-                if (matkhaumoi == nhaplaimatkhaumoi)
+                if (user[0]._PASSWORD == BL.MD5_BL.GetMD5(txt_matkhaucu.Text))
                 {
-                    MessageBox.Show("Bạn đã thay đổi mật khẩu thành công");
-                    Close();
+                    if (txt_matkhaumoi.Text == txt_nhaplaimatkhaumoi.Text)
+                    {
+                        //Luu mat khau
+                        BL.QuanTriHeThong.User_BL.ChangePassword(UserID, BL.MD5_BL.GetMD5(txt_matkhaumoi.Text));
+                        MessageBox.Show("Thay đổi mật khẩu thành công");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn nhập mật khẩu mới lần 2 không trùng khớp");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Ô nhập lại mật khẩu không trùng với mật khẩu mới ");
+                    MessageBox.Show("Bạn nhập mật khẩu củ  không trùng khớp");
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã nhập sai mật khẩu cũ!");
+                MessageBox.Show("Bạn Chưa nhập đầy đử thông tin");
             }
         }
+      
     }
 }
