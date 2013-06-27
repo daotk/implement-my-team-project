@@ -283,7 +283,11 @@ namespace GUI
             }
         }
 
-      
+      /// <summary>
+      /// Thông kê doanh thu
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
         private void btn_DoanhThu_Click(object sender, EventArgs e)
         {
             if (checkTab(doanhthu) == false)
@@ -316,6 +320,22 @@ namespace GUI
             }
         }
 
+        /// <summary>
+        /// Đăng xuất
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc là đăng xuất khỏi chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(result == DialogResult.Yes)
+            {
+            this.Close();
+            Program.Loginthread.Start();
+            }else
+            {
+            }
+        }
 
         private bool checkTab(string name)
         {
@@ -475,6 +495,8 @@ namespace GUI
             if (authorization[12].ToString() == "0") { btn_DanhSachThuTienTheoNhomDichVu.Enabled = false; }
             if (authorization[13].ToString() == "0") { btn_DoanhThu.Enabled = false; }
         }
+
+       
        
 
        

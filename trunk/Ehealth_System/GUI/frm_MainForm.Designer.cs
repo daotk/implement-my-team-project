@@ -144,6 +144,7 @@
             this.btn_Logout.Image = ((System.Drawing.Image)(resources.GetObject("btn_Logout.Image")));
             this.btn_Logout.SmallImage = global::GUI.Properties.Resources.logout1;
             this.btn_Logout.Text = "Đăng xuất";
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // tp_QuanTriHeThong
             // 
