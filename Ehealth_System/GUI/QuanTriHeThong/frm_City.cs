@@ -22,6 +22,7 @@ namespace GUI.QuanTriHeThong
             enableText(false);
             enablebtn(false);
         }
+
         public void enableText(bool enable)
         {
             txt_TenVietTat.Enabled = enable;
@@ -29,6 +30,7 @@ namespace GUI.QuanTriHeThong
             txt_MoTa.Enabled = enable;
             chk_TrangThai.Enabled = enable;
         }
+
         public void enablebtn(bool enable)
         {
             btn_ThemMoi.Visible = !enable;
@@ -36,7 +38,37 @@ namespace GUI.QuanTriHeThong
             btn_Luu.Visible = enable;
             btn_Huy.Visible = enable;
         }
-      
+
+        public void Huy()
+        {
+            enableText(false);
+            enablebtn(false);
+            flag_them = false;
+            flag_sua = false;
+        }
+
+        public void loadDatagrid()
+        {
+            City_BL city = new City_BL();
+            grd_ThanhPho.DataSource = city.GetAllCity();
+        }
+
+        public void focus()
+        {
+            int i;
+            i = grd_ThanhPho.SelectedCells[0].RowIndex;
+            txt_TenVietTat.Text = grd_ThanhPho.Rows[i].Cells[1].Value.ToString();
+            txt_TenTinhThanh.Text = grd_ThanhPho.Rows[i].Cells[2].Value.ToString();
+            txt_MoTa.Text = grd_ThanhPho.Rows[i].Cells[3].Value.ToString();
+            if (Convert.ToBoolean(grd_ThanhPho.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
+            else { chk_TrangThai.Checked = false; }
+        }
+
+        private void frm_City_Load(object sender, EventArgs e)
+        {
+            loadDatagrid();
+            focus();
+        }
 
         private void btn_ThemMoi_Click(object sender, EventArgs e)
         {
@@ -47,7 +79,6 @@ namespace GUI.QuanTriHeThong
             txt_TenTinhThanh.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
-            
         }
 
         private void btn_ChinhSua_Click(object sender, EventArgs e)
@@ -71,8 +102,7 @@ namespace GUI.QuanTriHeThong
                     MessageBox.Show("Chưa nhập tên tỉnh thành", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-                int i=City_BL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                int i = City_BL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
                     MessageBox.Show("Error adding", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -81,7 +111,6 @@ namespace GUI.QuanTriHeThong
                 {
                     MessageBox.Show("Success Adding", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-               
             }
             if (flag_sua == true)
             {
@@ -89,29 +118,14 @@ namespace GUI.QuanTriHeThong
                 City_BL.edit(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
             }
             loadDatagrid();
-            
-
             Huy();
         }
 
-        public void Huy()
-        {
-            enableText(false);
-            enablebtn(false);
-            flag_them = false;
-            flag_sua = false;
-        }
-        public void loadDatagrid()
-        {
-            City_BL city = new City_BL();
-            grd_ThanhPho.DataSource = city.GetAllCity();
-        }
         private void btn_Huy_Click(object sender, EventArgs e)
         {
             Huy();
-            //load lai du lieu
+            focus();
         }
-
 
         private void grd_ThanhPho_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -123,24 +137,12 @@ namespace GUI.QuanTriHeThong
 
         private void grd_ThanhPho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int i;
-            i = grd_ThanhPho.SelectedCells[0].RowIndex;
-            txt_TenVietTat.Text = grd_ThanhPho.Rows[i].Cells[1].Value.ToString();
-            txt_TenTinhThanh.Text = grd_ThanhPho.Rows[i].Cells[2].Value.ToString();
-            txt_MoTa.Text = grd_ThanhPho.Rows[i].Cells[3].Value.ToString();
-            if (Convert.ToBoolean(grd_ThanhPho.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
-            else { chk_TrangThai.Checked = false; }
-
+            focus();
         }
 
-        private void frm_City_Load(object sender, EventArgs e)
+        private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
-            loadDatagrid();
-        }
-
-        private void grd_ThanhPho_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            //grd_ThanhPho.Refresh();
+            grd_ThanhPho.DataSource = BL.QuanTriHeThong.City_BL.SearchCity(txt_TimKiem.Text);
         }
 
 

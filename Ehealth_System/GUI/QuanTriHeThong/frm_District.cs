@@ -23,6 +23,7 @@ namespace GUI.QuanTriHeThong
             enablebtn(false);
             enablecbo(false);
         }
+
         public void enableText(bool enable)
         {
             txt_TenVietTat.Enabled = enable;
@@ -30,6 +31,7 @@ namespace GUI.QuanTriHeThong
             txt_MoTa.Enabled = enable;
             chk_TrangThai.Enabled = enable;
         }
+
         public void enablebtn(bool enable)
         {
             btn_ThemMoi.Visible = !enable;
@@ -37,14 +39,11 @@ namespace GUI.QuanTriHeThong
             btn_Luu.Visible = enable;
             btn_Huy.Visible = enable;
         }
+
         public void enablecbo(bool enable)
         {
             cbo_TinhThanhPho.Enabled = enable;
         }
-
-
-
-
 
         public void Huy()
         {
@@ -54,11 +53,39 @@ namespace GUI.QuanTriHeThong
             flag_them = false;
             flag_sua = false;
         }
+
         public void loadDatagrid()
         {
             District_BL district = new District_BL();
             grd_QuanHuyen.DataSource = district.GetAllDistrict();
+        }
 
+        public void focus()
+        {
+            int i;
+            i = grd_QuanHuyen.SelectedCells[0].RowIndex;
+            txt_TenVietTat.Text = grd_QuanHuyen.Rows[i].Cells[1].Value.ToString();
+            txt_TenQuanHuyen.Text = grd_QuanHuyen.Rows[i].Cells[2].Value.ToString();
+            cbo_TinhThanhPho.SelectedValue = grd_QuanHuyen.Rows[i].Cells[3].Value.ToString();
+            txt_MoTa.Text = grd_QuanHuyen.Rows[i].Cells[5].Value.ToString();
+            if (Convert.ToBoolean(grd_QuanHuyen.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
+            else { chk_TrangThai.Checked = false; }
+        }
+
+        private void frm_District_Load(object sender, EventArgs e)
+        {
+            
+            City_BL bl = new City_BL();
+            cbo_TinhThanhPho.DataSource = bl.GetAllCity();
+            cbo_TinhThanhPho.DisplayMember = "_CITYNAME";
+            cbo_TinhThanhPho.ValueMember = "_CITYID";
+            
+            cbo_LocTheoTinhThanh.DataSource=bl.GetAllCity();
+            cbo_LocTheoTinhThanh.DisplayMember = "_CITYNAME";
+            cbo_LocTheoTinhThanh.ValueMember = "_CITYID";
+            cbo_LocTheoTinhThanh.SelectedIndex = -1;
+            loadDatagrid();
+            focus();
         }
 
         private void btn_ThemMoi_Click(object sender, EventArgs e)
@@ -70,7 +97,6 @@ namespace GUI.QuanTriHeThong
             txt_TenVietTat.Text = "";
             txt_TenQuanHuyen.Text = "";
             txt_MoTa.Text = "";
-
             chk_TrangThai.Checked = false;
             cbo_TinhThanhPho.SelectedIndex = 0;
         }
@@ -97,7 +123,6 @@ namespace GUI.QuanTriHeThong
                     MessageBox.Show("Chưa nhập tên tỉnh thành", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 int i = District_BL.add(txt_TenVietTat.Text, txt_TenQuanHuyen.Text, cbo_TinhThanhPho.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
@@ -121,7 +146,7 @@ namespace GUI.QuanTriHeThong
         private void btn_Huy_Click(object sender, EventArgs e)
         {
             Huy();
-            //load lai du lieu
+            focus();
         }
 
         private void cbo_TinhThanhPho_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,60 +155,48 @@ namespace GUI.QuanTriHeThong
             {
                 int CITYID;
                 Int32.TryParse(cbo_TinhThanhPho.SelectedValue.ToString(), out CITYID);
-
             }
-
         }
-             private void frm_District_Load(object sender, EventArgs e)
+
+        private void grd_QuanHuyen_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-        loadDatagrid();
-            City_BL bl = new City_BL();
-            cbo_TinhThanhPho.DataSource = bl.GetAllCity();
-            cbo_TinhThanhPho.DisplayMember = "_CITYNAME";
-            cbo_TinhThanhPho.ValueMember = "_CITYID";
-
-            int i;
-            i = grd_QuanHuyen.SelectedCells[0].RowIndex;
-            txt_TenVietTat.Text = grd_QuanHuyen.Rows[i].Cells[1].Value.ToString();
-            txt_TenQuanHuyen.Text = grd_QuanHuyen.Rows[i].Cells[2].Value.ToString();
-            cbo_TinhThanhPho.SelectedValue = grd_QuanHuyen.Rows[i].Cells[3].Value.ToString();
-            txt_MoTa.Text = grd_QuanHuyen.Rows[i].Cells[4].Value.ToString();
-            if (Convert.ToBoolean(grd_QuanHuyen.Rows[i].Cells[5].Value) == true) { chk_TrangThai.Checked = true; }
-            else { chk_TrangThai.Checked = false; }
+            for (int i = 0; i < grd_QuanHuyen.RowCount; i++)
+            {
+                grd_QuanHuyen.Rows[i].Cells["STTTinhThanh"].Value = Convert.ToString(i + 1);
+            }
         }
 
-             private void cbo_LocTheoTinhThanh_SelectedIndexChanged(object sender, EventArgs e)
-             {
-                 if (cbo_LocTheoTinhThanh.SelectedIndex >= 0)
-                 {
-                     int CITYID;
-                     Int32.TryParse(cbo_LocTheoTinhThanh.SelectedValue.ToString(), out CITYID);
-                 }
-             }
+        private void grd_QuanHuyen_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            focus();
+        }
 
-             private void grd_QuanHuyen_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-             {
-                 for (int i = 0; i < grd_QuanHuyen.RowCount; i++)
-                 {
-                     grd_QuanHuyen.Rows[i].Cells["STTTinhThanh"].Value = Convert.ToString(i + 1);
-                 }
-             }
+        private void txt_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            grd_QuanHuyen.DataSource = BL.QuanTriHeThong.District_BL.SearchDistrict(txt_TimKiem.Text);
+        }
 
-             private void grd_QuanHuyen_CellClick(object sender, DataGridViewCellEventArgs e)
-             {
-                 int i;
-                 i = grd_QuanHuyen.SelectedCells[0].RowIndex;
-                 txt_TenVietTat.Text = grd_QuanHuyen.Rows[i].Cells[1].Value.ToString();
-                 txt_TenQuanHuyen.Text = grd_QuanHuyen.Rows[i].Cells[2].Value.ToString();
-                 cbo_TinhThanhPho.SelectedValue = grd_QuanHuyen.Rows[i].Cells[3].Value.ToString();
-                 txt_MoTa.Text = grd_QuanHuyen.Rows[i].Cells[4].Value.ToString();
-                 if (Convert.ToBoolean(grd_QuanHuyen.Rows[i].Cells[5].Value) == true) { chk_TrangThai.Checked = true; }
-                 else { chk_TrangThai.Checked = false; }
-             }
+        private void cbo_LocTheoTinhThanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txt_TimKiem.Text==null || txt_TimKiem.Text=="")
+            {
+                if (cbo_LocTheoTinhThanh.SelectedIndex >= 0)
+                {
+                    grd_QuanHuyen.DataSource = District_BL.SearchDistrictByCity(cbo_LocTheoTinhThanh.SelectedValue.ToString());
+                }
+            } 
+            else
+            {
+                if (cbo_LocTheoTinhThanh.SelectedIndex >= 0)
+                {
 
-       
+                    grd_QuanHuyen.DataSource = BL.QuanTriHeThong.District_BL.SearchDistrictByBoth(txt_TimKiem.Text, cbo_LocTheoTinhThanh.SelectedValue.ToString());
+                }
+            }
+            
+            
+        }
 
     }
 
-       
 }
