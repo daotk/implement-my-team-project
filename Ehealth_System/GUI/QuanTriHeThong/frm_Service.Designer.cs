@@ -48,7 +48,7 @@
             this.lbl_Note = new DevComponents.DotNetBar.LabelX();
             this.txt_MoTa = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl_MoTa = new DevComponents.DotNetBar.LabelX();
-            this.txt_NhomDichVu = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_DichVu = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl_GiaTien = new DevComponents.DotNetBar.LabelX();
             this.lbl_NhomDichVu = new DevComponents.DotNetBar.LabelX();
             this.lbl_TenVietTat = new DevComponents.DotNetBar.LabelX();
@@ -118,7 +118,7 @@
             this.panelEx4.Controls.Add(this.lbl_Note);
             this.panelEx4.Controls.Add(this.txt_MoTa);
             this.panelEx4.Controls.Add(this.lbl_MoTa);
-            this.panelEx4.Controls.Add(this.txt_NhomDichVu);
+            this.panelEx4.Controls.Add(this.txt_DichVu);
             this.panelEx4.Controls.Add(this.lbl_GiaTien);
             this.panelEx4.Controls.Add(this.lbl_NhomDichVu);
             this.panelEx4.Controls.Add(this.lbl_TenVietTat);
@@ -142,6 +142,7 @@
             // 
             this.txt_GiaTien.Border.Class = "TextBoxBorder";
             this.txt_GiaTien.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_GiaTien.Enabled = false;
             this.txt_GiaTien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_GiaTien.Location = new System.Drawing.Point(116, 228);
             this.txt_GiaTien.Name = "txt_GiaTien";
@@ -152,6 +153,7 @@
             // 
             this.cbo_NhomDichVu.DisplayMember = "Text";
             this.cbo_NhomDichVu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbo_NhomDichVu.Enabled = false;
             this.cbo_NhomDichVu.FormattingEnabled = true;
             this.cbo_NhomDichVu.ItemHeight = 20;
             this.cbo_NhomDichVu.Location = new System.Drawing.Point(116, 186);
@@ -195,6 +197,7 @@
             // 
             this.txt_TenVietTat.Border.Class = "TextBoxBorder";
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_TenVietTat.Enabled = false;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(116, 90);
             this.txt_TenVietTat.Name = "txt_TenVietTat";
@@ -207,6 +210,7 @@
             // 
             // 
             this.chk_TrangThai.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chk_TrangThai.Enabled = false;
             this.chk_TrangThai.Location = new System.Drawing.Point(116, 339);
             this.chk_TrangThai.Name = "chk_TrangThai";
             this.chk_TrangThai.Size = new System.Drawing.Size(136, 23);
@@ -306,6 +310,7 @@
             // 
             this.txt_MoTa.Border.Class = "TextBoxBorder";
             this.txt_MoTa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_MoTa.Enabled = false;
             this.txt_MoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MoTa.Location = new System.Drawing.Point(116, 271);
             this.txt_MoTa.Multiline = true;
@@ -327,18 +332,19 @@
             this.lbl_MoTa.TabIndex = 69;
             this.lbl_MoTa.Text = "Mô tả";
             // 
-            // txt_NhomDichVu
+            // txt_DichVu
             // 
             // 
             // 
             // 
-            this.txt_NhomDichVu.Border.Class = "TextBoxBorder";
-            this.txt_NhomDichVu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txt_NhomDichVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NhomDichVu.Location = new System.Drawing.Point(114, 139);
-            this.txt_NhomDichVu.Name = "txt_NhomDichVu";
-            this.txt_NhomDichVu.Size = new System.Drawing.Size(173, 26);
-            this.txt_NhomDichVu.TabIndex = 68;
+            this.txt_DichVu.Border.Class = "TextBoxBorder";
+            this.txt_DichVu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_DichVu.Enabled = false;
+            this.txt_DichVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_DichVu.Location = new System.Drawing.Point(114, 139);
+            this.txt_DichVu.Name = "txt_DichVu";
+            this.txt_DichVu.Size = new System.Drawing.Size(173, 26);
+            this.txt_DichVu.TabIndex = 68;
             // 
             // lbl_GiaTien
             // 
@@ -451,10 +457,10 @@
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx2.Controls.Add(this.grd_NhomDichVu);
             this.panelEx2.Controls.Add(this.panelEx3);
-            this.panelEx2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelEx2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx2.Location = new System.Drawing.Point(0, 0);
             this.panelEx2.Name = "panelEx2";
-            this.panelEx2.Size = new System.Drawing.Size(965, 500);
+            this.panelEx2.Size = new System.Drawing.Size(965, 550);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -495,14 +501,17 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grd_NhomDichVu.DefaultCellStyle = dataGridViewCellStyle4;
-            this.grd_NhomDichVu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grd_NhomDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_NhomDichVu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_NhomDichVu.Location = new System.Drawing.Point(0, 44);
+            this.grd_NhomDichVu.MultiSelect = false;
             this.grd_NhomDichVu.Name = "grd_NhomDichVu";
+            this.grd_NhomDichVu.ReadOnly = true;
             this.grd_NhomDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grd_NhomDichVu.Size = new System.Drawing.Size(965, 515);
+            this.grd_NhomDichVu.Size = new System.Drawing.Size(965, 506);
             this.grd_NhomDichVu.TabIndex = 1;
             this.grd_NhomDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_NhomDichVu_CellClick);
+            this.grd_NhomDichVu.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_NhomDichVu_RowsAdded);
             // 
             // panelEx3
             // 
@@ -595,10 +604,10 @@
             // 
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "1";
             this.STT.DefaultCellStyle = dataGridViewCellStyle2;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             this.STT.Width = 61;
             // 
             // TenVietTac
@@ -607,6 +616,7 @@
             this.TenVietTac.DataPropertyName = "serviceid_";
             this.TenVietTac.HeaderText = "Tên Viết tắc";
             this.TenVietTac.Name = "TenVietTac";
+            this.TenVietTac.ReadOnly = true;
             this.TenVietTac.Width = 150;
             // 
             // NhomDichVu
@@ -614,30 +624,35 @@
             this.NhomDichVu.DataPropertyName = "_SERVICEGROUPNAME";
             this.NhomDichVu.HeaderText = "Nhóm dịch vụ";
             this.NhomDichVu.Name = "NhomDichVu";
+            this.NhomDichVu.ReadOnly = true;
             // 
             // DichVu1
             // 
             this.DichVu1.DataPropertyName = "servicename_";
             this.DichVu1.HeaderText = "Dịch vụ";
             this.DichVu1.Name = "DichVu1";
+            this.DichVu1.ReadOnly = true;
             // 
             // GiaTien
             // 
             this.GiaTien.DataPropertyName = "servicecost_";
             this.GiaTien.HeaderText = "Giá tiền";
             this.GiaTien.Name = "GiaTien";
+            this.GiaTien.ReadOnly = true;
             // 
             // MoTa
             // 
             this.MoTa.DataPropertyName = "servicedescription_";
             this.MoTa.HeaderText = "Mô tả";
             this.MoTa.Name = "MoTa";
+            this.MoTa.ReadOnly = true;
             // 
             // Idnhomdichvu
             // 
             this.Idnhomdichvu.DataPropertyName = "servicegroupid_";
             this.Idnhomdichvu.HeaderText = "Idnhomdichvu";
             this.Idnhomdichvu.Name = "Idnhomdichvu";
+            this.Idnhomdichvu.ReadOnly = true;
             this.Idnhomdichvu.Visible = false;
             // 
             // TrangThai
@@ -651,6 +666,7 @@
             this.TrangThai.DefaultCellStyle = dataGridViewCellStyle3;
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
             // 
             // frm_Service
             // 
@@ -701,7 +717,7 @@
         private DevComponents.DotNetBar.LabelX lbl_Note;
         private DevComponents.DotNetBar.Controls.TextBoxX txt_MoTa;
         private DevComponents.DotNetBar.LabelX lbl_MoTa;
-        private DevComponents.DotNetBar.Controls.TextBoxX txt_NhomDichVu;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_DichVu;
         private DevComponents.DotNetBar.LabelX lbl_NhomDichVu;
         private DevComponents.DotNetBar.LabelX lbl_TenVietTat;
         private DevComponents.DotNetBar.PanelEx panelEx6;
