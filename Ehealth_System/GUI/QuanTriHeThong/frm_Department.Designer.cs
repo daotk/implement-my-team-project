@@ -426,7 +426,7 @@
             this.grd_PhongBan.Size = new System.Drawing.Size(965, 515);
             this.grd_PhongBan.TabIndex = 1;
             this.grd_PhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_PhongBan_CellClick);
-            this.grd_PhongBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_PhongBan_CellContentClick);
+            
             this.grd_PhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_PhongBan_RowsAdded);
             // 
             // STT
