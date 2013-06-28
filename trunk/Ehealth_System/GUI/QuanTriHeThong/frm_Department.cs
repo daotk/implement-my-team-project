@@ -163,7 +163,15 @@ namespace GUI.QuanTriHeThong
             if (flag_sua == true)
             {
                 txt_TenVietTat.Enabled = false;
-                Department_BL.edit(txt_TenVietTat.Text, txt_phongBan.Text, cbo_LoaiPhongban.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
+                int i = Department_BL.edit(txt_TenVietTat.Text, txt_phongBan.Text, cbo_LoaiPhongban.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
+                if (i == -1)
+                {
+                    MessageBox.Show("Lỗi! Không thể chỉnh sửa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Chỉnh sửa thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             loadDatagrid();
             Huy();
@@ -203,34 +211,36 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_PhongBan.DataSource = BL.QuanTriHeThong.Department_BL.SearchDepart(txt_TimKiem.Text);
-            lbl_KetQua.Text = "Kết quả: tìm được " + grd_PhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_PhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount.ToString();
         }
 
         private void cbo_LocTheoLoaiPhongBan_SelectedIndexChanged(object sender, EventArgs e)
         {
-             if (txt_TimKiem.Text==null || txt_TimKiem.Text=="")
+            if (txt_TimKiem.Text == null || txt_TimKiem.Text == "")
             {
                 if (cbo_LocTheoLoaiPhongBan.SelectedIndex >= 0)
                 {
                     grd_PhongBan.DataSource = Department_BL.SearchDistrByDeparttype(cbo_LocTheoLoaiPhongBan.SelectedValue.ToString());
+                    if (grd_PhongBan.DisplayedRowCount(true) > 0)
+                    {
+                        lbl_KetQua.Text = "Kết quả: tìm được " + grd_PhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+                    }
                 }
-            } 
+            }
             else
             {
                 if (cbo_LocTheoLoaiPhongBan.SelectedIndex >= 0)
                 {
-
-                    grd_PhongBan.DataSource = BL.QuanTriHeThong.Department_BL.SearchDepartByBoth(txt_TimKiem.Text, cbo_LocTheoLoaiPhongBan.SelectedValue.ToString());
+                    if (grd_PhongBan.DisplayedRowCount(true) > 0)
+                    {
+                        grd_PhongBan.DataSource = BL.QuanTriHeThong.Department_BL.SearchDepartByBoth(txt_TimKiem.Text, cbo_LocTheoLoaiPhongBan.SelectedValue.ToString());
+                        lbl_KetQua.Text = "Kết quả: tìm được " + grd_PhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+                    }
                 }
             }
-            
-            
         }
 
-        private void grd_PhongBan_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         
 
