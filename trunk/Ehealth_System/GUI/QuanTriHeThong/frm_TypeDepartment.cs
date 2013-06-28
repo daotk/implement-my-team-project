@@ -50,7 +50,8 @@ namespace GUI.QuanTriHeThong
 
         public void Huy()
         {
-
+            enableText(false);
+            enablebtn(false);
             flag_them = false;
             flag_sua = false;
         }
