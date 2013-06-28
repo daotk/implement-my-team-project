@@ -56,7 +56,7 @@ namespace DA.QuanTriHeThong
             }
         }
 
-        public static void edit(String ID, String name, String desscription, bool status)
+        public static int edit(String ID, String name, String desscription, bool status)
         {
 
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -68,7 +68,16 @@ namespace DA.QuanTriHeThong
                 depart.DEPARTMENTTYPEDESCRIPTION = desscription;
                 depart.DEPARTMENTSTATUS = status;
 
-                entity.SaveChanges();
+                //entity.SaveChanges();
+                try
+                {
+                    int num = entity.SaveChanges();
+                    return num;
+                }
+                catch
+                {
+                    return -1;
+                }
 
             }
         }
