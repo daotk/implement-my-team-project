@@ -21,29 +21,27 @@ namespace GUI.QuanTriHeThong
 
         private void frm_Service_Load(object sender, EventArgs e)
         {
-            LoadDSService();
-            LoadDSGroupService();
-
-        }
-
-        private void LoadDSGroupService()
-        {
             cbo_LocTheoNhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
-            cbo_NhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
             cbo_LocTheoNhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
             cbo_LocTheoNhomDichVu.ValueMember = "_SERVICEGROUPID";
+
+            cbo_NhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
             cbo_NhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
             cbo_NhomDichVu.ValueMember = "_SERVICEGROUPID";
+            LoadDSService();
         }
+
 
         private void LoadDSService()
         {
             grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.GetService();
             btn_ChinhSua.Text = "Chỉnh sửa";
+            btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
             btn_ThemMoi.Text = "Thêm mới";
+            btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
             btn_ChinhSua.Enabled = false;
             txt_TenVietTat.Enabled = false;
-            txt_NhomDichVu.Enabled = false;
+            txt_DichVu.Enabled = false;
             txt_GiaTien.Enabled = false;
             chk_TrangThai.Enabled = false;
             txt_MoTa.Enabled = false;
@@ -59,7 +57,7 @@ namespace GUI.QuanTriHeThong
                 btn_ChinhSua.Text = "Hủy bỏ";
                 btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
                 txt_TenVietTat.Enabled = true;
-                txt_NhomDichVu.Enabled = true;
+                txt_DichVu.Enabled = true;
                 txt_GiaTien.Enabled = true;
                 chk_TrangThai.Enabled = true;
                 txt_MoTa.Enabled = true;
@@ -69,13 +67,13 @@ namespace GUI.QuanTriHeThong
                 if (btn_ThemMoi.Text == "Lưu")
                 {
                     //Luu
-                    BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text,cbo_NhomDichVu.SelectedValue.ToString(), txt_NhomDichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                    BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text,cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                     MessageBox.Show("Thêm mới thành công");
                     LoadDSService();
                 }
                 else {
                     if (btn_ThemMoi.Text == "Cập Nhật") {
-                        BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_NhomDichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                        BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                         MessageBox.Show("Chỉnh sửa thành công");
                         LoadDSService();
                     }
@@ -88,9 +86,11 @@ namespace GUI.QuanTriHeThong
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
                 btn_ThemMoi.Text = "Cập Nhật";
+                btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
+                btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
                 txt_TenVietTat.Enabled = true;
-                txt_NhomDichVu.Enabled = true;
+                txt_DichVu.Enabled = true;
                 txt_GiaTien.Enabled = true;
                 chk_TrangThai.Enabled = true;
                 txt_MoTa.Enabled = true;
@@ -99,9 +99,11 @@ namespace GUI.QuanTriHeThong
             else {
                 if (btn_ChinhSua.Text == "Hủy bỏ") {
                     btn_ThemMoi.Text = "Thêm mới";
+                    btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                     btn_ChinhSua.Text = "Chỉnh sửa";
+                    btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
                     txt_TenVietTat.Enabled = false;
-                    txt_NhomDichVu.Enabled = false;
+                    txt_DichVu.Enabled = false;
                     txt_GiaTien.Enabled = false;
                     chk_TrangThai.Enabled = false;
                     txt_MoTa.Enabled = false;
@@ -115,16 +117,14 @@ namespace GUI.QuanTriHeThong
             btn_ChinhSua.Enabled = true;
             string ID = grd_NhomDichVu.CurrentRow.Cells[1].Value.ToString();
             List<ServiceDO> dsuser = BL.QuanTriHeThong.ServiceBL.Get_Service(ID);
-            //txt_TenVietTat.Text = dsuser[0].tenviettat_;
             txt_TenVietTat.Text = dsuser[0].serviceid_;
-            //txt_TenNhom.Text = dsuser[0].tennhom_;
-            cbo_NhomDichVu.Text = dsuser[0].servicegroupid_;
-            //txt_MoTa.Text = dsuser[0].mota_;
-            txt_NhomDichVu.Text = dsuser[0].servicename_;
-            txt_GiaTien.Text = dsuser[0].servicecost_;
+            txt_DichVu.Text = dsuser[0].servicename_;
+            cbo_NhomDichVu.SelectedValue = dsuser[0].servicegroupid_;
             txt_MoTa.Text = dsuser[0].servicedescription_;
+            txt_GiaTien.Text = dsuser[0].servicecost_;
             chk_TrangThai.Checked = dsuser[0].servicestatus_;
         }
+
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.SearchService(txt_TimKiem.Text);
@@ -133,6 +133,14 @@ namespace GUI.QuanTriHeThong
         private void cbo_LocTheoNhomDichVu_SelectedIndexChanged(object sender, EventArgs e)
         {
             grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.SearchGroupService(cbo_LocTheoNhomDichVu.Text);
+        }
+
+        private void grd_NhomDichVu_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < grd_NhomDichVu.RowCount; i++)
+            {
+                grd_NhomDichVu.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
+            }
         }
 
 
