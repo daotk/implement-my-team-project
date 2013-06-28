@@ -67,7 +67,7 @@ namespace GUI.QuanTriHeThong
                         if (CheckInfo(txt_TenVietTat.Text, txt_TenNhom.Text))
                         {
                             BL.QuanTriHeThong.UserGroup_BL.CreateUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text,"00000000000000", chk_TrangThai.Checked);
-                            MessageBox.Show("Thêm mới thành công");
+                            MessageBox.Show("Bạn đã thêm mới thành công");
                             //Load lai danh sach nhom nguoi dung
                             LoadGroupUser();
                             btn_ThemMoi.Text = "Thêm mới";
@@ -102,7 +102,7 @@ namespace GUI.QuanTriHeThong
                         if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
                         {
                             BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                            MessageBox.Show("Chỉnh sửa thành công");
+                            MessageBox.Show("Bạn đã chỉnh sửa thành công");
                             LoadGroupUser();
                             btn_ThemMoi.Text = "Thêm mới";
                             btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
@@ -121,24 +121,8 @@ namespace GUI.QuanTriHeThong
                         }
                         else
                         {
-                            MessageBox.Show("Bạn phải nhập đầy dủ thông tin");
+                            MessageBox.Show("Bạn phải nhập đầy đủ thông tin");
                         }
-                        /*
-                        btn_ThemMoi.Text = "Thêm mới";
-                        btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
-                        btn_ChinhSua.Text = "Chỉnh sửa";
-                        btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
-                        btn_ChinhSua.Enabled = false;
-                        txt_TenVietTat.Enabled = false;
-                        txt_TenNhom.Enabled = false;
-                        txt_MoTa.Enabled = false;
-                        chk_TrangThai.Enabled = false;
-
-                        txt_TenVietTat.Text = "";
-                        txt_TenNhom.Text = "";
-                        txt_MoTa.Text = "";
-                        chk_TrangThai.Checked = false;
-                         */
                     }
                 }
 
@@ -174,32 +158,7 @@ namespace GUI.QuanTriHeThong
             {
                 if (btn_ChinhSua.Text == "Lưu")
                 {
-                    /*
-                    if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
-                    {
-                         BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                            MessageBox.Show("Chỉnh sửa thành công");
-                            LoadGroupUser();
-                            btn_ThemMoi.Text = "Thêm mới";
-                            btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
-                            btn_ChinhSua.Text = "Chỉnh sửa";
-                            btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
-                            btn_ChinhSua.Enabled = false;
-                            txt_TenVietTat.Enabled = false;
-                            txt_TenNhom.Enabled = false;
-                            txt_MoTa.Enabled = false;
-                            chk_TrangThai.Enabled = false;
-                            txt_TenVietTat.Text = "";
-                            txt_TenNhom.Text = "";
-                            txt_MoTa.Text = "";
-                            chk_TrangThai.Checked = false;
-                        
-                    }
-                    else
-                    {
-                        MessageBox.Show("Bạn phải nhập đầy dủ thông tin");
-                    }
-                     */
+
                 }
                 else {
                     if (btn_ChinhSua.Text == "Hủy bỏ") {
