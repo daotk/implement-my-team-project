@@ -22,7 +22,18 @@ namespace GUI.QuanTriHeThong
         private void frm_Service_Load(object sender, EventArgs e)
         {
             LoadDSService();
+            LoadDSGroupService();
 
+        }
+
+        private void LoadDSGroupService()
+        {
+            cbo_LocTheoNhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
+            cbo_NhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
+            cbo_LocTheoNhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
+            cbo_LocTheoNhomDichVu.ValueMember = "_SERVICEGROUPID";
+            cbo_NhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
+            cbo_NhomDichVu.ValueMember = "_SERVICEGROUPID";
         }
 
         private void LoadDSService()
@@ -44,7 +55,9 @@ namespace GUI.QuanTriHeThong
             if (btn_ThemMoi.Text == "Thêm mới")
             {
                 btn_ThemMoi.Text = "Lưu";
+                btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
+                btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
                 txt_TenVietTat.Enabled = true;
                 txt_NhomDichVu.Enabled = true;
                 txt_GiaTien.Enabled = true;
@@ -55,13 +68,14 @@ namespace GUI.QuanTriHeThong
             else {
                 if (btn_ThemMoi.Text == "Lưu")
                 {
-                    BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text, "AA", txt_NhomDichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                    //Luu
+                    BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text,cbo_NhomDichVu.SelectedValue.ToString(), txt_NhomDichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                     MessageBox.Show("Thêm mới thành công");
                     LoadDSService();
                 }
                 else {
                     if (btn_ThemMoi.Text == "Cập Nhật") {
-                        BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.Text, txt_NhomDichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                        BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_NhomDichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                         MessageBox.Show("Chỉnh sửa thành công");
                         LoadDSService();
                     }
@@ -110,6 +124,15 @@ namespace GUI.QuanTriHeThong
             txt_GiaTien.Text = dsuser[0].servicecost_;
             txt_MoTa.Text = dsuser[0].servicedescription_;
             chk_TrangThai.Checked = dsuser[0].servicestatus_;
+        }
+        private void txt_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.SearchService(txt_TimKiem.Text);
+        }
+
+        private void cbo_LocTheoNhomDichVu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.SearchGroupService(cbo_LocTheoNhomDichVu.Text);
         }
 
 
