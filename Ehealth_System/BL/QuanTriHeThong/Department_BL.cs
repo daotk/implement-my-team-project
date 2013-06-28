@@ -21,9 +21,9 @@ namespace BL.QuanTriHeThong
        }
 
 
-       public static void edit(String ID, String name, String DepartmentID, String desscription, bool status)
+       public static int edit(String ID, String name, String DepartmentID, String desscription, bool status)
        {
-           Department_DA.edit(ID, name, DepartmentID, desscription, status);
+           return Department_DA.edit(ID, name, DepartmentID, desscription, status);
        }
 
 
