@@ -17,6 +17,7 @@ namespace GUI.QuanTriHeThong
     {
         bool flag_them = false;
         bool flag_sua = false;
+        int totalcount;
         public frm_Department()
         {
             InitializeComponent();
@@ -63,6 +64,9 @@ namespace GUI.QuanTriHeThong
         {
             Department_BL depart = new Department_BL();
             grd_PhongBan.DataSource = depart.GetAllDepart();
+
+            int count = grd_PhongBan.Rows.Count;
+            totalcount = count;
         }
 
         public void focus()
@@ -93,8 +97,11 @@ namespace GUI.QuanTriHeThong
             cbo_LocTheoLoaiPhongBan.DisplayMember = "_DEPARTMENTNAME";
             cbo_LocTheoLoaiPhongBan.ValueMember = "_DEPARTMENTTYPEID";
             cbo_LocTheoLoaiPhongBan.SelectedIndex = -1;
+
             loadDatagrid();
             focus();
+
+            lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" + " " + totalcount + " phòng ban";
         
         }
 
@@ -113,7 +120,15 @@ namespace GUI.QuanTriHeThong
             enableText(true);
             enablecbo(true);
             flag_them = true;
-            txt_TenVietTat.Text = "";
+            txt_TenVietTat.Enabled = false;
+            if (totalcount < 9)
+            {
+                txt_TenVietTat.Text = "PB.0" + (totalcount + 1);
+            }
+            else
+            {
+                txt_TenVietTat.Text = "PB." + (totalcount + 1);
+            }
             txt_phongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
@@ -143,7 +158,7 @@ namespace GUI.QuanTriHeThong
                 {
                     MessageBox.Show(" Thêm mới phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
+                
             }
             if (flag_sua == true)
             {
@@ -188,6 +203,7 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_PhongBan.DataSource = BL.QuanTriHeThong.Department_BL.SearchDepart(txt_TimKiem.Text);
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_PhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
 
         private void cbo_LocTheoLoaiPhongBan_SelectedIndexChanged(object sender, EventArgs e)
@@ -209,6 +225,11 @@ namespace GUI.QuanTriHeThong
             }
             
             
+        }
+
+        private void grd_PhongBan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         
