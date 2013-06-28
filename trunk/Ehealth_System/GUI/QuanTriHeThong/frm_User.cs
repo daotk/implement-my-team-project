@@ -124,13 +124,13 @@ namespace GUI.QuanTriHeThong
                         string nhomnguoidung = cbo_NhomNguoiDung.SelectedValue.ToString();
                         bool trangthai = chk_TrangThai.Checked;
                         BL.QuanTriHeThong.User_BL.InsertUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
-                        MessageBox.Show("Lưu thành công","Thông báo",MessageBoxButtons.OK);
+                        MessageBox.Show("Bạn đã lưu thành công");
                         LoadUserInfo();
                         StatusCancel();
                     }
                     else
                     {
-                        MessageBox.Show("Bạn chưa điền đủ thông tin cần thiết");
+                        MessageBox.Show("Bạn chưa điền đủ thông tin");
                     }
                 
                 }
@@ -147,7 +147,7 @@ namespace GUI.QuanTriHeThong
                         string nhomnguoidung = cbo_NhomNguoiDung.SelectedValue.ToString();
                         bool trangthai = chk_TrangThai.Checked;
                         BL.QuanTriHeThong.User_BL.UpdateUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
-                        MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Bạn đã cập nhật thành công");
                         LoadUserInfo();
                         StatusCancel();
                     }
