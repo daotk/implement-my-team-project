@@ -18,6 +18,7 @@ namespace GUI.QuanTriHeThong
     {
         bool flag_them = false;
         bool flag_sua = false;
+        int totalcount;
         public frm_TypeDepartment()
         {
             InitializeComponent();
@@ -28,6 +29,8 @@ namespace GUI.QuanTriHeThong
         private void frm_TypeDepartment_Load(object sender, EventArgs e)
         {
             loadDatagrid();
+            focus();
+            lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" +" "+ totalcount + " loại phòng ban";
         }
         public void enableText(bool enable)
         {
@@ -53,6 +56,8 @@ namespace GUI.QuanTriHeThong
         public void loadDatagrid()
         {
             grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
+            int count = grd_LoaiPhongBan.Rows.Count;
+            totalcount = count;
             
         }
 
@@ -78,9 +83,10 @@ namespace GUI.QuanTriHeThong
                 }
                 else
                 {
-                    MessageBox.Show("Thêm phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm loại phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                 }
-
+                Huy();
             }
             if (flag_sua == true)
             {
@@ -110,8 +116,16 @@ namespace GUI.QuanTriHeThong
         {
             enablebtn(true);
             enableText(true);
+            txt_TenVietTat.Enabled = false;
             flag_them = true;
-            txt_TenVietTat.Text = "";
+            if (totalcount < 9)
+            {
+                txt_TenVietTat.Text = "LPB.0" + (totalcount + 1);
+            }
+            else
+            {
+                txt_TenVietTat.Text = "LPB." + (totalcount + 1);
+            }
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
@@ -125,7 +139,7 @@ namespace GUI.QuanTriHeThong
             txt_TenVietTat.Enabled = true;
         }
 
-        private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void focus()
         {
             if (grd_LoaiPhongBan.Rows.Count != 0) 
             {
@@ -137,6 +151,14 @@ namespace GUI.QuanTriHeThong
                 if (Convert.ToBoolean(grd_LoaiPhongBan.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
+
+        }
+
+        private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            loadDatagrid();
+            focus();
             
         }
 
@@ -154,6 +176,7 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.SearchTypeDepart(txt_TimKiem.Text);
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_LoaiPhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
 
        
