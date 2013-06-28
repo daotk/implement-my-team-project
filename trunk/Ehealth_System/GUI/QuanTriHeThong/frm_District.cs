@@ -92,6 +92,7 @@ namespace GUI.QuanTriHeThong
             cbo_LocTheoTinhThanh.SelectedIndex = -1;
             loadDatagrid();
             focus();
+            lbl_KetQua.Text = "Kết quả: tìm được 0 trong tổng số " + totalcount;
         }
 
         private void btn_ThemMoi_Click(object sender, EventArgs e)
@@ -133,18 +134,26 @@ namespace GUI.QuanTriHeThong
                 int i = District_BL.add(txt_TenVietTat.Text, txt_TenQuanHuyen.Text, cbo_TinhThanhPho.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Error adding", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi! Không thể thêm mới", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Success Adding", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm mới thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
             if (flag_sua == true)
             {
                 txt_TenVietTat.Enabled = false;
-                District_BL.edit(txt_TenVietTat.Text, txt_TenQuanHuyen.Text, cbo_TinhThanhPho.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
+                int i = District_BL.edit(txt_TenVietTat.Text, txt_TenQuanHuyen.Text, cbo_TinhThanhPho.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
+                if (i == -1)
+                {
+                    MessageBox.Show("Lỗi! Không thể chỉnh sửa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Chỉnh sửa thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             loadDatagrid();
             Huy();

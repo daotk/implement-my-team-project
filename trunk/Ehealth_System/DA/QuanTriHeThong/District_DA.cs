@@ -8,10 +8,13 @@ using DO.QuanTriHeThong;
 using DO;
 namespace DA.QuanTriHeThong
 {
+    //initialize class
     public class District_DA
     {
+        //initialize new constructor to get all districts
         public static List<District_DO> GetAllDistricts()
         {
+            //initialize constructor to get data from Entity model and assign them to grid view
             List<District_DO> ListDistrict = new List<District_DO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
@@ -30,10 +33,12 @@ namespace DA.QuanTriHeThong
                     district._STATUSDISTRICT = row.DISTRICTSTATUS;
                     ListDistrict.Add(district);
                 }
+                //return a list of district
                 return ListDistrict;
             }
         }
 
+        //initialize new constructor to save data
         public static int add(String ID, String name, String CITYID, String desscription, bool status)
         {
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -45,6 +50,7 @@ namespace DA.QuanTriHeThong
                 district.DISTRICTDESCRIPTION = desscription;
                 district.DISTRICTSTATUS = status;
                 entity.District_Info.AddObject(district);
+                //save changes
                 try
                 {
                     int num = entity.SaveChanges();
@@ -57,7 +63,8 @@ namespace DA.QuanTriHeThong
             }
         }
 
-        public static void edit(String ID, String name, String CITYID, String desscription, bool status)
+        //initialize new constructor to edit data
+        public static int edit(String ID, String name, String CITYID, String desscription, bool status)
         {
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
             {
@@ -67,10 +74,20 @@ namespace DA.QuanTriHeThong
                 district.DISTRICTNAME = name;
                 district.DISTRICTDESCRIPTION = desscription;
                 district.DISTRICTSTATUS = status;
-                entity.SaveChanges();
+                //save changes
+                try
+                {
+                    int num = entity.SaveChanges();
+                    return num;
+                }
+                catch
+                {
+                    return -1;
+                }
             }
         }
 
+        //initialize new constructor to search city by textbox
         public static List<District_DO> SearchDistrict(string Search)
         {
             List<District_DO> timkiem = new List<District_DO>();
@@ -91,10 +108,12 @@ namespace DA.QuanTriHeThong
                     search._STATUSDISTRICT = row.DISTRICTSTATUS;
                     timkiem.Add(search);
                 }
+                //return a list of search results
                 return timkiem;
             }
         }
 
+        //initialize new constructor to search city by both textbox and combobox
         public static List<District_DO> SearchDistrictByBoth(String text, string Search)
         {
             List<District_DO> timkiem = new List<District_DO>();
@@ -115,10 +134,12 @@ namespace DA.QuanTriHeThong
                     search._STATUSDISTRICT = row.DISTRICTSTATUS;
                     timkiem.Add(search);
                 }
+                //return a list of search results
                 return timkiem;
             }
         }
 
+        //initialize new constructor to search city by combobox
         public static List<District_DO> SearchDistrictByCity(string Search)
         {
             List<District_DO> timkiem = new List<District_DO>();
@@ -139,8 +160,9 @@ namespace DA.QuanTriHeThong
                     search._STATUSDISTRICT = row.DISTRICTSTATUS;
                     timkiem.Add(search);
                 }
+                //return a list of search results
                 return timkiem;
             }
         }
-    }
-}
+    }//end class
+}//end namespace
