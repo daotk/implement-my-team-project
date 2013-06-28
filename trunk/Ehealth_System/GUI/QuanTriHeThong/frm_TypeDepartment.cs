@@ -129,16 +129,6 @@ namespace GUI.QuanTriHeThong
             enablebtn(true);
             enableText(true);
             flag_them = true;
-            txt_TenVietTat.Enabled = false;
-            if (totalcount < 9)
-            {
-                txt_TenVietTat.Text = "LPB.0" + (totalcount + 1);
-            }
-            else
-            {
-                txt_TenVietTat.Text = "LPB." + (totalcount + 1);
-            }
-            
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
