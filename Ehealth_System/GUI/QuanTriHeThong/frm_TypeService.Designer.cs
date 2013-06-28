@@ -420,6 +420,7 @@
             this.txt_TimKiem.Name = "txt_TimKiem";
             this.txt_TimKiem.Size = new System.Drawing.Size(150, 26);
             this.txt_TimKiem.TabIndex = 5;
+            this.txt_TimKiem.TextChanged += new System.EventHandler(this.txt_TimKiem_TextChanged);
             // 
             // lbl_TimKiem
             // 
