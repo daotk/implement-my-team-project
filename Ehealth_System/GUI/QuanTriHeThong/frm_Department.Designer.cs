@@ -114,7 +114,7 @@
             // 
             this.btn_huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_huy.Image = global::GUI.Properties.Resources.delete_Data;
+            this.btn_huy.Image = global::GUI.Properties.Resources.cancel1;
             this.btn_huy.Location = new System.Drawing.Point(180, 427);
             this.btn_huy.Name = "btn_huy";
             this.btn_huy.Size = new System.Drawing.Size(120, 35);
@@ -422,9 +422,11 @@
             this.grd_PhongBan.Location = new System.Drawing.Point(0, 35);
             this.grd_PhongBan.Name = "grd_PhongBan";
             this.grd_PhongBan.ReadOnly = true;
+            this.grd_PhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_PhongBan.Size = new System.Drawing.Size(965, 515);
             this.grd_PhongBan.TabIndex = 1;
             this.grd_PhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_PhongBan_CellClick);
+            this.grd_PhongBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_PhongBan_CellContentClick);
             this.grd_PhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_PhongBan_RowsAdded);
             // 
             // STT
@@ -520,7 +522,7 @@
             this.lbl_KetQua.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbl_KetQua.Location = new System.Drawing.Point(701, 6);
             this.lbl_KetQua.Name = "lbl_KetQua";
-            this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
+            this.lbl_KetQua.Size = new System.Drawing.Size(394, 23);
             this.lbl_KetQua.TabIndex = 8;
             this.lbl_KetQua.Text = "Kết quả: tìm được 3 trong tổng số 100";
             // 
