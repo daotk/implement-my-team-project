@@ -58,19 +58,20 @@
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.grd_NhomDichVu = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenVietTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DichVu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NhomDichVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
             this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
             this.cbo_LocTheoNhomDichVu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.lbl_LocTheoNhomDichVu = new DevComponents.DotNetBar.LabelX();
             this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl_TimKiem = new DevComponents.DotNetBar.LabelX();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenVietTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhomDichVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DichVu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Idnhomdichvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             this.panelEx1.SuspendLayout();
             this.panelEx4.SuspendLayout();
             this.panelEx6.SuspendLayout();
@@ -480,10 +481,11 @@
             this.grd_NhomDichVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
             this.TenVietTac,
-            this.DichVu1,
             this.NhomDichVu,
+            this.DichVu1,
             this.GiaTien,
             this.MoTa,
+            this.Idnhomdichvu,
             this.TrangThai});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -501,60 +503,6 @@
             this.grd_NhomDichVu.Size = new System.Drawing.Size(965, 515);
             this.grd_NhomDichVu.TabIndex = 1;
             this.grd_NhomDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_NhomDichVu_CellClick);
-            // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "1";
-            this.STT.DefaultCellStyle = dataGridViewCellStyle2;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.Width = 61;
-            // 
-            // TenVietTac
-            // 
-            this.TenVietTac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenVietTac.DataPropertyName = "serviceid_";
-            this.TenVietTac.HeaderText = "Tên Viết tắc";
-            this.TenVietTac.Name = "TenVietTac";
-            this.TenVietTac.Width = 150;
-            // 
-            // DichVu1
-            // 
-            this.DichVu1.DataPropertyName = "servicename_";
-            this.DichVu1.HeaderText = "Dịch vụ";
-            this.DichVu1.Name = "DichVu1";
-            // 
-            // NhomDichVu
-            // 
-            this.NhomDichVu.DataPropertyName = "servicegroupid_";
-            this.NhomDichVu.HeaderText = "Nhóm dịch vụ";
-            this.NhomDichVu.Name = "NhomDichVu";
-            // 
-            // GiaTien
-            // 
-            this.GiaTien.DataPropertyName = "servicecost_";
-            this.GiaTien.HeaderText = "Giá tiền";
-            this.GiaTien.Name = "GiaTien";
-            // 
-            // MoTa
-            // 
-            this.MoTa.DataPropertyName = "servicedescription_";
-            this.MoTa.HeaderText = "Mô tả";
-            this.MoTa.Name = "MoTa";
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TrangThai.Checked = true;
-            this.TrangThai.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.TrangThai.CheckValue = null;
-            this.TrangThai.DataPropertyName = "servicestatus_";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.TrangThai.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TrangThai.HeaderText = "Trạng thái";
-            this.TrangThai.Name = "TrangThai";
             // 
             // panelEx3
             // 
@@ -601,6 +549,7 @@
             this.cbo_LocTheoNhomDichVu.Size = new System.Drawing.Size(150, 26);
             this.cbo_LocTheoNhomDichVu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbo_LocTheoNhomDichVu.TabIndex = 11;
+            this.cbo_LocTheoNhomDichVu.SelectedIndexChanged += new System.EventHandler(this.cbo_LocTheoNhomDichVu_SelectedIndexChanged);
             // 
             // lbl_LocTheoNhomDichVu
             // 
@@ -627,6 +576,7 @@
             this.txt_TimKiem.Name = "txt_TimKiem";
             this.txt_TimKiem.Size = new System.Drawing.Size(150, 26);
             this.txt_TimKiem.TabIndex = 9;
+            this.txt_TimKiem.TextChanged += new System.EventHandler(this.txt_TimKiem_TextChanged);
             // 
             // lbl_TimKiem
             // 
@@ -640,6 +590,67 @@
             this.lbl_TimKiem.Size = new System.Drawing.Size(75, 23);
             this.lbl_TimKiem.TabIndex = 8;
             this.lbl_TimKiem.Text = "Tìm kiếm";
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "1";
+            this.STT.DefaultCellStyle = dataGridViewCellStyle2;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 61;
+            // 
+            // TenVietTac
+            // 
+            this.TenVietTac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenVietTac.DataPropertyName = "serviceid_";
+            this.TenVietTac.HeaderText = "Tên Viết tắc";
+            this.TenVietTac.Name = "TenVietTac";
+            this.TenVietTac.Width = 150;
+            // 
+            // NhomDichVu
+            // 
+            this.NhomDichVu.DataPropertyName = "_SERVICEGROUPNAME";
+            this.NhomDichVu.HeaderText = "Nhóm dịch vụ";
+            this.NhomDichVu.Name = "NhomDichVu";
+            // 
+            // DichVu1
+            // 
+            this.DichVu1.DataPropertyName = "servicename_";
+            this.DichVu1.HeaderText = "Dịch vụ";
+            this.DichVu1.Name = "DichVu1";
+            // 
+            // GiaTien
+            // 
+            this.GiaTien.DataPropertyName = "servicecost_";
+            this.GiaTien.HeaderText = "Giá tiền";
+            this.GiaTien.Name = "GiaTien";
+            // 
+            // MoTa
+            // 
+            this.MoTa.DataPropertyName = "servicedescription_";
+            this.MoTa.HeaderText = "Mô tả";
+            this.MoTa.Name = "MoTa";
+            // 
+            // Idnhomdichvu
+            // 
+            this.Idnhomdichvu.DataPropertyName = "servicegroupid_";
+            this.Idnhomdichvu.HeaderText = "Idnhomdichvu";
+            this.Idnhomdichvu.Name = "Idnhomdichvu";
+            this.Idnhomdichvu.Visible = false;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TrangThai.Checked = true;
+            this.TrangThai.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.TrangThai.CheckValue = null;
+            this.TrangThai.DataPropertyName = "servicestatus_";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.TrangThai.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.Name = "TrangThai";
             // 
             // frm_Service
             // 
@@ -702,10 +713,11 @@
         private DevComponents.DotNetBar.LabelX lbl_KetQua;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenVietTac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DichVu1;
         private System.Windows.Forms.DataGridViewTextBoxColumn NhomDichVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DichVu1;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Idnhomdichvu;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn TrangThai;
 
     }
