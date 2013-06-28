@@ -29,8 +29,9 @@ namespace GUI.QuanTriHeThong
         private void frm_TypeDepartment_Load(object sender, EventArgs e)
         {
             loadDatagrid();
-            focus();
-            lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" +" "+ totalcount + " loại phòng ban";
+            
+
+            lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" + " " + totalcount + " phòng ban";
         }
         public void enableText(bool enable)
         {
@@ -46,8 +47,8 @@ namespace GUI.QuanTriHeThong
             btn_luu.Visible = enable;
             btn_huy.Visible = enable;
         }
-        
-         public void Huy()
+
+        public void Huy()
         {
 
             flag_them = false;
@@ -56,6 +57,7 @@ namespace GUI.QuanTriHeThong
         public void loadDatagrid()
         {
             grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
+
             int count = grd_LoaiPhongBan.Rows.Count;
             totalcount = count;
             
@@ -83,15 +85,22 @@ namespace GUI.QuanTriHeThong
                 }
                 else
                 {
-                    MessageBox.Show("Thêm loại phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    MessageBox.Show("Thêm phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                Huy();
+
             }
             if (flag_sua == true)
             {
                 txt_TenVietTat.Enabled = false;
-                TypeDepartment_BL.edit(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                int i = TypeDepartment_BL.edit(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                if (i == -1)
+                {
+                    MessageBox.Show("Lỗi! Không thể chỉnh sửa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Chỉnh sửa thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             loadDatagrid();
 
@@ -107,17 +116,13 @@ namespace GUI.QuanTriHeThong
             }
         }
 
-        private void grd_LoaiPhongBan_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        
         private void btn_ThemMoi_Click(object sender, EventArgs e)
         {
             enablebtn(true);
             enableText(true);
-            txt_TenVietTat.Enabled = false;
             flag_them = true;
+            txt_TenVietTat.Enabled = false;
             if (totalcount < 9)
             {
                 txt_TenVietTat.Text = "LPB.0" + (totalcount + 1);
@@ -126,6 +131,7 @@ namespace GUI.QuanTriHeThong
             {
                 txt_TenVietTat.Text = "LPB." + (totalcount + 1);
             }
+            
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
@@ -136,12 +142,18 @@ namespace GUI.QuanTriHeThong
             enablebtn(true);
             enableText(true);
             flag_sua = true;
-            txt_TenVietTat.Enabled = true;
+            txt_TenVietTat.Enabled = false;
         }
 
-        public void focus()
+        private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grd_LoaiPhongBan.Rows.Count != 0) 
+            
+            focus();
+
+        }
+        public void focus() 
+        {
+            if (grd_LoaiPhongBan.Rows.Count != 0)
             {
                 int i;
                 i = grd_LoaiPhongBan.SelectedCells[0].RowIndex;
@@ -151,17 +163,7 @@ namespace GUI.QuanTriHeThong
                 if (Convert.ToBoolean(grd_LoaiPhongBan.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
-
         }
-
-        private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            loadDatagrid();
-            focus();
-            
-        }
-
         private void btn_huy_Click(object sender, EventArgs e)
         {
             enablebtn(false);
@@ -179,17 +181,17 @@ namespace GUI.QuanTriHeThong
             lbl_KetQua.Text = "Kết quả: tìm được " + grd_LoaiPhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
 
-       
 
-        
 
-       
 
-        
 
-        }
+
+
+
 
     }
-      
-    
+
+}
+
+
 
