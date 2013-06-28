@@ -163,12 +163,12 @@
             // 
             this.lbl_Title.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbl_Title.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Title.Location = new System.Drawing.Point(55, 20);
+            this.lbl_Title.Location = new System.Drawing.Point(62, 20);
             this.lbl_Title.Margin = new System.Windows.Forms.Padding(5);
             this.lbl_Title.Name = "lbl_Title";
             this.lbl_Title.Size = new System.Drawing.Size(224, 37);
             this.lbl_Title.TabIndex = 65;
-            this.lbl_Title.Text = "Danh muc Quận-Huyện";
+            this.lbl_Title.Text = "Danh muc Tỉnh-Thành";
             // 
             // lbl_TenTinhThanh
             // 

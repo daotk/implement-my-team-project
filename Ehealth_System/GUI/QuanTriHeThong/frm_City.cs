@@ -124,6 +124,11 @@ namespace GUI.QuanTriHeThong
             if (flag_sua == true)
             {
                 txt_TenVietTat.Enabled = false;
+                if (txt_TenTinhThanh.Text == null || txt_TenTinhThanh.Text == "")
+                {
+                    MessageBox.Show("Chưa nhập tên tỉnh thành", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 int i = City_BL.edit(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
