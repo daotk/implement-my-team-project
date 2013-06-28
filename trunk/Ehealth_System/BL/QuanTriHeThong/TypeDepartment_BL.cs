@@ -19,10 +19,10 @@ namespace BL.QuanTriHeThong
             return DA.QuanTriHeThong.TypeDepartment_DA.add(ID, name, desscription, status);
 
         }
-        public static void edit(String ID, String name, String desscription, bool status)
+        public static int edit(String ID, String name, String desscription, bool status)
         {
 
-            DA.QuanTriHeThong.TypeDepartment_DA.edit(ID, name, desscription, status);
+           return DA.QuanTriHeThong.TypeDepartment_DA.edit(ID, name, desscription, status);
 
         }
         public static List<TypeDepartment_DO> SearchTypeDepart( String name)
