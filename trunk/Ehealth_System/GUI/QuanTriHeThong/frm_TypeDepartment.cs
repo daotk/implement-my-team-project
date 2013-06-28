@@ -75,25 +75,31 @@ namespace GUI.QuanTriHeThong
                 }
                 if (txt_LoaiPhongBan.Text == null || txt_LoaiPhongBan.Text == "")
                 {
-                    MessageBox.Show("Chưa nhập tên phòng ban", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Chưa nhập tên loại phòng ban", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 int i = TypeDepartment_BL.add(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Thêm Phòng ban thất bại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Thêm loại Phòng ban thất bại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Thêm phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm loại phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
             if (flag_sua == true)
             {
                 txt_TenVietTat.Enabled = false;
+                if (txt_LoaiPhongBan.Text == null || txt_LoaiPhongBan.Text == "")
+                {
+                    MessageBox.Show("Chưa nhập tên loại phòng ban", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 int i = TypeDepartment_BL.edit(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                
                 if (i == -1)
                 {
                     MessageBox.Show("Lỗi! Không thể chỉnh sửa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

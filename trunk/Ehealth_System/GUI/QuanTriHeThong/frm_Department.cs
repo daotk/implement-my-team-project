@@ -164,6 +164,16 @@ namespace GUI.QuanTriHeThong
             {
                 txt_TenVietTat.Enabled = false;
                 int i = Department_BL.edit(txt_TenVietTat.Text, txt_phongBan.Text, cbo_LoaiPhongban.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
+                if (txt_phongBan.Text == null || txt_phongBan.Text == "")
+                {
+                    MessageBox.Show("Chưa nhập tên phòng ban", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (cbo_LoaiPhongban.Text == null || cbo_LoaiPhongban.Text == "")
+                {
+                    MessageBox.Show("Chưa có loại phòng ban", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (i == -1)
                 {
                     MessageBox.Show("Lỗi! Không thể chỉnh sửa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
