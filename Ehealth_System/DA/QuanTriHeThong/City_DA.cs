@@ -8,10 +8,13 @@ using DO.QuanTriHeThong;
 using DO;
 namespace DA.QuanTriHeThong
 {
+    //initialize class
     public class City_DA
     {
+        //initialize new constructor to get all cities
         public static List<City_DO> GetAllCities()
         {
+            //initialize constructor to get data from Entity model and assign them to grid view
             List<City_DO> ListCity = new List<City_DO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
@@ -25,10 +28,12 @@ namespace DA.QuanTriHeThong
                     city._STATUSCITY = row.STATUSCITY;
                     ListCity.Add(city);
                 }
+                //return a list of city
                 return ListCity;
             }
         }
 
+        //initialize new constructor to save data
         public static int add(String ID, String name, String desscription, bool status)
         {
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -39,6 +44,7 @@ namespace DA.QuanTriHeThong
                 city.DESCRIPTIONCITY = desscription;
                 city.STATUSCITY = status;
                 entity.City_Info.AddObject(city);
+                //save changes
                 try
                 {
                     int num = entity.SaveChanges();
@@ -51,7 +57,8 @@ namespace DA.QuanTriHeThong
             }
         }
 
-        public static void edit(String ID, String name, String desscription, bool status)
+        //initialize new constructor to edit data
+        public static int edit(String ID, String name, String desscription, bool status)
         {
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
             {
@@ -60,10 +67,20 @@ namespace DA.QuanTriHeThong
                 city.CITYNAME = name;
                 city.DESCRIPTIONCITY = desscription;
                 city.STATUSCITY = status;
-                entity.SaveChanges();
+                //save changes
+                try
+                {
+                    int num = entity.SaveChanges();
+                    return num;
+                }
+                catch
+                {
+                    return -1;
+                }
             }
         }
 
+        //initialize new constructor to search city
         public static List<City_DO> SearchCity(string Search)
         {
             List<City_DO> timkiem = new List<City_DO>();
@@ -79,8 +96,9 @@ namespace DA.QuanTriHeThong
                     search._STATUSCITY = row.STATUSCITY;
                     timkiem.Add(search);
                 }
+                //return a list of search results
                 return timkiem;
             }
         }
-    }
-}
+    }//end class
+}//end namespace

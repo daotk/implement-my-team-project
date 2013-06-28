@@ -104,7 +104,7 @@
             // 
             this.btn_Huy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Huy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Huy.Image = global::GUI.Properties.Resources.delete_icon;
+            this.btn_Huy.Image = global::GUI.Properties.Resources.cancel1;
             this.btn_Huy.Location = new System.Drawing.Point(180, 367);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(120, 35);
@@ -373,6 +373,7 @@
             this.grd_ThanhPho.Location = new System.Drawing.Point(0, 35);
             this.grd_ThanhPho.Name = "grd_ThanhPho";
             this.grd_ThanhPho.ReadOnly = true;
+            this.grd_ThanhPho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_ThanhPho.Size = new System.Drawing.Size(965, 515);
             this.grd_ThanhPho.TabIndex = 1;
             this.grd_ThanhPho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_ThanhPho_CellClick);
@@ -458,7 +459,6 @@
             this.lbl_KetQua.Name = "lbl_KetQua";
             this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
             this.lbl_KetQua.TabIndex = 4;
-            this.lbl_KetQua.Text = "";
             // 
             // txt_TimKiem
             // 
