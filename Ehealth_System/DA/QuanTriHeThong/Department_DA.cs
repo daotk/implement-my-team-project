@@ -60,7 +60,7 @@ namespace DA
            }
        }
 
-       public static void edit(String ID, String name, String DEPARTMENTTYPEID, String desscription, bool status)
+       public static int edit(String ID, String name, String DEPARTMENTTYPEID, String desscription, bool status)
        {
            using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
            {
@@ -70,7 +70,16 @@ namespace DA
                depart.DEPARTMENTNAME = name;
                depart.DEPARTMENTDESCRIPTION = desscription;
                depart.DEPARTMENTSTATUS = status;
-               entity.SaveChanges();
+               //entity.SaveChanges();
+               try
+               {
+                   int num = entity.SaveChanges();
+                   return num;
+               }
+               catch
+               {
+                   return -1;
+               }
            }
        }
 
@@ -152,5 +161,7 @@ namespace DA
            }
 
        }
+
+       
     }
 }
