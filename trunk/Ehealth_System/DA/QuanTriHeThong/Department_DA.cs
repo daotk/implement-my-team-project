@@ -31,9 +31,18 @@ namespace DA
                return ListDepartment;
            }
 
-       }
+       }//end
 
 
+       /// <summary>
+       /// Thêm phòng ban mới
+       /// </summary>
+       /// <param name="ID"></param>
+       /// <param name="name"></param>
+       /// <param name="DEPARTMENTTYPEID"></param>
+       /// <param name="desscription"></param>
+       /// <param name="status"></param>
+       /// <returns></returns>
        public static int add(String ID, String name, String DEPARTMENTTYPEID, String desscription, bool status)
        {
 
@@ -58,8 +67,17 @@ namespace DA
                }
 
            }
-       }
+       }//end
 
+       /// <summary>
+       /// Chỉnh sửa phòng ban
+       /// </summary>
+       /// <param name="ID"></param>
+       /// <param name="name"></param>
+       /// <param name="DEPARTMENTTYPEID"></param>
+       /// <param name="desscription"></param>
+       /// <param name="status"></param>
+       /// <returns></returns>
        public static int edit(String ID, String name, String DEPARTMENTTYPEID, String desscription, bool status)
        {
            using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
@@ -81,10 +99,14 @@ namespace DA
                    return -1;
                }
            }
-       }
+       }//end
 
 
-
+       /// <summary>
+       /// Tìm kiếm phòng ban theo tên
+       /// </summary>
+       /// <param name="Search"></param>
+       /// <returns></returns>
        public static List<Department_DO> SearchDepartment(string Search)
        {
            List<Department_DO> timkiem = new List<Department_DO>();
@@ -107,9 +129,13 @@ namespace DA
                }
                return timkiem;
            }
-       }
+       }//end
 
-
+       /// <summary>
+       /// Tìm kiếm phòng ban theo loại phòng ban
+       /// </summary>
+       /// <param name="Search"></param>
+       /// <returns></returns>
        public static List<Department_DO> SearchDistrByDeparttype(string Search)
        {
            List<Department_DO> timkiem = new List<Department_DO>();
@@ -133,10 +159,15 @@ namespace DA
                return timkiem;
            }
 
-       }
+       }//end
 
 
-
+       /// <summary>
+       /// Tìm kiếm phòng ban theo từ khóa và theo loại phòng ban
+       /// </summary>
+       /// <param name="text"></param>
+       /// <param name="Search"></param>
+       /// <returns></returns>
        public static List<Department_DO> SearchDepartByBoth(String text, string Search)
        {
            List<Department_DO> timkiem = new List<Department_DO>();
@@ -160,8 +191,8 @@ namespace DA
                return timkiem;
            }
 
-       }
+       }//end
 
        
     }
-}
+}//end class
