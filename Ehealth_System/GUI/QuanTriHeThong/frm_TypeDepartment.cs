@@ -24,37 +24,60 @@ namespace GUI.QuanTriHeThong
             InitializeComponent();
             enableText(false);
             enablebtn(false);
-        }
+        }//end
 
+        /// <summary>
+        /// Xử lí load form loại phòng ban
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frm_TypeDepartment_Load(object sender, EventArgs e)
         {
             loadDatagrid();
             focus();
 
             lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" + " " + totalcount + " loại phòng ban";
-        }
+        }//end
+
+        /// <summary>
+        /// ẩn các textbox
+        /// </summary>
+        /// <param name="enable"></param>
         public void enableText(bool enable)
         {
             txt_TenVietTat.Enabled = enable;
             txt_LoaiPhongBan.Enabled = enable;
             txt_MoTa.Enabled = enable;
             chk_TrangThai.Enabled = enable;
-        }
+        }//end
+
+        /// <summary>
+        /// Ẩn các button
+        /// </summary>
+        /// <param name="enable"></param>
         public void enablebtn(bool enable)
         {
             btn_ThemMoi.Visible = !enable;
             btn_ChinhSua.Visible = !enable;
             btn_luu.Visible = enable;
             btn_huy.Visible = enable;
-        }
+        }//end
 
+
+        /// <summary>
+        /// Xử lí hủy bỏ
+        /// </summary>
         public void Huy()
         {
             enableText(false);
             enablebtn(false);
             flag_them = false;
             flag_sua = false;
-        }
+        }//end
+
+        /// <summary>
+        /// Xử lí load dữ liệu lên datagrid
+        /// </summary>
         public void loadDatagrid()
         {
             grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
@@ -62,8 +85,13 @@ namespace GUI.QuanTriHeThong
             int count = grd_LoaiPhongBan.Rows.Count;
             totalcount = count;
             
-        }
+        }//end
 
+        /// <summary>
+        /// Xử lí nhấn lưu khi thêm mới và chỉnh sửa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_luu_Click(object sender, EventArgs e)
         {
             if (flag_them == true)
@@ -113,41 +141,68 @@ namespace GUI.QuanTriHeThong
 
 
             Huy();
-        }
+        }//end
 
+
+        /// <summary>
+        /// xử lí số thứ tự trên datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grd_LoaiPhongBan_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             for (int i = 0; i < grd_LoaiPhongBan.RowCount; i++)
             {
                 grd_LoaiPhongBan.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
             }
-        }
+        }//end
 
-        
+        /// <summary>
+        /// xử lí button thêm mới
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ThemMoi_Click(object sender, EventArgs e)
         {
             enablebtn(true);
             enableText(true);
             flag_them = true;
+            txt_TenVietTat.Text = "";
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
-        }
+        }//end
 
+        /// <summary>
+        /// xử lí button chỉnh sửa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ChinhSua_Click(object sender, EventArgs e)
         {
             enablebtn(true);
             enableText(true);
             flag_sua = true;
             txt_TenVietTat.Enabled = false;
-        }
+        }//end
 
+
+        /// <summary>
+        /// Lấy dữ liệu từ datagrid lên textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
             focus();
 
-        }
+        }//end
+
+
+        /// <summary>
+        /// Lấy dữ liệu từ datagrid
+        /// </summary>
         public void focus() 
         {
             if (grd_LoaiPhongBan.Rows.Count != 0)
@@ -160,7 +215,13 @@ namespace GUI.QuanTriHeThong
                 if (Convert.ToBoolean(grd_LoaiPhongBan.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
-        }
+        }//end
+
+        /// <summary>
+        /// xử lí button hủy bỏ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_huy_Click(object sender, EventArgs e)
         {
             enablebtn(false);
@@ -170,25 +231,24 @@ namespace GUI.QuanTriHeThong
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
-        }
+        }//end
 
+
+        /// <summary>
+        /// xử lí tìm kiếm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_LoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.SearchTypeDepart(txt_TimKiem.Text);
             lbl_KetQua.Text = "Kết quả: tìm được " + grd_LoaiPhongBan.DisplayedRowCount(true) + " trong tổng số " + totalcount + " loại phòng ban";
-        }
-
-
-
-
-
-
-
+        }//end
 
 
     }
 
-}
+}//end class
 
 
 
