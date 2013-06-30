@@ -26,30 +26,44 @@ namespace GUI.QuanTriHeThong
             enablecbo(false);
         }
 
+        /// <summary>
+        /// Ẩn các textbox
+        /// </summary>
+        /// <param name="enable"></param>
         public void enableText(bool enable)
         {
             txt_TenVietTat.Enabled = enable;
             txt_phongBan.Enabled = enable;
             txt_MoTa.Enabled = enable;
             chk_TrangThai.Enabled = enable;
-        }
+        }//end
 
+        /// <summary>
+        /// Ẩn các button
+        /// </summary>
+        /// <param name="enable"></param>
         public void enablebtn(bool enable)
         {
             btn_ThemMoi.Visible = !enable;
             btn_ChinhSua.Visible = !enable;
             btn_luu.Visible = enable;
             btn_huy.Visible = enable;
-        }
+        }//end
 
+        /// <summary>
+        /// ẩn các combobox
+        /// </summary>
+        /// <param name="enable"></param>
         public void enablecbo(bool enable)
         {
             cbo_LoaiPhongban.Enabled = enable;
 
 
-        }
+        }//end
 
-
+        /// <summary>
+        /// Xử lí "hủy bỏ"
+        /// </summary>
         public void Huy()
         {
             enableText(false);
@@ -57,9 +71,11 @@ namespace GUI.QuanTriHeThong
             enablecbo(false);
             flag_them = false;
             flag_sua = false;
-        }
+        }//end
 
-
+        /// <summary>
+        /// load dữ liệu lên datagrid
+        /// </summary>
         public void loadDatagrid()
         {
             Department_BL depart = new Department_BL();
@@ -67,8 +83,11 @@ namespace GUI.QuanTriHeThong
 
             int count = grd_PhongBan.Rows.Count;
             totalcount = count;
-        }
+        }//end
 
+        /// <summary>
+        /// lấy dữ liệu vào textbox khi nhấn vào dữ liệu trên datagrid
+        /// </summary>
         public void focus()
         {
             if (grd_PhongBan.Rows.Count != 0) 
@@ -83,8 +102,14 @@ namespace GUI.QuanTriHeThong
                 else { chk_TrangThai.Checked = false; }
             }
             
-        }
+        }//end
 
+
+        /// <summary>
+        /// load phòng ban
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frm_Department_Load(object sender, EventArgs e)
         {
             //TypeDepartment_BL bl = new TypeDepartment_BL();
@@ -103,8 +128,13 @@ namespace GUI.QuanTriHeThong
 
             lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" + " " + totalcount + " phòng ban";
         
-        }
+        }//end
 
+        /// <summary>
+        /// load loại phòng ban vào combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbo_LoaiPhongban_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbo_LoaiPhongban.SelectedIndex >= 0)
@@ -112,20 +142,32 @@ namespace GUI.QuanTriHeThong
                 int DEPARTMENTID;
                 Int32.TryParse(cbo_LoaiPhongban.SelectedValue.ToString(), out DEPARTMENTID);
             }
-        }
+        }//end
 
+
+        /// <summary>
+        /// xử lí button "thêm mới"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ThemMoi_Click(object sender, EventArgs e)
         {
             enablebtn(true);
             enableText(true);
             enablecbo(true);
             flag_them = true;
+            txt_TenVietTat.Text = "";
             txt_phongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
             cbo_LoaiPhongban.Text="";
-        }
+        }//end
 
+        /// <summary>
+        /// Xử lí nhấn lưu khi thêm mới và chỉnh sửa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_luu_Click(object sender, EventArgs e)
         {
             if (flag_them == true)
@@ -177,10 +219,14 @@ namespace GUI.QuanTriHeThong
             }
             loadDatagrid();
             Huy();
-        }
+        }//end
 
 
-
+        /// <summary>
+        /// Xử lí button chỉnh sửa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ChinhSua_Click(object sender, EventArgs e)
         {
             enablebtn(true);
@@ -189,27 +235,50 @@ namespace GUI.QuanTriHeThong
             flag_sua = true;
             txt_TenVietTat.Enabled = false;
             
-        }
+        }//end
 
+        /// <summary>
+        /// Xử lí button "hủy bỏ"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_huy_Click(object sender, EventArgs e)
         {
             Huy();
-        }
+        }//end
 
+
+
+        /// <summary>
+        /// lấy dữ liệu từ datagrid vào textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grd_PhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             focus();
            
-        }
+        }//end
 
+        /// <summary>
+        /// Xử lí số thứ tự trong data grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grd_PhongBan_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             for (int i = 0; i < grd_PhongBan.RowCount; i++)
             {
                 grd_PhongBan.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
             }
-        }
+        }//end
 
+
+        /// <summary>
+        /// xử lí tìm kiếm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_PhongBan.DataSource = BL.QuanTriHeThong.Department_BL.SearchDepart(txt_TimKiem.Text);
@@ -240,17 +309,9 @@ namespace GUI.QuanTriHeThong
                     }
                 }
             }
-        }
-
-       
-
-        
-
-       
-
-
+        }//end
 
 
        
     }
-}
+}//end calss
