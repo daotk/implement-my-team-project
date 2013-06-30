@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.lbl_Title = new DevComponents.DotNetBar.LabelX();
             this.txt_TenVietTat = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -114,6 +115,7 @@
             // 
             this.txt_TenVietTat.Border.Class = "TextBoxBorder";
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_TenVietTat.Enabled = false;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(116, 90);
             this.txt_TenVietTat.Name = "txt_TenVietTat";
@@ -126,6 +128,7 @@
             // 
             // 
             this.chk_TrangThai.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chk_TrangThai.Enabled = false;
             this.chk_TrangThai.Location = new System.Drawing.Point(116, 298);
             this.chk_TrangThai.Name = "chk_TrangThai";
             this.chk_TrangThai.Size = new System.Drawing.Size(136, 23);
@@ -225,6 +228,7 @@
             // 
             this.txt_MoTa.Border.Class = "TextBoxBorder";
             this.txt_MoTa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_MoTa.Enabled = false;
             this.txt_MoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MoTa.Location = new System.Drawing.Point(114, 184);
             this.txt_MoTa.Multiline = true;
@@ -253,6 +257,7 @@
             // 
             this.txt_NhomDichVu.Border.Class = "TextBoxBorder";
             this.txt_NhomDichVu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_NhomDichVu.Enabled = false;
             this.txt_NhomDichVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NhomDichVu.Location = new System.Drawing.Point(114, 135);
             this.txt_NhomDichVu.Name = "txt_NhomDichVu";
@@ -318,14 +323,14 @@
             this.NhomDichVu1,
             this.MoTa,
             this.TrangThai});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grd_NhomDichVu.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_NhomDichVu.DefaultCellStyle = dataGridViewCellStyle3;
             this.grd_NhomDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_NhomDichVu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_NhomDichVu.Location = new System.Drawing.Point(0, 34);
@@ -335,6 +340,7 @@
             this.grd_NhomDichVu.Size = new System.Drawing.Size(965, 516);
             this.grd_NhomDichVu.TabIndex = 1;
             this.grd_NhomDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_NhomDichVu_CellClick);
+            this.grd_NhomDichVu.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_NhomDichVu_RowsAdded);
             // 
             // STT
             // 
@@ -351,14 +357,15 @@
             this.TenVietTat.DataPropertyName = "_SERVICEGROUPID";
             this.TenVietTat.HeaderText = "Tên viết tắt";
             this.TenVietTat.Name = "TenVietTat";
+            this.TenVietTat.Width = 130;
             // 
             // NhomDichVu1
             // 
-            this.NhomDichVu1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NhomDichVu1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.NhomDichVu1.DataPropertyName = "_SERVICEGROUPNAME";
             this.NhomDichVu1.HeaderText = "Nhóm dịch vụ";
             this.NhomDichVu1.Name = "NhomDichVu1";
-            this.NhomDichVu1.Width = 119;
+            this.NhomDichVu1.Width = 250;
             // 
             // MoTa
             // 
@@ -373,6 +380,8 @@
             this.TrangThai.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.TrangThai.CheckValue = null;
             this.TrangThai.DataPropertyName = "_SERVICEGROUPSTATUS";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.TrangThai.DefaultCellStyle = dataGridViewCellStyle2;
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.Name = "TrangThai";
             // 
@@ -406,7 +415,6 @@
             this.lbl_KetQua.Name = "lbl_KetQua";
             this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
             this.lbl_KetQua.TabIndex = 6;
-            this.lbl_KetQua.Text = "Kết quả: tìm được 3 trong tổng số 100";
             // 
             // txt_TimKiem
             // 
