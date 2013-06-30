@@ -94,15 +94,16 @@ namespace DA.QuanTriHeThong
             List<ServiceDO> serviceinfo = new List<ServiceDO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
-                var query = from u in dk.Service_Info where (u.SERVICEID.Contains(ID)) select u;
+                var query = from u in dk.Service_Info where (u.SERVICENAME.Contains(ID)) select u;
                 foreach (var row in query)
                 {
                     ServiceDO us = new ServiceDO();
                     us.serviceid_ = row.SERVICEID;
                     us.servicegroupid_ = row.SERVICEGROUPID;
+                    us._SERVICEGROUPNAME = row.ServiceGroup_Info.SERVICEGROUPNAME;
                     us.servicename_ = row.SERVICENAME;
-                    us.servicecost_ = row.SERVICECOST;
                     us.servicedescription_ = row.SERVICEDESCRIPTION;
+                    us.servicecost_ = row.SERVICECOST;
                     us.servicestatus_ = row.SERVICESTATUS;
                     serviceinfo.Add(us);
                 }
@@ -114,15 +115,16 @@ namespace DA.QuanTriHeThong
             List<ServiceDO> serviceinfo = new List<ServiceDO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
-                var query = from u in dk.Service_Info where (u.SERVICEID.Contains(ID)) select u;
+                var query = from u in dk.Service_Info where (u.SERVICEGROUPID.Contains(ID)) select u;
                 foreach (var row in query)
                 {
                     ServiceDO us = new ServiceDO();
                     us.serviceid_ = row.SERVICEID;
                     us.servicegroupid_ = row.SERVICEGROUPID;
+                    us._SERVICEGROUPNAME = row.ServiceGroup_Info.SERVICEGROUPNAME;
                     us.servicename_ = row.SERVICENAME;
-                    us.servicecost_ = row.SERVICECOST;
                     us.servicedescription_ = row.SERVICEDESCRIPTION;
+                    us.servicecost_ = row.SERVICECOST;
                     us.servicestatus_ = row.SERVICESTATUS;
                     serviceinfo.Add(us);
                 }

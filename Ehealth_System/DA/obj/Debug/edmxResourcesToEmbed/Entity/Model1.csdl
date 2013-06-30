@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EHealthSystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EHealthSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bill_Info" EntityType="EHealthSystemModel.Bill_Info" />
+    <EntitySet Name="City_Info" EntityType="EHealthSystemModel.City_Info" />
+    <EntitySet Name="Department_Info" EntityType="EHealthSystemModel.Department_Info" />
+    <EntitySet Name="DepartmentType_Info" EntityType="EHealthSystemModel.DepartmentType_Info" />
+    <EntitySet Name="DetailBill_Info" EntityType="EHealthSystemModel.DetailBill_Info" />
+    <EntitySet Name="District_Info" EntityType="EHealthSystemModel.District_Info" />
+    <EntitySet Name="Patient_Info" EntityType="EHealthSystemModel.Patient_Info" />
+    <EntitySet Name="Service_Info" EntityType="EHealthSystemModel.Service_Info" />
+    <EntitySet Name="ServiceGroup_Info" EntityType="EHealthSystemModel.ServiceGroup_Info" />
+    <EntitySet Name="sysdiagrams" EntityType="EHealthSystemModel.sysdiagram" />
+    <EntitySet Name="User_Info" EntityType="EHealthSystemModel.User_Info" />
+    <EntitySet Name="UserType_Info" EntityType="EHealthSystemModel.UserType_Info" />
+    <AssociationSet Name="FK_Bill_Info_Patient_Info" Association="EHealthSystemModel.FK_Bill_Info_Patient_Info">
+      <End Role="Patient_Info" EntitySet="Patient_Info" />
+      <End Role="Bill_Info" EntitySet="Bill_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bill_Info_User_Info" Association="EHealthSystemModel.FK_Bill_Info_User_Info">
+      <End Role="User_Info" EntitySet="User_Info" />
+      <End Role="Bill_Info" EntitySet="Bill_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailBill_Info_Bill_Info" Association="EHealthSystemModel.FK_DetailBill_Info_Bill_Info">
+      <End Role="Bill_Info" EntitySet="Bill_Info" />
+      <End Role="DetailBill_Info" EntitySet="DetailBill_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_Info_City_Info" Association="EHealthSystemModel.FK_District_Info_City_Info">
+      <End Role="City_Info" EntitySet="City_Info" />
+      <End Role="District_Info" EntitySet="District_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Info_DepartmentType_Info" Association="EHealthSystemModel.FK_Department_Info_DepartmentType_Info">
+      <End Role="DepartmentType_Info" EntitySet="DepartmentType_Info" />
+      <End Role="Department_Info" EntitySet="Department_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailBill_Info_Service_Info" Association="EHealthSystemModel.FK_DetailBill_Info_Service_Info">
+      <End Role="Service_Info" EntitySet="Service_Info" />
+      <End Role="DetailBill_Info" EntitySet="DetailBill_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_Info_ServiceGroup_Info" Association="EHealthSystemModel.FK_Service_Info_ServiceGroup_Info">
+      <End Role="ServiceGroup_Info" EntitySet="ServiceGroup_Info" />
+      <End Role="Service_Info" EntitySet="Service_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Info_UserType_Info" Association="EHealthSystemModel.FK_User_Info_UserType_Info">
+      <End Role="UserType_Info" EntitySet="UserType_Info" />
+      <End Role="User_Info" EntitySet="User_Info" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bill_Info">
+    <Key>
+      <PropertyRef Name="BILLID" />
+    </Key>
+    <Property Name="BILLID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="PATIENTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="USERID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="BILLDATE" Type="DateTime" Nullable="false" />
+    <Property Name="BILLCOST" Type="Double" Nullable="false" />
+    <Property Name="DEPARTMENTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="BILLSTATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Patient_Info" Relationship="EHealthSystemModel.FK_Bill_Info_Patient_Info" FromRole="Bill_Info" ToRole="Patient_Info" />
+    <NavigationProperty Name="User_Info" Relationship="EHealthSystemModel.FK_Bill_Info_User_Info" FromRole="Bill_Info" ToRole="User_Info" />
+    <NavigationProperty Name="DetailBill_Info" Relationship="EHealthSystemModel.FK_DetailBill_Info_Bill_Info" FromRole="Bill_Info" ToRole="DetailBill_Info" />
+  </EntityType>
+  <EntityType Name="City_Info">
+    <Key>
+      <PropertyRef Name="CITYID" />
+    </Key>
+    <Property Name="CITYID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="CITYNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DESCRIPTIONCITY" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="STATUSCITY" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="District_Info" Relationship="EHealthSystemModel.FK_District_Info_City_Info" FromRole="City_Info" ToRole="District_Info" />
+  </EntityType>
+  <EntityType Name="Department_Info">
+    <Key>
+      <PropertyRef Name="DEPARTMENTID" />
+    </Key>
+    <Property Name="DEPARTMENTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="DEPARTMENTTYPEID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="DEPARTMENTNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTDESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTSTATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DepartmentType_Info" Relationship="EHealthSystemModel.FK_Department_Info_DepartmentType_Info" FromRole="Department_Info" ToRole="DepartmentType_Info" />
+  </EntityType>
+  <EntityType Name="DepartmentType_Info">
+    <Key>
+      <PropertyRef Name="DEPARTMENTTYPEID" />
+    </Key>
+    <Property Name="DEPARTMENTTYPEID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="DEPARTMENTTYPENAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTTYPEDESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTSTATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Department_Info" Relationship="EHealthSystemModel.FK_Department_Info_DepartmentType_Info" FromRole="DepartmentType_Info" ToRole="Department_Info" />
+  </EntityType>
+  <EntityType Name="DetailBill_Info">
+    <Key>
+      <PropertyRef Name="DETAILBILLID" />
+    </Key>
+    <Property Name="DETAILBILLID" Type="Int32" Nullable="false" />
+    <Property Name="SERVICEID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="SERVICECOST" Type="Double" Nullable="false" />
+    <Property Name="BILLID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Bill_Info" Relationship="EHealthSystemModel.FK_DetailBill_Info_Bill_Info" FromRole="DetailBill_Info" ToRole="Bill_Info" />
+    <NavigationProperty Name="Service_Info" Relationship="EHealthSystemModel.FK_DetailBill_Info_Service_Info" FromRole="DetailBill_Info" ToRole="Service_Info" />
+  </EntityType>
+  <EntityType Name="District_Info">
+    <Key>
+      <PropertyRef Name="DISTRICTID" />
+    </Key>
+    <Property Name="DISTRICTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="CITYID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="DISTRICTNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DISTRICTDESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="DISTRICTSTATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="City_Info" Relationship="EHealthSystemModel.FK_District_Info_City_Info" FromRole="District_Info" ToRole="City_Info" />
+  </EntityType>
+  <EntityType Name="Patient_Info">
+    <Key>
+      <PropertyRef Name="PATIENTID" />
+    </Key>
+    <Property Name="PATIENTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="PATIENTNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="GENDER" Type="Int32" Nullable="false" />
+    <Property Name="ADDRESS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="PATIENTPHONE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="DATEOFBIRTH" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Bill_Info" Relationship="EHealthSystemModel.FK_Bill_Info_Patient_Info" FromRole="Patient_Info" ToRole="Bill_Info" />
+  </EntityType>
+  <EntityType Name="Service_Info">
+    <Key>
+      <PropertyRef Name="SERVICEID" />
+    </Key>
+    <Property Name="SERVICEID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="SERVICEGROUPID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="SERVICENAME" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SERVICEDESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="SERVICECOST" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SERVICESTATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DetailBill_Info" Relationship="EHealthSystemModel.FK_DetailBill_Info_Service_Info" FromRole="Service_Info" ToRole="DetailBill_Info" />
+    <NavigationProperty Name="ServiceGroup_Info" Relationship="EHealthSystemModel.FK_Service_Info_ServiceGroup_Info" FromRole="Service_Info" ToRole="ServiceGroup_Info" />
+  </EntityType>
+  <EntityType Name="ServiceGroup_Info">
+    <Key>
+      <PropertyRef Name="SERVICEGROUPID" />
+    </Key>
+    <Property Name="SERVICEGROUPID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="SERVICEGROUPNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SERVICEBROUPDESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="SERVICEGROUPSTATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Service_Info" Relationship="EHealthSystemModel.FK_Service_Info_ServiceGroup_Info" FromRole="ServiceGroup_Info" ToRole="Service_Info" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User_Info">
+    <Key>
+      <PropertyRef Name="USERID" />
+    </Key>
+    <Property Name="USERID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="USERTYPEID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="ACCOUNT" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="STATUS" Type="Boolean" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Bill_Info" Relationship="EHealthSystemModel.FK_Bill_Info_User_Info" FromRole="User_Info" ToRole="Bill_Info" />
+    <NavigationProperty Name="UserType_Info" Relationship="EHealthSystemModel.FK_User_Info_UserType_Info" FromRole="User_Info" ToRole="UserType_Info" />
+  </EntityType>
+  <EntityType Name="UserType_Info">
+    <Key>
+      <PropertyRef Name="USERTYPEID" />
+    </Key>
+    <Property Name="USERTYPEID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="USERTYPENAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="AUTHORUZATION" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="USERTYPESTATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User_Info" Relationship="EHealthSystemModel.FK_User_Info_UserType_Info" FromRole="UserType_Info" ToRole="User_Info" />
+  </EntityType>
+  <Association Name="FK_Bill_Info_Patient_Info">
+    <End Role="Patient_Info" Type="EHealthSystemModel.Patient_Info" Multiplicity="1" />
+    <End Role="Bill_Info" Type="EHealthSystemModel.Bill_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient_Info">
+        <PropertyRef Name="PATIENTID" />
+      </Principal>
+      <Dependent Role="Bill_Info">
+        <PropertyRef Name="PATIENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bill_Info_User_Info">
+    <End Role="User_Info" Type="EHealthSystemModel.User_Info" Multiplicity="1" />
+    <End Role="Bill_Info" Type="EHealthSystemModel.Bill_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Info">
+        <PropertyRef Name="USERID" />
+      </Principal>
+      <Dependent Role="Bill_Info">
+        <PropertyRef Name="USERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailBill_Info_Bill_Info">
+    <End Role="Bill_Info" Type="EHealthSystemModel.Bill_Info" Multiplicity="1" />
+    <End Role="DetailBill_Info" Type="EHealthSystemModel.DetailBill_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill_Info">
+        <PropertyRef Name="BILLID" />
+      </Principal>
+      <Dependent Role="DetailBill_Info">
+        <PropertyRef Name="BILLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_Info_City_Info">
+    <End Role="City_Info" Type="EHealthSystemModel.City_Info" Multiplicity="1" />
+    <End Role="District_Info" Type="EHealthSystemModel.District_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City_Info">
+        <PropertyRef Name="CITYID" />
+      </Principal>
+      <Dependent Role="District_Info">
+        <PropertyRef Name="CITYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Info_DepartmentType_Info">
+    <End Role="DepartmentType_Info" Type="EHealthSystemModel.DepartmentType_Info" Multiplicity="1" />
+    <End Role="Department_Info" Type="EHealthSystemModel.Department_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentType_Info">
+        <PropertyRef Name="DEPARTMENTTYPEID" />
+      </Principal>
+      <Dependent Role="Department_Info">
+        <PropertyRef Name="DEPARTMENTTYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailBill_Info_Service_Info">
+    <End Role="Service_Info" Type="EHealthSystemModel.Service_Info" Multiplicity="1" />
+    <End Role="DetailBill_Info" Type="EHealthSystemModel.DetailBill_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service_Info">
+        <PropertyRef Name="SERVICEID" />
+      </Principal>
+      <Dependent Role="DetailBill_Info">
+        <PropertyRef Name="SERVICEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_Info_ServiceGroup_Info">
+    <End Role="ServiceGroup_Info" Type="EHealthSystemModel.ServiceGroup_Info" Multiplicity="1" />
+    <End Role="Service_Info" Type="EHealthSystemModel.Service_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceGroup_Info">
+        <PropertyRef Name="SERVICEGROUPID" />
+      </Principal>
+      <Dependent Role="Service_Info">
+        <PropertyRef Name="SERVICEGROUPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Info_UserType_Info">
+    <End Role="UserType_Info" Type="EHealthSystemModel.UserType_Info" Multiplicity="1" />
+    <End Role="User_Info" Type="EHealthSystemModel.User_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType_Info">
+        <PropertyRef Name="USERTYPEID" />
+      </Principal>
+      <Dependent Role="User_Info">
+        <PropertyRef Name="USERTYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
