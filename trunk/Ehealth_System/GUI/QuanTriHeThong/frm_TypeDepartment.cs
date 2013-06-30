@@ -98,23 +98,23 @@ namespace GUI.QuanTriHeThong
             {
                 if (txt_TenVietTat.Text == null || txt_TenVietTat.Text == "")
                 {
-                    MessageBox.Show("Chưa nhập tên viết tắt", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 if (txt_LoaiPhongBan.Text == null || txt_LoaiPhongBan.Text == "")
                 {
-                    MessageBox.Show("Chưa nhập tên loại phòng ban", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 int i = TypeDepartment_BL.add(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Thêm loại Phòng ban thất bại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo");
                 }
                 else
                 {
-                    MessageBox.Show("Thêm loại phòng ban thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Danh mục Loại phòng ban đã được tạo thành công", "Thông báo");
                 }
 
             }
@@ -123,18 +123,18 @@ namespace GUI.QuanTriHeThong
                 txt_TenVietTat.Enabled = false;
                 if (txt_LoaiPhongBan.Text == null || txt_LoaiPhongBan.Text == "")
                 {
-                    MessageBox.Show("Chưa nhập tên loại phòng ban", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 int i = TypeDepartment_BL.edit(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 
                 if (i == -1)
                 {
-                    MessageBox.Show("Lỗi! Không thể chỉnh sửa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo");
                 }
                 else
                 {
-                    MessageBox.Show("Chỉnh sửa thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Loại phòng ban đã được chỉnh sửa thành công", "Thông báo");
                 }
             }
             loadDatagrid();

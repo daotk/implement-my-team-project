@@ -124,13 +124,13 @@ namespace GUI.QuanTriHeThong
                         string nhomnguoidung = cbo_NhomNguoiDung.SelectedValue.ToString();
                         bool trangthai = chk_TrangThai.Checked;
                         BL.QuanTriHeThong.User_BL.InsertUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
-                        MessageBox.Show("Bạn đã lưu thành công");
+                        MessageBox.Show("Người dùng đã được tạo thành công","Thông báo");
                         LoadUserInfo();
                         StatusCancel();
                     }
                     else
                     {
-                        MessageBox.Show("Bạn chưa điền đủ thông tin");
+                        MessageBox.Show("Bạn phải nhập đầy đủ thông tin","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 
                 }
@@ -146,10 +146,17 @@ namespace GUI.QuanTriHeThong
                         string matkhau = BL.MD5_BL.GetMD5(txt_MatKhau.Text);
                         string nhomnguoidung = cbo_NhomNguoiDung.SelectedValue.ToString();
                         bool trangthai = chk_TrangThai.Checked;
-                        BL.QuanTriHeThong.User_BL.UpdateUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
-                        MessageBox.Show("Bạn đã cập nhật thành công");
-                        LoadUserInfo();
-                        StatusCancel();
+                        if (txt_MaNhanVien.Text != "" && txt_HoTen.Text != "" && cbo_NhomNguoiDung.SelectedValue.ToString() != "" && txt_TaiKhoan.Text != "" && txt_MatKhau.Text != "")
+                        {
+                            BL.QuanTriHeThong.User_BL.UpdateUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
+                            MessageBox.Show("Người dùng đã được chỉnh sửa thành công", "Thông báo");
+                            LoadUserInfo();
+                            StatusCancel();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
             }
@@ -174,6 +181,7 @@ namespace GUI.QuanTriHeThong
                 txt_Email.Enabled = true;
                 txt_TaiKhoan.Enabled = true;
                 txt_MatKhau.Enabled = true;
+                txt_MatKhau.Text = "";
                 cbo_NhomNguoiDung.Enabled = true;
                 chk_TrangThai.Enabled = true;
 

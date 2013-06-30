@@ -14,6 +14,7 @@ namespace GUI.QuanTriHeThong
 {
     public partial class frm_TypeService : Form
     {
+        int totalcount;
         public frm_TypeService()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace GUI.QuanTriHeThong
         private void frm_TypeService_Load(object sender, EventArgs e)
         {
             LoadGroupService();
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_NhomDichVu.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
         /// <summary>
         /// load danh sach nhom dich vu
@@ -33,6 +35,8 @@ namespace GUI.QuanTriHeThong
         private void LoadGroupService()
         {
             grd_NhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
+            int count = grd_NhomDichVu.Rows.Count;
+            totalcount = count;  
             btn_ChinhSua.Text = "Chỉnh sửa";
             btn_ThemMoi.Text = "Thêm mới";
             btn_ChinhSua.Enabled = false;
@@ -79,7 +83,10 @@ namespace GUI.QuanTriHeThong
             if (btn_ThemMoi.Text == "Thêm mới")
             {
                 btn_ThemMoi.Text = "Lưu";
+                btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
+                btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
+                btn_ChinhSua.Enabled = true;
                 Pank();
                 Enable();
             }
@@ -90,7 +97,7 @@ namespace GUI.QuanTriHeThong
                     if (Check())
                     {
                         BL.QuanTriHeThong.GroupService_BL.CreateGroupService(txt_TenVietTat.Text, txt_NhomDichVu.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                        MessageBox.Show("Thêm mới thành công");
+                        MessageBox.Show("Danh mục Nhóm dịch vụ đã được tạo thành công","Thông báo");
                         LoadGroupService();
                         Pank();
                     }
@@ -102,7 +109,7 @@ namespace GUI.QuanTriHeThong
                         if (btn_ThemMoi.Text == "Cập Nhật")
                         {
                             BL.QuanTriHeThong.GroupService_BL.EditGroupService(txt_TenVietTat.Text, txt_NhomDichVu.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                            MessageBox.Show("Chỉnh sửa thành công");
+                            MessageBox.Show("Danh mục Nhóm dịch vụ đã được chỉnh sửa thành công");
                             LoadGroupService();
                         }
                     }
@@ -119,15 +126,24 @@ namespace GUI.QuanTriHeThong
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
                 btn_ThemMoi.Text = "Cập Nhật";
+                btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
+                btn_ChinhSua.Enabled = true;
                 btn_ChinhSua.Text = "Hủy bỏ";
+                btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
+                btn_ChinhSua.Enabled = true;
+                txt_TenVietTat.Enabled = false;
                 Enable();
             }
             else
             {
+                
                 if (btn_ChinhSua.Text == "Hủy bỏ")
                 {
+                    
                     btn_ThemMoi.Text = "Thêm mới";
-                    btn_ChinhSua.Text = "Chỉnh sửa";
+                    btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
+                    btn_ChinhSua.Text = "Chỉnh sửa";                
+                    btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
                     Disiable();
 
                 }
@@ -159,14 +175,14 @@ namespace GUI.QuanTriHeThong
             bool test = true;
             if (txt_TenVietTat.Text == null || txt_TenVietTat.Text == "")
             {
-                MessageBox.Show("Chưa nhập tên viết tắt", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn phải nhập đầy đủ thông tin","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 test = false;
             }
             else
             {
                 if (txt_NhomDichVu.Text == null || txt_NhomDichVu.Text == "")
                 {
-                    MessageBox.Show("Chưa nhập tên dich vu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     test = false;
                 }
             }
@@ -192,8 +208,7 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_NhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.SearchGroupService(txt_TimKiem.Text);
-        }
-
-       
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_NhomDichVu.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+        }   
     }
 }

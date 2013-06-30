@@ -13,6 +13,7 @@ namespace GUI.QuanTriHeThong
 {
     public partial class frm_Service : Form
     {
+        int totalcount;
         public frm_Service()
         {
             InitializeComponent();
@@ -21,6 +22,9 @@ namespace GUI.QuanTriHeThong
 
         private void frm_Service_Load(object sender, EventArgs e)
         {
+            grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.GetService();
+            totalcount = grd_NhomDichVu.Rows.Count;
+
             cbo_LocTheoNhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
             cbo_LocTheoNhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
             cbo_LocTheoNhomDichVu.ValueMember = "_SERVICEGROUPID";
@@ -29,6 +33,7 @@ namespace GUI.QuanTriHeThong
             cbo_NhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
             cbo_NhomDichVu.ValueMember = "_SERVICEGROUPID";
             LoadDSService();
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_NhomDichVu.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
 
 
@@ -56,6 +61,7 @@ namespace GUI.QuanTriHeThong
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
                 btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
+                btn_ChinhSua.Enabled = true;
                 txt_TenVietTat.Enabled = true;
                 txt_DichVu.Enabled = true;
                 txt_GiaTien.Enabled = true;
@@ -68,13 +74,13 @@ namespace GUI.QuanTriHeThong
                 {
                     //Luu
                     BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text,cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                    MessageBox.Show("Thêm mới thành công");
+                    MessageBox.Show("Danh mục Dịch vụ đã được tạo thành công","Thông báo");
                     LoadDSService();
                 }
                 else {
                     if (btn_ThemMoi.Text == "Cập Nhật") {
                         BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                        MessageBox.Show("Chỉnh sửa thành công");
+                        MessageBox.Show("Danh mục Dịch vụ đã được chỉnh sửa thành công","Thông báo");
                         LoadDSService();
                     }
                 }
@@ -89,6 +95,7 @@ namespace GUI.QuanTriHeThong
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
                 btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
+                btn_ChinhSua.Enabled = true;
                 txt_TenVietTat.Enabled = true;
                 txt_DichVu.Enabled = true;
                 txt_GiaTien.Enabled = true;
@@ -128,11 +135,13 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.SearchService(txt_TimKiem.Text);
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_NhomDichVu.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
 
         private void cbo_LocTheoNhomDichVu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.SearchGroupService(cbo_LocTheoNhomDichVu.Text);
+            grd_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.SearchGroupService(cbo_LocTheoNhomDichVu.SelectedValue.ToString());
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_NhomDichVu.DisplayedRowCount(true) + " trong tổng số " + totalcount;
         }
 
         private void grd_NhomDichVu_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

@@ -52,15 +52,15 @@
             this.lbl_TenVietTat = new DevComponents.DotNetBar.LabelX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.grd_LoaiPhongBan = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
+            this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
+            this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.lbl_TimKiem = new DevComponents.DotNetBar.LabelX();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEPARTMENTTYPEID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEPARTMENTNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEPARTMENTDESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEPARTMENTSTATUS = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
-            this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
-            this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
-            this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.lbl_TimKiem = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_LoaiPhongBan)).BeginInit();
@@ -381,59 +381,6 @@
             this.grd_LoaiPhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_LoaiPhongBan_CellClick);
             this.grd_LoaiPhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_LoaiPhongBan_RowsAdded);
             // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "1";
-            this.STT.DefaultCellStyle = dataGridViewCellStyle2;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 61;
-            // 
-            // DEPARTMENTTYPEID
-            // 
-            this.DEPARTMENTTYPEID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DEPARTMENTTYPEID.DataPropertyName = "_DEPARTMENTTYPEID";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "TN";
-            this.DEPARTMENTTYPEID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DEPARTMENTTYPEID.HeaderText = "Tên viết tắt";
-            this.DEPARTMENTTYPEID.Name = "DEPARTMENTTYPEID";
-            this.DEPARTMENTTYPEID.ReadOnly = true;
-            // 
-            // DEPARTMENTNAME
-            // 
-            this.DEPARTMENTNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DEPARTMENTNAME.DataPropertyName = "_DEPARTMENTNAME";
-            dataGridViewCellStyle4.NullValue = "Thu Ngân 1";
-            this.DEPARTMENTNAME.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DEPARTMENTNAME.HeaderText = "Loại phòng ban";
-            this.DEPARTMENTNAME.Name = "DEPARTMENTNAME";
-            this.DEPARTMENTNAME.ReadOnly = true;
-            this.DEPARTMENTNAME.Width = 250;
-            // 
-            // DEPARTMENTDESCRIPTION
-            // 
-            this.DEPARTMENTDESCRIPTION.DataPropertyName = "_DEPARTMENTDESCRIPTION";
-            this.DEPARTMENTDESCRIPTION.HeaderText = "Mô tả";
-            this.DEPARTMENTDESCRIPTION.Name = "DEPARTMENTDESCRIPTION";
-            this.DEPARTMENTDESCRIPTION.ReadOnly = true;
-            // 
-            // DEPARTMENTSTATUS
-            // 
-            this.DEPARTMENTSTATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DEPARTMENTSTATUS.Checked = true;
-            this.DEPARTMENTSTATUS.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.DEPARTMENTSTATUS.CheckValue = null;
-            this.DEPARTMENTSTATUS.DataPropertyName = "_DEPARTMENTSTATUS";
-            this.DEPARTMENTSTATUS.HeaderText = "Trạng thái";
-            this.DEPARTMENTSTATUS.Name = "DEPARTMENTSTATUS";
-            this.DEPARTMENTSTATUS.ReadOnly = true;
-            this.DEPARTMENTSTATUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DEPARTMENTSTATUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // panelEx3
             // 
             this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
@@ -493,6 +440,57 @@
             this.lbl_TimKiem.TabIndex = 2;
             this.lbl_TimKiem.Text = "Tìm kiếm";
             // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle2;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 61;
+            // 
+            // DEPARTMENTTYPEID
+            // 
+            this.DEPARTMENTTYPEID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DEPARTMENTTYPEID.DataPropertyName = "_DEPARTMENTTYPEID";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DEPARTMENTTYPEID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DEPARTMENTTYPEID.HeaderText = "Tên viết tắt";
+            this.DEPARTMENTTYPEID.Name = "DEPARTMENTTYPEID";
+            this.DEPARTMENTTYPEID.ReadOnly = true;
+            // 
+            // DEPARTMENTNAME
+            // 
+            this.DEPARTMENTNAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DEPARTMENTNAME.DataPropertyName = "_DEPARTMENTNAME";
+            this.DEPARTMENTNAME.HeaderText = "Loại phòng ban";
+            this.DEPARTMENTNAME.Name = "DEPARTMENTNAME";
+            this.DEPARTMENTNAME.ReadOnly = true;
+            this.DEPARTMENTNAME.Width = 250;
+            // 
+            // DEPARTMENTDESCRIPTION
+            // 
+            this.DEPARTMENTDESCRIPTION.DataPropertyName = "_DEPARTMENTDESCRIPTION";
+            this.DEPARTMENTDESCRIPTION.HeaderText = "Mô tả";
+            this.DEPARTMENTDESCRIPTION.Name = "DEPARTMENTDESCRIPTION";
+            this.DEPARTMENTDESCRIPTION.ReadOnly = true;
+            // 
+            // DEPARTMENTSTATUS
+            // 
+            this.DEPARTMENTSTATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DEPARTMENTSTATUS.Checked = true;
+            this.DEPARTMENTSTATUS.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.DEPARTMENTSTATUS.CheckValue = null;
+            this.DEPARTMENTSTATUS.DataPropertyName = "_DEPARTMENTSTATUS";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DEPARTMENTSTATUS.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DEPARTMENTSTATUS.HeaderText = "Trạng thái";
+            this.DEPARTMENTSTATUS.Name = "DEPARTMENTSTATUS";
+            this.DEPARTMENTSTATUS.ReadOnly = true;
+            this.DEPARTMENTSTATUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DEPARTMENTSTATUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // frm_TypeDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -537,14 +535,14 @@
         private DevComponents.DotNetBar.LabelX lbl_LoaiPhongBan;
         private DevComponents.DotNetBar.LabelX lbl_TenVietTat;
         private DevComponents.DotNetBar.LabelX lbl_KetQua;
+        private DevComponents.DotNetBar.ButtonX btn_huy;
+        private DevComponents.DotNetBar.ButtonX btn_luu;
+        private DevComponents.DotNetBar.Controls.DataGridViewX grd_LoaiPhongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTMENTTYPEID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTMENTNAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTMENTDESCRIPTION;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn DEPARTMENTSTATUS;
-        private DevComponents.DotNetBar.ButtonX btn_huy;
-        private DevComponents.DotNetBar.ButtonX btn_luu;
-        private DevComponents.DotNetBar.Controls.DataGridViewX grd_LoaiPhongBan;
 
     }
 }
