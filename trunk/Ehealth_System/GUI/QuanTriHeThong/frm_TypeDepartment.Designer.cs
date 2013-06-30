@@ -135,7 +135,7 @@
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(116, 138);
-            this.txt_TenVietTat.MaxLength = 15;
+            this.txt_TenVietTat.MaxLength = 2;
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(173, 26);
             this.txt_TenVietTat.TabIndex = 2;
