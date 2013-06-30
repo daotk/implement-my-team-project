@@ -30,8 +30,16 @@ namespace DA.QuanTriHeThong
                 }
                 return ListDeparttype;
             }
-        }
+        }//end
 
+        /// <summary>
+        /// Thêm loại phòng ban mới
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="name"></param>
+        /// <param name="desscription"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public static int add(String ID, String name, String desscription, bool status)
         {
 
@@ -54,8 +62,18 @@ namespace DA.QuanTriHeThong
                 }
 
             }
-        }
+        }//end
 
+
+
+        /// <summary>
+        /// Chỉnh sửa loại phòng ban
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="name"></param>
+        /// <param name="desscription"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public static int edit(String ID, String name, String desscription, bool status)
         {
 
@@ -80,7 +98,13 @@ namespace DA.QuanTriHeThong
                 }
 
             }
-        }
+        }//end
+
+        /// <summary>
+        /// Tìm kiếm loại phòng ban theo tên
+        /// </summary>
+        /// <param name="Search"></param>
+        /// <returns></returns>
         public static List<TypeDepartment_DO> SearchTypeDepart(string Search) 
         {
             List<TypeDepartment_DO> timkiem = new List<TypeDepartment_DO>();
@@ -100,6 +124,6 @@ namespace DA.QuanTriHeThong
                 return timkiem;
             }
         
-        }
+        }//end
     }
-}
+}//end class
