@@ -330,10 +330,9 @@ namespace GUI
             DialogResult result = MessageBox.Show("Bạn có chắc là đăng xuất khỏi chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(result == DialogResult.Yes)
             {
-            this.Close();
-            Program.Loginthread.Start();
-            }else
-            {
+                this.Hide();
+                frm_Login login = new frm_Login();
+                login.Show();
             }
         }
 
