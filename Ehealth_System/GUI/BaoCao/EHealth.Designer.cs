@@ -3055,16 +3055,23 @@ SELECT BILLID, PATIENTID, USERID, BILLDATE, BILLCOST, DEPARTMENTID, BILLSTATUS, 
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT BILLID, PATIENTID, USERID, BILLDATE, BILLCOST, DEPARTMENTID, BILLSTATUS, S" +
-                "ERVICEGROUPID FROM dbo.Bill_Info\r\n";
+                "ERVICEGROUPID FROM dbo.Bill_Info\r\nWHERE PATIENTID=@PatientID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "PATIENTID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EHealth.Bill_InfoDataTable dataTable) {
+        public virtual int Fill(EHealth.Bill_InfoDataTable dataTable, string PatientID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PatientID == null)) {
+                throw new global::System.ArgumentNullException("PatientID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(PatientID));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -3076,8 +3083,14 @@ SELECT BILLID, PATIENTID, USERID, BILLDATE, BILLCOST, DEPARTMENTID, BILLSTATUS, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EHealth.Bill_InfoDataTable GetData() {
+        public virtual EHealth.Bill_InfoDataTable GetData(string PatientID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PatientID == null)) {
+                throw new global::System.ArgumentNullException("PatientID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(PatientID));
+            }
             EHealth.Bill_InfoDataTable dataTable = new EHealth.Bill_InfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
