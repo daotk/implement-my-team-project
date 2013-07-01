@@ -368,6 +368,7 @@
             this.grd_NhomnguoiDung.Size = new System.Drawing.Size(965, 550);
             this.grd_NhomnguoiDung.TabIndex = 0;
             this.grd_NhomnguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_NhomnguoiDung_CellContentClick);
+            this.grd_NhomnguoiDung.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_NhomnguoiDung_CellContentClick_1);
             this.grd_NhomnguoiDung.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_NhomnguoiDung_RowsAdded);
             // 
             // STT

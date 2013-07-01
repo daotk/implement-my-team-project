@@ -33,6 +33,7 @@ namespace GUI.QuanTriHeThong
         {
             LoadGroupUser();
         }
+        private string StatusSave = "";
 
         private void LoadGroupUser()
         {
@@ -43,6 +44,7 @@ namespace GUI.QuanTriHeThong
         {
             if (btn_ThemMoi.Text == "Thêm mới")
             {
+                StatusSave = "create";
                 btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
@@ -64,31 +66,64 @@ namespace GUI.QuanTriHeThong
                     //Them moi nhom nguoi dung
                     if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
                     {
-                        if (CheckInfo(txt_TenVietTat.Text, txt_TenNhom.Text))
+                        if (StatusSave == "create")
                         {
-                            BL.QuanTriHeThong.UserGroup_BL.CreateUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text,"00000000000000", chk_TrangThai.Checked);
-                            MessageBox.Show("Nhóm người dùng đã được tạo thành công","Thông báo");
-                            //Load lai danh sach nhom nguoi dung
-                            LoadGroupUser();
-                            btn_ThemMoi.Text = "Thêm mới";
-                            btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
-                            btn_ChinhSua.Text = "Chỉnh sửa";
-                            btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
-                            btn_ChinhSua.Enabled = false;
-                            txt_TenVietTat.Enabled = false;
-                            txt_TenNhom.Enabled = false;
-                            txt_MoTa.Enabled = false;
-                            chk_TrangThai.Enabled = false;
+                            if (CheckInfo(txt_TenVietTat.Text, txt_TenNhom.Text))
+                            {
+                                BL.QuanTriHeThong.UserGroup_BL.CreateUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, "00000000000000", chk_TrangThai.Checked);
+                                MessageBox.Show("Nhóm người dùng đã được tạo thành công", "Thông báo");
+                                //Load lai danh sach nhom nguoi dung
+                                LoadGroupUser();
+                                btn_ThemMoi.Text = "Thêm mới";
+                                btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
+                                btn_ChinhSua.Text = "Chỉnh sửa";
+                                btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
+                                btn_ChinhSua.Enabled = false;
+                                txt_TenVietTat.Enabled = false;
+                                txt_TenNhom.Enabled = false;
+                                txt_MoTa.Enabled = false;
+                                chk_TrangThai.Enabled = false;
 
-                            txt_TenVietTat.Text = "";
-                            txt_TenNhom.Text = "";
-                            txt_MoTa.Text = "";
-                            chk_TrangThai.Checked = false;
+                                txt_TenVietTat.Text = "";
+                                txt_TenNhom.Text = "";
+                                txt_MoTa.Text = "";
+                                chk_TrangThai.Checked = false;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tên viết tắt đã tồn tại");
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Tên viết tắt đã tồn tại");
+                        else {
+                            if (StatusSave == "edit") {
+                                if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
+                                {
+
+                                    BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                                    MessageBox.Show("Nhóm người dùng đã được chỉnh sửa thành công", "Thông báo");
+                                    LoadGroupUser();
+                                    btn_ThemMoi.Text = "Thêm mới";
+                                    btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
+                                    btn_ChinhSua.Text = "Chỉnh sửa";
+                                    btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
+                                    btn_ChinhSua.Enabled = false;
+                                    txt_TenVietTat.Enabled = false;
+                                    txt_TenNhom.Enabled = false;
+                                    txt_MoTa.Enabled = false;
+                                    chk_TrangThai.Enabled = false;
+                                    txt_TenVietTat.Text = "";
+                                    txt_TenNhom.Text = "";
+                                    txt_MoTa.Text = "";
+                                    chk_TrangThai.Checked = false;
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }    
+                            }
                         }
+                        
 
                     }
                     else
@@ -96,35 +131,7 @@ namespace GUI.QuanTriHeThong
                         MessageBox.Show("Bạn phải nhập đầy đủ thông tin","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     }
                 }
-                else {
-                    if (btn_ThemMoi.Text == "Cập nhật") {
-
-                        if (CheckInfoUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text))
-                        {
-                            BL.QuanTriHeThong.UserGroup_BL.EditUserGroup(txt_TenVietTat.Text, txt_TenNhom.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                            MessageBox.Show("Nhóm người dùng đã được chỉnh sửa thành công","Thông báo");
-                            LoadGroupUser();
-                            btn_ThemMoi.Text = "Thêm mới";
-                            btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
-                            btn_ChinhSua.Text = "Chỉnh sửa";
-                            btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
-                            btn_ChinhSua.Enabled = false;
-                            txt_TenVietTat.Enabled = false;
-                            txt_TenNhom.Enabled = false;
-                            txt_MoTa.Enabled = false;
-                            chk_TrangThai.Enabled = false;
-                            txt_TenVietTat.Text = "";
-                            txt_TenNhom.Text = "";
-                            txt_MoTa.Text = "";
-                            chk_TrangThai.Checked = false;
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Bạn phải nhập đầy đủ thông tin","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                        }
-                    }
-                }
+                
 
             }
             
@@ -146,9 +153,10 @@ namespace GUI.QuanTriHeThong
         {
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
+                StatusSave = "edit";
                 btn_ChinhSua.Text = "Hủy bỏ";
                 btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
-                btn_ThemMoi.Text = "Cập nhật";
+                btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 txt_TenNhom.Enabled = true;
                 txt_MoTa.Enabled = true;
@@ -171,7 +179,7 @@ namespace GUI.QuanTriHeThong
                         txt_TenNhom.Enabled = false;
                         txt_MoTa.Enabled = false;
                         chk_TrangThai.Enabled = false;
-
+                        StatusSave = "";
                         txt_TenVietTat.Text = "";
                         txt_TenNhom.Text = "";
                         txt_MoTa.Text = "";
@@ -225,6 +233,11 @@ namespace GUI.QuanTriHeThong
             {
                 grd_NhomnguoiDung.Rows[i].Cells["STT"].Value = Convert.ToString(i + 1);
             }
+        }
+
+        private void grd_NhomnguoiDung_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }
