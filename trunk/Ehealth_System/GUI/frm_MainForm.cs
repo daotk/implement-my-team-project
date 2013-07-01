@@ -336,6 +336,18 @@ namespace GUI
             }
         }
 
+        private void frm_MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc là đăng xuất khỏi chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                frm_Login login = new frm_Login();
+                login.Show();
+            }
+           
+        }
+
         private bool checkTab(string name)
         {
             for (int i = 0; i < tab_MainTab.Tabs.Count; i++)
@@ -485,6 +497,8 @@ namespace GUI
             if (authorization[12].ToString() == "0") { btn_DanhSachThuTienTheoNhomDichVu.Enabled = false; }
             if (authorization[13].ToString() == "0") { btn_DoanhThu.Enabled = false; }
         }
+
+     
 
        
        
