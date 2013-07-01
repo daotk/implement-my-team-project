@@ -55,6 +55,10 @@ namespace GUI.QuanTriHeThong
             grd_ThanhPho.DataSource = city.GetAllCity();
             int count = grd_ThanhPho.Rows.Count;
             totalcount = count;
+            if (grd_ThanhPho.Rows.Count == 0)
+            {
+                btn_ChinhSua.Enabled = false;
+            }
         }
 
         public void focus()

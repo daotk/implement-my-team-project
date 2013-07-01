@@ -62,6 +62,10 @@ namespace GUI.QuanTriHeThong
             grd_QuanHuyen.DataSource = district.GetAllDistrict();
             int count = grd_QuanHuyen.Rows.Count;
             totalcount = count;
+            if (grd_QuanHuyen.Rows.Count == 0)
+            {
+                btn_ChinhSua.Enabled = false;
+            }
         }
 
         public void focus()
