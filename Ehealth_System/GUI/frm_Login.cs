@@ -39,8 +39,10 @@ namespace GUI
                 {
                     if (BL.StaticClass.StatusUser == true)
                     {
-                        this.Close();
-                        Program.mainthread.Start();
+                        this.Hide();
+                        //Program.mainthread.Start();
+                        frm_MainForm main = new frm_MainForm();
+                        main.Show();
                     }
                     else
                     {
