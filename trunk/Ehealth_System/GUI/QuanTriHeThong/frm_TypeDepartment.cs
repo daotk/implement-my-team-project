@@ -73,6 +73,7 @@ namespace GUI.QuanTriHeThong
             enablebtn(false);
             flag_them = false;
             flag_sua = false;
+            focus();
         }//end
 
         /// <summary>
@@ -84,6 +85,8 @@ namespace GUI.QuanTriHeThong
 
             int count = grd_LoaiPhongBan.Rows.Count;
             totalcount = count;
+
+            btn_ChinhSua.Enabled = false;
             
         }//end
 
@@ -194,9 +197,8 @@ namespace GUI.QuanTriHeThong
         /// <param name="e"></param>
         private void grd_LoaiPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
             focus();
-
+            btn_ChinhSua.Enabled = true;
         }//end
 
 
@@ -231,6 +233,7 @@ namespace GUI.QuanTriHeThong
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
+            focus();
         }//end
 
 
