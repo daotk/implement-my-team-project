@@ -56,12 +56,6 @@
             this.lbl_TenVietTat = new DevComponents.DotNetBar.LabelX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.grd_PhongBan = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
-            this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
-            this.cbo_LocTheoLoaiPhongBan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.lbl_TimKiem = new DevComponents.DotNetBar.LabelX();
-            this.lbl_LocTheoLoaiPhongBan = new DevComponents.DotNetBar.LabelX();
-            this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenVietTat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhongBan1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +63,12 @@
             this.TenVietTatLoaiPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
+            this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
+            this.lbl_KetQua = new DevComponents.DotNetBar.LabelX();
+            this.cbo_LocTheoLoaiPhongBan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.lbl_TimKiem = new DevComponents.DotNetBar.LabelX();
+            this.lbl_LocTheoLoaiPhongBan = new DevComponents.DotNetBar.LabelX();
+            this.txt_TimKiem = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_PhongBan)).BeginInit();
@@ -121,7 +121,7 @@
             this.btn_huy.Size = new System.Drawing.Size(120, 35);
             this.btn_huy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_huy.TabIndex = 11;
-            this.btn_huy.Text = "Hủy";
+            this.btn_huy.Text = "Hủy Bỏ";
             this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // btn_luu
@@ -429,6 +429,71 @@
             this.grd_PhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_PhongBan_CellClick);
             this.grd_PhongBan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grd_PhongBan_RowsAdded);
             // 
+            // STT
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "1";
+            this.STT.DefaultCellStyle = dataGridViewCellStyle1;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // TenVietTat
+            // 
+            this.TenVietTat.DataPropertyName = "_DEPARTMENTID";
+            dataGridViewCellStyle2.NullValue = "B1";
+            this.TenVietTat.DefaultCellStyle = dataGridViewCellStyle2;
+            this.TenVietTat.HeaderText = "Tên viết tắt";
+            this.TenVietTat.Name = "TenVietTat";
+            this.TenVietTat.ReadOnly = true;
+            // 
+            // PhongBan1
+            // 
+            this.PhongBan1.DataPropertyName = "_DEPARTMENTNAME";
+            dataGridViewCellStyle3.NullValue = "Bàn thu ngân 1";
+            this.PhongBan1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PhongBan1.HeaderText = "Phòng ban";
+            this.PhongBan1.Name = "PhongBan1";
+            this.PhongBan1.ReadOnly = true;
+            // 
+            // LoaiPhongBan
+            // 
+            this.LoaiPhongBan.DataPropertyName = "_DEPARTMENTTYPENAME";
+            dataGridViewCellStyle4.NullValue = "Thu ngân 1";
+            this.LoaiPhongBan.DefaultCellStyle = dataGridViewCellStyle4;
+            this.LoaiPhongBan.HeaderText = "Loại phòng ban";
+            this.LoaiPhongBan.Name = "LoaiPhongBan";
+            this.LoaiPhongBan.ReadOnly = true;
+            // 
+            // TenVietTatLoaiPhongBan
+            // 
+            this.TenVietTatLoaiPhongBan.DataPropertyName = "_DEPARTMENTTYPEID";
+            this.TenVietTatLoaiPhongBan.HeaderText = "TenVietTatLoaiPhongBan";
+            this.TenVietTatLoaiPhongBan.Name = "TenVietTatLoaiPhongBan";
+            this.TenVietTatLoaiPhongBan.ReadOnly = true;
+            this.TenVietTatLoaiPhongBan.Visible = false;
+            // 
+            // MoTa
+            // 
+            this.MoTa.DataPropertyName = "_DEPARTMENTDESCRIPTION";
+            this.MoTa.HeaderText = "Mô tả";
+            this.MoTa.Name = "MoTa";
+            this.MoTa.ReadOnly = true;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.Checked = true;
+            this.TrangThai.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.TrangThai.CheckValue = null;
+            this.TrangThai.DataPropertyName = "_DEPARTMENTSTATUS";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.TrangThai.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // panelEx3
             // 
             this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
@@ -515,71 +580,6 @@
             this.txt_TimKiem.Size = new System.Drawing.Size(150, 26);
             this.txt_TimKiem.TabIndex = 1;
             this.txt_TimKiem.TextChanged += new System.EventHandler(this.txt_TimKiem_TextChanged);
-            // 
-            // STT
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "1";
-            this.STT.DefaultCellStyle = dataGridViewCellStyle1;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // TenVietTat
-            // 
-            this.TenVietTat.DataPropertyName = "_DEPARTMENTID";
-            dataGridViewCellStyle2.NullValue = "B1";
-            this.TenVietTat.DefaultCellStyle = dataGridViewCellStyle2;
-            this.TenVietTat.HeaderText = "Tên viết tắt";
-            this.TenVietTat.Name = "TenVietTat";
-            this.TenVietTat.ReadOnly = true;
-            // 
-            // PhongBan1
-            // 
-            this.PhongBan1.DataPropertyName = "_DEPARTMENTNAME";
-            dataGridViewCellStyle3.NullValue = "Bàn thu ngân 1";
-            this.PhongBan1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PhongBan1.HeaderText = "Phòng ban";
-            this.PhongBan1.Name = "PhongBan1";
-            this.PhongBan1.ReadOnly = true;
-            // 
-            // LoaiPhongBan
-            // 
-            this.LoaiPhongBan.DataPropertyName = "_DEPARTMENTTYPENAME";
-            dataGridViewCellStyle4.NullValue = "Thu ngân 1";
-            this.LoaiPhongBan.DefaultCellStyle = dataGridViewCellStyle4;
-            this.LoaiPhongBan.HeaderText = "Loại phòng ban";
-            this.LoaiPhongBan.Name = "LoaiPhongBan";
-            this.LoaiPhongBan.ReadOnly = true;
-            // 
-            // TenVietTatLoaiPhongBan
-            // 
-            this.TenVietTatLoaiPhongBan.DataPropertyName = "_DEPARTMENTTYPEID";
-            this.TenVietTatLoaiPhongBan.HeaderText = "TenVietTatLoaiPhongBan";
-            this.TenVietTatLoaiPhongBan.Name = "TenVietTatLoaiPhongBan";
-            this.TenVietTatLoaiPhongBan.ReadOnly = true;
-            this.TenVietTatLoaiPhongBan.Visible = false;
-            // 
-            // MoTa
-            // 
-            this.MoTa.DataPropertyName = "_DEPARTMENTDESCRIPTION";
-            this.MoTa.HeaderText = "Mô tả";
-            this.MoTa.Name = "MoTa";
-            this.MoTa.ReadOnly = true;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.Checked = true;
-            this.TrangThai.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.TrangThai.CheckValue = null;
-            this.TrangThai.DataPropertyName = "_DEPARTMENTSTATUS";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.TrangThai.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TrangThai.HeaderText = "Trạng thái";
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frm_Department
             // 

@@ -126,6 +126,8 @@ namespace GUI.QuanTriHeThong
             loadDatagrid();
             focus();
 
+            btn_ChinhSua.Enabled = false;
+
             lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" + " " + totalcount + " phòng ban";
         
         }//end
@@ -245,6 +247,7 @@ namespace GUI.QuanTriHeThong
         private void btn_huy_Click(object sender, EventArgs e)
         {
             Huy();
+            focus();
         }//end
 
 
@@ -257,6 +260,7 @@ namespace GUI.QuanTriHeThong
         private void grd_PhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             focus();
+            btn_ChinhSua.Enabled = true;
            
         }//end
 
