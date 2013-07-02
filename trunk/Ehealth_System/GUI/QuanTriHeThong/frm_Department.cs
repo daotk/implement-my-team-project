@@ -163,6 +163,7 @@ namespace GUI.QuanTriHeThong
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
             cbo_LoaiPhongban.Text="";
+            cbo_LoaiPhongban.SelectedIndex = 0;
         }//end
 
         /// <summary>
@@ -178,16 +179,23 @@ namespace GUI.QuanTriHeThong
                 {
                     MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
+                }//end if
                 if (txt_phongBan.Text == null || txt_phongBan.Text == "")
                 {
                     MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
+                }//end if
+
+                if (cbo_LoaiPhongban.Text == null || cbo_LoaiPhongban.Text == "")
+                {
+                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }//end if
+
                 int i = Department_BL.add(txt_TenVietTat.Text, txt_phongBan.Text, cbo_LoaiPhongban.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo");
+                    MessageBox.Show("Phòng ban đã tồn tại trong hệ thống", "Thông báo");
                 }
                 else
                 {
@@ -216,7 +224,7 @@ namespace GUI.QuanTriHeThong
                 }
                 else
                 {
-                    MessageBox.Show("Loại phòng ban đã được chỉnh sửa thành công", "Thông báo");
+                    MessageBox.Show("Danh mục phòng ban đã được chỉnh sửa thành công", "Thông báo");
                 }
             }
             loadDatagrid();

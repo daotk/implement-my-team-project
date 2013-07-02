@@ -113,7 +113,7 @@ namespace GUI.QuanTriHeThong
                 int i = TypeDepartment_BL.add(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo");
+                    MessageBox.Show("Loại phòng ban đã tồn tại trong hệ thống", "Thông báo");
                 }
                 else
                 {
@@ -137,7 +137,7 @@ namespace GUI.QuanTriHeThong
                 }
                 else
                 {
-                    MessageBox.Show("Loại phòng ban đã được chỉnh sửa thành công", "Thông báo");
+                    MessageBox.Show("Danh mục loại phòng ban đã được chỉnh sửa thành công", "Thông báo");
                 }
             }
             loadDatagrid();
