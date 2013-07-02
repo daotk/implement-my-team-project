@@ -292,10 +292,11 @@
             // 
             // cbo_ChonBan
             // 
+            this.cbo_ChonBan.DrawIconsBar = false;
             this.cbo_ChonBan.LabelWidth = 100;
             this.cbo_ChonBan.Text = "Chọn bàn";
             this.cbo_ChonBan.TextBoxText = "";
-            this.cbo_ChonBan.TextBoxWidth = 120;
+            this.cbo_ChonBan.TextBoxWidth = 150;
             // 
             // cbo_ChonDonVi
             // 
@@ -303,7 +304,8 @@
             this.cbo_ChonDonVi.LabelWidth = 100;
             this.cbo_ChonDonVi.Text = "Chọn đơn vị";
             this.cbo_ChonDonVi.TextBoxText = "";
-            this.cbo_ChonDonVi.TextBoxWidth = 120;
+            this.cbo_ChonDonVi.TextBoxWidth = 150;
+            this.cbo_ChonDonVi.TextBoxTextChanged += new System.EventHandler(this.cbo_ChonDonVi_TextBoxTextChanged);
             // 
             // tp_BaoCao
             // 

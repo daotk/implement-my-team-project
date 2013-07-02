@@ -26,6 +26,7 @@ namespace GUI
         string doanhthu = "Thống kê doanh thu";
         string nhaplieu1 = "Nhập liệu 1";
         string thungan1 = "Thu ngân 1";
+        string madonvi = "";
      
         public frm_MainForm()
         {
@@ -45,14 +46,12 @@ namespace GUI
             lbl_NgayGio.Text ="Giờ: "+ DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
             SetAuthorization(BL.StaticClass.Authorization);
             timer1.Start();
-
-            List<DO.ThuNgan.TypeDepartment_TN_DO> ds = BL.ThuNgan.TypeDepartment_TN_BL.GetTypeDepart();
+            //Load don vi
+            List<DO.ThuNgan.Department_TN_DO> ds = BL.ThuNgan.Department_TN_BL.GetAllDepart();
             for (int i = 0; i < ds.Count(); i++)
             {
                 if(ds[i]._DEPARTMENTTYPEID.Contains("TN"))
-                {
-                    
-                  //  cbo_ChonDonVi.DropDownItems.Add();
+                {                
                     RibbonButton btn = new RibbonButton();
                     btn.Text = ds[i]._DEPARTMENTNAME.ToString();
                     cbo_ChonDonVi.DropDownItems.Add(btn);
@@ -60,9 +59,21 @@ namespace GUI
             }
            
 
+        }
 
-
-
+        private void cbo_ChonDonVi_TextBoxTextChanged(object sender, EventArgs e)
+        {
+            cbo_ChonBan.DropDownItems.Clear();
+            List<DO.ThuNgan.Desk_DO> ds = BL.ThuNgan.Desk_BL.GetAllDesk();
+            for (int i = 0; i < ds.Count(); i++)
+            {
+                if (ds[i]._DEPARTMENTNAME.Contains(cbo_ChonDonVi.SelectedItem.Text.ToString()))
+                {      
+                    RibbonButton btn = new RibbonButton();
+                    btn.Text = ds[i]._DESKNAME.ToString();
+                    cbo_ChonBan.DropDownItems.Add(btn);
+                }
+            }
 
         }
         private void LoadHospitalName()
@@ -516,6 +527,8 @@ namespace GUI
             if (authorization[12].ToString() == "0") { btn_DanhSachThuTienTheoNhomDichVu.Enabled = false; }
             if (authorization[13].ToString() == "0") { btn_DoanhThu.Enabled = false; }
         }
+
+     
 
      
 
