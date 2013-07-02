@@ -57,6 +57,7 @@
     <Compile Include="QuanTriHeThong\UserGroup_BL.cs" />
     <Compile Include="QuanTriHeThong\User_BL.cs" />
     <Compile Include="ThuNgan\Department_TN_BL.cs" />
+    <Compile Include="ThuNgan\Desk_BL.cs" />
     <Compile Include="ThuNgan\TypeDepartment_TN_BL.cs" />
   </ItemGroup>
   <ItemGroup>
