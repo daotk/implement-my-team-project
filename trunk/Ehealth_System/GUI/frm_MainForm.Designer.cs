@@ -299,6 +299,7 @@
             // 
             // cbo_ChonDonVi
             // 
+            this.cbo_ChonDonVi.DrawIconsBar = false;
             this.cbo_ChonDonVi.LabelWidth = 100;
             this.cbo_ChonDonVi.Text = "Chọn đơn vị";
             this.cbo_ChonDonVi.TextBoxText = "";
@@ -541,12 +542,6 @@
         private System.Windows.Forms.RibbonTab tp_ThuNgan;
         private System.Windows.Forms.RibbonTab tp_BaoCao;
         private System.Windows.Forms.RibbonTab tp_TroGiop;
-        private System.Windows.Forms.RibbonButton ribbonButton6;
-        private System.Windows.Forms.RibbonButton ribbonButton7;
-        private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem1;
-        private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem2;
-        private System.Windows.Forms.RibbonOrbOptionButton ribbonOrbOptionButton1;
-        private System.Windows.Forms.RibbonSeparator ribbonSeparator1;
         private System.Windows.Forms.RibbonButton btn_CauHinh;
         private System.Windows.Forms.RibbonButton btn_Logout;
         private System.Windows.Forms.RibbonButton btn_Changepass;

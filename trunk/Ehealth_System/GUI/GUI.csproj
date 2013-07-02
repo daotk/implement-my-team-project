@@ -220,6 +220,12 @@
     <Compile Include="QuanTriHeThong\frm_City.Designer.cs">
       <DependentUpon>frm_City.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanTriHeThong\frm_ViewDetailDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanTriHeThong\frm_ViewDetailDepartment.designer.cs">
+      <DependentUpon>frm_ViewDetailDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThuNgan\frm_Cashier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanTriHeThong\frm_City.resx">
       <DependentUpon>frm_City.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanTriHeThong\frm_ViewDetailDepartment.resx">
+      <DependentUpon>frm_ViewDetailDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThuNgan\frm_Cashier.resx">
       <DependentUpon>frm_Cashier.cs</DependentUpon>
@@ -521,6 +530,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backround2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewDetail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

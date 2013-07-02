@@ -11,8 +11,6 @@ namespace GUI.BaoCao
 {
     public partial class DSBienLaiDuocThuTien : Form
     {
-        bool add = false;
-        bool addnam = false;
         public DSBienLaiDuocThuTien()
         {
             InitializeComponent();
