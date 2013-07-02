@@ -115,12 +115,12 @@ namespace GUI.QuanTriHeThong
             {
                 if (txt_TenVietTat.Text == null || txt_TenVietTat.Text == "")
                 {
-                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn chưa nhập tên viết tắt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 if (txt_TenTinhThanh.Text == null || txt_TenTinhThanh.Text == "")
                 {
-                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn chưa nhập tên tỉnh thành", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 int i = City_BL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
@@ -138,17 +138,17 @@ namespace GUI.QuanTriHeThong
                 txt_TenVietTat.Enabled = false;
                 if (txt_TenTinhThanh.Text == null || txt_TenTinhThanh.Text == "")
                 {
-                    MessageBox.Show("Chưa nhập tên tỉnh thành", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn hưa nhập tên tỉnh thành", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 int i = City_BL.edit(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Tên viết tắt đã tồn tại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Danh mục tỉnh – thành phố đã được chỉnh sửa thành công", "Thông báo");
+                    MessageBox.Show("Tỉnh – thành phố đã được chỉnh sửa thành công", "Thông báo");
                 }
             }
             loadDatagrid();
