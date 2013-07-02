@@ -11,8 +11,6 @@ namespace GUI.BaoCao
 {
     public partial class frm_ListBill : Form
     {
-        bool add = false;
-        bool addnam = false;
         public frm_ListBill()
         {
             InitializeComponent();

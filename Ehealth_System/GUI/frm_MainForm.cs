@@ -45,6 +45,25 @@ namespace GUI
             lbl_NgayGio.Text ="Giờ: "+ DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
             SetAuthorization(BL.StaticClass.Authorization);
             timer1.Start();
+
+            List<DO.ThuNgan.TypeDepartment_TN_DO> ds = BL.ThuNgan.TypeDepartment_TN_BL.GetTypeDepart();
+            for (int i = 0; i < ds.Count(); i++)
+            {
+                if(ds[i]._DEPARTMENTTYPEID.Contains("TN"))
+                {
+                    
+                  //  cbo_ChonDonVi.DropDownItems.Add();
+                    RibbonButton btn = new RibbonButton();
+                    btn.Text = ds[i]._DEPARTMENTNAME.ToString();
+                    cbo_ChonDonVi.DropDownItems.Add(btn);
+                }
+            }
+           
+
+
+
+
+
         }
         private void LoadHospitalName()
         {
