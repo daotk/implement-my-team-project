@@ -77,7 +77,15 @@ namespace GUI.QuanTriHeThong
                 txt_TenVietTat.Text = grd_QuanHuyen.Rows[i].Cells[1].Value.ToString();
                 txt_TenQuanHuyen.Text = grd_QuanHuyen.Rows[i].Cells[2].Value.ToString();
                 cbo_TinhThanhPho.SelectedValue = grd_QuanHuyen.Rows[i].Cells[3].Value.ToString();
-                txt_MoTa.Text = grd_QuanHuyen.Rows[i].Cells[5].Value.ToString();
+                if (grd_QuanHuyen.Rows[i].Cells[5].Value == null)
+                {
+                    txt_MoTa.Text = "";
+                }
+                else
+                {
+                    txt_MoTa.Text = grd_QuanHuyen.Rows[i].Cells[5].Value.ToString();
+                }
+
                 if (Convert.ToBoolean(grd_QuanHuyen.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
@@ -138,11 +146,11 @@ namespace GUI.QuanTriHeThong
                 int i = District_BL.add(txt_TenVietTat.Text, txt_TenQuanHuyen.Text, cbo_TinhThanhPho.SelectedValue.ToString(), txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo");
+                    MessageBox.Show("Tên viết tắt đã tồn tại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Danh mục quận - huyện đã được tạo thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Quận - huyện đã được tạo thành công", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }

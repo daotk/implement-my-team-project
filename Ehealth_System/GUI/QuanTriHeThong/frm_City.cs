@@ -69,7 +69,15 @@ namespace GUI.QuanTriHeThong
                 i = grd_ThanhPho.SelectedCells[0].RowIndex;
                 txt_TenVietTat.Text = grd_ThanhPho.Rows[i].Cells[1].Value.ToString();
                 txt_TenTinhThanh.Text = grd_ThanhPho.Rows[i].Cells[2].Value.ToString();
-                txt_MoTa.Text = grd_ThanhPho.Rows[i].Cells[3].Value.ToString();
+                if (grd_ThanhPho.Rows[i].Cells[3].Value == null)
+                {
+                    txt_MoTa.Text = "";
+                }
+                else
+                {
+                    txt_MoTa.Text = grd_ThanhPho.Rows[i].Cells[3].Value.ToString();
+                }
+
                 if (Convert.ToBoolean(grd_ThanhPho.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
@@ -118,11 +126,11 @@ namespace GUI.QuanTriHeThong
                 int i = City_BL.add(txt_TenVietTat.Text, txt_TenTinhThanh.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                 if (i == -1)
                 {
-                    MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Tên viết tắt đã tồn tại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Danh mục tỉnh – thành phố đã được tạo thành công", "Thông báo");
+                    MessageBox.Show("Tỉnh – thành phố đã được tạo thành công", "Thông báo");
                 }
             }
             if (flag_sua == true)
