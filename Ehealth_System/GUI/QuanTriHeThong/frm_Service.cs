@@ -52,11 +52,12 @@ namespace GUI.QuanTriHeThong
             txt_MoTa.Enabled = false;
             cbo_NhomDichVu.Enabled = false;
         }
-
+        private string status;
         private void btn_ThemMoi_Click(object sender, EventArgs e)
         {
             if (btn_ThemMoi.Text == "Thêm mới")
             {
+                status = "Create";
                 btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
@@ -69,34 +70,72 @@ namespace GUI.QuanTriHeThong
                 txt_MoTa.Enabled = true;
                 cbo_NhomDichVu.Enabled = true;
             }
-            else {
-                if (btn_ThemMoi.Text == "Lưu")
+            else 
+            {
+                if (status == "Create")
                 {
-                    //Luu
-                    BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text,cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                    MessageBox.Show("Danh mục Dịch vụ đã được tạo thành công","Thông báo");
-                    LoadDSService();
+                    if (btn_ThemMoi.Text == "Lưu")
+                    {
+                        //Luu
+                        if (txt_TenVietTat.Text != "" && txt_DichVu.Text != "" && txt_GiaTien.Text != "" && cbo_LocTheoNhomDichVu.Text != "")
+                        {
+                            if (CheckID() == false)
+                            {
+                                BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                                MessageBox.Show("Danh mục Dịch vụ đã được tạo thành công", "Thông báo");
+                                LoadDSService();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tên viết tắt đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn chưa nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
                 }
-                else {
-                    if (btn_ThemMoi.Text == "Cập Nhật") {
-                        BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                        MessageBox.Show("Danh mục Dịch vụ đã được chỉnh sửa thành công","Thông báo");
-                        LoadDSService();
+                else
+                {
+                    if (status == "Edit")
+                    {
+                        if (btn_ThemMoi.Text == "Lưu")
+                        {
+                            BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                            MessageBox.Show("Danh mục Dịch vụ đã được chỉnh sửa thành công", "Thông báo");
+                            LoadDSService();
+                        }
                     }
                 }
             }
         }
 
+
+        private bool CheckID()
+        {
+            bool result=false;
+            List<DO.QuanTriHeThong.ServiceDO> ds = BL.QuanTriHeThong.ServiceBL.GetService();
+            for (int i = 0; i < ds.Count; i++)
+            {
+                if (ds[i].serviceid_ == txt_TenVietTat.Text)
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
         private void btn_ChinhSua_Click(object sender, EventArgs e)
         {
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
-                btn_ThemMoi.Text = "Cập Nhật";
+                btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
                 btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
                 btn_ChinhSua.Enabled = true;
-                txt_TenVietTat.Enabled = true;
+                txt_TenVietTat.Enabled = false;
                 txt_DichVu.Enabled = true;
                 txt_GiaTien.Enabled = true;
                 chk_TrangThai.Enabled = true;

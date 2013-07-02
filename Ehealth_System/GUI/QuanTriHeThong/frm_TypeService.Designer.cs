@@ -118,6 +118,7 @@
             this.txt_TenVietTat.Enabled = false;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenVietTat.Location = new System.Drawing.Point(116, 90);
+            this.txt_TenVietTat.MaxLength = 2;
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(173, 26);
             this.txt_TenVietTat.TabIndex = 78;
@@ -336,6 +337,7 @@
             this.grd_NhomDichVu.Location = new System.Drawing.Point(0, 34);
             this.grd_NhomDichVu.MultiSelect = false;
             this.grd_NhomDichVu.Name = "grd_NhomDichVu";
+            this.grd_NhomDichVu.ReadOnly = true;
             this.grd_NhomDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_NhomDichVu.Size = new System.Drawing.Size(965, 516);
             this.grd_NhomDichVu.TabIndex = 1;
@@ -349,6 +351,7 @@
             this.STT.DefaultCellStyle = dataGridViewCellStyle1;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             this.STT.Width = 61;
             // 
             // TenVietTat
@@ -357,6 +360,7 @@
             this.TenVietTat.DataPropertyName = "_SERVICEGROUPID";
             this.TenVietTat.HeaderText = "Tên viết tắt";
             this.TenVietTat.Name = "TenVietTat";
+            this.TenVietTat.ReadOnly = true;
             this.TenVietTat.Width = 130;
             // 
             // NhomDichVu1
@@ -365,6 +369,7 @@
             this.NhomDichVu1.DataPropertyName = "_SERVICEGROUPNAME";
             this.NhomDichVu1.HeaderText = "Nhóm dịch vụ";
             this.NhomDichVu1.Name = "NhomDichVu1";
+            this.NhomDichVu1.ReadOnly = true;
             this.NhomDichVu1.Width = 250;
             // 
             // MoTa
@@ -372,6 +377,7 @@
             this.MoTa.DataPropertyName = "_SERVICEBROUPDESCRIPTION";
             this.MoTa.HeaderText = "Mô tả";
             this.MoTa.Name = "MoTa";
+            this.MoTa.ReadOnly = true;
             // 
             // TrangThai
             // 
@@ -384,6 +390,7 @@
             this.TrangThai.DefaultCellStyle = dataGridViewCellStyle2;
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
             // 
             // panelEx3
             // 
