@@ -741,7 +741,6 @@
 
         #endregion
 
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private DevComponents.DotNetBar.Controls.CheckBoxX chk_TrangThai;
         private DevComponents.DotNetBar.Controls.DataGridViewX grd_QuanHuyen;
         private DevComponents.DotNetBar.LabelX lbl_TrangThai;
