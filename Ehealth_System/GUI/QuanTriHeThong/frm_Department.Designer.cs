@@ -175,7 +175,7 @@
             this.cbo_LoaiPhongban.Location = new System.Drawing.Point(124, 229);
             this.cbo_LoaiPhongban.MaxLength = 50;
             this.cbo_LoaiPhongban.Name = "cbo_LoaiPhongban";
-            this.cbo_LoaiPhongban.Size = new System.Drawing.Size(170, 26);
+            this.cbo_LoaiPhongban.Size = new System.Drawing.Size(173, 26);
             this.cbo_LoaiPhongban.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbo_LoaiPhongban.TabIndex = 5;
             this.cbo_LoaiPhongban.SelectedIndexChanged += new System.EventHandler(this.cbo_LoaiPhongban_SelectedIndexChanged);
@@ -217,7 +217,7 @@
             this.txt_TenVietTat.Border.Class = "TextBoxBorder";
             this.txt_TenVietTat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_TenVietTat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TenVietTat.Location = new System.Drawing.Point(124, 137);
+            this.txt_TenVietTat.Location = new System.Drawing.Point(123, 137);
             this.txt_TenVietTat.MaxLength = 15;
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(173, 26);
@@ -328,7 +328,7 @@
             this.txt_MoTa.Border.Class = "TextBoxBorder";
             this.txt_MoTa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_MoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MoTa.Location = new System.Drawing.Point(121, 272);
+            this.txt_MoTa.Location = new System.Drawing.Point(124, 272);
             this.txt_MoTa.MaxLength = 400;
             this.txt_MoTa.Multiline = true;
             this.txt_MoTa.Name = "txt_MoTa";
@@ -357,7 +357,7 @@
             this.txt_phongBan.Border.Class = "TextBoxBorder";
             this.txt_phongBan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt_phongBan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_phongBan.Location = new System.Drawing.Point(121, 178);
+            this.txt_phongBan.Location = new System.Drawing.Point(123, 178);
             this.txt_phongBan.MaxLength = 50;
             this.txt_phongBan.Name = "txt_phongBan";
             this.txt_phongBan.Size = new System.Drawing.Size(173, 26);
