@@ -73,6 +73,7 @@ namespace GUI.QuanTriHeThong
             chk_TrangThai.Checked = dsuser[0]._SERVICEGROUPSTATUS;
 
         }
+        private string status;
         /// <summary>
         /// chon chuc nang them moi nhom dich vu
         /// </summary>
@@ -82,6 +83,7 @@ namespace GUI.QuanTriHeThong
         {
             if (btn_ThemMoi.Text == "Thêm mới")
             {
+                status = "Create";
                 btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
@@ -92,29 +94,57 @@ namespace GUI.QuanTriHeThong
             }
             else
             {
-                if (btn_ThemMoi.Text == "Lưu")
+                if (status == "Create")
                 {
-                    if (Check())
+                    if (btn_ThemMoi.Text == "Lưu")
                     {
-                        BL.QuanTriHeThong.GroupService_BL.CreateGroupService(txt_TenVietTat.Text, txt_NhomDichVu.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                        MessageBox.Show("Danh mục Nhóm dịch vụ đã được tạo thành công","Thông báo");
-                        LoadGroupService();
-                        Pank();
+                        if (Check())
+                        {
+                            if (CheckID() == false)
+                            {
+                                BL.QuanTriHeThong.GroupService_BL.CreateGroupService(txt_TenVietTat.Text, txt_NhomDichVu.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                                MessageBox.Show("Danh mục Nhóm dịch vụ đã được tạo thành công", "Thông báo");
+                                LoadGroupService();
+                                Pank();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tên viết tắt đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
                     }
                 }
                 else
                 {
                     if (Check())
                     {
-                        if (btn_ThemMoi.Text == "Cập Nhật")
+                        if (status == "Edit")
                         {
-                            BL.QuanTriHeThong.GroupService_BL.EditGroupService(txt_TenVietTat.Text, txt_NhomDichVu.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                            MessageBox.Show("Danh mục Nhóm dịch vụ đã được chỉnh sửa thành công");
-                            LoadGroupService();
+                            if (btn_ThemMoi.Text == "Lưu")
+                            {
+                                BL.QuanTriHeThong.GroupService_BL.EditGroupService(txt_TenVietTat.Text, txt_NhomDichVu.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                                MessageBox.Show("Danh mục Nhóm dịch vụ đã được chỉnh sửa thành công");
+                                LoadGroupService();
+                            }
                         }
                     }
                 }
             }
+        }
+
+        private bool CheckID()
+        {
+            bool result = false;
+            List<DO.QuanTriHeThong.GroupService_DO> ds = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
+            for (int i = 0; i < ds.Count; i++)
+            {
+                if (ds[i]._SERVICEGROUPID == txt_TenVietTat.Text)
+                {
+                    result = true;   
+                    break;
+                }
+            }
+            return result;
         }
         /// <summary>
         /// chon chuc nang chinh sua thong tin nhom dich vu
@@ -125,27 +155,27 @@ namespace GUI.QuanTriHeThong
         {
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
-                btn_ThemMoi.Text = "Cập Nhật";
+                status = "Edit";
+                btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Enabled = true;
                 btn_ChinhSua.Text = "Hủy bỏ";
                 btn_ChinhSua.Image = global::GUI.Properties.Resources.cancel1;
                 btn_ChinhSua.Enabled = true;
                 txt_TenVietTat.Enabled = false;
-                Enable();
+                txt_NhomDichVu.Enabled = true;
+                chk_TrangThai.Enabled = true;
+                txt_MoTa.Enabled = true;               
             }
             else
-            {
-                
+            {            
                 if (btn_ChinhSua.Text == "Hủy bỏ")
-                {
-                    
+                {                
                     btn_ThemMoi.Text = "Thêm mới";
                     btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                     btn_ChinhSua.Text = "Chỉnh sửa";                
                     btn_ChinhSua.Image = global::GUI.Properties.Resources.Edit_icon;
                     Disiable();
-
                 }
             }
         }
