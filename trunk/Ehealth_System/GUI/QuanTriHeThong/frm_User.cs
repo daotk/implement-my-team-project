@@ -12,12 +12,12 @@ namespace GUI.QuanTriHeThong
 {
     public partial class frm_User : Form
     {
-        
+
         public frm_User()
         {
             InitializeComponent();
         }
-        
+
 
         private void buttonX3_Click(object sender, EventArgs e)
         {
@@ -122,30 +122,17 @@ namespace GUI.QuanTriHeThong
                     {
                         if (txt_MaNhanVien.Text != "" && txt_HoTen.Text != "" && cbo_NhomNguoiDung.SelectedValue.ToString() != "" && txt_TaiKhoan.Text != "" && txt_MatKhau.Text != "")
                         {
-                            List<DO.QuanTriHeThong.User_DO> ds = BL.QuanTriHeThong.User_BL.GetAllUserInfo();
-                            for (int i = 0; i < ds.Count; i++)
-                            {
-                                if (ds[i]._ACCOUNT == txt_TaiKhoan.Text||ds[i]._USERID == txt_MaNhanVien.Text)
-                                {
-                                    MessageBox.Show("Tên viết tắt hoặc tên tài khoản đã tồn tại","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                                    break;
-                                }
-                                else
-                                {
-                                    string manhanvien = txt_MaNhanVien.Text;
-                                    string hoten = txt_HoTen.Text;
-                                    string email = txt_Email.Text;
-                                    string taikhoan = txt_TaiKhoan.Text;
-                                    string matkhau = BL.MD5_BL.GetMD5(txt_MatKhau.Text);
-                                    string nhomnguoidung = cbo_NhomNguoiDung.SelectedValue.ToString();
-                                    bool trangthai = chk_TrangThai.Checked;
-                                    BL.QuanTriHeThong.User_BL.InsertUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
-                                    MessageBox.Show("Người dùng đã được tạo thành công", "Thông báo");
-                                    LoadUserInfo();
-                                    StatusCancel();
-                                    break;
-                                }
-                            }
+                            string manhanvien = txt_MaNhanVien.Text;
+                            string hoten = txt_HoTen.Text;
+                            string email = txt_Email.Text;
+                            string taikhoan = txt_TaiKhoan.Text;
+                            string matkhau = BL.MD5_BL.GetMD5(txt_MatKhau.Text);
+                            string nhomnguoidung = cbo_NhomNguoiDung.SelectedValue.ToString();
+                            bool trangthai = chk_TrangThai.Checked;
+                            BL.QuanTriHeThong.User_BL.InsertUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
+                            MessageBox.Show("Người dùng đã được tạo thành công", "Thông báo");
+                            LoadUserInfo();
+                            StatusCancel();
                         }
                         else
                         {
@@ -165,11 +152,12 @@ namespace GUI.QuanTriHeThong
                             string hoten = txt_HoTen.Text;
                             string email = txt_Email.Text;
                             string taikhoan = txt_TaiKhoan.Text;
+                            string matkhau = BL.MD5_BL.GetMD5(txt_MatKhau.Text);
                             string nhomnguoidung = cbo_NhomNguoiDung.SelectedValue.ToString();
                             bool trangthai = chk_TrangThai.Checked;
-                            if (txt_MaNhanVien.Text != "" && txt_HoTen.Text != "" && cbo_NhomNguoiDung.SelectedValue.ToString() != "" && txt_TaiKhoan.Text != "")
+                            if (txt_MaNhanVien.Text != "" && txt_HoTen.Text != "" && cbo_NhomNguoiDung.SelectedValue.ToString() != "" && txt_TaiKhoan.Text != "" && txt_MatKhau.Text != "")
                             {
-                                BL.QuanTriHeThong.User_BL.UpdateUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, trangthai);
+                                BL.QuanTriHeThong.User_BL.UpdateUser(manhanvien, hoten, email, nhomnguoidung, taikhoan, matkhau, trangthai);
                                 MessageBox.Show("Người dùng đã được chỉnh sửa thành công", "Thông báo");
                                 LoadUserInfo();
                                 StatusCancel();
@@ -195,7 +183,7 @@ namespace GUI.QuanTriHeThong
             if (btn_ChinhSua.Text == "Chỉnh sửa")
             {
                 ///xu ly chinh sua
-                 StatusSave = "Edit";
+                StatusSave = "Edit";
                 btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
@@ -203,6 +191,8 @@ namespace GUI.QuanTriHeThong
                 txt_HoTen.Enabled = true;
                 txt_Email.Enabled = true;
                 txt_TaiKhoan.Enabled = true;
+                txt_MatKhau.Enabled = true;
+                txt_MatKhau.Text = "";
                 cbo_NhomNguoiDung.Enabled = true;
                 chk_TrangThai.Enabled = true;
 
@@ -230,9 +220,10 @@ namespace GUI.QuanTriHeThong
             btn_ChinhSua.Text = "Chỉnh sửa";
         }
 
-       
 
 
-       
+
+
     }
 }
+

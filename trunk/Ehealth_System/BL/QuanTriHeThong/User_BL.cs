@@ -67,9 +67,9 @@ namespace BL.QuanTriHeThong
         /// <param name="password"></param>
         /// <param name="status"></param>
         public static void UpdateUser(string IdUser, string hovaten, string email,
-         string nhomnguoidung, string taikhoan, bool status)
+         string nhomnguoidung, string taikhoan, string matkhau, bool status)
         {
-            DA.QuanTriHeThong.User_DA.UpdateUser(IdUser, hovaten, email, nhomnguoidung, taikhoan, status);
+            DA.QuanTriHeThong.User_DA.UpdateUser(IdUser, hovaten, email, nhomnguoidung, taikhoan, matkhau, status);
         }
         //
         public static void ChangePassword(string IdUser, string password)

@@ -36,6 +36,33 @@ namespace DA.QuanTriHeThong
 
 
 
+        public static int add(String ID, String name, String desscription, bool status)
+        {
+
+            using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
+            {
+                Entity.DepartmentType_Info depart = new Entity.DepartmentType_Info();
+                depart.DEPARTMENTTYPEID = ID;
+                depart.DEPARTMENTTYPENAME = name;
+                depart.DEPARTMENTTYPEDESCRIPTION = desscription;
+                depart.DEPARTMENTSTATUS = status;
+                entity.DepartmentType_Info.AddObject(depart);
+                try
+                {
+                    int num = entity.SaveChanges();
+                    return num;
+                }
+                catch
+                {
+                    return -1;
+                }
+
+            }
+        }//end
+
+
+
+
         public static List<DO.QuanTriHeThong.Desk_DO> GetAllDesk()
         {
             List<DO.QuanTriHeThong.Desk_DO> dsUser = new List<DO.QuanTriHeThong.Desk_DO>();
@@ -64,19 +91,7 @@ namespace DA.QuanTriHeThong
         /// <param name="desscription"></param>
         /// <param name="status"></param>
         /// <returns></returns>
-        public static void add(string ID, string name, string departID, bool status)
-        {
-            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
-            {
-                Entity.DeskCashier desk = new Entity.DeskCashier();
-                desk.DESKID = ID;
-                desk.DESKNAME = name;
-                desk.DEPARTMENTID = departID;
-                desk.DESKSTATUS = status;
-                dk.DeskCashiers.AddObject(desk);
-                dk.SaveChanges();
-            }
-        }
+
 
         public static int edit(String ID, String name, bool status)
         {
