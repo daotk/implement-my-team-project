@@ -169,7 +169,7 @@
             this.lbl_Title.Name = "lbl_Title";
             this.lbl_Title.Size = new System.Drawing.Size(224, 37);
             this.lbl_Title.TabIndex = 65;
-            this.lbl_Title.Text = "Danh muc Tỉnh-Thành";
+            this.lbl_Title.Text = "Danh mục Tỉnh-Thành";
             // 
             // lbl_TenTinhThanh
             // 
