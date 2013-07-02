@@ -67,7 +67,7 @@ namespace DA.QuanTriHeThong
 
 
         public static void UpdateUser(string IDUser, string HovaTen, string email,
-         string nhomnguoidung, string taikhoan, string password, bool status)
+         string nhomnguoidung, string taikhoan, bool status)
         {
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
@@ -78,7 +78,6 @@ namespace DA.QuanTriHeThong
                 query.EMAIL = email;
                 query.USERTYPEID = nhomnguoidung;
                 query.ACCOUNT = taikhoan;
-                query.PASSWORD = password;
                 query.STATUS = status;
                 dk.SaveChanges();
             }
