@@ -97,7 +97,7 @@ namespace GUI.QuanTriHeThong
                 txt_TenVietTat.Text = grd_PhongBan.Rows[i].Cells[1].Value.ToString();
                 txt_phongBan.Text = grd_PhongBan.Rows[i].Cells[2].Value.ToString();
                 cbo_LoaiPhongban.SelectedValue = grd_PhongBan.Rows[i].Cells[3].Value.ToString();
-                txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[5].Value.ToString();
+                //txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[5].Value.ToString();
                 if (Convert.ToBoolean(grd_PhongBan.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
@@ -261,6 +261,16 @@ namespace GUI.QuanTriHeThong
         {
             focus();
             btn_ChinhSua.Enabled = true;
+            if (grd_PhongBan.CurrentRow.Cells["LoaiPhongBan"].Value.ToString().Contains("Thu ngân"))
+            {
+                btn_Xemchitiêt.Visible = true;
+            }
+            else
+            {
+                btn_Xemchitiêt.Visible = false;
+            }
+
+
            
         }//end
 
@@ -313,6 +323,13 @@ namespace GUI.QuanTriHeThong
                     }
                 }
             }
+        }
+
+        private void btn_Xemchitiêt_Click(object sender, EventArgs e)
+        {
+            string id = grd_PhongBan.CurrentRow.Cells["TenVietTat"].Value.ToString();
+            frm_ViewDetailDepartment viewdetail = new frm_ViewDetailDepartment(id);
+            viewdetail.ShowDialog();
         }//end
 
 
