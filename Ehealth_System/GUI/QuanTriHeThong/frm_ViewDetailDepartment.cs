@@ -44,16 +44,21 @@ namespace GUI.QuanTriHeThong
         {
             grd_Ban.DataSource = BL.QuanTriHeThong.Desk_BL.GetDesk(departmentid);
         }
+
+
+        private void txt_TenBan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+   
         private void frm_ViewDetailDepartment_Load(object sender, EventArgs e)
         {
             loaddatagrid();
             btn_ChinhSua.Enabled = false;
         }
 
-        private void txt_TenBan_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void btn_huy_Click(object sender, EventArgs e)
         {
@@ -188,6 +193,7 @@ namespace GUI.QuanTriHeThong
             flag_sua = true;
             txt_TenVietTat.Enabled = false;
         }//end
+
 
 
     }
