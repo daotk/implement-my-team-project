@@ -213,7 +213,15 @@ namespace GUI.QuanTriHeThong
                 i = grd_LoaiPhongBan.SelectedCells[0].RowIndex;
                 txt_TenVietTat.Text = grd_LoaiPhongBan.Rows[i].Cells[1].Value.ToString();
                 txt_LoaiPhongBan.Text = grd_LoaiPhongBan.Rows[i].Cells[2].Value.ToString();
-                txt_MoTa.Text = grd_LoaiPhongBan.Rows[i].Cells[3].Value.ToString();
+                if (grd_LoaiPhongBan.Rows[i].Cells[3].Value == null)
+                {
+                    txt_MoTa.Text = "";
+                }
+                else
+                {
+                    txt_MoTa.Text = grd_LoaiPhongBan.Rows[i].Cells[3].Value.ToString();
+                }
+                //txt_MoTa.Text = grd_LoaiPhongBan.Rows[i].Cells[3].Value.ToString();
                 if (Convert.ToBoolean(grd_LoaiPhongBan.Rows[i].Cells[4].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }

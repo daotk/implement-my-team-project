@@ -98,6 +98,14 @@ namespace GUI.QuanTriHeThong
                 txt_phongBan.Text = grd_PhongBan.Rows[i].Cells[2].Value.ToString();
                 cbo_LoaiPhongban.SelectedValue = grd_PhongBan.Rows[i].Cells[3].Value.ToString();
                 //txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[5].Value.ToString();
+                if (grd_PhongBan.Rows[i].Cells[5].Value == null)
+                {
+                    txt_MoTa.Text = "";
+                }
+                else
+                {
+                    txt_MoTa.Text = grd_PhongBan.Rows[i].Cells[3].Value.ToString();
+                }
                 if (Convert.ToBoolean(grd_PhongBan.Rows[i].Cells[6].Value) == true) { chk_TrangThai.Checked = true; }
                 else { chk_TrangThai.Checked = false; }
             }
@@ -117,6 +125,8 @@ namespace GUI.QuanTriHeThong
             cbo_LoaiPhongban.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
             cbo_LoaiPhongban.DisplayMember = "_DEPARTMENTNAME";
             cbo_LoaiPhongban.ValueMember = "_DEPARTMENTTYPEID";
+            
+           
 
             cbo_LocTheoLoaiPhongBan.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
             cbo_LocTheoLoaiPhongBan.DisplayMember = "_DEPARTMENTNAME";
@@ -269,7 +279,7 @@ namespace GUI.QuanTriHeThong
         {
             focus();
             btn_ChinhSua.Enabled = true;
-            if (grd_PhongBan.CurrentRow.Cells["LoaiPhongBan"].Value.ToString().Contains("Thu ngân"))
+            if (grd_PhongBan.CurrentRow.Cells["LoaiPhongBan"].Value.ToString().Contains("Thu ngân") || grd_PhongBan.CurrentRow.Cells["LoaiPhongBan"].Value.ToString().Contains("Thu Ngân"))
             {
                 btn_Xemchitiêt.Visible = true;
             }
