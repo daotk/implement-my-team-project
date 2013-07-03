@@ -220,7 +220,7 @@
             this.lbl_Title.Name = "lbl_Title";
             this.lbl_Title.Size = new System.Drawing.Size(240, 37);
             this.lbl_Title.TabIndex = 59;
-            this.lbl_Title.Text = "Danh muc loại phòng ban";
+            this.lbl_Title.Text = "Danh mục loại phòng ban";
             // 
             // lbl_Note1
             // 
