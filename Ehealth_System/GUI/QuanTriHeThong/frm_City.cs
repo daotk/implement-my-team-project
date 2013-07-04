@@ -87,7 +87,7 @@ namespace GUI.QuanTriHeThong
         {
             loadDatagrid();
             focus();
-            lbl_KetQua.Text = "Kết quả: tìm được 0 trong tổng số " + totalcount;
+            lbl_KetQua.Text = "Kết quả: tìm được 0 trong tổng số " + totalcount+" Tỉnh thành";
         }
 
         private void btn_ThemMoi_Click(object sender, EventArgs e)
@@ -127,6 +127,7 @@ namespace GUI.QuanTriHeThong
                 if (i == -1)
                 {
                     MessageBox.Show("Tên viết tắt đã tồn tại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
@@ -145,6 +146,7 @@ namespace GUI.QuanTriHeThong
                 if (i == -1)
                 {
                     MessageBox.Show("Tên viết tắt đã tồn tại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
@@ -177,7 +179,7 @@ namespace GUI.QuanTriHeThong
         private void txt_TimKiem_TextChanged(object sender, EventArgs e)
         {
             grd_ThanhPho.DataSource = BL.QuanTriHeThong.City_BL.SearchCity(txt_TimKiem.Text);
-            lbl_KetQua.Text = "Kết quả: tìm được " + grd_ThanhPho.DisplayedRowCount(true) + " trong tổng số " + totalcount;
+            lbl_KetQua.Text = "Kết quả: tìm được " + grd_ThanhPho.DisplayedRowCount(true) + " trong tổng số " + totalcount+ " Tỉnh thành";
         }
     }
 }
