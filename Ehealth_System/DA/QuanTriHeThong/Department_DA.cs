@@ -14,7 +14,7 @@ namespace DA
            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
            {
                var query = from u in dk.Department_Info select u;
-               var query1 = from u in dk.DepartmentType_Info
+               var query1 = from u in dk.DepartmentType_Info 
                             select u;
                foreach (var row in query)
                {
@@ -32,6 +32,25 @@ namespace DA
            }
 
        }//end
+
+       public static List<DO.QuanTriHeThong.TypeDepartment_DO> GetAllDeparts1()
+       {
+           List<DO.QuanTriHeThong.TypeDepartment_DO> ListDepartment = new List<DO.QuanTriHeThong.TypeDepartment_DO>();
+           using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+           {
+               var query = from u in dk.DepartmentType_Info where u.DEPARTMENTSTATUS ==true select u;
+               foreach (var row in query)
+               {
+                   DO.QuanTriHeThong.TypeDepartment_DO depart = new DO.QuanTriHeThong.TypeDepartment_DO();
+                   depart._DEPARTMENTNAME = row.DEPARTMENTTYPENAME;
+                   depart._DEPARTMENTTYPEID = row.DEPARTMENTTYPEID;
+                   ListDepartment.Add(depart);
+               }
+               return ListDepartment;
+           }
+
+       }//end
+
 
 
        /// <summary>

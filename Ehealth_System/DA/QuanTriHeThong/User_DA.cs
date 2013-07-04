@@ -17,7 +17,7 @@ namespace DA.QuanTriHeThong
             List<User_DO> dsUser = new List<User_DO>();
             using (DA.Entity.EHealthSystemEntities dk = new DA.Entity.EHealthSystemEntities())
             {
-                var query = from u in dk.User_Info select u;
+                var query = from u in dk.User_Info  select u;
 
                 foreach (var row in query)
                 {
@@ -36,6 +36,25 @@ namespace DA.QuanTriHeThong
                 return dsUser;
             }
         }//end 
+
+        public static List<DO.QuanTriHeThong.UserGroup_DO> GetAllUser1()
+        {
+            List<DO.QuanTriHeThong.UserGroup_DO> ListDepartment = new List<DO.QuanTriHeThong.UserGroup_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.UserType_Info where u.USERTYPESTATUS == true select u;
+                foreach (var row in query)
+                {
+                    DO.QuanTriHeThong.UserGroup_DO depart = new DO.QuanTriHeThong.UserGroup_DO();
+                    depart.tennhom_ = row.USERTYPENAME;
+                    depart.tenviettat_ = row.USERTYPEID;
+                    ListDepartment.Add(depart);
+                }
+                return ListDepartment;
+            }
+
+        }//end
+
 
         /// <summary>
         /// Inser user

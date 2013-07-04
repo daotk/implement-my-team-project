@@ -38,6 +38,25 @@ namespace DA.QuanTriHeThong
             }
         }
 
+        public static List<DO.QuanTriHeThong.City_DO> GetAllDis1()
+        {
+            List<DO.QuanTriHeThong.City_DO> ListDepartment = new List<DO.QuanTriHeThong.City_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.City_Info where u.STATUSCITY == true select u;
+                foreach (var row in query)
+                {
+                    DO.QuanTriHeThong.City_DO depart = new DO.QuanTriHeThong.City_DO();
+                    depart._CITYNAME = row.CITYNAME;
+                    depart._CITYID = row.CITYID;
+                    ListDepartment.Add(depart);
+                }
+                return ListDepartment;
+            }
+
+        }//end
+
+
         //initialize new constructor to save data
         public static int add(String ID, String name, String CITYID, String desscription, bool status)
         {
