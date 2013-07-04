@@ -443,6 +443,7 @@
             this.grd_PhongBan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_PhongBan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_PhongBan.Location = new System.Drawing.Point(0, 35);
+            this.grd_PhongBan.MultiSelect = false;
             this.grd_PhongBan.Name = "grd_PhongBan";
             this.grd_PhongBan.ReadOnly = true;
             this.grd_PhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
