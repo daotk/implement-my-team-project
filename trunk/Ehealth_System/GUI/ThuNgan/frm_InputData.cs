@@ -223,7 +223,8 @@ namespace GUI.ThuNgan
                 else {
                     MessageBox.Show("Mã bệnh nhân không tồn tại");
                 }
-
+//--------------------------------------------------------------------
+                //Chau continous
                 
             }
             
