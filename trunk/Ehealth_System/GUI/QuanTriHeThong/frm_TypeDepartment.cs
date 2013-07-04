@@ -141,9 +141,12 @@ namespace GUI.QuanTriHeThong
                 }
             }
             loadDatagrid();
+            int j = TypeDepartment_BL.add(txt_TenVietTat.Text, txt_LoaiPhongBan.Text, txt_MoTa.Text, chk_TrangThai.Checked);
 
-
-            Huy();
+            if (j != -1)
+            {
+                Huy();
+            }
         }//end
 
 
