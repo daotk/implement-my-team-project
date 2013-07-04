@@ -122,7 +122,7 @@ namespace GUI.QuanTriHeThong
         {
             //TypeDepartment_BL bl = new TypeDepartment_BL();
             
-            cbo_LoaiPhongban.DataSource = BL.QuanTriHeThong.TypeDepartment_BL.GetAllDepartment();
+            cbo_LoaiPhongban.DataSource = BL.QuanTriHeThong.Department_BL.GetAllDepart1();
             cbo_LoaiPhongban.DisplayMember = "_DEPARTMENTNAME";
             cbo_LoaiPhongban.ValueMember = "_DEPARTMENTTYPEID";
             
@@ -238,7 +238,9 @@ namespace GUI.QuanTriHeThong
                 }
             }
             loadDatagrid();
+            
             Huy();
+            
         }//end
 
 
