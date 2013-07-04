@@ -59,6 +59,7 @@
     <Compile Include="ThuNgan\Department_TN_DO.cs" />
     <Compile Include="ThuNgan\Desk_DO.cs" />
     <Compile Include="ThuNgan\TypeDepartment_TN_DO.cs" />
+    <Compile Include="ThuNgan\TypistDO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
