@@ -373,6 +373,7 @@
             this.grd_LoaiPhongBan.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.grd_LoaiPhongBan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_LoaiPhongBan.Location = new System.Drawing.Point(0, 0);
+            this.grd_LoaiPhongBan.MultiSelect = false;
             this.grd_LoaiPhongBan.Name = "grd_LoaiPhongBan";
             this.grd_LoaiPhongBan.ReadOnly = true;
             this.grd_LoaiPhongBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -423,7 +424,7 @@
             this.DEPARTMENTSTATUS.Checked = true;
             this.DEPARTMENTSTATUS.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.DEPARTMENTSTATUS.CheckValue = null;
-            this.DEPARTMENTSTATUS.DataPropertyName = "_DEPARTMENTSTATUS";
+            this.DEPARTMENTSTATUS.DataPropertyName = "_DEPARTMENTTYPESTATUS";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DEPARTMENTSTATUS.DefaultCellStyle = dataGridViewCellStyle4;
             this.DEPARTMENTSTATUS.HeaderText = "Trạng thái";
