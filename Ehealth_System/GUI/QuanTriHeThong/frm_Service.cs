@@ -29,7 +29,7 @@ namespace GUI.QuanTriHeThong
             cbo_LocTheoNhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
             cbo_LocTheoNhomDichVu.ValueMember = "_SERVICEGROUPID";
 
-            cbo_NhomDichVu.DataSource = BL.QuanTriHeThong.GroupService_BL.GetGroupService();
+            cbo_NhomDichVu.DataSource = BL.QuanTriHeThong.ServiceBL.GetAllSer1();
             cbo_NhomDichVu.DisplayMember = "_SERVICEGROUPNAME";
             cbo_NhomDichVu.ValueMember = "_SERVICEGROUPID";
             LoadDSService();

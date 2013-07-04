@@ -47,7 +47,7 @@ namespace GUI.QuanTriHeThong
         /// </summary>
         private void LoadGroupUser()
         {
-            cbo_NhomNguoiDung.DataSource = BL.QuanTriHeThong.UserGroup_BL.GetAllUsserGroup();
+            cbo_NhomNguoiDung.DataSource = BL.QuanTriHeThong.User_BL.GetAllUser1();
             cbo_NhomNguoiDung.DisplayMember = "tennhom_";
             cbo_NhomNguoiDung.ValueMember = "tenviettat_";
             cbo_NhomNguoiDung.Text = "";

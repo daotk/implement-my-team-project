@@ -94,10 +94,13 @@ namespace GUI.QuanTriHeThong
         private void frm_District_Load(object sender, EventArgs e)
         {
 
-            City_BL bl = new City_BL();
-            cbo_TinhThanhPho.DataSource = bl.GetAllCity();
+          
+            cbo_TinhThanhPho.DataSource = BL.QuanTriHeThong.District_BL.GetAllDis1();
             cbo_TinhThanhPho.DisplayMember = "_CITYNAME";
             cbo_TinhThanhPho.ValueMember = "_CITYID";
+
+
+            City_BL bl = new City_BL();
             cbo_LocTheoTinhThanh.DataSource = bl.GetAllCity();
             cbo_LocTheoTinhThanh.DisplayMember = "_CITYNAME";
             cbo_LocTheoTinhThanh.ValueMember = "_CITYID";
