@@ -57,8 +57,6 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.btn_huy = new DevComponents.DotNetBar.ButtonX();
-            this.btn_Luu = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Ban)).BeginInit();
             this.panelEx2.SuspendLayout();
