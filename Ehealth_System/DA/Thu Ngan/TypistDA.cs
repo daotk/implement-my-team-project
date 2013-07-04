@@ -158,5 +158,17 @@ namespace DA.Thu_Ngan
             return mabill;
         }
 
+        public static void capnhatongtien(string maloaidichvu,string tongtien) {
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = (from u in dk.Bill_Info
+                             where u.BILLID == maloaidichvu
+                             select u).First();
+                query.BILLID = maloaidichvu;
+                query.BILLCOST = tongtien;
+                dk.SaveChanges();
+            }
+        }
+
     }
 }
