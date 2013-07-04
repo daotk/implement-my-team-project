@@ -373,6 +373,7 @@
             this.grd_ThanhPho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_ThanhPho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_ThanhPho.Location = new System.Drawing.Point(0, 35);
+            this.grd_ThanhPho.MultiSelect = false;
             this.grd_ThanhPho.Name = "grd_ThanhPho";
             this.grd_ThanhPho.ReadOnly = true;
             this.grd_ThanhPho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -459,9 +460,9 @@
             // 
             // 
             this.lbl_KetQua.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbl_KetQua.Location = new System.Drawing.Point(701, 4);
+            this.lbl_KetQua.Location = new System.Drawing.Point(642, 4);
             this.lbl_KetQua.Name = "lbl_KetQua";
-            this.lbl_KetQua.Size = new System.Drawing.Size(258, 23);
+            this.lbl_KetQua.Size = new System.Drawing.Size(317, 23);
             this.lbl_KetQua.TabIndex = 4;
             // 
             // txt_TimKiem
