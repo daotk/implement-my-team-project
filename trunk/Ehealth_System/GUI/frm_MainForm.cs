@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using log4net;
 
 namespace GUI
 {
@@ -32,7 +33,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-
+        private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// Load Form
         /// </summary>
@@ -109,7 +110,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_NhomNguoiDung_Click(object sender, EventArgs e)
         {
-
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục nhóm người dùng");
             if (checkTab(nhomnguoidung) == false)
             {
                 tab_MainTab.Visible = true;
@@ -132,6 +133,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_nguoidung_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục người dùng");
             if (checkTab(nguoidung) == false)
             {
                 tab_MainTab.Visible = true;
@@ -154,6 +156,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_TinhThanhPho_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục tỉnh - thành phố");
             tab_MainTab.Visible = true;
             if(checkTab(tinhthanhpho) == false){
             TabItem t = tab_MainTab.CreateTab(tinhthanhpho);
@@ -173,6 +176,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_QuanHuyen_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục quận - huyện");
             if (checkTab(quanhuyen) == false)
             {
                 tab_MainTab.Visible = true;
@@ -189,6 +193,7 @@ namespace GUI
 
         private void btn_LoaiPhongBan_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục loại phòng ban");
             if (checkTab(loaiphongban) == false)
             {
                 tab_MainTab.Visible = true;
@@ -206,6 +211,7 @@ namespace GUI
 
         private void btn_PhongBan1_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục phòng ban");
             if (checkTab(phongban) == false)
             {
                 tab_MainTab.Visible = true;
@@ -222,6 +228,7 @@ namespace GUI
 
         private void btn_LoaiDichVu_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục loại dịch vụ");
             if (checkTab(nhomdichvu) == false)
             {
                 tab_MainTab.Visible = true;
@@ -238,6 +245,7 @@ namespace GUI
 
         private void btn_dichvu_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục dịch vụ");
             if (checkTab(dichvu) == false)
             {
                 tab_MainTab.Visible = true;
@@ -258,6 +266,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_BienLaiDuocLap_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke danh sach bien lai duoc lap");
             if (checkTab(bienlaiduoclap) == false)
             {
                 tab_MainTab.Visible = true;
@@ -278,6 +287,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_BienLaiDuocThuTien_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke danh sach bien lai thu tiền");
             if (checkTab(bienlaiduocthutien) == false)
             {
                 tab_MainTab.Visible = true;
@@ -299,6 +309,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_DanhSachThuTienTheoNhomDichVu_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke danh sach bien lai duoc thu tien theo nhóm");
             if (checkTab(danhsachthutien) == false)
             {
                 tab_MainTab.Visible = true;
@@ -320,6 +331,7 @@ namespace GUI
       /// <param name="e"></param>
         private void btn_DoanhThu_Click(object sender, EventArgs e)
         {
+            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke doanh thu");
             if (checkTab(doanhthu) == false)
             {
                 tab_MainTab.Visible = true;
