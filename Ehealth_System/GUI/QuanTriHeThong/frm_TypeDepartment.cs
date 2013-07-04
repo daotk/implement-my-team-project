@@ -36,7 +36,9 @@ namespace GUI.QuanTriHeThong
             loadDatagrid();
             focus();
 
-            lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" + " " + totalcount + " loại phòng ban";
+            lbl_KetQua.Text = "Kết quả : Tìm được 0 trong tổng số" + " " + totalcount + " loại phòng ban";
+            
+            
         }//end
 
         /// <summary>
@@ -49,6 +51,7 @@ namespace GUI.QuanTriHeThong
             txt_LoaiPhongBan.Enabled = enable;
             txt_MoTa.Enabled = enable;
             chk_TrangThai.Enabled = enable;
+            
         }//end
 
         /// <summary>
@@ -74,6 +77,7 @@ namespace GUI.QuanTriHeThong
             flag_them = false;
             flag_sua = false;
             focus();
+            //lbl_thongbao.Text = "Bạn đang ở chế độ : xem danh sách";
         }//end
 
         /// <summary>
@@ -114,10 +118,12 @@ namespace GUI.QuanTriHeThong
                 if (i == -1)
                 {
                     MessageBox.Show("Loại phòng ban đã tồn tại trong hệ thống", "Thông báo");
+                    return;
                 }
                 else
                 {
                     MessageBox.Show("Danh mục Loại phòng ban đã được tạo thành công", "Thông báo");
+                    
                 }
 
             }
@@ -134,10 +140,12 @@ namespace GUI.QuanTriHeThong
                 if (i == -1)
                 {
                     MessageBox.Show("Lỗi hệ thống. Xin quay lại sau", "Thông báo");
+                   
                 }
                 else
                 {
                     MessageBox.Show("Danh mục loại phòng ban đã được chỉnh sửa thành công", "Thông báo");
+                    
                 }
             }
             loadDatagrid();
@@ -172,6 +180,7 @@ namespace GUI.QuanTriHeThong
             txt_LoaiPhongBan.Text = "";
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
+            //lbl_thongbao.Text = "Bạn đang ở chế độ : Thêm mới ";
         }//end
 
         /// <summary>
@@ -185,6 +194,7 @@ namespace GUI.QuanTriHeThong
             enableText(true);
             flag_sua = true;
             txt_TenVietTat.Enabled = false;
+            //lbl_thongbao.Text = "Bạn đang ở chế độ : chỉnh sửa";
         }//end
 
 
@@ -240,6 +250,7 @@ namespace GUI.QuanTriHeThong
             txt_MoTa.Text = "";
             chk_TrangThai.Checked = false;
             focus();
+            //lbl_thongbao.Text = "Bạn đang ở chế độ : Xem danh sách";
         }//end
 
 
