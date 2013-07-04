@@ -1542,6 +1542,54 @@ namespace DA.Entity
         private global::System.Boolean _DESKSTATUS;
         partial void OnDESKSTATUSChanging(global::System.Boolean value);
         partial void OnDESKSTATUSChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> CASHIER
+        {
+            get
+            {
+                return _CASHIER;
+            }
+            set
+            {
+                OnCASHIERChanging(value);
+                ReportPropertyChanging("CASHIER");
+                _CASHIER = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CASHIER");
+                OnCASHIERChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _CASHIER;
+        partial void OnCASHIERChanging(Nullable<global::System.Boolean> value);
+        partial void OnCASHIERChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> TYPIST
+        {
+            get
+            {
+                return _TYPIST;
+            }
+            set
+            {
+                OnTYPISTChanging(value);
+                ReportPropertyChanging("TYPIST");
+                _TYPIST = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TYPIST");
+                OnTYPISTChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _TYPIST;
+        partial void OnTYPISTChanging(Nullable<global::System.Boolean> value);
+        partial void OnTYPISTChanged();
 
         #endregion
 
