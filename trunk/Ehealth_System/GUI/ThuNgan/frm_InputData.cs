@@ -206,10 +206,11 @@ namespace GUI.ThuNgan
                                     BL.Thu_Ngan.TypistBL.CreateDetailBill(BL.Thu_Ngan.TypistBL.LoadIDdichvu(grd_DichVu.Rows[count].Cells[2].Value.ToString(), madichvu), grd_DichVu.Rows[count].Cells[3].Value.ToString(),
                                         BL.Thu_Ngan.TypistBL.LoadIDBill(grd_DichVu.Rows[count].Cells[1].Value.ToString(), loadmahoadon));
                                     tongchiphidichvu = tongchiphidichvu + Int32.Parse(grd_DichVu.Rows[count].Cells[3].Value.ToString());
-                                    numberchitiethoadon++;
+                                    
                                 }
-
-                            }
+                             }
+                            BL.Thu_Ngan.TypistBL.capnhatongtien(BL.Thu_Ngan.TypistBL.LoadIDBill(arr[abc].ToString(), loadmahoadon), tongchiphidichvu.ToString());
+                            
                             tongchiphidichvu = 0;
 
                         }
@@ -248,6 +249,11 @@ namespace GUI.ThuNgan
             
             }
             
+        }
+
+        private void lbl_GioiTinh_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
