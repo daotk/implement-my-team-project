@@ -30,6 +30,24 @@ namespace DA.QuanTriHeThong
             return dsusergroup;
         }
 
+        public static List<DO.QuanTriHeThong.GroupService_DO> GetAllSer1()
+        {
+            List<DO.QuanTriHeThong.GroupService_DO> ListDepartment = new List<DO.QuanTriHeThong.GroupService_DO>();
+            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
+            {
+                var query = from u in dk.ServiceGroup_Info where u.SERVICEGROUPSTATUS == true select u;
+                foreach (var row in query)
+                {
+                    DO.QuanTriHeThong.GroupService_DO depart = new DO.QuanTriHeThong.GroupService_DO();
+                    depart._SERVICEGROUPNAME = row.SERVICEGROUPNAME;
+                    depart._SERVICEGROUPID = row.SERVICEGROUPID;
+                    ListDepartment.Add(depart);
+                }
+                return ListDepartment;
+            }
+
+        }//end
+
         //Create service group
         public static void CreateService(string serviceid, string servicegroupid, string servicename, string servicecost,string servicedescription, bool trangthais)
         {
