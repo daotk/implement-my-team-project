@@ -40,18 +40,18 @@ namespace DA.QuanTriHeThong
 
         public static List<DO.QuanTriHeThong.City_DO> GetAllDis1()
         {
-            List<DO.QuanTriHeThong.City_DO> ListDepartment = new List<DO.QuanTriHeThong.City_DO>();
+            List<DO.QuanTriHeThong.City_DO> ListCity = new List<DO.QuanTriHeThong.City_DO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
             {
                 var query = from u in dk.City_Info where u.STATUSCITY == true select u;
                 foreach (var row in query)
                 {
-                    DO.QuanTriHeThong.City_DO depart = new DO.QuanTriHeThong.City_DO();
-                    depart._CITYNAME = row.CITYNAME;
-                    depart._CITYID = row.CITYID;
-                    ListDepartment.Add(depart);
+                    DO.QuanTriHeThong.City_DO city = new DO.QuanTriHeThong.City_DO();
+                    city._CITYNAME = row.CITYNAME;
+                    city._CITYID = row.CITYID;
+                    ListCity.Add(city);
                 }
-                return ListDepartment;
+                return ListCity;
             }
 
         }//end
