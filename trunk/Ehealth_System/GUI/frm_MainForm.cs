@@ -68,15 +68,52 @@ namespace GUI
             List<DO.ThuNgan.Desk_DO> ds = BL.ThuNgan.Desk_BL.GetAllDesk();
             for (int i = 0; i < ds.Count(); i++)
             {
-                if (ds[i]._DEPARTMENTNAME.Contains(cbo_ChonDonVi.SelectedItem.Text.ToString()))
+                if (ds[i]._DEPARTMENTNAME.Contains(cbo_ChonDonVi.SelectedItem.Text))
                 {      
                     RibbonButton btn = new RibbonButton();
-                    btn.Text = ds[i]._DESKNAME.ToString();
+                    btn.Text = ds[i]._DESKNAME;
                     cbo_ChonBan.DropDownItems.Add(btn);
                 }
             }
 
         }
+
+        private void cbo_ChonBan_TextBoxTextChanged(object sender, EventArgs e)
+        {
+            List<DO.ThuNgan.Desk_DO> ds = BL.ThuNgan.Desk_BL.GetDesk(cbo_ChonBan.SelectedItem.Text);
+            for (int i = 0; i < ds.Count(); i++)
+            {
+                //thu ngan
+                if (ds[i]._CASHIER == false)
+                {
+                    chk_ThuNgan.Enabled = true;
+                }
+                else
+                {
+                    if (ds[i]._CASHIER == true)
+                    {
+                        chk_ThuNgan.Enabled = false;
+                    }
+
+                }
+                //nhap lieu
+                if (ds[i]._TYPIST == false)
+                {
+                    chk_NhapLieu.Enabled = true;
+                }
+                else
+                {
+                    if (ds[i]._TYPIST == true)
+                    {
+                        chk_NhapLieu.Enabled = false;
+                    }
+
+                }
+              
+            }
+
+        }
+
         private void LoadHospitalName()
         {
             lbl_TenBenhVien.Text = BL.StaticClass.tenbenhvien;
@@ -110,7 +147,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_NhomNguoiDung_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục nhóm người dùng");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục nhóm người dùng");
             if (checkTab(nhomnguoidung) == false)
             {
                 tab_MainTab.Visible = true;
@@ -133,7 +170,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_nguoidung_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục người dùng");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục người dùng");
             if (checkTab(nguoidung) == false)
             {
                 tab_MainTab.Visible = true;
@@ -156,7 +193,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_TinhThanhPho_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục tỉnh - thành phố");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục tỉnh - thành phố");
             tab_MainTab.Visible = true;
             if(checkTab(tinhthanhpho) == false){
             TabItem t = tab_MainTab.CreateTab(tinhthanhpho);
@@ -176,7 +213,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_QuanHuyen_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục quận - huyện");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục quận - huyện");
             if (checkTab(quanhuyen) == false)
             {
                 tab_MainTab.Visible = true;
@@ -193,7 +230,7 @@ namespace GUI
 
         private void btn_LoaiPhongBan_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục loại phòng ban");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục loại phòng ban");
             if (checkTab(loaiphongban) == false)
             {
                 tab_MainTab.Visible = true;
@@ -211,7 +248,7 @@ namespace GUI
 
         private void btn_PhongBan1_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục phòng ban");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục phòng ban");
             if (checkTab(phongban) == false)
             {
                 tab_MainTab.Visible = true;
@@ -228,7 +265,7 @@ namespace GUI
 
         private void btn_LoaiDichVu_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục loại dịch vụ");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục loại dịch vụ");
             if (checkTab(nhomdichvu) == false)
             {
                 tab_MainTab.Visible = true;
@@ -245,7 +282,7 @@ namespace GUI
 
         private void btn_dichvu_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào danh mục dịch vụ");
+            logger.Info(BL.StaticClass.UserName + " Đã vào danh mục dịch vụ");
             if (checkTab(dichvu) == false)
             {
                 tab_MainTab.Visible = true;
@@ -266,7 +303,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_BienLaiDuocLap_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke danh sach bien lai duoc lap");
+            logger.Info(BL.StaticClass.UserName + " Đã vào thống ke danh sach bien lai duoc lap");
             if (checkTab(bienlaiduoclap) == false)
             {
                 tab_MainTab.Visible = true;
@@ -287,7 +324,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_BienLaiDuocThuTien_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke danh sach bien lai thu tiền");
+            logger.Info(BL.StaticClass.UserName + " Đã vào thống ke danh sach bien lai thu tiền");
             if (checkTab(bienlaiduocthutien) == false)
             {
                 tab_MainTab.Visible = true;
@@ -309,7 +346,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_DanhSachThuTienTheoNhomDichVu_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke danh sach bien lai duoc thu tien theo nhóm");
+            logger.Info(BL.StaticClass.UserName + " Đã vào thống ke danh sach bien lai duoc thu tien theo nhóm");
             if (checkTab(danhsachthutien) == false)
             {
                 tab_MainTab.Visible = true;
@@ -331,7 +368,7 @@ namespace GUI
       /// <param name="e"></param>
         private void btn_DoanhThu_Click(object sender, EventArgs e)
         {
-            logger.Info(BL.StaticClass.UserName + "Đã vào thống ke doanh thu");
+            logger.Info(BL.StaticClass.UserName + " Đã vào thống ke doanh thu");
             if (checkTab(doanhthu) == false)
             {
                 tab_MainTab.Visible = true;
@@ -369,23 +406,28 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc là đăng xuất khỏi chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(result == DialogResult.Yes)
-            {
-                this.Hide();
-                frm_Login login = new frm_Login();
-                login.Show();
-            }
-        }
-
-        private void frm_MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc là đăng xuất khỏi chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(" Bạn có chắc là đăng xuất khỏi chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 this.Hide();
                 frm_Login login = new frm_Login();
                 login.Show();
+            }
+            
+        }
+
+        private void frm_MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(" Bạn có chắc là đăng xuất khỏi chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                frm_Login login = new frm_Login();
+                login.Show();
+            }
+            else
+            {
+                Application.Exit();
             }
            
         }
@@ -411,15 +453,7 @@ namespace GUI
             lbl_NgayGio.Text = "Giờ: " + DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
         }
 
-        private void tabControl1_TabItemClose(object sender, TabStripActionEventArgs e)
-        {
-            if (tab_MainTab.Tabs.Count == 1)
-            {
-                tab_MainTab.Visible = false;
-                pic_Bacground.Visible = true;
-
-            }
-        }
+      
 
         private void ribbonButton4_Click(object sender, EventArgs e)
         {
@@ -434,17 +468,6 @@ namespace GUI
 
         }
 
-        private void ribbonButton5_Click(object sender, EventArgs e)
-        {
-            if (checkTab(nhaplieu1) == true)
-            {
-                MessageBox.Show("Bạn đang ở trong nhập liệu bàn 1. Bạn không thể tham gia vào thu ngân bàn 2", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-            if (checkTab(thungan1) == true)
-            {
-                MessageBox.Show("Bạn đang ở trong thu ngân bàn 1. Bạn không thể tham gia vào thu ngân bàn 2", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-        }
         /// <summary>
         /// tab remove
         /// </summary>
@@ -452,6 +475,16 @@ namespace GUI
         /// <param name="e"></param>
         private void tabControl1_TabRemoved(object sender, EventArgs e)
         {
+            if (checkTab(nhaplieu1) == true)
+            {
+                BL.ThuNgan.Desk_BL.UpdateTypistInfo(cbo_ChonBan.SelectedItem.Text, false);
+            }
+
+            if (checkTab(thungan1) == true)
+            {
+                BL.ThuNgan.Desk_BL.UpdateCashierInfo(cbo_ChonBan.SelectedItem.Text, false);
+            }
+            
             if (tab_MainTab.Tabs.Count == 0)
             {
                 pic_Bacground.Visible = true;
@@ -465,28 +498,26 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_BatDau_Click(object sender, EventArgs e)
         {
-            if (chk_ThuNgan.Checked == true)
+            if (chk_NhapLieu.Checked == true && chk_NhapLieu.Enabled == true)
             {
                 if (checkTab(nhaplieu1) == false)
                 {
-                    MoGiaoDienThuNgan();
-                }
-                else
-                {
-                    MessageBox.Show("Bạn đang mở giao diện nhập liệu. Bạn phải tắt giao diện nhập liệu để tiếp tục");
-                }
-            }
-            if (chk_NhapLieu.Checked == true)
-            {
-                if (checkTab(thungan1) == false)
-                {
                     MoGiaoDienNhapLieu();
-                }
-                else
-                {
-                    MessageBox.Show("Bạn đang mở giao diện thu ngân. Bạn phải tắt giao diện thu ngân để tiếp tục");
+                    BL.ThuNgan.Desk_BL.UpdateTypistInfo(cbo_ChonBan.SelectedItem.Text.ToString(), true);
                 }
             }
+            else
+            {
+                if (chk_ThuNgan.Checked == true && chk_ThuNgan.Enabled == true)
+                {
+                    if (checkTab(thungan1) == false)
+                    {
+                        MoGiaoDienThuNgan();
+                        BL.ThuNgan.Desk_BL.UpdateCashierInfo(cbo_ChonBan.SelectedItem.Text.ToString(), true);
+                    }
+                }
+            }
+
         }//end event button start
 
 
@@ -539,6 +570,8 @@ namespace GUI
             if (authorization[12].ToString() == "0") { btn_DanhSachThuTienTheoNhomDichVu.Enabled = false; }
             if (authorization[13].ToString() == "0") { btn_DoanhThu.Enabled = false; }
         }
+
+      
 
      
 
