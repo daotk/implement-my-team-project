@@ -15,6 +15,11 @@ namespace BL.QuanTriHeThong
             return District_DA.GetAllDistricts();
         }
 
+        public static List<DO.QuanTriHeThong.City_DO> GetAllDis1()
+        {
+            return District_DA.GetAllDis1();
+        }
+
         //initialize add constructor
         public static int add(String ID, String name, String CityID, String desscription, bool status)
         {

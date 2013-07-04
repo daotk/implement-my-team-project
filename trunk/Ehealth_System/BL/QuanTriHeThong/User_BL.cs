@@ -40,8 +40,12 @@ namespace BL.QuanTriHeThong
         {
             return DA.QuanTriHeThong.User_DA.GetAllUserInfo();
         }
-   
 
+
+        public static List<DO.QuanTriHeThong.UserGroup_DO> GetAllUser1()
+        {
+            return DA.QuanTriHeThong.User_DA.GetAllUser1();
+        }
         /// <summary>
         /// tra ve ds user info dang co trong database theo ma user
         /// </summary>

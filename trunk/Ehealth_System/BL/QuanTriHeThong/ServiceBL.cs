@@ -12,6 +12,13 @@ namespace BL.QuanTriHeThong
         {
             return DA.QuanTriHeThong.ServiceDA.GetService();
         }
+
+        public static List<DO.QuanTriHeThong.GroupService_DO> GetAllSer1()
+        {
+            return ServiceDA.GetAllSer1();
+        }
+
+
         public static void CreateService(string serviceid, string servicegroupid, string servicename, string servicecost, string servicedescription, bool trangthais)
         {
             DA.QuanTriHeThong.ServiceDA.CreateService(serviceid, servicegroupid, servicename, servicecost, servicedescription, trangthais);

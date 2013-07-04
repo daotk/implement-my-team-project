@@ -15,6 +15,10 @@ namespace BL.QuanTriHeThong
            return Department_DA.GetAllDeparts();
        }
 
+       public static List<DO.QuanTriHeThong.TypeDepartment_DO> GetAllDepart1()
+       {
+           return Department_DA.GetAllDeparts1();
+       }
 
        /// <summary>
        /// thêm phòng ban mới
