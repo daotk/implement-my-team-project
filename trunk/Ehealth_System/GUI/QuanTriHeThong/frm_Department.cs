@@ -138,7 +138,7 @@ namespace GUI.QuanTriHeThong
 
             btn_ChinhSua.Enabled = false;
 
-            lbl_KetQua.Text = "Kết quả : Tìm được 0 trên tổng số" + " " + totalcount + " phòng ban";
+            lbl_KetQua.Text = "Kết quả : Tìm được 0 trong tổng số" + " " + totalcount + " phòng ban";
         
         }//end
 
@@ -206,6 +206,7 @@ namespace GUI.QuanTriHeThong
                 if (i == -1)
                 {
                     MessageBox.Show("Phòng ban đã tồn tại trong hệ thống", "Thông báo");
+                    return;
                 }
                 else
                 {
