@@ -36,26 +36,18 @@ namespace DA.QuanTriHeThong
 
 
 
-        public static int add(String ID, String name, String desscription, bool status)
+        public static void add(String ID, String name, string departID, bool status)
         {
 
             using (Entity.EHealthSystemEntities entity = new Entity.EHealthSystemEntities())
             {
-                Entity.DepartmentType_Info depart = new Entity.DepartmentType_Info();
-                depart.DEPARTMENTTYPEID = ID;
-                depart.DEPARTMENTTYPENAME = name;
-                depart.DEPARTMENTTYPEDESCRIPTION = desscription;
-                depart.DEPARTMENTSTATUS = status;
-                entity.DepartmentType_Info.AddObject(depart);
-                try
-                {
-                    int num = entity.SaveChanges();
-                    return num;
-                }
-                catch
-                {
-                    return -1;
-                }
+                Entity.DeskCashier depart = new Entity.DeskCashier();
+                depart.DESKID = ID;
+                depart.DESKNAME = name;
+                depart.DESKSTATUS = status;
+                depart.DEPARTMENTID = departID;
+                entity.DeskCashiers.AddObject(depart);
+                entity.SaveChanges();
 
             }
         }//end
