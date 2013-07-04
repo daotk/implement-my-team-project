@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_InputData));
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
@@ -129,6 +125,7 @@
             this.btn_Them.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Them.TabIndex = 9;
             this.btn_Them.Text = "Thêm";
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // cbo_DichVu
             // 
@@ -165,6 +162,7 @@
             this.cbo_NhomDichVu.Size = new System.Drawing.Size(171, 26);
             this.cbo_NhomDichVu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbo_NhomDichVu.TabIndex = 6;
+            this.cbo_NhomDichVu.SelectedIndexChanged += new System.EventHandler(this.cbo_NhomDichVu_SelectedIndexChanged);
             // 
             // lbl_NhomDichVu
             // 
@@ -217,7 +215,7 @@
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.Size = new System.Drawing.Size(99, 23);
             this.txt_SDT.TabIndex = 13;
-            this.txt_SDT.Text = "01234567890";
+            this.txt_SDT.Click += new System.EventHandler(this.txt_SDT_Click);
             // 
             // txt_DiaChi
             // 
@@ -229,7 +227,6 @@
             this.txt_DiaChi.Name = "txt_DiaChi";
             this.txt_DiaChi.Size = new System.Drawing.Size(311, 23);
             this.txt_DiaChi.TabIndex = 12;
-            this.txt_DiaChi.Text = "45 Nguyễn Khắc nhu, Quận 1, Hồ Chí Minh";
             // 
             // txt_Tuoi
             // 
@@ -241,7 +238,6 @@
             this.txt_Tuoi.Name = "txt_Tuoi";
             this.txt_Tuoi.Size = new System.Drawing.Size(25, 23);
             this.txt_Tuoi.TabIndex = 11;
-            this.txt_Tuoi.Text = "25";
             // 
             // txt_GioiTinh
             // 
@@ -253,7 +249,6 @@
             this.txt_GioiTinh.Name = "txt_GioiTinh";
             this.txt_GioiTinh.Size = new System.Drawing.Size(40, 23);
             this.txt_GioiTinh.TabIndex = 10;
-            this.txt_GioiTinh.Text = "Nam";
             // 
             // txt_TenBenhNhan
             // 
@@ -265,7 +260,6 @@
             this.txt_TenBenhNhan.Name = "txt_TenBenhNhan";
             this.txt_TenBenhNhan.Size = new System.Drawing.Size(102, 23);
             this.txt_TenBenhNhan.TabIndex = 9;
-            this.txt_TenBenhNhan.Text = "Nguyễn Văn B";
             // 
             // txt_MaBenhNhan
             // 
@@ -278,6 +272,7 @@
             this.txt_MaBenhNhan.Name = "txt_MaBenhNhan";
             this.txt_MaBenhNhan.Size = new System.Drawing.Size(150, 26);
             this.txt_MaBenhNhan.TabIndex = 8;
+            this.txt_MaBenhNhan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_MaBenhNhan_KeyDown);
             // 
             // lbl_SDT
             // 
@@ -362,6 +357,7 @@
             this.btn_In.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_In.TabIndex = 10;
             this.btn_In.Text = "In";
+            this.btn_In.Click += new System.EventHandler(this.btn_In_Click);
             // 
             // panelEx2
             // 
@@ -446,14 +442,14 @@
             this.DonGia,
             this.ThanhTien,
             this.Xoa});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grd_DichVu.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_DichVu.DefaultCellStyle = dataGridViewCellStyle3;
             this.grd_DichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_DichVu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_DichVu.Location = new System.Drawing.Point(0, 0);
@@ -461,12 +457,12 @@
             this.grd_DichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_DichVu.Size = new System.Drawing.Size(1300, 395);
             this.grd_DichVu.TabIndex = 0;
+            this.grd_DichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_DichVu_CellClick);
             // 
             // STT
             // 
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "1";
             this.STT.DefaultCellStyle = dataGridViewCellStyle2;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
@@ -474,23 +470,17 @@
             // 
             // LoaiDichVu
             // 
-            dataGridViewCellStyle3.NullValue = "Chuẩn đoán hình ảnh";
-            this.LoaiDichVu.DefaultCellStyle = dataGridViewCellStyle3;
             this.LoaiDichVu.HeaderText = "Tên Loại Dịch Vụ";
             this.LoaiDichVu.Name = "LoaiDichVu";
             // 
             // DichVu
             // 
-            dataGridViewCellStyle4.NullValue = "Chụp Xquang";
-            this.DichVu.DefaultCellStyle = dataGridViewCellStyle4;
             this.DichVu.HeaderText = "Dịch vụ";
             this.DichVu.Name = "DichVu";
             // 
             // DonGia
             // 
             this.DonGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle5.NullValue = "20 000";
-            this.DonGia.DefaultCellStyle = dataGridViewCellStyle5;
             this.DonGia.HeaderText = "Đơn giá";
             this.DonGia.Name = "DonGia";
             this.DonGia.Width = 150;
@@ -498,8 +488,6 @@
             // ThanhTien
             // 
             this.ThanhTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.NullValue = "20 000";
-            this.ThanhTien.DefaultCellStyle = dataGridViewCellStyle6;
             this.ThanhTien.HeaderText = "Thành tiền";
             this.ThanhTien.Name = "ThanhTien";
             this.ThanhTien.Width = 150;
@@ -542,6 +530,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frm_InputData";
             this.Text = "InputData";
+            this.Load += new System.EventHandler(this.frm_InputData_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx5.ResumeLayout(false);
             this.panelEx4.ResumeLayout(false);
