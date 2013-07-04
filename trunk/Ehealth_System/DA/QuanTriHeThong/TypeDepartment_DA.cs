@@ -25,12 +25,14 @@ namespace DA.QuanTriHeThong
                     depart._DEPARTMENTTYPEID = row.DEPARTMENTTYPEID;
                     depart._DEPARTMENTNAME = row.DEPARTMENTTYPENAME;
                     depart._DEPARTMENTDESCRIPTION = row.DEPARTMENTTYPEDESCRIPTION;
-                    depart._DEPARTMENTSTATUS = row.DEPARTMENTSTATUS;
+                    depart._DEPARTMENTTYPESTATUS = row.DEPARTMENTSTATUS;
                     ListDeparttype.Add(depart);
                 }
                 return ListDeparttype;
             }
         }//end
+
+        
 
         /// <summary>
         /// Thêm loại phòng ban mới
@@ -118,7 +120,7 @@ namespace DA.QuanTriHeThong
                     depart._DEPARTMENTTYPEID = row.DEPARTMENTTYPEID;
                     depart._DEPARTMENTNAME = row.DEPARTMENTTYPENAME;
                     depart._DEPARTMENTDESCRIPTION = row.DEPARTMENTTYPEDESCRIPTION;
-                    depart._DEPARTMENTSTATUS = row.DEPARTMENTSTATUS;
+                    depart._DEPARTMENTTYPESTATUS = row.DEPARTMENTSTATUS;
                     timkiem.Add(depart);
                 }
                 return timkiem;
