@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using DO.Thu_Ngan;
-using BL.Thu_Ngan;
+using DO.ThuNgan;
+using BL.ThuNgan;
 namespace GUI.ThuNgan
 {
     public partial class frm_InputData : Form
@@ -29,7 +29,7 @@ namespace GUI.ThuNgan
         }
         private void LoadDSServiceType()
         {
-            cbo_NhomDichVu.DataSource = BL.Thu_Ngan.TypistBL.LoadDSServiceType();
+            cbo_NhomDichVu.DataSource = BL.ThuNgan.TypistBL.LoadDSServiceType();
             cbo_NhomDichVu.DisplayMember = "servicetypename";
             cbo_NhomDichVu.ValueMember = "servicetypeid";
             //List<TypistDO> dsServiceType = BL.Thu_Ngan.TypistBL.LoadDSServiceType();
@@ -42,7 +42,7 @@ namespace GUI.ThuNgan
 
         private void LoadDSService()
         {
-            List<TypistDO> dsService = BL.Thu_Ngan.TypistBL.LoadDSService(cbo_NhomDichVu.Text);
+            List<TypistDO> dsService = BL.ThuNgan.TypistBL.LoadDSService(cbo_NhomDichVu.Text);
             for (int i = 0; i < dsService.Count; i++)
             {
                 cbo_DichVu.Items.Add(dsService[i].servicename_.ToString());
@@ -55,7 +55,7 @@ namespace GUI.ThuNgan
             if (e.KeyCode == Keys.Enter) {
                 try
                 {
-                    List<PatientDO> patientinfo = BL.Thu_Ngan.TypistBL.LoadPatientInfo(txt_MaBenhNhan.Text);
+                    List<PatientDO> patientinfo = BL.ThuNgan.TypistBL.LoadPatientInfo(txt_MaBenhNhan.Text);
                     txt_TenBenhNhan.Text = patientinfo[0].patientname_.ToString();
                     if (patientinfo[0].gender_.ToString() == "1")
                     {
@@ -100,7 +100,7 @@ namespace GUI.ThuNgan
         {
             if (CheckInfoTypist())
             {
-                List<CostDO> abc = BL.Thu_Ngan.TypistBL.LoadServiceCost(cbo_DichVu.SelectedValue.ToString());
+                List<CostDO> abc = BL.ThuNgan.TypistBL.LoadServiceCost(cbo_DichVu.SelectedValue.ToString());
                 DataGridViewRow row = new DataGridViewRow();
                 grd_DichVu.Rows.Add(row);
                 grd_DichVu.Rows[i].Cells[1].Value = cbo_NhomDichVu.Text;
@@ -129,7 +129,7 @@ namespace GUI.ThuNgan
         {
             string id = cbo_NhomDichVu.SelectedValue.ToString();
             cbo_DichVu.Text = "";
-            cbo_DichVu.DataSource = BL.Thu_Ngan.TypistBL.LoadDSService(id);
+            cbo_DichVu.DataSource = BL.ThuNgan.TypistBL.LoadDSService(id);
             cbo_DichVu.DisplayMember = "servicename_";
             cbo_DichVu.ValueMember = "serviceid_";
             cbo_DichVu.Text = "";
@@ -142,7 +142,7 @@ namespace GUI.ThuNgan
         private int numberhoadon = 1;
         private int numberchitiethoadon = 1;
         private bool CheckMaBenhNhan(string mabenhnhan) {
-            List<PatientDO> xyz = BL.Thu_Ngan.TypistBL.LoadDSMaBenhNhan();
+            List<PatientDO> xyz = BL.ThuNgan.TypistBL.LoadDSMaBenhNhan();
             bool test = false;
             for (int i = 0; i < xyz.Count; i++) {
                 if (mabenhnhan.Equals(xyz[i].patientid_)) {
@@ -193,7 +193,7 @@ namespace GUI.ThuNgan
                         for (int abc = 0; abc < lengArr; abc++)
                         {
                             //Create Bill
-                            BL.Thu_Ngan.TypistBL.CreateBill(BL.Thu_Ngan.TypistBL.LoadIDLoaidichvu(arr[abc].ToString(), loadmaloaidichvu), txt_MaBenhNhan.Text, "AD001", "D1",
+                            BL.ThuNgan.TypistBL.CreateBill(BL.ThuNgan.TypistBL.LoadIDLoaidichvu(arr[abc].ToString(), loadmaloaidichvu), txt_MaBenhNhan.Text, "AD001", "D1",
                                 "200000", false, arr[abc].ToString());
 
                             //Create Detail Bill
@@ -203,13 +203,13 @@ namespace GUI.ThuNgan
                                 if (arr[abc].ToString() == grd_DichVu.Rows[count].Cells[1].Value.ToString())
                                 {
 
-                                    BL.Thu_Ngan.TypistBL.CreateDetailBill(BL.Thu_Ngan.TypistBL.LoadIDdichvu(grd_DichVu.Rows[count].Cells[2].Value.ToString(), madichvu), grd_DichVu.Rows[count].Cells[3].Value.ToString(),
-                                        BL.Thu_Ngan.TypistBL.LoadIDBill(grd_DichVu.Rows[count].Cells[1].Value.ToString(), loadmahoadon));
+                                    BL.ThuNgan.TypistBL.CreateDetailBill(BL.ThuNgan.TypistBL.LoadIDdichvu(grd_DichVu.Rows[count].Cells[2].Value.ToString(), madichvu), grd_DichVu.Rows[count].Cells[3].Value.ToString(),
+                                        BL.ThuNgan.TypistBL.LoadIDBill(grd_DichVu.Rows[count].Cells[1].Value.ToString(), loadmahoadon));
                                     tongchiphidichvu = tongchiphidichvu + Int32.Parse(grd_DichVu.Rows[count].Cells[3].Value.ToString());
                                     
                                 }
                              }
-                            BL.Thu_Ngan.TypistBL.capnhatongtien(BL.Thu_Ngan.TypistBL.LoadIDBill(arr[abc].ToString(), loadmahoadon), tongchiphidichvu.ToString());
+                            BL.ThuNgan.TypistBL.capnhatongtien(BL.ThuNgan.TypistBL.LoadIDBill(arr[abc].ToString(), loadmahoadon), tongchiphidichvu.ToString());
                             
                             tongchiphidichvu = 0;
 

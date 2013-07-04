@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using log4net;
 
 namespace GUI
 {
@@ -15,6 +16,7 @@ namespace GUI
         {
             InitializeComponent();
         }
+        private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// Load
         /// </summary>
@@ -43,6 +45,7 @@ namespace GUI
                         //Program.mainthread.Start();
                         frm_MainForm main = new frm_MainForm();
                         main.Show();
+                        logger.Info(BL.StaticClass.UserName+"Đã đăng nhập vào hệ thống");
                     }
                     else
                     {
