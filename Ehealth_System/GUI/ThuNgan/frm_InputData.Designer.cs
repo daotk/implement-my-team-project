@@ -321,6 +321,7 @@
             this.lbl_GioiTinh.Size = new System.Drawing.Size(71, 23);
             this.lbl_GioiTinh.TabIndex = 3;
             this.lbl_GioiTinh.Text = "Giới tính:";
+            this.lbl_GioiTinh.Click += new System.EventHandler(this.lbl_GioiTinh_Click);
             // 
             // lbl_TenBenhNhan
             // 
