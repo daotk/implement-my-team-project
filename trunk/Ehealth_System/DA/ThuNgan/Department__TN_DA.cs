@@ -13,7 +13,7 @@ namespace DA.ThuNgan
            List<DO.ThuNgan.Department_TN_DO> ListDepartment = new List<DO.ThuNgan.Department_TN_DO>();
            using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
            {
-               var query = from u in dk.Department_Info select u;
+               var query = from u in dk.Department_Info where u.DEPARTMENTSTATUS ==true select u;
                foreach (var row in query)
                {
                    DO.ThuNgan.Department_TN_DO depart = new DO.ThuNgan.Department_TN_DO();
