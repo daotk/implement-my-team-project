@@ -59,6 +59,7 @@
     <Compile Include="ThuNgan\Department_TN_BL.cs" />
     <Compile Include="ThuNgan\Desk_BL.cs" />
     <Compile Include="ThuNgan\TypeDepartment_TN_BL.cs" />
+    <Compile Include="ThuNgan\TypistBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DA\DA.csproj">
