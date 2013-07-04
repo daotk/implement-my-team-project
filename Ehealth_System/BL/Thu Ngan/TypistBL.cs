@@ -55,5 +55,10 @@ namespace BL.Thu_Ngan
         {
             return DA.Thu_Ngan.TypistDA.LoadDSMaBenhNhan();
         }
+
+        public static void capnhatongtien(string maloaidichvu, string tongtien)
+        {
+            DA.Thu_Ngan.TypistDA.capnhatongtien(maloaidichvu, tongtien);
+        }
     }
 }
