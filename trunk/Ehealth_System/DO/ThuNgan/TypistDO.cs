@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DO.ThuNgan
+namespace DO.Thu_Ngan
 {
     public class BillDO {
         public string billid_ { get; set; }
