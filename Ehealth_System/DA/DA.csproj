@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCao\CreateBill_DA.cs" />
     <Compile Include="Entity\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,6 +67,7 @@
     <Compile Include="QuanTriHeThong\TypeDepartment_DA.cs" />
     <Compile Include="QuanTriHeThong\UserGroup_DA.cs" />
     <Compile Include="QuanTriHeThong\User_DA.cs" />
+    <Compile Include="ThuNgan\CashierDA.cs" />
     <Compile Include="ThuNgan\Department__TN_DA.cs" />
     <Compile Include="ThuNgan\Desk_DA.cs" />
     <Compile Include="ThuNgan\TypeDepartment__TN_DA.cs" />
