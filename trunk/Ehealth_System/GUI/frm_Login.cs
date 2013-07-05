@@ -45,7 +45,7 @@ namespace GUI
                         //Program.mainthread.Start();
                         frm_MainForm main = new frm_MainForm();
                         main.Show();
-                        logger.Info(BL.StaticClass.UserName+"Đã đăng nhập vào hệ thống");
+                        logger.Info(BL.StaticClass.UserName+" Login");
                     }
                     else
                     {
