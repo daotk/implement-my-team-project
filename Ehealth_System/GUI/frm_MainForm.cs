@@ -28,6 +28,8 @@ namespace GUI
         string nhaplieu1 = "Nhập liệu 1";
         string thungan1 = "Thu ngân 1";
         string madonvi = "";
+        bool tabnhaplieu = false;
+        bool tabthungan = false;
      
         public frm_MainForm()
         {
@@ -47,6 +49,7 @@ namespace GUI
             lbl_NgayGio.Text ="Giờ: "+ DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
             SetAuthorization(BL.StaticClass.Authorization);
             timer1.Start();
+           
             //Load don vi
             List<DO.ThuNgan.Department_TN_DO> ds = BL.ThuNgan.Department_TN_BL.GetAllDepart();
             for (int i = 0; i < ds.Count(); i++)
@@ -475,13 +478,15 @@ namespace GUI
         /// <param name="e"></param>
         private void tabControl1_TabRemoved(object sender, EventArgs e)
         {
-            if (checkTab(nhaplieu1) == true)
+            if (tabnhaplieu == true)
             {
                 BL.ThuNgan.Desk_BL.UpdateTypistInfo(cbo_ChonBan.SelectedItem.Text, false);
+                tabnhaplieu = false;
             }
 
-            if (checkTab(thungan1) == true)
+            if (tabthungan == true)
             {
+                tabthungan = false;
                 BL.ThuNgan.Desk_BL.UpdateCashierInfo(cbo_ChonBan.SelectedItem.Text, false);
             }
             
@@ -498,22 +503,24 @@ namespace GUI
         /// <param name="e"></param>
         private void btn_BatDau_Click(object sender, EventArgs e)
         {
-            if (chk_NhapLieu.Checked == true && chk_NhapLieu.Enabled == true)
+            if (chk_NhapLieu.Checked == true && chk_NhapLieu.Enabled == true && checkTab(thungan1)==false)
             {
                 if (checkTab(nhaplieu1) == false)
                 {
                     MoGiaoDienNhapLieu();
                     BL.ThuNgan.Desk_BL.UpdateTypistInfo(cbo_ChonBan.SelectedItem.Text.ToString(), true);
+                    tabnhaplieu = true;
                 }
             }
             else
             {
-                if (chk_ThuNgan.Checked == true && chk_ThuNgan.Enabled == true)
+                if (chk_ThuNgan.Checked == true && chk_ThuNgan.Enabled == true && checkTab(nhaplieu1)==false)
                 {
                     if (checkTab(thungan1) == false)
                     {
                         MoGiaoDienThuNgan();
                         BL.ThuNgan.Desk_BL.UpdateCashierInfo(cbo_ChonBan.SelectedItem.Text.ToString(), true);
+                        tabthungan = true;
                     }
                 }
             }
