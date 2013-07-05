@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCao\CreateBill_DO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanTriHeThong\City_DO.cs" />
     <Compile Include="QuanTriHeThong\Department_DO.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="QuanTriHeThong\TypeDepartment_DO.cs" />
     <Compile Include="QuanTriHeThong\UserGroup_DO.cs" />
     <Compile Include="QuanTriHeThong\User_DO.cs" />
+    <Compile Include="ThuNgan\Cashier.cs" />
     <Compile Include="ThuNgan\Department_TN_DO.cs" />
     <Compile Include="ThuNgan\Desk_DO.cs" />
     <Compile Include="ThuNgan\TypeDepartment_TN_DO.cs" />
