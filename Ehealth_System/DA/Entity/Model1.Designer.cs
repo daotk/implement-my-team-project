@@ -1430,13 +1430,17 @@ namespace DA.Entity
         /// <param name="dEPARTMENTID">Initial value of the DEPARTMENTID property.</param>
         /// <param name="dESKNAME">Initial value of the DESKNAME property.</param>
         /// <param name="dESKSTATUS">Initial value of the DESKSTATUS property.</param>
-        public static DeskCashier CreateDeskCashier(global::System.String dESKID, global::System.String dEPARTMENTID, global::System.String dESKNAME, global::System.Boolean dESKSTATUS)
+        /// <param name="cASHIER">Initial value of the CASHIER property.</param>
+        /// <param name="tYPIST">Initial value of the TYPIST property.</param>
+        public static DeskCashier CreateDeskCashier(global::System.String dESKID, global::System.String dEPARTMENTID, global::System.String dESKNAME, global::System.Boolean dESKSTATUS, global::System.Boolean cASHIER, global::System.Boolean tYPIST)
         {
             DeskCashier deskCashier = new DeskCashier();
             deskCashier.DESKID = dESKID;
             deskCashier.DEPARTMENTID = dEPARTMENTID;
             deskCashier.DESKNAME = dESKNAME;
             deskCashier.DESKSTATUS = dESKSTATUS;
+            deskCashier.CASHIER = cASHIER;
+            deskCashier.TYPIST = tYPIST;
             return deskCashier;
         }
 
@@ -1546,9 +1550,9 @@ namespace DA.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> CASHIER
+        public global::System.Boolean CASHIER
         {
             get
             {
@@ -1563,16 +1567,16 @@ namespace DA.Entity
                 OnCASHIERChanged();
             }
         }
-        private Nullable<global::System.Boolean> _CASHIER;
-        partial void OnCASHIERChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _CASHIER;
+        partial void OnCASHIERChanging(global::System.Boolean value);
         partial void OnCASHIERChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> TYPIST
+        public global::System.Boolean TYPIST
         {
             get
             {
@@ -1587,8 +1591,8 @@ namespace DA.Entity
                 OnTYPISTChanged();
             }
         }
-        private Nullable<global::System.Boolean> _TYPIST;
-        partial void OnTYPISTChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _TYPIST;
+        partial void OnTYPISTChanging(global::System.Boolean value);
         partial void OnTYPISTChanged();
 
         #endregion
@@ -2093,7 +2097,7 @@ namespace DA.Entity
         /// <param name="pATIENTNAME">Initial value of the PATIENTNAME property.</param>
         /// <param name="gENDER">Initial value of the GENDER property.</param>
         /// <param name="aGE">Initial value of the AGE property.</param>
-        public static Patient_Info CreatePatient_Info(global::System.String pATIENTID, global::System.String pATIENTNAME, global::System.Int32 gENDER, global::System.String aGE)
+        public static Patient_Info CreatePatient_Info(global::System.String pATIENTID, global::System.String pATIENTNAME, global::System.String gENDER, global::System.String aGE)
         {
             Patient_Info patient_Info = new Patient_Info();
             patient_Info.PATIENTID = pATIENTID;
@@ -2163,7 +2167,7 @@ namespace DA.Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 GENDER
+        public global::System.String GENDER
         {
             get
             {
@@ -2173,13 +2177,13 @@ namespace DA.Entity
             {
                 OnGENDERChanging(value);
                 ReportPropertyChanging("GENDER");
-                _GENDER = StructuralObject.SetValidValue(value);
+                _GENDER = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("GENDER");
                 OnGENDERChanged();
             }
         }
-        private global::System.Int32 _GENDER;
-        partial void OnGENDERChanging(global::System.Int32 value);
+        private global::System.String _GENDER;
+        partial void OnGENDERChanging(global::System.String value);
         partial void OnGENDERChanged();
     
         /// <summary>
@@ -2253,6 +2257,30 @@ namespace DA.Entity
         private global::System.String _AGE;
         partial void OnAGEChanging(global::System.String value);
         partial void OnAGEChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] BARCODE
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_BARCODE);
+            }
+            set
+            {
+                OnBARCODEChanging(value);
+                ReportPropertyChanging("BARCODE");
+                _BARCODE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("BARCODE");
+                OnBARCODEChanged();
+            }
+        }
+        private global::System.Byte[] _BARCODE;
+        partial void OnBARCODEChanging(global::System.Byte[] value);
+        partial void OnBARCODEChanged();
 
         #endregion
 

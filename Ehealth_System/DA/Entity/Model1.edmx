@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EHealthSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="EHealthSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="EHealthSystemModelStoreContainer">
           <EntitySet Name="Bill_Info" EntityType="EHealthSystemModel.Store.Bill_Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="City_Info" EntityType="EHealthSystemModel.Store.City_Info" store:Type="Tables" Schema="dbo" />
@@ -108,9 +108,9 @@
           <Property Name="DESKID" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="DEPARTMENTID" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="DESKNAME" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="CASHIER" Type="bit" />
-          <Property Name="TYPIST" Type="bit" />
           <Property Name="DESKSTATUS" Type="bit" Nullable="false" />
+          <Property Name="CASHIER" Type="bit" Nullable="false" />
+          <Property Name="TYPIST" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DetailBill_Info">
           <Key>
@@ -137,10 +137,11 @@
           </Key>
           <Property Name="PATIENTID" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="PATIENTNAME" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="GENDER" Type="int" Nullable="false" />
-          <Property Name="ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="GENDER" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="100" />
           <Property Name="PATIENTPHONE" Type="varchar" MaxLength="20" />
           <Property Name="AGE" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="BARCODE" Type="image" />
         </EntityType>
         <EntityType Name="Service_Info">
           <Key>
@@ -339,6 +340,9 @@
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_Receipt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BillID" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -354,7 +358,8 @@
           <Parameter Name="ServiceGroupName" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EHealthSystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -479,10 +484,10 @@
           <Property Name="DEPARTMENTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <Property Name="DESKNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DESKSTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="CASHIER" Type="Boolean" Nullable="false" />
+          <Property Name="TYPIST" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Bill_Info" Relationship="EHealthSystemModel.FK_Bill_Info_DeskCashier1" FromRole="DeskCashier" ToRole="Bill_Info" />
           <NavigationProperty Name="Department_Info" Relationship="EHealthSystemModel.FK_DeskCashier_Department_Info" FromRole="DeskCashier" ToRole="Department_Info" />
-          <Property Type="Boolean" Name="CASHIER" />
-          <Property Type="Boolean" Name="TYPIST" />
         </EntityType>
         <EntityType Name="DetailBill_Info">
           <Key>
@@ -512,10 +517,11 @@
           </Key>
           <Property Name="PATIENTID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <Property Name="PATIENTNAME" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="GENDER" Type="Int32" Nullable="false" />
-          <Property Name="ADDRESS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="GENDER" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="PATIENTPHONE" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="AGE" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="BARCODE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Bill_Info" Relationship="EHealthSystemModel.FK_Bill_Info_Patient_Info" FromRole="Patient_Info" ToRole="Bill_Info" />
         </EntityType>
         <EntityType Name="Service_Info">
@@ -750,12 +756,12 @@
           <EntitySetMapping Name="DeskCashiers">
             <EntityTypeMapping TypeName="EHealthSystemModel.DeskCashier">
               <MappingFragment StoreEntitySet="DeskCashier">
-                <ScalarProperty Name="TYPIST" ColumnName="TYPIST" />
-                <ScalarProperty Name="CASHIER" ColumnName="CASHIER" />
                 <ScalarProperty Name="DESKID" ColumnName="DESKID" />
                 <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
                 <ScalarProperty Name="DESKNAME" ColumnName="DESKNAME" />
                 <ScalarProperty Name="DESKSTATUS" ColumnName="DESKSTATUS" />
+                <ScalarProperty Name="CASHIER" ColumnName="CASHIER" />
+                <ScalarProperty Name="TYPIST" ColumnName="TYPIST" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -789,6 +795,7 @@
                 <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
                 <ScalarProperty Name="PATIENTPHONE" ColumnName="PATIENTPHONE" />
                 <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -870,32 +877,32 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1" ZoomLevel="86">
+      <Diagram Name="Model1">
         <EntityTypeShape EntityType="EHealthSystemModel.Bill_Info" Width="1.5" PointX="7.5" PointY="1" Height="3.3263964843749996" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.City_Info" Width="1.5" PointX="7.75" PointY="6" Height="1.9802864583333344" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.Department_Info" Width="1.5" PointX="3" PointY="1.5" Height="2.3648893229166656" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.DepartmentType_Info" Width="1.5" PointX="0.75" PointY="1.625" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.DeskCashier" Width="1.5" PointX="5.25" PointY="1.375" Height="2.5571907552083339" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.DeskCashier" Width="1.5" PointX="5.25" PointY="1.375" Height="2.5571907552083335" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.DetailBill_Info" Width="1.5" PointX="9.75" PointY="1.625" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.District_Info" Width="1.5" PointX="10" PointY="5.875" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.Patient_Info" Width="1.5" PointX="5.25" PointY="5.75" Height="2.3648893229166683" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.Patient_Info" Width="1.5" PointX="5.25" PointY="6" Height="2.5571907552083326" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.Service_Info" Width="1.5" PointX="7.5" PointY="13.375" Height="2.5571907552083317" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.ServiceGroup_Info" Width="1.5" PointX="5.25" PointY="13.625" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="EHealthSystemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" Height="1.9802864583333353" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.User_Info" Width="1.5" PointX="5.25" PointY="8.875" Height="2.7494921875000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="EHealthSystemModel.UserType_Info" Width="1.5" PointX="3" PointY="9.125" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.User_Info" Width="1.5" PointX="5.25" PointY="9.25" Height="2.7494921875000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EHealthSystemModel.UserType_Info" Width="1.5" PointX="3" PointY="9.5" Height="2.1725878906250031" IsExpanded="true" />
         <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_DeskCashier1" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="2.6535953776041667" />
           <ConnectorPoint PointX="7.5" PointY="2.6535953776041667" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_Patient_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="5.84375" />
-          <ConnectorPoint PointX="7.59375" PointY="5.84375" />
+          <ConnectorPoint PointX="6.75" PointY="8.2999886067708335" />
+          <ConnectorPoint PointX="7.59375" PointY="8.2999886067708335" />
           <ConnectorPoint PointX="7.59375" PointY="4.326396484375" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_Bill_Info_User_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="10.249746093750002" />
-          <ConnectorPoint PointX="7.5624975" PointY="10.249746093750002" />
+          <ConnectorPoint PointX="6.75" PointY="10.624746093750002" />
+          <ConnectorPoint PointX="7.5624975" PointY="10.624746093750002" />
           <ConnectorPoint PointX="7.5624975" PointY="4.326396484375" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_DetailBill_Info_Bill_Info" ManuallyRouted="false">
@@ -926,8 +933,8 @@
           <ConnectorPoint PointX="7.5" PointY="14.615143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="EHealthSystemModel.FK_User_Info_UserType_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="10.211293945312502" />
-          <ConnectorPoint PointX="5.25" PointY="10.211293945312502" />
+          <ConnectorPoint PointX="4.5" PointY="10.586293945312502" />
+          <ConnectorPoint PointX="5.25" PointY="10.586293945312502" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
