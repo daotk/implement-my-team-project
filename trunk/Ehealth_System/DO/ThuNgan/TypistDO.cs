@@ -42,7 +42,7 @@ namespace DO.ThuNgan
     {
         public string patientid_ { get; set; }
         public string patientname_ { get; set; }
-        public int gender_ { get; set; }
+        public string gender_ { get; set; }
         public string age_ { get; set; }
         public string address_ { get; set; }
         public string phone_ { get; set; }
