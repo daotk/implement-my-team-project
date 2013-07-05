@@ -104,6 +104,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.Ribbon35">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\System.Windows.Forms.Ribbon35.dll</HintPath>
     </Reference>

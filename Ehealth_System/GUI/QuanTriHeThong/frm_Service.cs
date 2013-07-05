@@ -58,6 +58,7 @@ namespace GUI.QuanTriHeThong
             if (btn_ThemMoi.Text == "Thêm mới")
             {
                 status = "Create";
+                Pank();
                 btn_ThemMoi.Text = "Lưu";
                 btn_ThemMoi.Image = global::GUI.Properties.Resources.Save_icon;
                 btn_ChinhSua.Text = "Hủy bỏ";
@@ -70,51 +71,49 @@ namespace GUI.QuanTriHeThong
                 txt_MoTa.Enabled = true;
                 cbo_NhomDichVu.Enabled = true;
             }
-            else 
+            else
             {
                 if (status == "Create")
                 {
                     if (btn_ThemMoi.Text == "Lưu")
                     {
                         //Luu
-                        if (txt_TenVietTat.Text != "" && txt_DichVu.Text != "" && txt_GiaTien.Text != "" && cbo_LocTheoNhomDichVu.Text != "")
+                        if (Check())
                         {
                             if (CheckID() == false)
                             {
                                 BL.QuanTriHeThong.ServiceBL.CreateService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
                                 MessageBox.Show("Danh mục Dịch vụ đã được tạo thành công", "Thông báo");
                                 LoadDSService();
+                                Pank();
                             }
                             else
                             {
                                 MessageBox.Show("Tên viết tắt đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("Bạn chưa nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
                     }
                 }
                 else
                 {
-                    if (status == "Edit")
+                    if (Check())
                     {
-                        if (btn_ThemMoi.Text == "Lưu")
+                        if (status == "Edit")
                         {
-                            BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text, cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text, txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
-                            MessageBox.Show("Danh mục Dịch vụ đã được chỉnh sửa thành công", "Thông báo");
-                            LoadDSService();
+                            if (btn_ThemMoi.Text == "Lưu")
+                            {
+                                BL.QuanTriHeThong.ServiceBL.EditService(txt_TenVietTat.Text,cbo_NhomDichVu.SelectedValue.ToString(), txt_DichVu.Text,txt_GiaTien.Text, txt_MoTa.Text, chk_TrangThai.Checked);
+                                MessageBox.Show("Danh mục Nhóm dịch vụ đã được chỉnh sửa thành công");
+                                LoadDSService();
+                            }
                         }
                     }
                 }
             }
         }
-
-
         private bool CheckID()
         {
-            bool result=false;
+            bool result = false;
             List<DO.QuanTriHeThong.ServiceDO> ds = BL.QuanTriHeThong.ServiceBL.GetService();
             for (int i = 0; i < ds.Count; i++)
             {
@@ -125,6 +124,32 @@ namespace GUI.QuanTriHeThong
                 }
             }
             return result;
+        }
+        private void Pank()
+        {
+            txt_TenVietTat.Text = "";
+            txt_DichVu.Text = "";
+            txt_MoTa.Text = "";
+            txt_GiaTien.Text = "";
+            chk_TrangThai.Checked = false;
+        }
+        private bool Check()
+        {
+            bool test = true;
+            //if (txt_TenVietTat.Text == null || txt_TenVietTat.Text == "")
+            //{
+            //    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    test = false;
+            //}
+            //else
+            //{
+                if (txt_DichVu.Text == null || txt_DichVu.Text == "" || txt_GiaTien.Text == "")
+                {
+                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    test = false;
+                }
+            //}
+            return test;
         }
         private void btn_ChinhSua_Click(object sender, EventArgs e)
         {
@@ -142,8 +167,10 @@ namespace GUI.QuanTriHeThong
                 txt_MoTa.Enabled = true;
                 cbo_NhomDichVu.Enabled = true;
             }
-            else {
-                if (btn_ChinhSua.Text == "Hủy bỏ") {
+            else
+            {
+                if (btn_ChinhSua.Text == "Hủy bỏ")
+                {
                     btn_ThemMoi.Text = "Thêm mới";
                     btn_ThemMoi.Image = global::GUI.Properties.Resources.Actions_list_add_icon;
                     btn_ChinhSua.Text = "Chỉnh sửa";
@@ -192,7 +219,7 @@ namespace GUI.QuanTriHeThong
         }
 
 
-    
+
 
     }
 }
