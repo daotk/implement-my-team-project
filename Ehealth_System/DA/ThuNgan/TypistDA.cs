@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DO.ThuNgan;
-namespace DA.ThuNgan
+using DO.Thu_Ngan;
+namespace DA.Thu_Ngan
 {
     public class TypistDA
     {
-        public static List<DO.ThuNgan.TypistDO> LoadDSServiceType()
+        public static List<TypistDO> LoadDSServiceType()
         {
             List<TypistDO> dsusergroup = new List<TypistDO>();
             using (Entity.EHealthSystemEntities dk = new Entity.EHealthSystemEntities())
