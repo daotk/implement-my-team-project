@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.btn_InBaoCao = new DevComponents.DotNetBar.ButtonX();
+            this.btn_XemBaoCao = new DevComponents.DotNetBar.ButtonX();
             this.cbo_Theo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.comboItem4 = new DevComponents.Editors.ComboItem();
@@ -43,13 +45,14 @@
             this.lbl_TuNgay = new DevComponents.DotNetBar.LabelX();
             this.grd_BaoCao = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaylap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_InBaoCao = new DevComponents.DotNetBar.ButtonX();
-            this.btn_XemBaoCao = new DevComponents.DotNetBar.ButtonX();
+            this.USERNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BILLID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PATIENTNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PATIENTAGE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GENDER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATETIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SERVICEGROUPNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dp_DenNgay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dp_TuNgay)).BeginInit();
@@ -84,6 +87,28 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 3;
             // 
+            // btn_InBaoCao
+            // 
+            this.btn_InBaoCao.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_InBaoCao.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_InBaoCao.Image = global::GUI.Properties.Resources.print_icon;
+            this.btn_InBaoCao.Location = new System.Drawing.Point(1165, 5);
+            this.btn_InBaoCao.Name = "btn_InBaoCao";
+            this.btn_InBaoCao.Size = new System.Drawing.Size(90, 30);
+            this.btn_InBaoCao.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_InBaoCao.TabIndex = 8;
+            // 
+            // btn_XemBaoCao
+            // 
+            this.btn_XemBaoCao.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_XemBaoCao.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_XemBaoCao.Image = global::GUI.Properties.Resources.viewdoanhthu;
+            this.btn_XemBaoCao.Location = new System.Drawing.Point(1029, 5);
+            this.btn_XemBaoCao.Name = "btn_XemBaoCao";
+            this.btn_XemBaoCao.Size = new System.Drawing.Size(90, 30);
+            this.btn_XemBaoCao.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_XemBaoCao.TabIndex = 7;
+            // 
             // cbo_Theo
             // 
             this.cbo_Theo.DisplayMember = "Text";
@@ -117,7 +142,7 @@
             this.dp_DenNgay.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dp_DenNgay.ButtonDropDown.Visible = true;
             this.dp_DenNgay.IsPopupCalendarOpen = false;
-            this.dp_DenNgay.Location = new System.Drawing.Point(634, 6);
+            this.dp_DenNgay.Location = new System.Drawing.Point(581, 6);
             // 
             // 
             // 
@@ -254,7 +279,7 @@
             // 
             // 
             this.lbl_DenNgay.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbl_DenNgay.Location = new System.Drawing.Point(532, 9);
+            this.lbl_DenNgay.Location = new System.Drawing.Point(516, 9);
             this.lbl_DenNgay.Name = "lbl_DenNgay";
             this.lbl_DenNgay.Size = new System.Drawing.Size(75, 23);
             this.lbl_DenNgay.TabIndex = 0;
@@ -280,11 +305,14 @@
             this.grd_BaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grd_BaoCao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
-            this.MaHoaDon,
-            this.ngaylap,
-            this.GioLap,
-            this.MaBN,
-            this.SoTien});
+            this.USERNAME,
+            this.BILLID,
+            this.PATIENTNAME,
+            this.PATIENTAGE,
+            this.GENDER,
+            this.DATETIME,
+            this.COST,
+            this.SERVICEGROUPNAME});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -296,7 +324,9 @@
             this.grd_BaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grd_BaoCao.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grd_BaoCao.Location = new System.Drawing.Point(0, 40);
+            this.grd_BaoCao.MultiSelect = false;
             this.grd_BaoCao.Name = "grd_BaoCao";
+            this.grd_BaoCao.ReadOnly = true;
             this.grd_BaoCao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_BaoCao.Size = new System.Drawing.Size(1300, 510);
             this.grd_BaoCao.TabIndex = 4;
@@ -305,53 +335,55 @@
             // 
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             // 
-            // MaHoaDon
+            // USERNAME
             // 
-            this.MaHoaDon.HeaderText = "Mã hóa đơn";
-            this.MaHoaDon.Name = "MaHoaDon";
+            this.USERNAME.HeaderText = "USERNAME";
+            this.USERNAME.Name = "USERNAME";
+            this.USERNAME.ReadOnly = true;
             // 
-            // ngaylap
+            // BILLID
             // 
-            this.ngaylap.HeaderText = "Ngày lập";
-            this.ngaylap.Name = "ngaylap";
+            this.BILLID.HeaderText = "BILLID";
+            this.BILLID.Name = "BILLID";
+            this.BILLID.ReadOnly = true;
             // 
-            // GioLap
+            // PATIENTNAME
             // 
-            this.GioLap.HeaderText = "Giờ lập";
-            this.GioLap.Name = "GioLap";
+            this.PATIENTNAME.HeaderText = "PATIENTNAME";
+            this.PATIENTNAME.Name = "PATIENTNAME";
+            this.PATIENTNAME.ReadOnly = true;
             // 
-            // MaBN
+            // PATIENTAGE
             // 
-            this.MaBN.HeaderText = "Mã BN";
-            this.MaBN.Name = "MaBN";
+            this.PATIENTAGE.HeaderText = "PATIENTAGE";
+            this.PATIENTAGE.Name = "PATIENTAGE";
+            this.PATIENTAGE.ReadOnly = true;
             // 
-            // SoTien
+            // GENDER
             // 
-            this.SoTien.HeaderText = "Tổng tiền";
-            this.SoTien.Name = "SoTien";
+            this.GENDER.HeaderText = "GENDER";
+            this.GENDER.Name = "GENDER";
+            this.GENDER.ReadOnly = true;
             // 
-            // btn_InBaoCao
+            // DATETIME
             // 
-            this.btn_InBaoCao.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_InBaoCao.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_InBaoCao.Image = global::GUI.Properties.Resources.print_icon;
-            this.btn_InBaoCao.Location = new System.Drawing.Point(1165, 5);
-            this.btn_InBaoCao.Name = "btn_InBaoCao";
-            this.btn_InBaoCao.Size = new System.Drawing.Size(90, 30);
-            this.btn_InBaoCao.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_InBaoCao.TabIndex = 8;
+            this.DATETIME.HeaderText = "DATETIME";
+            this.DATETIME.Name = "DATETIME";
+            this.DATETIME.ReadOnly = true;
             // 
-            // btn_XemBaoCao
+            // COST
             // 
-            this.btn_XemBaoCao.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_XemBaoCao.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_XemBaoCao.Image = global::GUI.Properties.Resources.viewdoanhthu;
-            this.btn_XemBaoCao.Location = new System.Drawing.Point(1029, 5);
-            this.btn_XemBaoCao.Name = "btn_XemBaoCao";
-            this.btn_XemBaoCao.Size = new System.Drawing.Size(90, 30);
-            this.btn_XemBaoCao.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_XemBaoCao.TabIndex = 7;
+            this.COST.HeaderText = "COST";
+            this.COST.Name = "COST";
+            this.COST.ReadOnly = true;
+            // 
+            // SERVICEGROUPNAME
+            // 
+            this.SERVICEGROUPNAME.HeaderText = "SERVICEGROUPNAME";
+            this.SERVICEGROUPNAME.Name = "SERVICEGROUPNAME";
+            this.SERVICEGROUPNAME.ReadOnly = true;
             // 
             // DSBienLaiDuocThuTien
             // 
@@ -393,11 +425,14 @@
         private DevComponents.DotNetBar.LabelX lbl_TuNgay;
         private DevComponents.DotNetBar.Controls.DataGridViewX grd_BaoCao;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaylap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GioLap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaBN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn USERNAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BILLID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PATIENTNAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PATIENTAGE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GENDER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DATETIME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SERVICEGROUPNAME;
 
     }
 }
